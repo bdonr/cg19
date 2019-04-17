@@ -115,9 +115,17 @@ void useSimpleViewer() {
         ->addCore(geometryFactory.createTeapot(1.f));
   light->addChild(teapot);
 
+  //add wall to scene Graph
+ /*   auto wall = Shape::create();
+    wall->addCore(matRed)
+            ->addCore(geometryFactory.createRectangle(glm::vec2(20,30)));
+    light->addChild(wall);
+*/
   // move camera backwards, enter main loop
   camera->translate(glm::vec3(0.f, 0.f, 1.f))
         ->dolly(-1.f);
+
+  viewer->addAnimation(scg::AnimationSP());
   viewer->startMainLoop();
 }
 
@@ -314,7 +322,20 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   auto floorTrans = Transformation::create();
   floorTrans->translate(glm::vec3(0.f, -0.5f, 0.f));
 
-  // teapot shape and transformation
+  //something and transformation
+
+    auto somethcore = geometryFactory.createModelFromOBJFile("/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/models/cessna.obj");
+    auto someth = Shape::create();
+    someth->addCore(matGreen)
+            ->addCore(somethcore);
+    auto somethTrans = Transformation::create();
+    somethTrans->translate(glm::vec3(5.f, 2.f, 0.f));
+    somethTrans->scale(glm::vec3(0.05,0.05,0.05));
+    // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
+
+
+  // teapot shape and transf
+        // ormation
   auto teapotCore = geometryFactory.createTeapot(0.35f);
   auto teapot = Shape::create();
   teapot->addCore(matRed)
@@ -357,8 +378,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   scene->addChild(camera)
        ->addChild(light);
   light->addChild(floorTrans)
-       ->addChild(tableTrans);
+       ->addChild(tableTrans)
+        ->addChild(somethTrans);
   floorTrans->addChild(floor);
+  somethTrans->addChild(someth);
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);

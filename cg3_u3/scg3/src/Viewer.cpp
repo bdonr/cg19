@@ -245,6 +245,7 @@ Viewer* Viewer::createFullscreenWindow(const char* title) {
 
 
 void Viewer::startMainLoop() {
+
   if (!renderer_) {
     throw std::runtime_error("Undefined renderer, call Viewer::init() first [Viewer::render()]");
   }
