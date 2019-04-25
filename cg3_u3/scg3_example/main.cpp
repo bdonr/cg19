@@ -254,6 +254,15 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
         ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
         ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
       });
+
+    auto skybox = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("color_vert.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("color_frag.glsl", GL_FRAGMENT_SHADER),
+                  //  ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                 //   ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+            });
+
 #else
   // Phong shader
   std::vector<ShaderFile> shaderFiles;
@@ -286,54 +295,6 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
         ->addController(MouseController::create(camera));
 #endif
 
-  auto TransAni = TransformAnimation::create();
-
-  TransAni->setUpdateFunc([camera](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
-      //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
-
-      if(totalTime<5) {
-    anim->translate(glm::vec3(0, 0, 0.02));
-    //camera->translate(glm::vec3(0, 0, -0.001));
-  }
-  else if(totalTime<6.7){
-    anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-
-
-    /*
-     * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
-     * also bewegt sich die camera nach -Z
-     * aber
-     * auch die geschwindigkeit der transformation ist anders etwa halb so stark
-     * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
-     * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
-     */
-   // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-
-  }
-  else if(totalTime<21){
-    anim->translate(glm::vec3(0, 0, 0.05));
-   // camera->translate(glm::vec3(0, 0, -0.0025));
-  }
-  else if(totalTime<21.4){
-    anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-  //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-  }
-  else if(totalTime<24){
-    anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
-  //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
-  //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
-  }
-  else{
-    anim->translate(glm::vec3(0, 0, 0.04));
-   // camera->translate(glm::vec3(-0.0001, 0, -0.002));
-  }
-  std::cout<<totalTime<<std::endl;
-
-  });
-
-
-  viewer->addAnimation(TransAni);
-
   // lights
   auto light = Light::create();
   light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
@@ -362,13 +323,75 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
           ->setShininess(20.f)
           ->init();
 
-  // textures
+    auto lichthell  = MaterialCore::create();
+    lichthell//->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
+            ->setAmbient(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setShininess(51.f)
+            ->setEmission(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->init();
+
+
+    auto TransAni = TransformAnimation::create();
+
+    TransAni->setUpdateFunc([camera, light](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
+        //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
+
+        if(totalTime<10) {
+            anim->translate(glm::vec3(0, 0, 0.02));
+          //  light->setPosition(glm::vec4(totalTime, 10.f, 10.f, 1.f));
+            //camera->translate(glm::vec3(0, 0, -0.001));
+        }
+        else if(totalTime<6.7){
+            anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
+
+            /*
+             * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
+             * also bewegt sich die camera nach -Z
+             * aber
+             * auch die geschwindigkeit der transformation ist anders etwa halb so stark
+             * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
+             * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
+             */
+            // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
+
+        }
+        else if(totalTime<21){
+            anim->translate(glm::vec3(0, 0, 0.05));
+            // camera->translate(glm::vec3(0, 0, -0.0025));
+        }
+        else if(totalTime<21.4){
+            anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
+            //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
+        }
+        else if(totalTime<24){
+            anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
+            //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
+            //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
+        }
+        else{
+            anim->translate(glm::vec3(0, 0, 0.04));
+            // camera->translate(glm::vec3(-0.0001, 0, -0.002));
+        }
+        std::cout<<totalTime<<std::endl;
+
+    });
+
+
+    viewer->addAnimation(TransAni);
+
+
+    // textures
   TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
   auto texWood = textureFactory.create2DTextureFromFile(
       "wood_256.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
     auto texBrick = textureFactory.create2DTextureFromFile(
             "neu1.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+
+    auto sonne = textureFactory.create2DTextureFromFile(
+            "sonne.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
   // set texture matrix
 //  texWood->scale2D(glm::vec2(4.f, 4.f));
 
@@ -385,30 +408,31 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 //---------------------------------------------------###########################################################################
 // test balbla
 
-  auto somethcore = geometryFactory.createModelFromOBJFile("/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/models/jet.obj");
+  auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
     auto someth = Shape::create();
     someth->addCore(shaderPhongTex)
             ->addCore(matWhite)
             ->addCore(texBrick)
             ->addCore(somethcore);
-          //  ;
+
     auto somethTrans = TransAni;
     somethTrans->translate(glm::vec3(4.3f, 0.2f, 0.3f));
     somethTrans->scale(glm::vec3(0.05,0.05,0.05));
     somethTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
 
-   /* auto somethcore2 = geometryFactory.createCuboid(glm::vec3(0.3f,1.f,0.3f));
+
+    auto somethcore2 = geometryFactory.createSphere(0.3,100,100);
     auto someth2 = Shape::create();
-    someth2->addCore(shaderPhongTex)
-            ->addCore(matWhite)
-            ->addCore(texBrick)
+    someth2->addCore(skybox)
+            ->addCore(lichthell)
+            //->addCore(sonne)
             ->addCore(somethcore2)
             ;
     auto somethTrans2 = Transformation::create();
-    somethTrans2->translate(glm::vec3(3.f, 0.f, 0.f));
+    somethTrans2->translate(glm::vec3(4.3f, 2.2f, 2.3f));
     somethTrans2->scale(glm::vec3(1,1,1));
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
-*/
+
     auto stadt = Group::create();
     stadt->addCore(shaderPhongTex)
             ->addCore(matWhite)
@@ -511,11 +535,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
        ->addChild(tableTrans)
           ->addChild(stadt)
         ->addChild(somethTrans);
-  light2->addChild(somethTrans);
- //       ->addChild(somethTrans2);
+  light2->addChild(somethTrans)
+        ->addChild(somethTrans2);
   floorTrans->addChild(floor);
   somethTrans->addChild(someth);
-//  somethTrans2->addChild(someth2);
+  somethTrans2->addChild(someth2);
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
