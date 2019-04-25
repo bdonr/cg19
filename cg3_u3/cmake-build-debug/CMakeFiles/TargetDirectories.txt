@@ -1,0 +1,3 @@
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles/cg3_u3.dir

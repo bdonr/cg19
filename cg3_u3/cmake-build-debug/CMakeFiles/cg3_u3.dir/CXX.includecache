@@ -1,0 +1,2654 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/include/GL/glew.h
+stddef.h
+-
+inttypes.h
+-
+stdint.h
+-
+inttypes.h
+-
+Availability.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/setup.hpp
+cassert
+-
+cstddef
+-
+../simd/platform.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./simd/platform.h
+cstdint
+-
+type_traits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+limits
+-
+cstddef
+-
+type_mat2x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.inl
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./matrix.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+limits
+-
+cstddef
+-
+type_mat2x3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat2x4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+limits
+-
+cstddef
+-
+type_mat3x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat3x4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat4x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat4x3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/qualifier.hpp
+_swizzle.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/_swizzle.hpp
+_swizzle_func.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/_swizzle_func.hpp
+cstddef
+-
+type_vec2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x2.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x2_precision.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x3.hpp
+../detail/type_mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x3_precision.hpp
+../detail/type_mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x4.hpp
+../detail/type_mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x4_precision.hpp
+../detail/type_mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x2.hpp
+../detail/type_mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x2_precision.hpp
+../detail/type_mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x3.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x3_precision.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x4.hpp
+../detail/type_mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x4_precision.hpp
+../detail/type_mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x2.hpp
+../detail/type_mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x2_precision.hpp
+../detail/type_mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x3.hpp
+../detail/type_mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x3_precision.hpp
+../detail/type_mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x4.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x4_precision.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x2.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x2_precision.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x3.hpp
+../detail/type_mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x3_precision.hpp
+../detail/type_mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x4.hpp
+../detail/type_mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x4_precision.hpp
+../detail/type_mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x2.hpp
+../detail/type_mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x2_precision.hpp
+../detail/type_mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x3.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x3_precision.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x4.hpp
+../detail/type_mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x4_precision.hpp
+../detail/type_mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat3x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x2.hpp
+../detail/type_mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x2_precision.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat2x2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x3.hpp
+../detail/type_mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x3_precision.hpp
+../detail/type_mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x4.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x4_precision.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_mat4x4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool2.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool2_precision.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool3.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool3_precision.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool4.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool4_precision.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double2.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double2_precision.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double3.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double3_precision.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double4.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double4_precision.hpp
+../detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/setup.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float2.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float2_precision.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float3.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float3_precision.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float4.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float4_precision.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int2.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int2_precision.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int3.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int3_precision.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int4.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int4_precision.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint2.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint2_precision.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec2.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint3.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint3_precision.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec3.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint4.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint4_precision.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./detail/type_vec4.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+detail/_fixes.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_fixes.hpp
+detail/func_common.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_common.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/./compute_vector_relational.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/./setup.hpp
+limits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_fixes.hpp
+cmath
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle_func.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_vectorize.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/compute_common.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+limits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/compute_vector_relational.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+limits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_common.inl
+../vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+compute_common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/compute_common.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+_vectorize.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_vectorize.hpp
+limits
+-
+func_common_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_common_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_common_simd.inl
+../simd/common.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/common.h
+immintrin.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_exponential.inl
+../vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+_vectorize.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_vectorize.hpp
+limits
+-
+cmath
+-
+cassert
+-
+func_exponential_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_exponential_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_exponential_simd.inl
+../simd/exponential.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/exponential.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_geometric.inl
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+func_geometric_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_geometric_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_geometric_simd.inl
+../simd/geometric.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/geometric.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_integer.inl
+_vectorize.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_vectorize.hpp
+intrin.h
+-
+limits
+-
+func_integer_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_integer_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_integer_simd.inl
+../simd/integer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/integer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_matrix.inl
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+limits
+-
+func_matrix_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_matrix_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_matrix_simd.inl
+type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../simd/matrix.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/matrix.h
+cstring
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_packing.inl
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+type_half.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_half.hpp
+func_packing_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_packing_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_packing_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_trigonometric.inl
+_vectorize.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_vectorize.hpp
+cmath
+-
+limits
+-
+func_trigonometric_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_trigonometric_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_trigonometric_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_vector_relational.inl
+func_vector_relational_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_vector_relational_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_vector_relational_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp
+../gtx/dual_quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/dual_quaternion.hpp
+../gtc/vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/vec1.hpp
+../gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../ext/scalar_int_sized.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_int_sized.hpp
+../ext/scalar_uint_sized.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_uint_sized.hpp
+../glm.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/glm.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+cassert
+-
+cstddef
+-
+../simd/platform.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/platform.h
+cstdint
+-
+type_traits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_float.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_half.hpp
+setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+type_half.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_half.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_half.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+limits
+-
+cstddef
+-
+type_mat2x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x2.inl
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x3.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+limits
+-
+cstddef
+-
+type_mat2x3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x4.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat2x4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+limits
+-
+cstddef
+-
+type_mat3x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+limits
+-
+cstddef
+-
+type_mat3x3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.inl
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x4.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat3x4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x2.hpp
+type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat4x2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x3.hpp
+type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat4x3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.hpp
+type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+limits
+-
+cstddef
+-
+type_mat4x4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.inl
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+type_mat4x4_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+../ext/vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.hpp
+../ext/quaternion_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_relational.hpp
+../gtc/constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../gtc/matrix_transform.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.hpp
+type_quat.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.inl
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+../ext/quaternion_geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.hpp
+limits
+-
+type_quat_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+_swizzle.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle.hpp
+_swizzle_func.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle_func.hpp
+cstddef
+-
+type_vec1.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.inl
+./compute_vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/./compute_vector_relational.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+_swizzle.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle.hpp
+_swizzle_func.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle_func.hpp
+cstddef
+-
+type_vec2.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.inl
+./compute_vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/./compute_vector_relational.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+_swizzle.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle.hpp
+_swizzle_func.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle_func.hpp
+cstddef
+-
+type_vec3.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.inl
+compute_vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/compute_vector_relational.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+_swizzle.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle.hpp
+_swizzle_func.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_swizzle_func.hpp
+cstddef
+-
+type_vec4.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.inl
+compute_vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/compute_vector_relational.hpp
+type_vec4_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+cmath
+-
+detail/func_exponential.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_exponential.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_clip_space.hpp
+../ext/scalar_constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+matrix_clip_space.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_clip_space.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_clip_space.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_projection.hpp
+../gtc/constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+matrix_projection.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_projection.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_projection.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_transform.hpp
+../gtc/constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+matrix_transform.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_transform.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common.hpp
+../ext/scalar_constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.hpp
+../ext/quaternion_geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.hpp
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+limits
+-
+quaternion_common.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common.inl
+quaternion_common_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_double.hpp
+../detail/type_quat.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_double_precision.hpp
+../detail/type_quat.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_float.hpp
+../detail/type_quat.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_float_precision.hpp
+../detail/type_quat.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_quat.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+../ext/vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.hpp
+quaternion_geometric.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_relational.hpp
+../vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+quaternion_relational.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_relational.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_relational.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_transform.hpp
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+quaternion_transform.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_transform.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_transform.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_trigonometric.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+scalar_constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.hpp
+vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.hpp
+limits
+-
+quaternion_trigonometric.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_trigonometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_trigonometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.hpp
+../detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+scalar_constants.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.inl
+limits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_int_sized.hpp
+../detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_uint_sized.hpp
+../detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_bool1.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_bool1_precision.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_double1.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_double1_precision.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_float1.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_float1_precision.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_int1.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_int1_precision.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.hpp
+../detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+vector_relational.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.inl
+../vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+../detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+../detail/type_float.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_float.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_uint1.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_uint1_precision.hpp
+../detail/type_vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec1.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/fwd.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+detail/func_geometric.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_geometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/glm.hpp
+detail/_fixes.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/_fixes.hpp
+detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+cmath
+-
+climits
+-
+cfloat
+-
+limits
+-
+cassert
+-
+fwd.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/fwd.hpp
+vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec2.hpp
+vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec3.hpp
+vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec4.hpp
+mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x2.hpp
+mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x3.hpp
+mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x4.hpp
+mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x2.hpp
+mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x3.hpp
+mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x4.hpp
+mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x2.hpp
+mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x3.hpp
+mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x4.hpp
+trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+packing.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/packing.hpp
+geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+integer.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/integer.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../ext/scalar_constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_constants.hpp
+constants.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/epsilon.hpp
+../detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+../detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+epsilon.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/epsilon.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/epsilon.inl
+../vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+../common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.hpp
+../mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x4.hpp
+../vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec2.hpp
+../vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec3.hpp
+../vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec4.hpp
+../ext/matrix_projection.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_projection.hpp
+../ext/matrix_clip_space.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_clip_space.hpp
+../ext/matrix_transform.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/matrix_transform.hpp
+matrix_transform.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.inl
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../matrix.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../gtc/constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../gtc/matrix_transform.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.hpp
+../ext/vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_relational.hpp
+../ext/quaternion_common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_common.hpp
+../ext/quaternion_float.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_float.hpp
+../ext/quaternion_float_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_float_precision.hpp
+../ext/quaternion_double.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_double.hpp
+../ext/quaternion_double_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_double_precision.hpp
+../ext/quaternion_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_relational.hpp
+../ext/quaternion_geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_geometric.hpp
+../ext/quaternion_trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_trigonometric.hpp
+../ext/quaternion_transform.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/quaternion_transform.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+quaternion.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.inl
+../trigonometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+../exponential.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/exponential.hpp
+epsilon.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/epsilon.hpp
+limits
+-
+quaternion_simd.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion_simd.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_precision.hpp
+../gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../gtc/vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/vec1.hpp
+../ext/scalar_int_sized.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_int_sized.hpp
+../ext/scalar_uint_sized.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/scalar_uint_sized.hpp
+../detail/type_vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec2.hpp
+../detail/type_vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec3.hpp
+../detail/type_vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_vec4.hpp
+../detail/type_mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x2.hpp
+../detail/type_mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x3.hpp
+../detail/type_mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat2x4.hpp
+../detail/type_mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x2.hpp
+../detail/type_mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x3.hpp
+../detail/type_mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat3x4.hpp
+../detail/type_mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x2.hpp
+../detail/type_mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x3.hpp
+../detail/type_mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/type_mat4x4.hpp
+type_precision.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_precision.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_precision.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_ptr.hpp
+../gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../gtc/vec1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/vec1.hpp
+../vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec2.hpp
+../vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec3.hpp
+../vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec4.hpp
+../mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x2.hpp
+../mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x3.hpp
+../mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x4.hpp
+../mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x2.hpp
+../mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x3.hpp
+../mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x4.hpp
+../mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x2.hpp
+../mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x3.hpp
+../mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x4.hpp
+cstring
+-
+type_ptr.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_ptr.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_ptr.inl
+cstring
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/vec1.hpp
+../ext/vector_bool1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_bool1.hpp
+../ext/vector_bool1_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_bool1_precision.hpp
+../ext/vector_float1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_float1.hpp
+../ext/vector_float1_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_float1_precision.hpp
+../ext/vector_double1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_double1.hpp
+../ext/vector_double1_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_double1_precision.hpp
+../ext/vector_int1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_int1.hpp
+../ext/vector_int1_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_int1_precision.hpp
+../ext/vector_uint1.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_uint1.hpp
+../ext/vector_uint1_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/ext/vector_uint1_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/dual_quaternion.hpp
+../glm.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/glm.hpp
+../gtc/constants.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/constants.hpp
+../gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+dual_quaternion.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/dual_quaternion.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/dual_quaternion.inl
+../geometric.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/geometric.hpp
+limits
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/string_cast.hpp
+../glm.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/glm.hpp
+../gtc/type_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_precision.hpp
+../gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../gtx/dual_quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/dual_quaternion.hpp
+string
+-
+cmath
+-
+string_cast.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/string_cast.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/string_cast.inl
+cstdarg
+-
+cstdio
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/integer.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+common.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/common.hpp
+vector_relational.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+detail/func_integer.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_integer.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x2.hpp
+./ext/matrix_double2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x2.hpp
+./ext/matrix_double2x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x2_precision.hpp
+./ext/matrix_float2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x2.hpp
+./ext/matrix_float2x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x2_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x3.hpp
+./ext/matrix_double2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x3.hpp
+./ext/matrix_double2x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x3_precision.hpp
+./ext/matrix_float2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x3.hpp
+./ext/matrix_float2x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x3_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x4.hpp
+./ext/matrix_double2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x4.hpp
+./ext/matrix_double2x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double2x4_precision.hpp
+./ext/matrix_float2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x4.hpp
+./ext/matrix_float2x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float2x4_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x2.hpp
+./ext/matrix_double3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x2.hpp
+./ext/matrix_double3x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x2_precision.hpp
+./ext/matrix_float3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x2.hpp
+./ext/matrix_float3x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x2_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x3.hpp
+./ext/matrix_double3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x3.hpp
+./ext/matrix_double3x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x3_precision.hpp
+./ext/matrix_float3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x3.hpp
+./ext/matrix_float3x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x3_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x4.hpp
+./ext/matrix_double3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x4.hpp
+./ext/matrix_double3x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double3x4_precision.hpp
+./ext/matrix_float3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x4.hpp
+./ext/matrix_float3x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float3x4_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x2.hpp
+./ext/matrix_double4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x2.hpp
+./ext/matrix_double4x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x2_precision.hpp
+./ext/matrix_float4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x2.hpp
+./ext/matrix_float4x2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x2_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x3.hpp
+./ext/matrix_double4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x3.hpp
+./ext/matrix_double4x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x3_precision.hpp
+./ext/matrix_float4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x3.hpp
+./ext/matrix_float4x3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x3_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x4.hpp
+./ext/matrix_double4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x4.hpp
+./ext/matrix_double4x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_double4x4_precision.hpp
+./ext/matrix_float4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x4.hpp
+./ext/matrix_float4x4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/matrix_float4x4_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/matrix.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+vec2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec2.hpp
+vec3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec3.hpp
+vec4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec4.hpp
+mat2x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x2.hpp
+mat2x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x3.hpp
+mat2x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat2x4.hpp
+mat3x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x2.hpp
+mat3x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x3.hpp
+mat3x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat3x4.hpp
+mat4x2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x2.hpp
+mat4x3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x3.hpp
+mat4x4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/mat4x4.hpp
+detail/func_matrix.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_matrix.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/packing.hpp
+./ext/vector_uint2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint2.hpp
+./ext/vector_float2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float2.hpp
+./ext/vector_float4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float4.hpp
+detail/func_packing.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_packing.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/common.h
+platform.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/platform.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/exponential.h
+platform.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/platform.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/geometric.h
+common.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/common.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/integer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/matrix.h
+geometric.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/geometric.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/simd/platform.h
+cuda.h
+-
+immintrin.h
+-
+immintrin.h
+-
+popcntintrin.h
+-
+nmmintrin.h
+-
+smmintrin.h
+-
+tmmintrin.h
+-
+pmmintrin.h
+-
+emmintrin.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/trigonometric.hpp
+detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+detail/func_trigonometric.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_trigonometric.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec2.hpp
+./ext/vector_bool2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool2.hpp
+./ext/vector_bool2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool2_precision.hpp
+./ext/vector_float2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float2.hpp
+./ext/vector_float2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float2_precision.hpp
+./ext/vector_double2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double2.hpp
+./ext/vector_double2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double2_precision.hpp
+./ext/vector_int2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int2.hpp
+./ext/vector_int2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int2_precision.hpp
+./ext/vector_uint2.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint2.hpp
+./ext/vector_uint2_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint2_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec3.hpp
+./ext/vector_bool3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool3.hpp
+./ext/vector_bool3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool3_precision.hpp
+./ext/vector_float3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float3.hpp
+./ext/vector_float3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float3_precision.hpp
+./ext/vector_double3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double3.hpp
+./ext/vector_double3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double3_precision.hpp
+./ext/vector_int3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int3.hpp
+./ext/vector_int3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int3_precision.hpp
+./ext/vector_uint3.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint3.hpp
+./ext/vector_uint3_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint3_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vec4.hpp
+./ext/vector_bool4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool4.hpp
+./ext/vector_bool4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_bool4_precision.hpp
+./ext/vector_float4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float4.hpp
+./ext/vector_float4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_float4_precision.hpp
+./ext/vector_double4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double4.hpp
+./ext/vector_double4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_double4_precision.hpp
+./ext/vector_int4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int4.hpp
+./ext/vector_int4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_int4_precision.hpp
+./ext/vector_uint4.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint4.hpp
+./ext/vector_uint4_precision.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/./ext/vector_uint4_precision.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/vector_relational.hpp
+detail/qualifier.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/qualifier.hpp
+detail/setup.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/setup.hpp
+detail/func_vector_relational.inl
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/func_vector_relational.inl
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/stb_image/stb_image.h
+stb_image.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/stb_image/stb_image.h
+stdio.h
+-
+stdlib.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+math.h
+-
+stdio.h
+-
+assert.h
+-
+stdint.h
+-
+emmintrin.h
+-
+intrin.h
+-
+arm_neon.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/scg3.h
+src/scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+src/Animation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.h
+src/BumpMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.h
+src/Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+src/CameraController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.h
+src/ColorCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.h
+src/Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+src/Controller.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.h
+src/Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+src/CubeMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.h
+src/GeometryCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+src/GeometryCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.h
+src/Group.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+src/InfoTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.h
+src/KeyboardController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.h
+src/Leaf.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.h
+src/Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+src/LightPosition.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.h
+src/MaterialCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.h
+src/MouseController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.h
+src/Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+src/OrthographicCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.h
+src/PerspectiveCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.h
+src/PreTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.h
+src/Renderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+src/RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+src/RenderTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.h
+src/scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+src/scg_stb_image.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.h
+src/scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+src/ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+src/ShaderCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.h
+src/Shape.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.h
+src/StandardRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.h
+src/Texture2DCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.h
+src/TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+src/TextureCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.h
+src/TransformAnimation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.h
+src/Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+src/Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+src/Viewer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.h
+src/ViewState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.cpp
+ctime
+-
+Animation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.cpp
+BumpMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+Texture2DCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.cpp
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+GeometryCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+GeometryCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+ShaderCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.cpp
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+CameraController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Controller.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.cpp
+ColorCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.cpp
+cassert
+-
+Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.cpp
+Controller.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.cpp
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.cpp
+cassert
+-
+CubeMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.h
+vector
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.cpp
+cassert
+-
+GeometryCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+functional
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.cpp
+cfloat
+-
+fstream
+-
+sstream
+-
+stdexcept
+-
+GeometryCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+GeometryCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.h
+string
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.cpp
+cassert
+-
+memory
+-
+stdexcept
+-
+Group.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+MaterialCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.cpp
+InfoTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.h
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+Group.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+LightPosition.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.h
+Shape.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.cpp
+iostream
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+KeyboardController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+ViewState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+CameraController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.cpp
+Leaf.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.h
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.cpp
+cassert
+-
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.cpp
+LightPosition.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.h
+Leaf.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.cpp
+cassert
+-
+cstring
+-
+MaterialCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.cpp
+iostream
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+MouseController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+ViewState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.h
+CameraController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.cpp
+cassert
+-
+Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+string
+-
+unordered_map
+-
+vector
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.cpp
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+OrthographicCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.cpp
+PerspectiveCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.cpp
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+LightPosition.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.h
+PreTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.cpp
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+cassert
+-
+stack
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.cpp
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+Group.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+RenderTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.h
+Shape.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.cpp
+cassert
+-
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+Renderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+memory
+-
+string
+-
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.cpp
+algorithm
+-
+iostream
+-
+sstream
+-
+stdexcept
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+cassert
+-
+string
+-
+unordered_map
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.cpp
+fstream
+-
+stdexcept
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+ShaderCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.h
+string
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.cpp
+GeometryCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.h
+MaterialCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+Shape.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.h
+TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.h
+Leaf.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.cpp
+sstream
+-
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+InfoTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.h
+PreTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.h
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+RenderTraverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.h
+StandardRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.h
+Viewer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.h
+Renderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.cpp
+cassert
+-
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+Texture2DCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.cpp
+cassert
+-
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+TextureCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Core.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.cpp
+cassert
+-
+stdexcept
+-
+BumpMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.h
+CubeMapCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.h
+scg_stb_image.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+Texture2DCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.h
+TextureCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.h
+string
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.cpp
+TransformAnimation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.h
+functional
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Animation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.cpp
+RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+Transformation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+Composite.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.cpp
+Traverser.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.h
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.cpp
+cfloat
+-
+iomanip
+-
+iostream
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+ViewState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.cpp
+cassert
+-
+iostream
+-
+stdexcept
+-
+string
+-
+Animation.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.h
+Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+Controller.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.h
+Group.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.h
+KeyboardController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.h
+Light.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.h
+MouseController.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.h
+Node.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.h
+PerspectiveCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.h
+Renderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+ShaderCore.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.h
+ShaderCoreFactory.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.h
+StandardRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.h
+scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+Viewer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.h
+ViewState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.h
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+../extern/glew/include/GL/glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/include/GL/glew.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+../extern/glm/glm/glm.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/glm.hpp
+../extern/glm/glm/gtc/matrix_transform.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/matrix_transform.hpp
+../extern/glm/glm/gtc/quaternion.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/quaternion.hpp
+../extern/glm/glm/gtc/type_ptr.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtc/type_ptr.hpp
+../extern/glm/glm/gtx/string_cast.hpp
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/gtx/string_cast.hpp
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.cpp
+cassert
+-
+sstream
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+memory
+-
+string
+-
+utility
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.cpp
+../extern/stb_image/stb_image.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/stb_image/stb_image.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.h
+../extern/stb_image/stb_image.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/stb_image/stb_image.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.cpp
+fstream
+-
+iostream
+-
+map
+-
+scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+string
+-
+vector
+-
+scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.cpp
+../src/RenderState.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.h
+StereoCamera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.h
+../src/scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+../src/Camera.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.h
+../src/scg_glm.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glm.h
+scg_ext_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/scg_ext_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.cpp
+cassert
+-
+StereoRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.h
+string
+-
+../src/Renderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.h
+../src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.cpp
+cassert
+-
+../src/scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+GLFW/glfw3.h
+-
+../src/scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+StereoRendererActive.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.h
+string
+-
+../src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_ext_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/scg_ext_internals.h
+StereoRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp
+cassert
+-
+../src/scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+../src/scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+StereoRendererAnaglyph.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.h
+../src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_ext_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/scg_ext_internals.h
+StereoRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp
+cassert
+-
+../src/scg_glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_glew.h
+../src/scg_utilities.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.h
+StereoRendererPassive.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.h
+string
+-
+../src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+scg_ext_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/scg_ext_internals.h
+StereoRenderer.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/scg_ext_internals.h
+../src/scg_internals.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.h
+
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3_example/main.cpp
+iostream
+-
+stdexcept
+-
+vector
+-
+../scg3/scg3.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/scg3.h
+
