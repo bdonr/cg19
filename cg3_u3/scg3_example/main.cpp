@@ -469,6 +469,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 //---------------------------------------------------###########################################################################
 // test balbla
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< refs/remotes/origin/don
   auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -484,6 +485,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
     auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
 >>>>>>> local
+=======
+
+  auto somethcore = geometryFactory.createModelFromOBJFile("/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/models/jet.obj");
+>>>>>>> 0c74ebb... test
     auto someth = Shape::create();
     someth->addCore(shaderPhongTex)
             ->addCore(matWhite)
