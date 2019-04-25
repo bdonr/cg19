@@ -43,10 +43,10 @@ RM = /home/leoon/clion-2018.1.5/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3"
+CMAKE_SOURCE_DIR = "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cg3_u3.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/cg3_u3.dir/flags.make
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o: ../scg3/extern/glew/src/glew.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o   -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/src/glew.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o   -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/src/glew.c"
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/src/glew.c" > CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/src/glew.c" > CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.i
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/src/glew.c" -o CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/src/glew.c" -o CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.s
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/cg3_u3.dir/scg3/extern/glew/src/glew.c.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o: ../scg3/extern/glm/glm/detail/glm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp" > CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp" > CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp" -o CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glm/glm/detail/glm.cpp" -o CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/cg3_u3.dir/scg3/extern/glm/glm/detail/glm.cpp.o.provides.build: CMake
 
 CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o: ../scg3/src/Animation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Animation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Animation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Animation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Animation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Animation.cpp.o.provides.build: CMakeFiles/cg3_u3
 
 CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o: ../scg3/src/BumpMapCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/BumpMapCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/BumpMapCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/BumpMapCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/BumpMapCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/BumpMapCore.cpp.o.provides.build: CMakeFiles/cg3_
 
 CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o: ../scg3/src/Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Camera.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Camera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Camera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Camera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Camera.cpp.o.provides.build: CMakeFiles/cg3_u3.di
 
 CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o: ../scg3/src/CameraController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CameraController.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CameraController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CameraController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CameraController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/CameraController.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o: ../scg3/src/ColorCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ColorCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ColorCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ColorCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ColorCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/ColorCore.cpp.o.provides.build: CMakeFiles/cg3_u3
 
 CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o: ../scg3/src/Composite.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Composite.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Composite.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Composite.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Composite.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Composite.cpp.o.provides.build: CMakeFiles/cg3_u3
 
 CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o: ../scg3/src/Controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Controller.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Controller.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Controller.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Controller.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Controller.cpp.o.provides.build: CMakeFiles/cg3_u
 
 CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o: ../scg3/src/Core.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Core.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Core.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Core.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Core.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Core.cpp.o.provides.build: CMakeFiles/cg3_u3.dir/
 
 CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o: ../scg3/src/CubeMapCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CubeMapCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CubeMapCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/CubeMapCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/CubeMapCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/CubeMapCore.cpp.o.provides.build: CMakeFiles/cg3_
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o: ../scg3/src/GeometryCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/GeometryCore.cpp.o.provides.build: CMakeFiles/cg3
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o: ../scg3/src/GeometryCoreFactory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCoreFactory.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/GeometryCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/GeometryCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/GeometryCoreFactory.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o: ../scg3/src/Group.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Group.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Group.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Group.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Group.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Group.cpp.o.provides.build: CMakeFiles/cg3_u3.dir
 
 CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o: ../scg3/src/InfoTraverser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/InfoTraverser.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/InfoTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/InfoTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/InfoTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/InfoTraverser.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o: ../scg3/src/KeyboardController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/KeyboardController.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/KeyboardController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/KeyboardController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/KeyboardController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o.requires:
 
@@ -443,16 +443,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/KeyboardController.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o: ../scg3/src/Leaf.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Leaf.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Leaf.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Leaf.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Leaf.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Leaf.cpp.o.provides.build: CMakeFiles/cg3_u3.dir/
 
 CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o: ../scg3/src/Light.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Light.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Light.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Light.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Light.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o.requires:
 
@@ -491,16 +491,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Light.cpp.o.provides.build: CMakeFiles/cg3_u3.dir
 
 CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o: ../scg3/src/LightPosition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/LightPosition.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/LightPosition.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/LightPosition.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/LightPosition.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o.requires:
 
@@ -515,16 +515,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/LightPosition.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o: ../scg3/src/MaterialCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MaterialCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MaterialCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MaterialCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MaterialCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o.requires:
 
@@ -539,16 +539,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/MaterialCore.cpp.o.provides.build: CMakeFiles/cg3
 
 CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o: ../scg3/src/MouseController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MouseController.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MouseController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/MouseController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/MouseController.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o.requires:
 
@@ -563,16 +563,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/MouseController.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o: ../scg3/src/Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Node.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Node.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Node.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Node.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o.requires:
 
@@ -587,16 +587,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Node.cpp.o.provides.build: CMakeFiles/cg3_u3.dir/
 
 CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o: ../scg3/src/OrthographicCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/OrthographicCamera.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/OrthographicCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/OrthographicCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/OrthographicCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o.requires:
 
@@ -611,16 +611,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/OrthographicCamera.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o: ../scg3/src/PerspectiveCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PerspectiveCamera.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PerspectiveCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PerspectiveCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PerspectiveCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o.requires:
 
@@ -635,16 +635,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/PerspectiveCamera.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o: ../scg3/src/PreTraverser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PreTraverser.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PreTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/PreTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/PreTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o.requires:
 
@@ -659,16 +659,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/PreTraverser.cpp.o.provides.build: CMakeFiles/cg3
 
 CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o: ../scg3/src/Renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Renderer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Renderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Renderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Renderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o.requires:
 
@@ -683,16 +683,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Renderer.cpp.o.provides.build: CMakeFiles/cg3_u3.
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o: ../scg3/src/RenderState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderState.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderState.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderState.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderState.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o.requires:
 
@@ -707,16 +707,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/RenderState.cpp.o.provides.build: CMakeFiles/cg3_
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o: ../scg3/src/RenderTraverser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderTraverser.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/RenderTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/RenderTraverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o.requires:
 
@@ -731,16 +731,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/RenderTraverser.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o: ../scg3/src/scg_internals.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_internals.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_internals.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_internals.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_internals.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o.requires:
 
@@ -755,16 +755,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/scg_internals.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o: ../scg3/src/scg_stb_image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_stb_image.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_stb_image.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_stb_image.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_stb_image.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o.requires:
 
@@ -779,16 +779,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/scg_stb_image.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o: ../scg3/src/scg_utilities.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_utilities.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_utilities.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/scg_utilities.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/scg_utilities.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o.requires:
 
@@ -803,16 +803,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/scg_utilities.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o: ../scg3/src/ShaderCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o.requires:
 
@@ -827,16 +827,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/ShaderCore.cpp.o.provides.build: CMakeFiles/cg3_u
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o: ../scg3/src/ShaderCoreFactory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCoreFactory.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ShaderCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ShaderCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o.requires:
 
@@ -851,16 +851,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/ShaderCoreFactory.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o: ../scg3/src/Shape.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Shape.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Shape.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Shape.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Shape.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o.requires:
 
@@ -875,16 +875,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Shape.cpp.o.provides.build: CMakeFiles/cg3_u3.dir
 
 CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o: ../scg3/src/StandardRenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/StandardRenderer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/StandardRenderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/StandardRenderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/StandardRenderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o.requires:
 
@@ -899,16 +899,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/StandardRenderer.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o: ../scg3/src/Texture2DCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Texture2DCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Texture2DCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Texture2DCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Texture2DCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o.requires:
 
@@ -923,16 +923,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Texture2DCore.cpp.o.provides.build: CMakeFiles/cg
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o: ../scg3/src/TextureCore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCore.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCore.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o.requires:
 
@@ -947,16 +947,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/TextureCore.cpp.o.provides.build: CMakeFiles/cg3_
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o: ../scg3/src/TextureCoreFactory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCoreFactory.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TextureCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TextureCoreFactory.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o.requires:
 
@@ -971,16 +971,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/TextureCoreFactory.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o: ../scg3/src/TransformAnimation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TransformAnimation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TransformAnimation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/TransformAnimation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/TransformAnimation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o.requires:
 
@@ -995,16 +995,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/TransformAnimation.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o: ../scg3/src/Transformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Transformation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Transformation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Transformation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Transformation.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o.requires:
 
@@ -1019,16 +1019,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Transformation.cpp.o.provides.build: CMakeFiles/c
 
 CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o: ../scg3/src/Traverser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Traverser.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Traverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Traverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Traverser.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o.requires:
 
@@ -1043,16 +1043,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Traverser.cpp.o.provides.build: CMakeFiles/cg3_u3
 
 CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o: ../scg3/src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Viewer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Viewer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/Viewer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/Viewer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o.requires:
 
@@ -1067,16 +1067,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/Viewer.cpp.o.provides.build: CMakeFiles/cg3_u3.di
 
 CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o: ../scg3/src/ViewState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ViewState.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ViewState.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.cpp" > CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src/ViewState.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src/ViewState.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o.requires:
 
@@ -1091,16 +1091,16 @@ CMakeFiles/cg3_u3.dir/scg3/src/ViewState.cpp.o.provides.build: CMakeFiles/cg3_u3
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o: ../scg3/src_ext/StereoCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoCamera.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoCamera.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o.requires:
 
@@ -1115,16 +1115,16 @@ CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoCamera.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o: ../scg3/src_ext/StereoRenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRenderer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRenderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRenderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRenderer.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o.requires:
 
@@ -1139,16 +1139,16 @@ CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRenderer.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o: ../scg3/src_ext/StereoRendererActive.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererActive.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererActive.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererActive.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererActive.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o.requires:
 
@@ -1163,16 +1163,16 @@ CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererActive.cpp.o.provides.build: CM
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o: ../scg3/src_ext/StereoRendererAnaglyph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererAnaglyph.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o.requires:
 
@@ -1187,16 +1187,16 @@ CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererAnaglyph.cpp.o.provides.build: 
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o: ../scg3/src_ext/StereoRendererPassive.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp" > CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/src_ext/StereoRendererPassive.cpp" -o CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o.requires:
 
@@ -1211,16 +1211,16 @@ CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o.provides.build: C
 
 CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o: CMakeFiles/cg3_u3.dir/flags.make
 CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o: ../scg3_example/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3_example/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o -c "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3_example/main.cpp"
 
 CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3_example/main.cpp" > CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3_example/main.cpp" > CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.i
 
 CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3_example/main.cpp" -o CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3_example/main.cpp" -o CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.s
 
 CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o.requires:
 
@@ -1339,7 +1339,7 @@ cg3_u3: CMakeFiles/cg3_u3.dir/scg3/src_ext/StereoRendererPassive.cpp.o
 cg3_u3: CMakeFiles/cg3_u3.dir/scg3_example/main.cpp.o
 cg3_u3: CMakeFiles/cg3_u3.dir/build.make
 cg3_u3: CMakeFiles/cg3_u3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_50) "Linking CXX executable cg3_u3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_50) "Linking CXX executable cg3_u3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cg3_u3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1404,6 +1404,6 @@ CMakeFiles/cg3_u3.dir/clean:
 .PHONY : CMakeFiles/cg3_u3.dir/clean
 
 CMakeFiles/cg3_u3.dir/depend:
-	cd "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3" "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3" "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug" "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug" "/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/cmake-build-debug/CMakeFiles/cg3_u3.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3" "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3" "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug" "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug" "/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/cmake-build-debug/CMakeFiles/cg3_u3.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/cg3_u3.dir/depend
 

@@ -62,7 +62,7 @@ X11/Xmd.h
 windows.h
 -
 
-/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/include/GL/glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/include/GL/glew.h
 stddef.h
 -
 inttypes.h
@@ -78,9 +78,9 @@ OpenGL/glu.h
 GL/glu.h
 -
 
-/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/src/glew.c
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/src/glew.c
 ../include/GL/glew.h
-/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/extern/glew/include/GL/glew.h
+/home/leoon/Schreibtisch/neues sem/CG1/übung/Donn_Git/cg19/cg3_u3/scg3/extern/glew/include/GL/glew.h
 GL/osmesa.h
 -
 ../include/GL/eglew.h
