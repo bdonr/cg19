@@ -468,6 +468,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     //something and transformation
 //---------------------------------------------------###########################################################################
 // test balbla
+<<<<<<< HEAD
 
 <<<<<<< refs/remotes/origin/don
   auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -477,6 +478,8 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     sonne->addCore(matSonne)->addCore(sonneCore);
     auto sonneTrans = Transformation::create();
     sonneTrans->translate(glm::vec3(1.f,2.f,1.f));
+=======
+>>>>>>> 0c74ebb... test
 
 
     auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
