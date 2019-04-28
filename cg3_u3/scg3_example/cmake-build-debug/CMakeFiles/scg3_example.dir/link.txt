@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/scg3_example.dir/main.cpp.o CMakeFiles/scg3_example.dir/home/leoon/Schreibtisch/neues_sem/CG1/übung/scg3/src/Viewer.cpp.o  -o scg3_example -lGL -lglfw -lGLEW 

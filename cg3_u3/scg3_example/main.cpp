@@ -295,6 +295,59 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
         ->addController(MouseController::create(camera));
 #endif
 
+<<<<<<< refs/remotes/origin/don
+=======
+  auto TransAni = TransformAnimation::create();
+
+  TransAni->setUpdateFunc([camera](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
+      //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
+
+      if(totalTime<5) {
+    anim->translate(glm::vec3(0, 0, 0.02));
+
+    //camera->translate(glm::vec3(0, 0, -0.001));
+  }
+  else if(totalTime<6.7){
+    anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
+
+
+    /*
+     * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
+     * also bewegt sich die camera nach -Z
+     * aber
+     * auch die geschwindigkeit der transformation ist anders etwa halb so stark
+     * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
+     * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
+     */
+   // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
+
+  }
+  else if(totalTime<21){
+    anim->translate(glm::vec3(0, 0, 0.05));
+
+   // camera->translate(glm::vec3(0, 0, -0.0025));
+  }
+  else if(totalTime<21.4){
+    anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
+  //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
+  }
+  else if(totalTime<24){
+    anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
+  //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
+  //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
+  }
+  else{
+    anim->translate(glm::vec3(0, 0, 0.04));
+   // camera->translate(glm::vec3(-0.0001, 0, -0.002));
+  }
+  std::cout<<totalTime<<std::endl;
+
+  });
+
+
+  viewer->addAnimation(TransAni);
+
+>>>>>>> local
   // lights
   auto light = Light::create();
   light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
@@ -322,6 +375,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
           ->setSpecular(glm::vec4(0.5f, 0.5f, 0.5f, 1.f))
           ->setShininess(20.f)
           ->init();
+<<<<<<< refs/remotes/origin/don
 
     auto lichthell  = MaterialCore::create();
     lichthell//->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
@@ -383,6 +437,14 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
 
     // textures
+=======
+    auto matSonne = MaterialCore::create();
+    matSonne->setAmbientAndDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setSpecular(glm::vec4(0.5f, 0.5f, 0.5f, 1.f))
+            ->setShininess(100.f)->setEmission(glm::vec4(1.f,1.f,1.f,1.f))
+            ->init();
+  // textures
+>>>>>>> local
   TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
   auto texWood = textureFactory.create2DTextureFromFile(
       "wood_256.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
@@ -400,15 +462,25 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   auto floorCore = geometryFactory.createCuboid(glm::vec3(20.f, 0.05f, 10.f));
   auto floor = Shape::create();
   floor->addCore(matGreen)
-       ->addCore(floorCore);
-  auto floorTrans = Transformation::create();
-  floorTrans->translate(glm::vec3(0.f, -0.5f, 0.f));
+       ->addCore(floorCore);auto floorTrans = Transformation::create();
+    floorTrans->translate(glm::vec3(0.f, -0.5f, 0.f));
 
-  //something and transformation
+    //something and transformation
 //---------------------------------------------------###########################################################################
 // test balbla
 
+<<<<<<< refs/remotes/origin/don
   auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
+=======
+    auto sonneCore = geometryFactory.createSphere(1,100,100);
+    auto sonne = Shape::create();
+    sonne->addCore(matSonne)->addCore(sonneCore);
+    auto sonneTrans = Transformation::create();
+    sonneTrans->translate(glm::vec3(1.f,2.f,1.f));
+
+
+    auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
+>>>>>>> local
     auto someth = Shape::create();
     someth->addCore(shaderPhongTex)
             ->addCore(matWhite)
@@ -536,10 +608,17 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
           ->addChild(stadt)
         ->addChild(somethTrans);
   light2->addChild(somethTrans)
+<<<<<<< refs/remotes/origin/don
         ->addChild(somethTrans2);
   floorTrans->addChild(floor);
   somethTrans->addChild(someth);
   somethTrans2->addChild(someth2);
+=======
+        ->addChild(sonneTrans);
+  floorTrans->addChild(floor);
+  somethTrans->addChild(someth);
+sonneTrans->addChild(sonne);
+>>>>>>> local
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
