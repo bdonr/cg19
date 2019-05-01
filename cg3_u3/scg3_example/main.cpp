@@ -282,7 +282,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 #endif
 
   // camera controllers
-  camera->translate(glm::vec3(3.5f, 0.27f, -3.7f))->rotate(90, glm::vec3(0.f, 1.f, 0.f))
+  camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
         ->dolly(-1.f);
 #ifdef SCG_CPP11_INITIALIZER_LISTS
   viewer->addControllers(
@@ -338,7 +338,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     TransAni->setUpdateFunc([camera, light](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
         //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
 
-        if(totalTime<10) {
+        if(totalTime<5) {
             anim->translate(glm::vec3(0, 0, 0.02));
           //  light->setPosition(glm::vec4(totalTime, 10.f, 10.f, 1.f));
             //camera->translate(glm::vec3(0, 0, -0.001));
@@ -433,6 +433,20 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     somethTrans2->scale(glm::vec3(1,1,1));
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
 
+    auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
+    auto camObject = Shape::create();
+    camObject->addCore(shaderPhongTex)
+            ->addCore(matWhite)
+            ->addCore(texBrick)
+                    //->addCore(sonne)
+            ->addCore(camObjectCore);
+
+    auto camObjectTrans = Transformation::create();
+    camObjectTrans->translate(glm::vec3(0.f, -0.1f, -0.5f));
+    camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
+    camObjectTrans->scale(glm::vec3(0.05,0.05,0.05));
+
+
     auto stadt = Group::create();
     stadt->addCore(shaderPhongTex)
             ->addCore(matWhite)
@@ -525,22 +539,40 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableLegTrans[2]->translate(glm::vec3(-0.6f, 0.f, -0.35f));
   tableLegTrans[3]->translate(glm::vec3(-0.6f, 0.f,  0.35f));
 
+
+
+
   // create scene graph
   scene = Group::create();
   scene->addCore(shaderPhong);
   scene->addChild(camera)
-       ->addChild(light)
-        ->addChild(light2);
+       ->addChild(light);
+      //  ->addChild(light2);
   light->addChild(floorTrans)
        ->addChild(tableTrans)
           ->addChild(stadt)
-        ->addChild(somethTrans);
-  light2->addChild(somethTrans)
+          ->addChild(camObjectTrans)
+          ->addChild(camObject)
+        ->addChild(somethTrans)
         ->addChild(somethTrans2);
+  /*light2->addChild(somethTrans)
+        ->addChild(somethTrans2);
+        */
   floorTrans->addChild(floor);
   somethTrans->addChild(someth);
+  camObjectTrans->addChild(camObject);
   somethTrans2->addChild(someth2);
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
+  camera->addChild(camObjectTrans);
+  // cam an die transformation des obejktes binden
+//TransAni->addChild(camera);
+/*
+#if SCG_MOVING_CAM
+ TransAni->addChild(camera);
+#else
+  scene->addChild(camera);
+#endif
+ */
 }
