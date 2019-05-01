@@ -565,7 +565,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
-  camera->addChild(camObjectTrans);
+  //camera->addChild(camObjectTrans);
   // cam an die transformation des obejktes binden
 //TransAni->addChild(camera);
 /*
