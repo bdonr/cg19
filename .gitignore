@@ -4,5 +4,5 @@
 /*.vcxproj.user
 .idea
 ./
-./cg3_u3/cmake-build-debug
+/cg3_u3/cmake-build-debug
 ../.idea
