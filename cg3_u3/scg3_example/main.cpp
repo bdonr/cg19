@@ -42,7 +42,7 @@ struct SCGConfiguration {
   static const int sceneType = 1;   // 0: teapot, 1: table
 };
 
-
+//
 /**
  * \brief Minimal application using a simple viewer with default renderer, shaders,
  *   camera, and light to create a teapot scene.
