@@ -2,8 +2,6 @@
 /Debug*
 /Release*
 /*.vcxproj.user
-.idea
-./
 /cmake-build-debug
 ../cmake-build-debug
-/.idea
+.idea

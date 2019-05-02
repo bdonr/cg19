@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 project(cg3_u3)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 include_directories(scg3)
 include_directories(scg3/extern/glew/include)
@@ -495,5 +495,6 @@ add_executable(cg3_u3
     scg3/scg3_ext.h
     scg3_example/main.cpp
         )
+
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GL GLEW glfw)

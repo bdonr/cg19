@@ -42,7 +42,7 @@ struct SCGConfiguration {
   static const int sceneType = 1;   // 0: teapot, 1: table
 };
 
-
+//
 /**
  * \brief Minimal application using a simple viewer with default renderer, shaders,
  *   camera, and light to create a teapot scene.
@@ -99,6 +99,8 @@ void useSimpleViewer() {
   CameraSP camera;
   GroupSP scene;
   LightSP light;
+
+
   viewer->initSimpleRenderer(camera, scene, light);
 
   // define red material
@@ -200,6 +202,9 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
   // white point light at position (10,10,10)
   auto light = Light::create();
+  auto l = LightPosition::create(light);
+
+
   light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
        ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
        ->init();
@@ -297,15 +302,18 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
   // lights
   auto light = Light::create();
+  auto lightpos = LightPosition::create(light);
+
+
   light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-       ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
+       ->setPosition(glm::vec4(-10.f, 0.f, 0.f, 1.f))
        ->init();
 
   auto light2 = Light::create();
     light2->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
             ->setPosition(glm::vec4(1.f, 1.f, 10.f, 1.f))
             ->init();
-
+    auto lightpos2 = LightPosition::create(light2);
   // materials
   auto matRed = MaterialCore::create();
   matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
@@ -334,58 +342,40 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
 
     auto TransAni = TransformAnimation::create();
+    auto TransAni2 = TransformAnimation::create();
+    auto TransAni3 = TransformAnimation::create();
+    auto atmos = Group::create();
+    auto atmosTrans = Transformation::create();
 
-    TransAni->setUpdateFunc([camera, light](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
-        //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
 
-        if(totalTime<5) {
-            anim->translate(glm::vec3(0, 0, 0.02));
-          //  light->setPosition(glm::vec4(totalTime, 10.f, 10.f, 1.f));
-            //camera->translate(glm::vec3(0, 0, -0.001));
-        }
-        else if(totalTime<6.7){
-            anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
 
-            /*
-             * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
-             * also bewegt sich die camera nach -Z
-             * aber
-             * auch die geschwindigkeit der transformation ist anders etwa halb so stark
-             * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
-             * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
-             */
-            // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-
-        }
-        else if(totalTime<21){
-            anim->translate(glm::vec3(0, 0, 0.05));
-            // camera->translate(glm::vec3(0, 0, -0.0025));
-        }
-        else if(totalTime<21.4){
-            anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-            //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-        }
-        else if(totalTime<24){
-            anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
-            //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
-            //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
-        }
-        else{
-            anim->translate(glm::vec3(0, 0, 0.04));
-            // camera->translate(glm::vec3(-0.0001, 0, -0.002));
-        }
-        if(totalTime<9999){
-            // camera->translate(glm::vec3(0, 0, -0.004));
-          //  light->setPosition(glm::vec4(1, 10.f, 10.f, 1.f));
-        }
-        std::cout<<totalTime<<std::endl;
-
+    TransAni->setUpdateFunc([](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
+        anim->translate(glm::vec3(0,0,.1));
+    });
+    TransAni2->setUpdateFunc([](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
+        anim2->translate(glm::vec3(.010,0,0));
+    });
+    TransAni3->setUpdateFunc([](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
+        anim2->translate(glm::vec3(.00,0.01,0));
     });
 
-
+    viewer->addAnimation(TransAni3);
+    viewer->addAnimation(TransAni2);
     viewer->addAnimation(TransAni);
 
 
+    auto lightTrans= TransAni3;
+    lightTrans->translate(glm::vec3(4.3f, 0.2f, 0.3f));
+    lightTrans->scale(glm::vec3(0.05,0.05,0.05));
+    lightTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
+
+    lightTrans->addChild(light);
+    atmos->addChild(lightpos);
+    atmos->addChild(lightpos2);
+  //  atmos->addChild(lightTrans);
+
+    atmosTrans = TransAni2;
+    atmosTrans->addChild(atmos);
     // textures
   TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
   auto texWood = textureFactory.create2DTextureFromFile(
@@ -432,9 +422,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
             //->addCore(sonne)
             ->addCore(somethcore2)
             ;
-    auto somethTrans2 = Transformation::create();
-    somethTrans2->translate(glm::vec3(4.3f, 2.2f, 2.3f));
-    somethTrans2->scale(glm::vec3(1,1,1));
+    auto sonneTrans2 = Transformation::create();
+    sonneTrans2->translate(glm::vec3(4.3f, 2.2f, 2.3f));
+    sonneTrans2->scale(glm::vec3(1,1,1));
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
 
     auto flug = Group::create();
@@ -452,10 +442,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
             ->addCore(camObjectCore);
 
     auto camObjectTrans = Transformation::create();
-    camObjectTrans->translate(glm::vec3(0.f, -0.2f, -0.5f));
+
     camObjectTrans->scale(glm::vec3(0.05,0.05,0.05));
+    camObjectTrans->translate(glm::vec3(0.f, -0.6f, -1.5f));
     camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
-    camObjectTrans->setVisible(true);
 
     flugTrans->addChild(camObjectTrans);
 
@@ -466,7 +456,21 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     auto stadtTrans = Transformation::create();
     stadtTrans->rotate(30.f, glm::vec3(0.f, 1.f, 0.f));
 
+//
 
+
+
+
+
+
+
+
+
+
+
+
+
+//
     ShapeSP House[50];
     TransformationSP HouseTrans[50];
     for (int i = 0; i < 50; i++) {
@@ -551,29 +555,31 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableLegTrans[2]->translate(glm::vec3(-0.6f, 0.f, -0.35f));
   tableLegTrans[3]->translate(glm::vec3(-0.6f, 0.f,  0.35f));
 
+
   // create scene graph
   scene = Group::create();
   scene->addCore(shaderPhong);
+  scene->addChild(lightpos->getLight());
+  scene->addChild(lightpos2->getLight())->addChild(atmosTrans);
   //scene->addChild(camera)
-       scene->addChild(light);
       //  ->addChild(light2)
-  light->addChild(floorTrans)
+    light->addChild(floorTrans)
        ->addChild(tableTrans)
           ->addChild(stadt)
+
 //->addChild(flugTrans)
                   ->addChild(camera)
          // ->addChild(camObjectTrans)
           //->addChild(camObject)
         ->addChild(somethTrans)
-        ->addChild(somethTrans2);
-  /*
-   * light2->addChild(somethTrans)
-        ->addChild(somethTrans2);
-        */
+        ->addChild(sonneTrans2);
+    light2->addChild(somethTrans);
+
+
   floorTrans->addChild(floor);
   somethTrans->addChild(someth);
   camObjectTrans->addChild(camObject);
-  somethTrans2->addChild(someth2);
+    sonneTrans2->addChild(someth2);
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
@@ -581,7 +587,6 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
 
   // cam an die transformation des obejktes binden
-//TransAni->addChild(camera);
 /*
 #if SCG_MOVING_CAM
  TransAni->addChild(camera);
