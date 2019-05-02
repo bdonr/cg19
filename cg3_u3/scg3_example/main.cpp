@@ -100,7 +100,7 @@ void useSimpleViewer() {
   GroupSP scene;
   LightSP light;
 
-
+//
   viewer->initSimpleRenderer(camera, scene, light);
 
   // define red material
