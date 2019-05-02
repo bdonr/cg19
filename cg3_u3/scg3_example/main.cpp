@@ -325,11 +325,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
     auto lichthell  = MaterialCore::create();
     lichthell//->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
-            ->setAmbient(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setAmbient(glm::vec4(1.f, 1.f, 0.f, 1.f))
+            ->setDiffuse(glm::vec4(1.f, 1.f, 0.f, 1.f))
+            ->setSpecular(glm::vec4(1.f, 1.f, 0.f, 1.f))
             ->setShininess(51.f)
-            ->setEmission(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setEmission(glm::vec4(1.f, 1.f, 0.f, 1.f))
             ->init();
 
 
@@ -373,6 +373,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
         else{
             anim->translate(glm::vec3(0, 0, 0.04));
             // camera->translate(glm::vec3(-0.0001, 0, -0.002));
+        }
+        if(totalTime<9999){
+            // camera->translate(glm::vec3(0, 0, -0.004));
+          //  light->setPosition(glm::vec4(1, 10.f, 10.f, 1.f));
         }
         std::cout<<totalTime<<std::endl;
 
@@ -423,7 +427,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
     auto somethcore2 = geometryFactory.createSphere(0.3,100,100);
     auto someth2 = Shape::create();
-    someth2->addCore(skybox)
+    someth2->addCore(shaderPhong)
             ->addCore(lichthell)
             //->addCore(sonne)
             ->addCore(somethcore2)
@@ -432,6 +436,12 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
     somethTrans2->translate(glm::vec3(4.3f, 2.2f, 2.3f));
     somethTrans2->scale(glm::vec3(1,1,1));
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
+
+    auto flug = Group::create();
+    flug->addCore(shaderPhongTex)
+            ->addCore(matWhite)
+            ->addCore(texWood);
+    auto flugTrans = Transformation::create();
 
     auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
     auto camObject = Shape::create();
@@ -442,10 +452,12 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
             ->addCore(camObjectCore);
 
     auto camObjectTrans = Transformation::create();
-    camObjectTrans->translate(glm::vec3(0.f, -0.1f, -0.5f));
-    camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
+    camObjectTrans->translate(glm::vec3(0.f, -0.2f, -0.5f));
     camObjectTrans->scale(glm::vec3(0.05,0.05,0.05));
+    camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
+    camObjectTrans->setVisible(true);
 
+    flugTrans->addChild(camObjectTrans);
 
     auto stadt = Group::create();
     stadt->addCore(shaderPhongTex)
@@ -539,23 +551,23 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableLegTrans[2]->translate(glm::vec3(-0.6f, 0.f, -0.35f));
   tableLegTrans[3]->translate(glm::vec3(-0.6f, 0.f,  0.35f));
 
-
-
-
   // create scene graph
   scene = Group::create();
   scene->addCore(shaderPhong);
-  scene->addChild(camera)
-       ->addChild(light);
-      //  ->addChild(light2);
+  //scene->addChild(camera)
+       scene->addChild(light);
+      //  ->addChild(light2)
   light->addChild(floorTrans)
        ->addChild(tableTrans)
           ->addChild(stadt)
-          ->addChild(camObjectTrans)
-          ->addChild(camObject)
+//->addChild(flugTrans)
+                  ->addChild(camera)
+         // ->addChild(camObjectTrans)
+          //->addChild(camObject)
         ->addChild(somethTrans)
         ->addChild(somethTrans2);
-  /*light2->addChild(somethTrans)
+  /*
+   * light2->addChild(somethTrans)
         ->addChild(somethTrans2);
         */
   floorTrans->addChild(floor);
@@ -565,7 +577,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
-  //camera->addChild(camObjectTrans);
+  camera->addChild(camObjectTrans);
+
+
   // cam an die transformation des obejktes binden
 //TransAni->addChild(camera);
 /*
