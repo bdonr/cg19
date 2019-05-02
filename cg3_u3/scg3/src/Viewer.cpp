@@ -43,6 +43,9 @@
 #include "Viewer.h"
 #include "ViewState.h"
 
+#include "extern/glm/glm/glm.hpp"
+#include "extern/glm/glm/gtc/matrix_transform.hpp"
+
 namespace scg {
 
 
@@ -278,6 +281,7 @@ void Viewer::startMainLoop() {
 }
 
 
+
 void Viewer::createWindow_(const char* title, int width, int height, bool fullscreenMode) {
   if (!renderer_) {
     throw std::runtime_error("Undefined renderer, call Viewer::init() first [Viewer::createWindow_()]");
@@ -362,6 +366,7 @@ void Viewer::framebufferSizeCB_(GLFWwindow* window, int width, int height) {
 
   assert(!checkGLError());
 }
+
 
 
 bool Viewer::isInstantiated_(false);

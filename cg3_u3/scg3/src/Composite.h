@@ -88,12 +88,12 @@ public:
    */
   virtual void renderPost(RenderState* renderState);
 
+
 protected:
 
   NodeSP leftChild_;
 
 };
-
 
 } /* namespace scg */
 

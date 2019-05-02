@@ -267,6 +267,8 @@ protected:
    */
   static void errorCB_(int error, const char* description);
 
+
+
   /**
    * GLFW callback function for framebuffer resize event.
    * Note: Use glfwSetFramebufferSizeCallback() instead of glfwSetWindowSizeCallback()
