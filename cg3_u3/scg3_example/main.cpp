@@ -337,44 +337,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
     TransAni->setUpdateFunc([camera, light](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
         //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
-
-        if(totalTime<5) {
             anim->translate(glm::vec3(0, 0, 0.02));
-          //  light->setPosition(glm::vec4(totalTime, 10.f, 10.f, 1.f));
-            //camera->translate(glm::vec3(0, 0, -0.001));
-        }
-        else if(totalTime<6.7){
-            anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-
-            /*
-             * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
-             * also bewegt sich die camera nach -Z
-             * aber
-             * auch die geschwindigkeit der transformation ist anders etwa halb so stark
-             * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
-             * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
-             */
-            // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-
-        }
-        else if(totalTime<21){
-            anim->translate(glm::vec3(0, 0, 0.05));
-            // camera->translate(glm::vec3(0, 0, -0.0025));
-        }
-        else if(totalTime<21.4){
-            anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-            //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-        }
-        else if(totalTime<24){
-            anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
-            //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
-            //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
-        }
-        else{
-            anim->translate(glm::vec3(0, 0, 0.04));
-            // camera->translate(glm::vec3(-0.0001, 0, -0.002));
-        }
-        std::cout<<totalTime<<std::endl;
 
     });
 
@@ -442,9 +405,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
             ->addCore(camObjectCore);
 
     auto camObjectTrans = Transformation::create();
-    camObjectTrans->translate(glm::vec3(0.f, -0.1f, -0.5f));
-    camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
     camObjectTrans->scale(glm::vec3(0.05,0.05,0.05));
+    camObjectTrans->translate(glm::vec3(0.f, -0.6f, -1.5f));
+    camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
 
 
     auto stadt = Group::create();
@@ -545,14 +508,13 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   // create scene graph
   scene = Group::create();
   scene->addCore(shaderPhong);
-  scene->addChild(camera)
-       ->addChild(light);
-      //  ->addChild(light2);
+  scene//->addChild(camera)
+       ->addChild(light)
+        ->addChild(light2);
   light->addChild(floorTrans)
        ->addChild(tableTrans)
           ->addChild(stadt)
           ->addChild(camObjectTrans)
-          ->addChild(camObject)
         ->addChild(somethTrans)
         ->addChild(somethTrans2);
   /*light2->addChild(somethTrans)
@@ -565,9 +527,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   tableTrans->addChild(table)
             ->addChild(teapotTrans);
   teapotTrans->addChild(teapot);
-  //camera->addChild(camObjectTrans);
+  //camera->addChild(camObject);
   // cam an die transformation des obejktes binden
-//TransAni->addChild(camera);
+  TransAni->addChild(camera);
 /*
 #if SCG_MOVING_CAM
  TransAni->addChild(camera);

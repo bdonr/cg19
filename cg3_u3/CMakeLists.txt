@@ -493,6 +493,6 @@ add_executable(cg3_u3
     scg3/src_ext/StereoRendererPassive.h
     scg3/scg3.h
     scg3/scg3_ext.h
-    scg3_example/main.cpp)
+    scg3_example/main.cpp scg3/src/ObjectController.cpp scg3/src/ObjectController.h)
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GL GLEW glfw)
