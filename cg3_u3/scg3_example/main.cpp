@@ -68,6 +68,8 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene);
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene);
 
 
+void createUmgebung(ViewerSP sharedPtr, PerspectiveCameraSP sharedPtr, GroupSP sharedPtr);
+
 /**
  * \brief The main function.
  */
@@ -155,6 +157,8 @@ void useCustomizedViewer() {
     break;
   case 1:
     createTableScene(viewer, camera, scene);
+      case 2:
+          createUmgebung(viewer,camera,scene);
     break;
   default:
     throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
@@ -165,6 +169,10 @@ void useCustomizedViewer() {
 
   viewer->startAnimations()
         ->startMainLoop();
+}
+
+void createUmgebung(ViewerSP viewer, PerspectiveCameraSP camera, GroupSP scene) {
+
 }
 
 
