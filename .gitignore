@@ -2,9 +2,6 @@
 /Debug*
 /Release*
 /*.vcxproj.user
-<<<<<<< HEAD
 ./                                                                                                                                      
-=======
 .idea                                                                                                                                      
->>>>>>> c9fde3278ba2e6ca8263803e049a1fed13e165dc
 /cg3_u3/cmake-build-debug
