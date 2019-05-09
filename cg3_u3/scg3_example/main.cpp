@@ -69,7 +69,6 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 
-void createUmgebung(ViewerSP sharedPtr, PerspectiveCameraSP sharedPtr, GroupSP sharedPtr);
 
 /**
  * \brief The main function.
@@ -155,8 +154,6 @@ void useCustomizedViewer() {
     break;
   case 1:
     createTableScene(viewer, camera, scene);
-      case 2:
-          createUmgebung(viewer,camera,scene);
     break;
   default:
     throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
@@ -169,9 +166,7 @@ void useCustomizedViewer() {
         ->startMainLoop();
 }
 
-void createUmgebung(ViewerSP viewer, PerspectiveCameraSP camera, GroupSP scene) {
 
-}
 
 
 void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
@@ -246,7 +241,7 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             ->setPosition(glm::vec4(-4.f, 1.f, 0.f, 1.f))
             ->init();
 
-    light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(glm::vec4(1,1,1,1))
+    light->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(glm::vec4(1,1,1,1))
             ->setPosition(glm::vec4(0.f, 0.f, 0.f, 1.f))
             ->init();
     auto matRed = MaterialCore::create();
@@ -283,13 +278,14 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
   // teapot shape
 
   auto front = geometryFactory.createSphere(20,101,110);
-  auto teapot = Shape::create();
-    teapot->addCore(shaderPhongTex2)
+  auto himmel = Shape::create();
+    himmel->addCore(shaderPhongTex2)
             ->addCore(matWhite)
             ->addCore(texWood)
             ->addCore(front);
 
     auto TransAni = TransformAnimation::create();
+    auto TransAni2 = TransformAnimation::create();
     auto textTrans = Transformation::create();
 
 
@@ -297,21 +293,28 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     TransAni->setUpdateFunc([](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
         anim->rotate(30.f, glm::vec3(1.f, 1.f, 0.f));
     });
+    TransAni2->setUpdateFunc([&light](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
+        anim2->rotate(30.f, glm::vec3(1.f, 1.f, 0.f));
+        if(totalTime>10){
+            light->setAmbient(glm::vec4(0,1,0,1));
+        }
+    });
 
-  // teapot transformation
+
+    // teapot transformation
 
 
 
-    auto teapotTrans=TransAni;
+    auto horizontTrans=TransAni;
 
-    teapotTrans->translate(glm::vec3(0,0,0))->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
-    teapotTrans->addChild(teapot);
+    horizontTrans->translate(glm::vec3(0,0,0))->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+    horizontTrans->addChild(himmel);
   // create scene graph
   scene = Group::create();
   scene->addCore(shaderPhong);
   scene->addChild(camera)
        ->addChild(light)->addChild(light2);
-  light->addChild(teapotTrans);
+  light->addChild(horizontTrans);
   light2->addChild(floorTrans);
 }
 
@@ -319,7 +322,8 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     ShaderCoreFactory shaderFactory("../scg3/shaders;../../scg3/shaders");
-
+    double x=0.0;
+    double y=0.0;
 #ifdef SCG_CPP11_INITIALIZER_LISTS
     // Phong shader
     auto shaderPhong = shaderFactory.createShaderFromSourceFiles(
@@ -345,6 +349,14 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                     ShaderFile("color_frag.glsl", GL_FRAGMENT_SHADER),
                     //  ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
                     //   ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+            });
+
+    auto shaderPhongTex2 = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("phong_vert_inner.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag_inner.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
             });
 
 #else
@@ -379,16 +391,15 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
           ->addController(MouseController::create(camera));
 #endif
 
+
+
     // lights
     auto light = Light::create();
-    light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
+    light->setSpecular(glm::vec4(1.f, 1.f, 1.f, 0.f))->setDiffuse(glm::vec4(1,1,1,1))->setAmbient(glm::vec4(.1,.1,.1,1))
+            ->setPosition(glm::vec4(0.f, 15.f, 0.f, 1.f))
             ->init();
 
-    auto light2 = Light::create();
-    light2->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->setPosition(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->init();
+    auto l = LightPosition::create(light);
 
     // materials
     auto matRed = MaterialCore::create();
@@ -421,16 +432,22 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     TransAni->setUpdateFunc(
             [camera, light](TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
                 //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
-                camera->translate(glm::vec3(0,0,-0.01));
+              /*  camera->translate(glm::vec3(0,0,-0.01));
                 std::cout<<"X= "<<camera->getPosition().x<<" Y= "<<camera->getPosition().y<<" Z= "<<camera->getPosition().z<<std::endl;
-                if(camera->getPosition().x>5){
+                if(camera->getPosition().x>10){
                     camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().x<-5){
+                }else if(camera->getPosition().x<-10){
                     camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().z>4){
+                }else if(camera->getPosition().z>10){
                     camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().z<-6){
+                }else if(camera->getPosition().z<-10){
                     camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                }
+                else if(camera->getPosition().y<1.0){
+                    camera->rotate(-1.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                }
+                else if(camera->getPosition().y>9.0){
+                    camera->rotate(-1.0f, glm::vec3(1.0f, 0.f, 0.0f));
                 }
 
                     /*
@@ -447,9 +464,17 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                // std::cout << totalTime << std::endl;
 
             });
+    auto TransAni2 = TransformAnimation::create();
 
+    /*TransAni2->setUpdateFunc([&x,&y,light](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
+        light->setPosition(glm::vec4(x,y,0,1));
+        y=y+0.1;
+        x=x+0.1;
+    });*/
+    auto atmos = Group::create();
+    atmos->addChild(l);
 
-    viewer->addAnimation(TransAni);
+    auto atmosTrans = Transformation::create();
 
 
     // textures
@@ -462,21 +487,74 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto sonne = textureFactory.create2DTextureFromFile(
             "sonne.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+
+    auto texStadt= textureFactory.create2DTextureFromFile(
+            "ct-map.png", GL_REPEAT, GL_REPEAT,GL_NEAREST, GL_NEAREST);
+
+    auto himmelTex = textureFactory.create2DTextureFromFile(
+            "panorama-fake-sky.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+
+
+    auto nachtTex = textureFactory.create2DTextureFromFile(
+            "1280px-carina_nebula.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     // set texture matrix
 //  texWood->scale2D(glm::vec2(4.f, 4.f));
 
     // floor shape and transformation
     GeometryCoreFactory geometryFactory;
-    auto floorCore = geometryFactory.createCuboid(glm::vec3(20.f, 0.05f, 10.f));
+    auto light3 = Light::create();
+
+    light3->setDiffuseAndSpecular(glm::vec4(1.f, 0.f, 0.f, 0.f))->setAmbient(glm::vec4(1,0,0,1))
+            ->setPosition(glm::vec4(-4.f, 1.f, 0.f, 1.f))
+            ->init();
+
+    auto himmelCore = geometryFactory.createSphere(20,101,110);
+    auto himmel = Shape::create();
+    himmel->addCore(shaderPhongTex2)
+            ->addCore(matWhite)
+            ->addCore(himmelTex)
+            ->addCore(himmelCore);
+
+    auto nachtCore = geometryFactory.createSphere(20,101,110);
+    auto nachtHimmel = Shape::create();
+    nachtHimmel->addCore(shaderPhongTex2)
+            ->addCore(matWhite)
+            ->addCore(nachtTex)
+            ->addCore(nachtCore);
+    auto nachtTrans= Transformation::create();
+
+
+
+    auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
     auto floor = Shape::create();
-    floor->addCore(matGreen)
+    floor->addCore(shaderPhongTex)->addCore(matWhite)->addCore(texStadt)
             ->addCore(floorCore);
     auto floorTrans = Transformation::create();
-    floorTrans->translate(glm::vec3(0.f, -0.5f, 0.f));
+    floorTrans->scale(glm::vec3(0.07,0.07,0.07));
+    auto TransAni3 = TransformAnimation::create();
+
+    TransAni2->setUpdateFunc([light,&atmos,&himmel,nachtTex,himmelTex,matWhite,shaderPhongTex2,&geometryFactory](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
+        anim2->rotate(.005,glm::vec4(0,0,1,0));
+
+    });
+    auto horizontTrans= Transformation::create();
+    horizontTrans->translate(glm::vec3(0,0,0))->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+    horizontTrans = TransAni3;
+    horizontTrans->addChild(himmel);
+
+    viewer->addAnimation(TransAni);
+    viewer->addAnimation(TransAni2);
+    viewer->addAnimation(TransAni3);
+
 
     //something and transformation
 //---------------------------------------------------###########################################################################
 // test balbla
+
+
+
+
+
 
     auto somethcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
     auto someth = Shape::create();
@@ -490,9 +568,6 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     somethTrans->scale(glm::vec3(0.05, 0.05, 0.05));
     somethTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
 
-    auto lightTrans = TransAni;
-    lightTrans->translate(glm::vec3(4.3f, 2.2f, 2.3f));
-    lightTrans->scale(glm::vec3(1, 1, 1));
 
 
     auto somethcore2 = geometryFactory.createSphere(0.3, 100, 100);
@@ -620,23 +695,19 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     tableLegTrans[2]->translate(glm::vec3(-0.6f, 0.f, -0.35f));
     tableLegTrans[3]->translate(glm::vec3(-0.6f, 0.f, 0.35f));
 
+    atmosTrans=TransAni2;
+    atmosTrans->addChild(atmos);
     // create scene graph
     scene = Group::create();
-    scene->addCore(shaderPhong)
-            ->addChild(light);
+    scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(light);
     light->addChild(floorTrans)
             ->addChild(tableTrans)
             ->addChild(stadt)
-            ->addChild(camera)
-            ->addChild(somethTrans)
-            ->addChild(somethTrans2);
+            ->addChild(camera);
     floorTrans->addChild(floor);
-    somethTrans->addChild(someth);
+    light->addChild(horizontTrans);
     camObjectTrans->addChild(camObject);
     somethTrans2->addChild(someth2);
-    tableTrans->addChild(table)
-            ->addChild(teapotTrans);
-    teapotTrans->addChild(teapot);
     camera->addChild(camObjectTrans);
 
 
