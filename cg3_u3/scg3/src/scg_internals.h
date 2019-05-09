@@ -176,7 +176,6 @@ SCG_DECLARE_CLASS(TextureCore);
 SCG_DECLARE_CLASS(Texture2DCore);
 SCG_DECLARE_CLASS(TransformAnimation);
 SCG_DECLARE_CLASS(Transformation);
-SCG_DECLARE_CLASS(ObjectController);
 SCG_DECLARE_CLASS(Traverser);
 SCG_DECLARE_CLASS(Viewer);
 SCG_DECLARE_CLASS(ViewState);
