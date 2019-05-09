@@ -39,7 +39,7 @@ using namespace scg;
 struct SCGConfiguration {
   static const int viewerType = 1;  // 0: simple, 1: customized
   // for customized viewer:
-  static const int sceneType = 1;   // 0: teapot, 1: table
+  static const int sceneType = 0;   // 0: teapot, 1: table
 };
 
 //
@@ -174,20 +174,52 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
 
 #ifdef SCG_CPP11_INITIALIZER_LISTS
   // Gouraud shader
-  auto shaderGouraud = shaderFactory.createShaderFromSourceFiles(
-      {
-        ShaderFile("color_vert.glsl", GL_VERTEX_SHADER),
-        ShaderFile("color_frag.glsl", GL_FRAGMENT_SHADER)
-      });
+    auto shaderPhong = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("phong_vert_inner.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag_inner.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER)
+            });
+
+    auto shaderPhong2 = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER)
+            });
+
+    auto shaderPhongTex = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("phong_vert_inner.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag_inner.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+            });
+
+    auto shaderPhongTex2 = shaderFactory.createShaderFromSourceFiles(
+            {
+                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+            });
 #else
   std::vector<ShaderFile> shaderFiles;
   shaderFiles.push_back(ShaderFile("simple_gouraud_vert.glsl", GL_VERTEX_SHADER));
   shaderFiles.push_back(ShaderFile("simple_gouraud_frag.glsl", GL_FRAGMENT_SHADER));
   auto shaderGouraud = shaderFactory.createShaderFromSourceFiles(shaderFiles);
 #endif
+    TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
+    auto texWood = textureFactory.create2DTextureFromFile(
+            "panorama-fake-sky.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
+
+    auto texStadt= textureFactory.create2DTextureFromFile(
+            "ct-map.png", GL_REPEAT, GL_REPEAT,GL_NEAREST, GL_NEAREST);
   // camera controllers
-  camera->translate(glm::vec3(0.f, 0.f, 1.f))
+  camera->translate(glm::vec3(-2.f, 5.f, 0.f))
         ->dolly(-1.f);
 #ifdef SCG_CPP11_INITIALIZER_LISTS
   viewer->addControllers(
@@ -203,37 +235,80 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
   // white point light at position (10,10,10)
   auto light = Light::create();
   auto l = LightPosition::create(light);
+    auto light2 = Light::create();
 
+    light2->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(glm::vec4(1,1,1,1))
+            ->setPosition(glm::vec4(-4.f, 1.f, 0.f, 1.f))
+            ->init();
 
-  light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-       ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
-       ->init();
+    light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(glm::vec4(1,1,1,1))
+            ->setPosition(glm::vec4(0.f, 0.f, 0.f, 1.f))
+            ->init();
+    auto matRed = MaterialCore::create();
+    matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
+            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setShininess(20.f)
+            ->init();
+
+    auto  lightTrans= Transformation::create();
+    lightTrans->translate(glm::vec3(4.3f, 0.2f, 0.3f));
+    lightTrans->scale(glm::vec3(0.05,0.05,0.05));
+    lightTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
+
+    lightTrans->addChild(light2);
 
   // red material
-  auto matRed = MaterialCore::create();
-  matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
-        ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-        ->setShininess(20.f)
-        ->init();
+    auto matWhite = MaterialCore::create();
+    matWhite->setAmbientAndDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
+            ->setSpecular(glm::vec4(0.5f, 0.5f, 0.5f, 1.f))
+            ->setShininess(20.f)
+            ->init();
+    GeometryCoreFactory geometryFactory;
+    auto matGreen = MaterialCore::create();
+    matGreen->setAmbientAndDiffuse(glm::vec4(0.1f, 0.8f, 0.3f, 1.f))
+            ->init();
+    auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
+    auto floor = Shape::create();
+    floor->addCore(shaderPhongTex2)->addCore(matWhite)->addCore(texStadt)
+            ->addCore(floorCore);
+    auto floorTrans = Transformation::create();
+    floorTrans->scale(glm::vec3(0.07,0.07,0.07));
 
+    floorTrans->addChild(floor);
   // teapot shape
-  GeometryCoreFactory geometryFactory;
-  auto teapotCore = geometryFactory.createTeapot(1.f);
+
+  auto front = geometryFactory.createSphere(20,101,110);
   auto teapot = Shape::create();
-  teapot->addCore(matRed)
-        ->addCore(teapotCore);
+    teapot->addCore(shaderPhongTex2)
+            ->addCore(matWhite)
+            ->addCore(texWood)
+            ->addCore(front);
+
+    auto TransAni = TransformAnimation::create();
+    auto textTrans = Transformation::create();
+
+
+
+    TransAni->setUpdateFunc([](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
+        anim->rotate(30.f, glm::vec3(1.f, 1.f, 0.f));
+    });
 
   // teapot transformation
-  auto teapotTrans = Transformation::create();
-  teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
 
+
+
+    auto teapotTrans=TransAni;
+
+    teapotTrans->translate(glm::vec3(0,0,0))->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+    teapotTrans->addChild(teapot);
   // create scene graph
   scene = Group::create();
-  scene->addCore(shaderGouraud);
+  scene->addCore(shaderPhong);
   scene->addChild(camera)
-       ->addChild(light);
+       ->addChild(light)->addChild(light2);
   light->addChild(teapotTrans);
-  teapotTrans->addChild(teapot);
+  light2->addChild(floorTrans);
+
 }
 
 
@@ -503,7 +578,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
          //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
         }
         if(j>=30 && j<40) {
-            d=d+0.2;
+            d=d+0.2;  
             HouseTrans[j]->translate(glm::vec3(d, -0.4, 1.5));
          //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
         }
