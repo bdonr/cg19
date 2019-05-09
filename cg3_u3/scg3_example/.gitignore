@@ -4,4 +4,4 @@
 ../.idea
 /*.vcxproj.user
 /cmake-build-debug
-/.idea
+.idea

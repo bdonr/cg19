@@ -68,6 +68,8 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 
+void createUmgebung(ViewerSP sharedPtr, PerspectiveCameraSP sharedPtr, GroupSP sharedPtr);
+
 /**
  * \brief The main function.
  */
@@ -132,6 +134,40 @@ void useSimpleViewer() {
 // Typical application using a customized viewer.
 void useCustomizedViewer() {
 
+<<<<<<< HEAD
+  // create viewer and renderer
+  auto viewer = Viewer::create();
+  auto renderer = StandardRenderer::create();
+  viewer->init(renderer)
+        ->createWindow("s c g 3   e x a m p l e", 1024, 768);
+
+  // create camera
+  auto camera = PerspectiveCamera::create();
+  camera->translate(glm::vec3(0.f, 0.f, 3.f))
+          ->dolly(-1.f);
+  renderer->setCamera(camera);
+
+  // create scene
+  GroupSP scene;
+  switch (SCGConfiguration::sceneType) {
+  case 0:
+    createTeapotScene(viewer, camera, scene);
+    break;
+  case 1:
+    createTableScene(viewer, camera, scene);
+      case 2:
+          createUmgebung(viewer,camera,scene);
+    break;
+  default:
+    throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
+  }
+  renderer->setScene(scene);
+
+  // start animations, enter main loop
+
+  viewer->startAnimations()
+        ->startMainLoop();
+=======
     // create viewer and renderer
     auto viewer = Viewer::create();
     auto renderer = StandardRenderer::create();
@@ -162,6 +198,11 @@ void useCustomizedViewer() {
 
     viewer->startAnimations()
             ->startMainLoop();
+>>>>>>> c9fde3278ba2e6ca8263803e049a1fed13e165dc
+}
+
+void createUmgebung(ViewerSP viewer, PerspectiveCameraSP camera, GroupSP scene) {
+
 }
 
 
