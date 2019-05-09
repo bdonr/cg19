@@ -34,9 +34,9 @@ namespace scg {
 
 KeyboardController::KeyboardController(CameraSP camera)
     : CameraController(camera) {
-  moveVelocity_ = 1.0f;
-  rotateVelocity_ = 45.0f;
-  flightVelocityStep_ = 0.2f;
+  moveVelocity_ = 0.3f;
+  rotateVelocity_ = 50.0f;
+  flightVelocityStep_ = 0.1f;
 
   std::cout << "Keyboard camera control enabled" << std::endl;
   std::cout << "- space: toggle fly/examine mode" << std::endl;
@@ -47,7 +47,7 @@ KeyboardController::KeyboardController(CameraSP camera)
   std::cout << "- w/s: move forward/backward" << std::endl;
   std::cout << "  + alt: dolly in/out (relative to center point)" << std::endl;
   std::cout << "- a/d/x/z: move left/right/up/down (a/d/x/y on German keyboard)" << std::endl;
-  std::cout << "- page up/down: increase/decrease continuous flight velocity" << std::endl;
+  std::cout << "- q/e: increase/decrease continuous flight velocity" << std::endl;
   std::cout << "- h: toggle frame rate output (to console)" << std::endl;
   std::cout << "- j: toggle center point visibility" << std::endl;
   std::cout << "- k: toggle mouse cursor visibility" << std::endl;
@@ -69,7 +69,6 @@ void KeyboardController::checkInput(ViewState* viewState) {
   // initialize controller state
   static double lastTime(glfwGetTime());
   GLFWwindow* window = viewState->getWindow();
-
   // determine time difference
   double currTime = glfwGetTime();
   GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
@@ -95,38 +94,40 @@ void KeyboardController::checkInput(ViewState* viewState) {
     }
   }
   if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-    camera_->translate(glm::vec3(-moveVelocity_ * diffTime, 0.0f, 0.0f));
+    camera_->rotateYaw(rotateVelocity_/4 * diffTime);
+    //camera_->translate(glm::vec3(-moveVelocity_ * diffTime, 0.0f, 0.0f));
   }
   if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-    camera_->translate(glm::vec3(moveVelocity_ * diffTime, 0.0f, 0.0f));
+    camera_->rotateYaw(-rotateVelocity_/4 * diffTime);
+    //camera_->translate(glm::vec3(moveVelocity_ * diffTime, 0.0f, 0.0f));
   }
   if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
-    camera_->translate(glm::vec3(0.0f, moveVelocity_ * diffTime, 0.0f));
+    //camera_->translate(glm::vec3(0.0f, moveVelocity_ * diffTime, 0.0f));
   }
   if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-    camera_->translate(glm::vec3(0.0f, -moveVelocity_ * diffTime, 0.0f));
+    //camera_->translate(glm::vec3(0.0f, -moveVelocity_ * diffTime, 0.0f));
   }
 
   // camera rotation
   if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
-    if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
-        glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
+    //if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
+     //   glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
       camera_->rotateRoll(-rotateVelocity_ * diffTime);
-    }
-    else {
+    //}
+    /*else {
       if (isFlyMode_) {
         camera_->rotateYaw(rotateVelocity_ * diffTime);
       }
       else {
         camera_->rotateAzimuth(-rotateVelocity_ * diffTime);
       }
-    }
+    }*/
   }
   if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
-    if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
-        glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
+    //if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
+      //  glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
       camera_->rotateRoll(rotateVelocity_ * diffTime);
-    }
+    /*}
     else {
       if (isFlyMode_) {
         camera_->rotateYaw(-rotateVelocity_ * diffTime);
@@ -134,7 +135,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
       else {
         camera_->rotateAzimuth(rotateVelocity_ * diffTime);
       }
-    }
+    }*/
   }
   if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
     if (isFlyMode_) {
@@ -154,21 +155,25 @@ void KeyboardController::checkInput(ViewState* viewState) {
   }
 
   // continuous flight velocity
-  static bool toggleKeyPageUp = false;
-  if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS && !toggleKeyPageUp) {
+  //E verringer flightVelocity_ und flugzeug wird schneller
+  static bool toggleSpeedUp = false;
+  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS && !toggleSpeedUp && flightVelocity_ > -0.8) {
     flightVelocity_ -= flightVelocityStep_;
-    toggleKeyPageUp = true;
+    toggleSpeedUp = true;
+    std::cout<<flightVelocity_<<std::endl;
   }
-  if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_RELEASE) {
-    toggleKeyPageUp = false;
+  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_RELEASE) {
+    toggleSpeedUp = false;
   }
-  static bool toggleKeyPageDown = false;
-  if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS && !toggleKeyPageDown) {
+  //Q erhöht flightVelocity_ und macht flugzeug langsammer
+  static bool toggleSpeedDown = false;
+  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < 0.2) {
     flightVelocity_ += flightVelocityStep_;
-    toggleKeyPageDown = true;
+    toggleSpeedDown = true;
+    std::cout<<flightVelocity_<<std::endl;
   }
-  if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_RELEASE) {
-    toggleKeyPageDown = false;
+  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_RELEASE) {
+    toggleSpeedDown = false;
   }
 
   // toggle fly/examine mode
