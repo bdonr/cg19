@@ -397,7 +397,7 @@ GeometryCoreSP GeometryCoreFactory::createSphere(GLfloat radius, int nSlices, in
 
   // stack i starts at i * stackOffset (i = 0, 1, ..., nStacks - 1)
   int stackOffset = nSlices + 1;    // number of vertices per stack edge
-  float dPhi = 2.f * PI / nSlices;  // longitude angle step
+  float dPhi =  2.0*PI / nSlices;  // longitude angle step
   float dS = 1.f / nSlices;         // texture coordinate s step
   float dTheta = PI / nStacks;      // latitude angle step
   float dT = 1.f / nStacks;         // texture coordinate t step
@@ -485,6 +485,108 @@ GeometryCoreSP GeometryCoreFactory::createSphere(GLfloat radius, int nSlices, in
   return core;
 }
 
+    GeometryCoreSP GeometryCoreFactory::createHalfSphere(GLfloat radius, int nSlices, int nStacks) {
+
+        // create geometry core
+        auto core = GeometryCore::create(GL_TRIANGLES, DrawMode::ELEMENTS);
+
+        // define vertices, normals, and texture coordinates
+        int nVertices = (nStacks + 1) * (nSlices + 1);
+        GLfloat* vertices = new GLfloat[3 * nVertices];
+        GLfloat* normals = new GLfloat[3 * nVertices];
+        GLfloat* tangents = new GLfloat[3 * nVertices];
+        GLfloat* binormals = new GLfloat[3 * nVertices];
+        GLfloat* texCoords = new GLfloat[2 * nVertices];
+
+        // stack i starts at i * stackOffset (i = 0, 1, ..., nStacks - 1)
+        int stackOffset = nSlices + 1;    // number of vertices per stack edge
+        float dPhi =  PI / nSlices;  // longitude angle step
+        float dS = 1.f / nSlices;         // texture coordinate s step
+        float dTheta = PI / nStacks;      // latitude angle step
+        float dT = 1.f / nStacks;         // texture coordinate t step
+        for (int i = 0; i <= nStacks; ++i) {
+            GLfloat cosTheta = cos(i * dTheta);
+            GLfloat sinTheta = sin(i * dTheta);
+            for (int j = 0; j <= nSlices; ++j) {
+                GLfloat cosPhi = cos(j * dPhi);
+                GLfloat sinPhi = sin(j * dPhi);
+
+                int vertIdx = 3 * (i * stackOffset + j);
+                assert(vertIdx + 2 < 3 * nVertices);
+
+                vertices[vertIdx] = radius * cosPhi * sinTheta;       // x
+                vertices[vertIdx + 1] = radius * sinPhi * sinTheta;   // y
+                vertices[vertIdx + 2] = radius * cosTheta;            // z
+
+                normals[vertIdx] = cosPhi * sinTheta;       // x
+                normals[vertIdx + 1] = sinPhi * sinTheta;   // y
+                normals[vertIdx + 2] = cosTheta;            // z
+
+                tangents[vertIdx] = -sinPhi;        // x
+                tangents[vertIdx + 1] = cosPhi;     // y
+                tangents[vertIdx + 2] = 0.f;        // z
+
+                binormals[vertIdx] = -cosPhi * cosTheta;      // x
+                binormals[vertIdx + 1] = -sinPhi * cosTheta;  // y
+                binormals[vertIdx + 2] = sinTheta;            // z
+
+                int texIdx = 2 * (i * stackOffset + j);
+                assert(texIdx + 1 < 2 * nVertices);
+
+                texCoords[texIdx] = j * dS;             // s
+                texCoords[texIdx + 1] = 1.f - i * dT;   // t
+            }
+        }
+
+        core->addAttributeData(OGLConstants::VERTEX.location, vertices,
+                               3 * nVertices * sizeof(GLfloat), 3, GL_STATIC_DRAW);
+        core->addAttributeData(OGLConstants::NORMAL.location, normals,
+                               3 * nVertices * sizeof(GLfloat), 3, GL_STATIC_DRAW);
+        core->addAttributeData(OGLConstants::TANGENT.location, tangents,
+                               3 * nVertices * sizeof(GLfloat), 3, GL_STATIC_DRAW);
+        core->addAttributeData(OGLConstants::BINORMAL.location, binormals,
+                               3 * nVertices * sizeof(GLfloat), 3, GL_STATIC_DRAW);
+        core->addAttributeData(OGLConstants::TEX_COORD_0.location, texCoords,
+                               2 * nVertices * sizeof(GLfloat), 2, GL_STATIC_DRAW);
+
+        // define indices
+        int nTriangles = 2 * nSlices * nStacks;
+        GLuint* indices = new GLuint[3 * nTriangles];
+
+        for (int i = 0; i < nStacks; ++i) {
+            for (int j = 0; j < nSlices; ++j) {
+                int faceIdx = 6 * (i * nSlices + j);
+                int vertIdx1 = i * stackOffset + j;
+                int vertIdx2 = (i + 1) * stackOffset + j;
+                assert(faceIdx + 5 < 3 * nTriangles);
+                assert(vertIdx1 + 1 < 3 * nVertices);
+                assert(vertIdx2 + 1 < 3 * nVertices);
+
+                indices[faceIdx] = vertIdx1;
+                indices[faceIdx + 1] = vertIdx1 + 1;
+                indices[faceIdx + 2] = vertIdx2;
+                indices[faceIdx + 3] = vertIdx1 + 1;
+                indices[faceIdx + 4] = vertIdx2 + 1;
+                indices[faceIdx + 5] = vertIdx2;
+            }
+        }
+        core->setElementIndexData(indices, 3 * nTriangles * sizeof(GLuint), GL_STATIC_DRAW);
+
+        delete [] vertices;
+        vertices = nullptr;
+        delete [] normals;
+        normals = nullptr;
+        delete [] tangents;
+        tangents = nullptr;
+        delete [] binormals;
+        binormals = nullptr;
+        delete [] texCoords;
+        texCoords = nullptr;
+        delete [] indices;
+        indices = nullptr;
+
+        return core;
+    }
 
 GeometryCoreSP GeometryCoreFactory::createCone(GLfloat radius, GLfloat height,
     int nSlices, int nStacks, bool hasCap) {

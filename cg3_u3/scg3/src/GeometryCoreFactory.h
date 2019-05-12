@@ -113,7 +113,11 @@ public:
    */
   GeometryCoreSP createSphere(GLfloat radius, int nSlices, int nStacks);
 
-  /**
+
+    GeometryCoreSP createHalfSphere(GLfloat radius, int nSlices, int nStacks);
+
+
+    /**
    * Create cone along z axis and centered at origin with normals, tangents,
    * binormals, and texture coordinates
    * (2 * nSlices * nStacks triangles for lateral surface plus nSlices triangles for cap).
