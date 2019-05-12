@@ -71,6 +71,8 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 int dmod(double time, double d);
 
+void createSterne(LightSP *mats, LightPositionSP *lightPositionSp);
+
 /**
  * \brief The main function.
  */
@@ -249,13 +251,6 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             ->setShininess(20.f)
             ->init();
 
-    auto lightTrans = Transformation::create();
-    lightTrans->translate(glm::vec3(4.3f, 0.2f, 0.3f));
-    lightTrans->scale(glm::vec3(0.05, 0.05, 0.05));
-    lightTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
-
-    lightTrans->addChild(light2);
-
     // red material
     auto matWhite = MaterialCore::create();
     matWhite->setAmbientAndDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
@@ -389,65 +384,20 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     // lights
     auto sonne = Light::create();
-    sonne->setSpecular(glm::vec4(.1f, .1f, .1f, 1.f))->setDiffuse(glm::vec4(.1,.1,.1, 1))->setAmbient(
+    sonne->setSpecular(glm::vec4(.1, .1f, .1f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
                     glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, 15.f,0, 1.f))
+            ->setPosition(glm::vec4(0.f, -15.f, 0, 1.f))
             ->init();
 
     auto matStern = Light::create();
-        matStern->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
-                        glm::vec4(.1, .1, .1, 1))
-                ->setPosition(glm::vec4(0.f, -15.f, 0, 1.f))
-                ->init();
+    matStern->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
+                    glm::vec4(.1, .1, .1, 1))
+            ->setPosition(glm::vec4(0.f, -15.f, 0, 1.f))
+            ->init();
 
-
-
-
-
-    LightSP mats [50];
+    LightSP mats[50];
     LightPositionSP lightPositionSp[50];
-    float a = 0.8;
-    float b = 0.8;
-    float c = 0.8;
-    float d = 0.8;
-    float e = 0.8;
-    float pos= -15.;
-    for(int j = 0; j< 50 ;j++){
-        mats[j] = Light::create();
-        mats[j]->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1,.1,.1, 1))->setAmbient(
-                        glm::vec4(.1, .1, .1, 1))
-
-                ->init();
-        if(j<10) {
-            a=a+0.2;
-            mats[j]->setPosition(glm::vec4(a, pos,1, 1.f));
-            // HouseTrans[j]->scale(glm::vec3(1,((float)(rand() % 10)/10),1));
-        }
-        if(j>=10 && j<20) {
-            b=b+0.2;
-            mats[j]->setPosition(glm::vec4(b, pos,2, 1.f));
-            //    HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=20 && j<30) {
-            c=c+0.2;
-            mats[j]->setPosition(glm::vec4(c, pos,3, 1.f));
-            //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=30 && j<40) {
-            d=d+0.2;
-            mats[j]->setPosition(glm::vec4(d, pos,4, 1.f));
-            //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=40 && j<=50) {
-            e=e+0.2;
-            mats[j]->setPosition(glm::vec4(e, pos,-5, 1.f));
-            //    HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        lightPositionSp[j] = LightPosition::create(mats[j]);
-
-    }
-
-
+     createSterne(mats,lightPositionSp);
     auto l = LightPosition::create(sonne);
 
     // materials
@@ -473,17 +423,16 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             ->init();
 
     auto matTag = MaterialCore::create();
-    matTag->setAmbient(glm::vec4(0, .7, 1, 1))->setDiffuse(glm::vec4(.1,.1,.1,.1))
+    matTag->setAmbient(glm::vec4(0, .7, 1, 1))->setDiffuse(glm::vec4(.1, .1, .1, .1))
             ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
             ->setShininess(20.f)
             ->init();
 
 
     auto matNacht = MaterialCore::create();
-    matNacht->setAmbient(glm::vec4(0,.7, 1, 1))->setDiffuse(glm::vec4(.1, .1, .1, .1))
-            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setShininess(20000.f)
+    matNacht->setAmbient(glm::vec4(0, .7, 1, 1))->setDiffuse(glm::vec4(.1, .1, .1, .1))
+            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setShininess(2000000.f)
             ->init();
-
 
 
     auto TransAni = TransformAnimation::create();
@@ -526,7 +475,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto TransAni2 = TransformAnimation::create();
     auto atmos = Group::create();
     atmos->addChild(l);
-    for(int i =0 ; i <50;i++){
+    for (int i = 0; i < 50; i++) {
         atmos->addChild(lightPositionSp[i]);
     }
     auto atmosTrans = Transformation::create();
@@ -547,7 +496,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             "ct-map.png", GL_REPEAT, GL_REPEAT, GL_NEAREST, GL_NEAREST);
 
     auto himmelTex = textureFactory.create2DTextureFromFile(
-            "halbkugel2.png",GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+            "halbkugel2.png", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
 
     auto nachtTex = textureFactory.create2DTextureFromFile(
@@ -570,34 +519,34 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto TransAni3 = TransformAnimation::create();
 
     TransAni2->setUpdateFunc([](TransformAnimation *anim2, double currTime, double diffTime, double totalTime) {
-        anim2->rotate(.01f, glm::vec3(0.f, 0.f, 1.f));
+        anim2->rotate(-.1f, glm::vec3(0.f, 0.f, 1.f));
 
     });
-    auto himmelCore = geometryFactory.createHalfSphere(1, 101, 110);
+    auto himmelCore = geometryFactory.createHalfSphere(20, 101, 110);
     auto himmel = Shape::create();
-    himmel->addCore(shaderPhongTex2)
+    himmel->addCore(matTag)->addCore(shaderPhongTex2)
             ->addCore(matTag)->addCore(himmelTex)
             ->addCore(himmelCore);
 
     auto himmelTrans = Transformation::create();
     himmelTrans->addChild(himmel);
 
-    auto nachtHimmelCore = geometryFactory.createHalfSphere(1, 101, 110);
+    auto nachtHimmelCore = geometryFactory.createHalfSphere(20, 101, 110);
     auto nachtHimmel = Shape::create();
-    nachtHimmel->addCore(shaderPhongTex2)
-            ->addCore(matTag)->addCore(himmelTex)
+    nachtHimmel->addCore(matNacht)
+            ->addCore(shaderPhongTex2)
+            ->addCore(himmelTex)
             ->addCore(himmelCore);
 
     auto nachtHimmelTrans = Transformation::create();
 
     TransAni3->setUpdateFunc([](TransformAnimation *anim3, double currTime, double diffTime, double totalTime) {
-        anim3->rotate(.01f, glm::vec3(0, 0, 0.1));
+        // anim3->rotate(.01f, glm::vec3(0, 0, 0.1));
 
     });
-
     auto TransAni4 = TransformAnimation::create();
     TransAni4->setUpdateFunc([](TransformAnimation *anim4, double currTime, double diffTime, double totalTime) {
-        anim4->rotate(-.01f, glm::vec3(0, 0, 0.1));
+        //anim4->rotate(-.01f, glm::vec3(0, 0, 0.1));
     });
     viewer->addAnimation(TransAni);
     viewer->addAnimation(TransAni2);
@@ -607,13 +556,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     nachtHimmelTrans = TransAni3;
     nachtHimmelTrans->addChild(nachtHimmel);
-    nachtHimmelTrans->translate(glm::vec3(0, 2, -2));
-    nachtHimmelTrans->rotate(-180,glm::vec3(1,0,0));
+    nachtHimmelTrans->translate(glm::vec3(0, 0, 0));
+    nachtHimmelTrans->rotate(-180, glm::vec3(1, 0, 0));
     himmelTrans = TransAni4;
     himmelTrans->addChild(himmel);
-    himmelTrans->translate(glm::vec3(0, 2, -2));
-    himmelTrans->rotate(-0,glm::vec3(1,0,0));
-
+    himmelTrans->translate(glm::vec3(0, 0, 0));
 
 
     auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -659,16 +606,17 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
 
     atmosTrans = TransAni2;
-    atmosTrans->addChild(atmos);
+
     // create scene graph
     scene = Group::create();
     scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(sonne)->addChild(light3)->addChild(matStern);
     sonne->addChild(camera)->addChild(himmelTrans);
-    matStern->addChild(nachtHimmelTrans);
-    for(int i =0; i<50; i ++){
+    for (int i = 0; i < 50; i++) {
+
         mats[i]->addChild(nachtHimmelTrans);
         scene->addChild(mats[i]);
     }
+    atmosTrans->addChild(atmos);
     sonne->addChild(floorTrans);
     floorTrans->addChild(floor);
     camObjectTrans->addChild(camObject);
@@ -684,6 +632,24 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
   scene->addChild(camera);
 #endif
  */
+}
+
+void createSterne(LightSP *mats, LightPositionSP *lightPositionSp) {
+
+    for (int j = 0; j < 50; j++) {
+        float sx1 = rand() % 8 + 1;
+        float sy1 =rand() % 8 + 1;
+        float sz1 = rand() % 8 + 1;
+        std::cout<<sx1<<" "<<sy1<<" "<<sz1<<std::endl;
+        mats[j] = Light::create();
+        mats[j]->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, 1, 1, 1))->setAmbient(
+                        glm::vec4(.1, .1, .1, 1))
+
+                ->init();
+        mats[j]->setPosition(glm::vec4(sx1, sy1, sz1, 1));
+        mats[j]->setSpot(glm::vec3(-.1, -.1, -.1), 20., 20.);
+        lightPositionSp[j] = LightPosition::create(mats[j]);
+    }
 }
 
 int dmod(double time, double d) {
