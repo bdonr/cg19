@@ -391,7 +391,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto sonne = Light::create();
     sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1, 1, 1, 1))->setAmbient(
                     glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, 0.f,-15.f, 1.f))
+            ->setPosition(glm::vec4(0.f, 15.f,0, 1.f))
             ->init();
     auto l = LightPosition::create(sonne);
 
@@ -421,6 +421,12 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     matTag->setAmbient(glm::vec4(0, .7, 1, 1))->setDiffuse(glm::vec4(1, 1, 1, 1))
             ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
             ->setShininess(20.f)
+            ->init();
+
+
+    auto matNacht = MaterialCore::create();
+    matNacht->setAmbient(glm::vec4(0, .7, 1, 1))->setDiffuse(glm::vec4(1, 1, 1, 1))
+            ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
             ->init();
 
     auto matStern = MaterialCore::create();
@@ -488,11 +494,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             "ct-map.png", GL_REPEAT, GL_REPEAT, GL_NEAREST, GL_NEAREST);
 
     auto himmelTex = textureFactory.create2DTextureFromFile(
-            "halbkugel.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+            "halbkugel2.png",GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
 
     auto nachtTex = textureFactory.create2DTextureFromFile(
-            "halbkugel.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+            "halbkugel2.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
     GeometryCoreFactory geometryFactory;
     auto light3 = Light::create();
@@ -532,12 +538,13 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto nachtHimmelTrans = Transformation::create();
 
     TransAni3->setUpdateFunc([](TransformAnimation *anim3, double currTime, double diffTime, double totalTime) {
-        anim3->rotate(-.01f, glm::vec3(0., 0, 1.));
+        anim3->rotate(.01f, glm::vec3(0, 0, 0.1));
+
     });
 
     auto TransAni4 = TransformAnimation::create();
     TransAni4->setUpdateFunc([](TransformAnimation *anim4, double currTime, double diffTime, double totalTime) {
-
+        anim4->rotate(-.01f, glm::vec3(0, 0, 0.1));
     });
     viewer->addAnimation(TransAni);
     viewer->addAnimation(TransAni2);
@@ -547,12 +554,13 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     nachtHimmelTrans = TransAni3;
     nachtHimmelTrans->addChild(nachtHimmel);
-    nachtHimmelTrans->translate(glm::vec3(0, 2, 0));
-    nachtHimmelTrans->rotate(-130.f, glm::vec3(1, 0, 0));
+    nachtHimmelTrans->translate(glm::vec3(0, 0, 0));
+    nachtHimmelTrans->rotate(-180,glm::vec3(1,0,0));
     himmelTrans = TransAni4;
     himmelTrans->addChild(himmel);
-    himmelTrans->translate(glm::vec3(0, 2, 0));
-    himmelTrans->rotate(50.f, glm::vec3(1, 0, 0));
+    himmelTrans->translate(glm::vec3(0, 0, 0));
+    himmelTrans->rotate(-0,glm::vec3(1,0,0));
+
 
 
     auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
