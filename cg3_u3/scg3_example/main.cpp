@@ -71,7 +71,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 int dmod(double time, double d);
 
-void createSterne(LightSP *mats, LightPositionSP *lightPositionSp);
+void createSterne(std::vector<std::shared_ptr<scg::Light>> &light,std::vector<std::shared_ptr<scg::LightPosition>> &lightPositionSp);
 
 MaterialCoreSP
 createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
@@ -251,19 +251,23 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     // lights
     auto sonne = Light::create();
-    sonne->setSpecular(glm::vec4(1, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1, 1, 1, 1))->setAmbient(
+    sonne->setSpecular(glm::vec4(1, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(0, 0, 0, 0))->setAmbient(
+                    glm::vec4(.5, .55, .55, 1))
+            ->setPosition(glm::vec4(3.f, 25.f, 5, 1.f))
+            ->init();
+    auto stern1 = Light::create();
+    stern1->setSpecular(glm::vec4(.1, .1f, .1f, .1f))->setDiffuse(glm::vec4(0, 0, 0, 1))->setAmbient(
                     glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, 15.f, 0, 1.f))
+            ->setPosition(glm::vec4(5.f, -25.f, 1, 1.f))
+            ->init();
+    auto stern2 = Light::create();
+    stern2->setSpecular(glm::vec4(.1, .1f, .1f, .1f))->setDiffuse(glm::vec4(0, 0, 0, 1))->setAmbient(
+                    glm::vec4(.1, .1, .1, 1))
+            ->setPosition(glm::vec4(6.f, -25.f, 1.1, 2.f))
             ->init();
 
-    auto matStern = Light::create();
-    matStern->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
-                    glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, -15.f, 0, 1.f))
-            ->init();
-
-    LightSP mats[50];
-    LightPositionSP lightPositionSp[50];
+    std::vector<std::shared_ptr<scg::Light>> mats;
+    std::vector<std::shared_ptr<scg::LightPosition>> lightPositionSp;
      createSterne(mats,lightPositionSp);
     auto l = LightPosition::create(sonne);
 
@@ -272,7 +276,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     MaterialCoreSP matWhite = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
     MaterialCoreSP matGreen = createMat(glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
     MaterialCoreSP matBlack = createMat(glm::vec4(0, 0, 0, 0), glm::vec4(0, 0, 0, 0), glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
-    MaterialCoreSP matTag = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.4, .4, .4, .4), glm::vec4(1.f, 1.f, 1.f, 1.f), 220.0);
+    MaterialCoreSP matTag = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(1, 1, 1, 1), glm::vec4(.1f, .1f, .1f, .1f), 10000998.0);
     MaterialCoreSP matNacht = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.1, .1, .1, .1), glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
 
 
@@ -300,7 +304,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto TransAni3 = TransformAnimation::create();
 
     TransAni2->setUpdateFunc([](TransformAnimation *anim2, double currTime, double diffTime, double totalTime) {
-        anim2->rotate(-.1f, glm::vec3(0.f, 0.f, 1.f));
+        anim2->rotate(-.1f, glm::vec3(1.f, 0.f, 0.f));
 
     });
 
@@ -323,13 +327,13 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto atmos = Group::create();
     atmos->addChild(l);
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 100; i++) {
         atmos->addChild(lightPositionSp[i]);
     }
 
 
     TransAni3->setUpdateFunc([](TransformAnimation *anim3, double currTime, double diffTime, double totalTime) {
-         anim3->rotate(.01f, glm::vec3(0, 0, 0.1));
+         anim3->rotate(.01f, glm::vec3(0, 1, 5));
 
     });
     auto TransAni4 = TransformAnimation::create();
@@ -360,24 +364,32 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     // teapot shape and transf
     // ormation
 
-
+    viewer->startAnimations();
 
     atmosTrans = TransAni2;
+    atmosTrans->addChild(atmos);
+    atmosTrans->translate(glm::vec3(0,-16,0));
 
     // create scene graph
     scene = Group::create();
-    scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(sonne)->addChild(matStern);
+    scene->addCore(shaderPhong)->addChild(sonne)->addChild(atmosTrans);
+    scene->addChild(stern1);
     sonne->addChild(camera);
-    for (int i = 0; i < 50; i++) {
-        scene->addChild(mats[i]);
-        mats[i]->addChild(himmelTrans);
-    }
-    atmosTrans->addChild(atmos);
+    stern1->addChild(stern2);
+    stern2->addChild(mats.at(0));
+    for (int i = 1; i < 100; i++) {
+        mats.at(i-1)->addChild(mats.at(i));
 
+        std::cout<<i<<""<<std::endl;
+    }
+
+
+    mats.at(99)->addChild(himmelTrans);
+    //stern1->addChild(mats.at(0));
     floorTrans->addChild(floor);
     camObjectTrans->addChild(camObject);
     camera->addChild(camObjectTrans);
-    viewer->startAnimations();
+
 
     // cam an die transformation des obejktes binden
 //TransAni->addChild(camera);
@@ -418,21 +430,19 @@ TransformationSP createTransformation(const glm::vec3& translate, const glm::vec
     jetTrans->scale(scale);
     return jetTrans;
 }
-void createSterne(LightSP *mats, LightPositionSP *lightPositionSp) {
-
-    for (int j = 0; j < 50; j++) {
-        float sx1 = rand() % 8 + 1;
-        float sy1 =rand() % 180 + 19;
-        float sz1 = rand() % 8 + 1;
+void createSterne(std::vector<std::shared_ptr<scg::Light>> &light,std::vector<std::shared_ptr<scg::LightPosition>> &lightPositionSp){
+    for (int j = 0; j < 100; j++) {
+        float sx1 = fmod(rand() ,825.1) - 825.1;
+        float sy1 =fmod(rand() ,825.1) - 825.1;
+        float sz1 = fmod(rand(), 825.1) - 825.1;
         std::cout<<sx1<<" "<<sy1<<" "<<sz1<<std::endl;
-        mats[j] = Light::create();
-        mats[j]->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, 1, 1, 1))->setAmbient(
-                        glm::vec4(.1, .1, .1, 1))
+        light.push_back(Light::create());
+        light.at(j)->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(0, 0, .0, 1))->setAmbient(
+                        glm::vec4(.0, .0, .0, 0))
 
                 ->init();
-        mats[j]->setPosition(glm::vec4(sx1, sy1, sz1, 1));
-        mats[j]->setSpot(glm::vec3(-.1, -.1, -.1), 20., 20.);
-        lightPositionSp[j] = LightPosition::create(mats[j]);
+        light.at(j)->setPosition(glm::vec4(sx1, sy1, sz1, 1));
+        lightPositionSp.push_back(LightPosition::create(light.at(j)));
     }
 }
 
