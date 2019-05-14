@@ -1190,5 +1190,40 @@ int GeometryCoreFactory::loadOBJFile_(const std::string& fileName, OBJModel& mod
   return error;
 }
 
+    GeometryCoreSP GeometryCoreFactory::createTorus(GLfloat torusRadius, GLfloat innerRadius, int torusTeile, int kreisTeile) {
 
+
+        auto core = GeometryCore::create(GL_TRIANGLES, DrawMode::ELEMENTS); //Fuer VBO
+        int nVertices = torusTeile * kreisTeile;
+        GLfloat *vertices = new GLfloat[3 * nVertices];
+        for (int i = 0; i < torusTeile; i++) { // 0 1 2 ... n-1
+            //aktueller Winkel in Grad (gesamter Kreis * prozentualer Anteil(aktuelle Teilanzahl/Gesamtanzahl))
+            float u = 2.f * PI * (i / (float) torusTeile);
+
+            int x = 0;
+
+            for (int j = 0; j < kreisTeile; j++) { // 0 1 2 ... n-1
+                //aktueller Winkel in Grad des Kreises in ZW-Ebene
+                float v = 2.f * PI * (i / (float) kreisTeile);
+                vertices[x] = (torusRadius * cos(u)) + (innerRadius * cos(v) * cos(u) + 0);       // x
+                vertices[x + 1] = (torusRadius * sin(u)) + (innerRadius * cos(v) * sin(u) + 0);   // y
+                vertices[x + 2] = (torusRadius * 0) + (innerRadius * cos(v) * 0 + innerRadius * sin(v));   // z
+            }
+        }
+        GLuint *indices = new GLuint[3 * nVertices];
+        int j = 0;
+        for (int i = 0; i < nVertices; i += kreisTeile) {//0 3 6 9 ..
+            indices[j] = vertices[i];
+            indices[j + 1] = vertices[i + 1];
+            indices[j + 2] = vertices[i + 2];
+
+            indices[j + 3] = vertices[i + 2];
+            indices[j + 4] = vertices[i + 1];
+            indices[j + 5] = vertices[i + 3];
+            j += 5;
+
+        }
+        core->setElementIndexData(indices, sizeof(indices), GL_STATIC_DRAW);
+        return core;
+    }
 } /* namespace scg */

@@ -130,7 +130,7 @@ public:
    */
   GeometryCoreSP createCone(GLfloat radius, GLfloat height,
       int nSlices, int nStacks, bool hasCap = true);
-
+    GeometryCoreSP createTorus(GLfloat torusRadius, GLfloat innerRadius, int torusTeile, int kreisTeile);
   /**
    * Create cylinder along z axis and centered at origin with normals, tangents,
    * binormals, and texture coordinates
