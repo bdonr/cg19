@@ -50,6 +50,96 @@ void GeometryCoreFactory::addFilePath(const std::string& filePath) {
   splitFilePath(filePath, filePaths_);
 }
 
+GeometryCoreSP GeometryCoreFactory::createTorus(GLfloat torusRadius, GLfloat innerRadius, int torusTeile, int kreisTeile ) {
+	/*
+	 *Definition der Faces
+	 *(u, v) -> (u, v+1) -> (u-1, v)
+	 *(u-1, v) -> (u, v+1) -> (u-1, v+1)
+	 *
+	 *
+	 * */
+  auto core = GeometryCore::create(GL_TRIANGLES, DrawMode::ELEMENTS); //Fuer VBO
+
+  // define vertices, normals, and texture coordinates
+  int nVertices = torusTeile*kreisTeile;
+
+  //x,y,z Werte werden einzeln abgespeichert, kein Array von Vertices
+  GLfloat* vertices = new GLfloat[3 * nVertices];
+
+  //Vertices definieren
+  int vertexIndex=0;
+  //Torus Kreis ablaufen
+  for(int i=0; i<torusTeile;i++){ // 0 1 2 ... n-1
+	  //aktueller Winkel in Grad (gesamter Kreis * prozentualer Anteil(aktuelle Teilanzahl/Gesamtanzahl))
+	  float u = 2.f * PI * ((float)i/(float)torusTeile);
+
+	  //Berechnung des Punktes P
+	  double x= ((double)torusRadius*(cos(u))*(double)1);
+	  double y= ((double)torusRadius*(sin(u))*(double)1);
+	  double z= (0*(double)1);
+	  glm::vec3 kreis1Punkt(x,y,z);
+	  std::cout<<"P: "<<glm::to_string(kreis1Punkt).c_str()<<std::endl;
+
+	  //Berechnung der w-Achse
+	  //Da der Mittelpunkt des Toruses im Nullpunkt ist, entspricht die Achse dem normierten Punkt P
+	  glm::vec3 w=glm::normalize(kreis1Punkt);
+	  std::cout<<"w-Achse 1= : "<<glm::to_string(w).c_str()<<std::endl;
+	  std::cout<<"w-Achse 2= : vec3("<<cos(u)<<", "<<sin(u)<<", "<<0<<")"<<std::endl;
+
+	  // W=|P|
+	  // W’=P    verschiebt den Punkt C nach P,   C + W'=P
+
+
+	  for(int j=0; j<kreisTeile;j++){ // 0 1 2 ... n-1
+		  //aktueller Winkel in Grad des Kreises in ZW-Ebene
+		  float v = 2.f * (float)PI * ((float)j/(float)kreisTeile);
+
+		  vertices[vertexIndex  ] = ((float)torusRadius * cos(u)) 	+ 	((float)innerRadius * cos(v) * cos(u) 		+ (float)0);       // x
+		  vertices[vertexIndex+1] = ((float)torusRadius * sin(u)) 	+	((float)innerRadius * cos(v) * sin(u) 		+ (float)0);   // y
+		  vertices[vertexIndex+2] = ((float)torusRadius * (float)0) +	((float)innerRadius * cos(v) * (float)0    	+ (float)innerRadius * sin(v));   // z
+		  std::cout<<"i= "<<i<<", j="<<j<<", u="<<u<<", v="<<v<<", vertexIndex="<<vertexIndex<<", X= "<<vertices[vertexIndex  ]<<", Y= "<<vertices[vertexIndex+1]<<", Z= "<<vertices[vertexIndex+2]<<std::endl;
+		  vertexIndex+=3;
+
+	  }
+  }
+  core->addAttributeData(OGLConstants::VERTEX.location, vertices, 3 * nVertices * sizeof(GLfloat), 3, GL_STATIC_DRAW);
+
+
+  //Definieren, welche Vertices zu einem Dreieck gehoehren
+
+    int nTriangles = 2 * kreisTeile * torusTeile;
+    GLuint* indices = new GLuint[3 * nTriangles];
+
+  int aufteilungBreite=kreisTeile;
+  int aufteilungHoehe=torusTeile;
+  int indexIndicies=0;
+  for (int i = 0; i < aufteilungBreite; i++) {
+          for (int j = 0; j < aufteilungHoehe; j++) {
+              int p1 = (aufteilungHoehe+1)*i+j;
+              int p2 = (aufteilungHoehe+1)*i+j+1;
+              int p3 = ((aufteilungHoehe+1)*i+j+aufteilungHoehe+1)%((aufteilungHoehe+1)*aufteilungBreite);
+              int p4 = ((aufteilungHoehe+1)*i+j+aufteilungHoehe+2)%((aufteilungHoehe+1)*aufteilungBreite);
+              //d1 = p2 p1 p3
+              indices[++indexIndicies]=p2;
+              indices[++indexIndicies]=p1;
+              indices[++indexIndicies]=p3;
+
+
+              //d2 = p3 p4 p2
+              indices[++indexIndicies]=p3;
+              indices[++indexIndicies]=p4;
+              indices[++indexIndicies]=p2;
+
+          }
+      }
+
+  core->setElementIndexData(indices, 3 * nTriangles * sizeof(GLuint), GL_STATIC_DRAW);
+
+  return core;
+}
+
+
+
 
 GeometryCoreSP GeometryCoreFactory::createModelFromOBJFile(const std::string& fileName) {
 

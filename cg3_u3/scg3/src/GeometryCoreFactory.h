@@ -45,6 +45,9 @@ public:
    * Constructor.
    */
   GeometryCoreFactory();
+  
+  
+    GeometryCoreSP createTorus(GLfloat torusRadius, GLfloat innerRadius, int torusTeile, int kreisTeile);
 
   /**
    * Constructor with one or more file paths to be searched for model files.
