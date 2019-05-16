@@ -41,7 +41,7 @@ namespace scg {
 class KeyboardController: public CameraController {
 
 public:
-
+NodeSP ding1;
   /**
    * Constructor with given camera transformation.
    */
@@ -63,6 +63,8 @@ public:
    * \param viewState view state managed by Viewer, may be modified by controller
    */
   virtual void checkInput(ViewState* viewState);
+
+  virtual void setDing(NodeSP N);
 
 };
 

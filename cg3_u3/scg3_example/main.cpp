@@ -27,6 +27,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+#include <sstream>
 //#include <scg3.h>
 #include "../scg3/scg3.h"
 
@@ -67,12 +68,13 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
  * \brief Create a scene consisting of a floor, a table, a teapot, a camera, and a light.
  */
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
-
+void bulletTravelAndTest();
 
 
 /**
  * \brief The main function.
  */
+double bulletTravel = 0;
 int main() {
 
     int result = 0;
@@ -380,10 +382,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     // camera controllers
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
+    KeyboardControllerSP controller = KeyboardController::create(camera);
 #ifdef SCG_CPP11_INITIALIZER_LISTS
     viewer->addControllers(
             {
-                    KeyboardController::create(camera),
+                    controller,
                     MouseController::create(camera)
             });
 #else
@@ -428,26 +431,45 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
             ->init();
 
     auto TransAni = TransformAnimation::create();
+    auto somethTrans2 = Transformation::create();
+
+    auto bulletTrans = Transformation::create();
+    bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
+    bulletTrans->scale(glm::vec3(.01, .01, .01));
+    bulletTrans->rotate(-90, glm::vec3(1.f, 0.f, 0.f));
 
     TransAni->setUpdateFunc(
-            [camera, light](TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
-              /*  camera->translate(glm::vec3(0,0,-0.01));
-                std::cout<<"X= "<<camera->getPosition().x<<" Y= "<<camera->getPosition().y<<" Z= "<<camera->getPosition().z<<std::endl;
-                if(camera->getPosition().x>10){
-                    camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().x<-10){
-                    camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().z>10){
-                    camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                }else if(camera->getPosition().z<-10){
-                    camera->rotate(1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+            [camera, light, bulletTrans, somethTrans2](TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
+                camera->translate(glm::vec3(0,0,-0.01));
+                bulletTrans->translate(glm::vec3(0,3.,0));
+                bulletTravelAndTest();
+                if(bulletTravel>10){
+                    bulletTrans->translate(glm::vec3(0,-75.,0));
+/*
+ * 10 / 0.4 = 25 ---> 25 * 3 = 75 rechung für den zurücksprung
+ */
                 }
-                else if(camera->getPosition().y<1.0){
-                    camera->rotate(-1.0f, glm::vec3(1.0f, 0.f, 0.0f));
+std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/10)+" "+std::to_string((double)((int)((camera->getPosition().y)*10))/10)+" "+std::to_string((double)((int)((camera->getPosition().z)*10))/10);
+
+                std::cout<<bla<<std::endl;
+                if(somethTrans2->getMetaInfo("bla")==bla){
+                    somethTrans2->setVisible(false);
                 }
-                else if(camera->getPosition().y>9.0){
-                    camera->rotate(-1.0f, glm::vec3(1.0f, 0.f, 0.0f));
+
+                //std::cout<<"X= "<<(double)((int)((camera->getPosition().x)*10))/10<<" Y= "<<camera->getPosition().y<<" Z= "<<camera->getPosition().z<<std::endl;
+                if(camera->getPosition().x>15){
+                        camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                }else if(camera->getPosition().x<-15){
+                        camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                }else if(camera->getPosition().z>15){
+                        camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                }else if(camera->getPosition().z<-15){
+                        camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                }else if(camera->getPosition().y<1.0){
+                        camera->rotate(-15.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                }else if(camera->getPosition().y>10.0){
+                        camera->rotate(15.0f, glm::vec3(1.0f, 0.f, 0.0f));
                 }
 
                     /*
@@ -494,6 +516,8 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto himmelTex = textureFactory.create2DTextureFromFile(
             "panorama-fake-sky.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
+    auto bulletTex = textureFactory.create2DTextureFromFile(
+            "metal_scratches.jpg", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
 
     auto nachtTex = textureFactory.create2DTextureFromFile(
             "1280px-carina_nebula.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
@@ -534,7 +558,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto TransAni3 = TransformAnimation::create();
 
     TransAni2->setUpdateFunc([light,&atmos,&himmel,nachtTex,himmelTex,matWhite,shaderPhongTex2,&geometryFactory](TransformAnimation* anim2, double currTime,double diffTime, double totalTime) {
-        anim2->rotate(.005,glm::vec4(0,0,1,0));
+        anim2->rotate(.005f,glm::vec3(.0f,.0f,.1f));
 
     });
     auto horizontTrans= Transformation::create();
@@ -568,16 +592,22 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     somethTrans->scale(glm::vec3(0.05, 0.05, 0.05));
     somethTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
 
+    auto bulletCore = geometryFactory.createModelFromOBJFile("../scg3/models/223.obj");
+    auto bullet = Shape::create();
+    bullet->addCore(shaderPhongTex)
+            ->addCore(matWhite)
+            ->addCore(bulletTex)
+            ->addCore(bulletCore);
 
-
-    auto somethcore2 = geometryFactory.createSphere(0.3, 100, 100);
+    auto somethcore2 = geometryFactory.createSphere(0.1, 100, 100);
     auto someth2 = Shape::create();
     someth2->addCore(shaderPhong)
             ->addCore(lichthell)
                     //->addCore(sonne)
             ->addCore(somethcore2);
-    auto somethTrans2 = Transformation::create();
-    somethTrans2->translate(glm::vec3(4.3f, 2.2f, 2.3f));
+
+    somethTrans2->translate(glm::vec3(4.3f, 4.f, 2.3f));
+    somethTrans2->setMetaInfo("bla","4.300000 4.000000 2.300000");
     somethTrans2->scale(glm::vec3(1, 1, 1));
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
 
@@ -703,12 +733,16 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     light->addChild(floorTrans)
             ->addChild(tableTrans)
             ->addChild(stadt)
-            ->addChild(camera);
+            ->addChild(camera)
+            ->addChild(somethTrans2);
+    bulletTrans->addChild(bullet);
+    bulletTrans->setVisible(false);
     floorTrans->addChild(floor);
     light->addChild(horizontTrans);
     camObjectTrans->addChild(camObject);
     somethTrans2->addChild(someth2);
-    camera->addChild(camObjectTrans);
+    camera->addChild(camObjectTrans)
+            ->addChild(bulletTrans);
 
 
     // cam an die transformation des obejktes binden
@@ -720,4 +754,13 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
   scene->addChild(camera);
 #endif
  */
+controller->setDing(bulletTrans);
+}
+
+void bulletTravelAndTest(){
+    if(bulletTravel>10){
+        bulletTravel = 0;
+    }
+    bulletTravel= bulletTravel+0.4;
+
 }

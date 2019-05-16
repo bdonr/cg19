@@ -176,6 +176,12 @@ void KeyboardController::checkInput(ViewState* viewState) {
     toggleSpeedDown = false;
   }
 
+  if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+    ding1->setVisible(true);
+  }else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE) {
+    ding1->setVisible(false);
+  }
+
   // toggle fly/examine mode
   static bool toggleKeySpace = false;
   if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !toggleKeySpace) {
@@ -253,5 +259,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 }
 
-
+void KeyboardController::setDing(NodeSP N){
+  this->ding1 = N;
+}
 } /* namespace scg */
