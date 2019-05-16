@@ -36,7 +36,7 @@ KeyboardController::KeyboardController(CameraSP camera)
     : CameraController(camera) {
   moveVelocity_ = 0.3f;
   rotateVelocity_ = 50.0f;
-  flightVelocityStep_ = 0.1f;
+  flightVelocityStep_ = 0.2f;
 
   std::cout << "Keyboard camera control enabled" << std::endl;
   std::cout << "- space: toggle fly/examine mode" << std::endl;
@@ -157,7 +157,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   // continuous flight velocity
   //E verringer flightVelocity_ und flugzeug wird schneller
   static bool toggleSpeedUp = false;
-  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS && !toggleSpeedUp && flightVelocity_ > -0.8) {
+  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS && !toggleSpeedUp && flightVelocity_ > -0.9) {
     flightVelocity_ -= flightVelocityStep_;
     toggleSpeedUp = true;
     std::cout<<flightVelocity_<<std::endl;
@@ -167,7 +167,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   }
   //Q erhöht flightVelocity_ und macht flugzeug langsammer
   static bool toggleSpeedDown = false;
-  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < 0.2) {
+  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < 0.0) {
     flightVelocity_ += flightVelocityStep_;
     toggleSpeedDown = true;
     std::cout<<flightVelocity_<<std::endl;

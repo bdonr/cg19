@@ -624,7 +624,7 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
     auto somethcore3 = geometryFactory.createSphere(0.05, 100, 100);
     auto someth3 = Shape::create();
     someth3->addCore(shaderPhong)
-            ->addCore(lichthell)
+            ->addCore(matGreen)
             ->addCore(somethcore3);
 
     somethTrans3->translate(glm::vec3(-2.3f, 7.f, -3.3f));
@@ -634,7 +634,7 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
     auto somethcore4 = geometryFactory.createSphere(0.05, 100, 100);
     auto someth4 = Shape::create();
     someth4->addCore(shaderPhong)
-            ->addCore(lichthell)
+            ->addCore(matRed)
             ->addCore(somethcore3);
 
     somethTrans4->translate(glm::vec3(0.3f, 4.f, 0.f));
