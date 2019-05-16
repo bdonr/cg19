@@ -432,6 +432,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto TransAni = TransformAnimation::create();
     auto somethTrans2 = Transformation::create();
+    auto somethTrans3 = Transformation::create();
+    somethTrans3->setVisible(false);
+    auto somethTrans4 = Transformation::create();
+    somethTrans4->setVisible(false);
 
     auto bulletTrans = Transformation::create();
     bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
@@ -439,7 +443,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     bulletTrans->rotate(-90, glm::vec3(1.f, 0.f, 0.f));
 
     TransAni->setUpdateFunc(
-            [camera, light, bulletTrans, somethTrans2](TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+            [camera, light, bulletTrans, somethTrans2, somethTrans3, somethTrans4](TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
                 anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
                 camera->translate(glm::vec3(0,0,-0.01));
                 bulletTrans->translate(glm::vec3(0,3.,0));
@@ -455,6 +459,14 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
                 std::cout<<bla<<std::endl;
                 if(somethTrans2->getMetaInfo("bla")==bla){
                     somethTrans2->setVisible(false);
+                    somethTrans3->setVisible(true);
+                }
+                if(somethTrans3->getMetaInfo("bla")==bla){
+                    somethTrans3->setVisible(false);
+                    somethTrans4->setVisible(true);
+                }
+                if(somethTrans4->getMetaInfo("bla")==bla){
+                    somethTrans4->setVisible(false);
                 }
 
                 //std::cout<<"X= "<<(double)((int)((camera->getPosition().x)*10))/10<<" Y= "<<camera->getPosition().y<<" Z= "<<camera->getPosition().z<<std::endl;
@@ -599,16 +611,36 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
             ->addCore(bulletTex)
             ->addCore(bulletCore);
 
-    auto somethcore2 = geometryFactory.createSphere(0.1, 100, 100);
+    auto somethcore2 = geometryFactory.createSphere(0.05, 100, 100);
     auto someth2 = Shape::create();
     someth2->addCore(shaderPhong)
             ->addCore(lichthell)
-                    //->addCore(sonne)
             ->addCore(somethcore2);
 
     somethTrans2->translate(glm::vec3(4.3f, 4.f, 2.3f));
     somethTrans2->setMetaInfo("bla","4.300000 4.000000 2.300000");
     somethTrans2->scale(glm::vec3(1, 1, 1));
+
+    auto somethcore3 = geometryFactory.createSphere(0.05, 100, 100);
+    auto someth3 = Shape::create();
+    someth3->addCore(shaderPhong)
+            ->addCore(lichthell)
+            ->addCore(somethcore3);
+
+    somethTrans3->translate(glm::vec3(-2.3f, 7.f, -3.3f));
+    somethTrans3->setMetaInfo("bla","-2.300000 7.000000 -3.300000");
+    somethTrans3->scale(glm::vec3(1, 1, 1));
+
+    auto somethcore4 = geometryFactory.createSphere(0.05, 100, 100);
+    auto someth4 = Shape::create();
+    someth4->addCore(shaderPhong)
+            ->addCore(lichthell)
+            ->addCore(somethcore3);
+
+    somethTrans4->translate(glm::vec3(0.3f, 4.f, 0.f));
+    somethTrans4->setMetaInfo("bla","0.300000 4.000000 0.000000");
+    somethTrans4->scale(glm::vec3(1, 1, 1));
+
     // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
 
     auto flug = Group::create();
@@ -625,7 +657,7 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
             ->addCore(camObjectCore);
 
     auto camObjectTrans = Transformation::create();
-    camObjectTrans->translate(glm::vec3(0.f, -0.1f, -0.3f));
+    camObjectTrans->translate(glm::vec3(0.f, -0.08f, -0.2f));
     camObjectTrans->scale(glm::vec3(0.05, 0.05, 0.05));
     camObjectTrans->rotate(180, glm::vec3(0.f, 1.f, 0.f));
     camObjectTrans->setVisible(true);
@@ -734,13 +766,18 @@ std::string bla = std::to_string((double)((int)((camera->getPosition().x)*10))/1
             ->addChild(tableTrans)
             ->addChild(stadt)
             ->addChild(camera)
-            ->addChild(somethTrans2);
+            ->addChild(somethTrans2)
+            ->addChild(somethTrans3)
+            ->addChild(somethTrans4)
+                    ;
     bulletTrans->addChild(bullet);
     bulletTrans->setVisible(false);
     floorTrans->addChild(floor);
     light->addChild(horizontTrans);
     camObjectTrans->addChild(camObject);
     somethTrans2->addChild(someth2);
+    somethTrans3->addChild(someth3);
+    somethTrans4->addChild(someth4);
     camera->addChild(camObjectTrans)
             ->addChild(bulletTrans);
 
