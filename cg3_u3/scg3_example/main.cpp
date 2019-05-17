@@ -300,7 +300,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto TransAni3 = TransformAnimation::create();
 
     TransAni2->setUpdateFunc([](TransformAnimation *anim2, double currTime, double diffTime, double totalTime) {
-        anim2->rotate(-.1f, glm::vec3(0.f, 0.f, 1.f));
+        anim2->rotate(-1.f, glm::vec3(0.f, 0.f, 1.f));
 
     });
 
@@ -369,11 +369,12 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(sonne);
     sonne->addChild(camera);
     sonne->addChild(mats[0]);
-    sonne->addChild(himmelTrans);
+    sonne->addChild(himmel);
 
 
 //    mats[49]->addChild(nachtHimmelTrans);
     floorTrans->addChild(floor);
+    sonne->addChild(floorTrans);
     camObjectTrans->addChild(camObject);
     camera->addChild(camObjectTrans);
     viewer->startAnimations();
