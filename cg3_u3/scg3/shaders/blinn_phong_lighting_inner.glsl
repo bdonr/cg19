@@ -103,7 +103,7 @@ void directionalLight(const in int idx, const in vec3 v, const in vec3 n,
 
   // specular
   float hDotN = dot(lights[idx].halfVector.xyz, n);
-  if (hDotN > 90.) {
+  if (hDotN < 90.) {
     specular += lights[idx].specular * pow(hDotN, material.shininess);
   }
 }
