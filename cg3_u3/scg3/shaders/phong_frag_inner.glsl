@@ -32,7 +32,7 @@ void main(void) {
   
   // apply lighting model (to be defined in separate shader)
   vec4 emissionAmbientDiffuse, specular;
-  applyLighting(ecVertex, ecNormal, emissionAmbientDiffuse, specular);
+  applyLighting(ecVertex, -ecNormal, emissionAmbientDiffuse, specular);
 
   // apply texture and determine color (to be defined in separate shader)
   vec4 color = applyTexture(texCoord0, emissionAmbientDiffuse, specular);

@@ -419,7 +419,10 @@ GeometryCoreSP GeometryCoreFactory::createSphere(GLfloat radius, int nSlices, in
       normals[vertIdx + 1] = sinPhi * sinTheta;   // y
       normals[vertIdx + 2] = cosTheta;            // z
 
-      tangents[vertIdx] = -sinPhi;        // x
+
+
+
+        tangents[vertIdx] = -sinPhi;        // x
       tangents[vertIdx + 1] = cosPhi;     // y
       tangents[vertIdx + 2] = 0.f;        // z
 

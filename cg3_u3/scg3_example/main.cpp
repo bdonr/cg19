@@ -76,9 +76,12 @@ void createSterne(LightSP *mats, LightPositionSP *lightPositionSp);
 MaterialCoreSP
 createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
 
-Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory,const std::string& name);
-Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory,const std::string& name);
-TransformationSP createTransformation(const glm::vec3& translate, const glm::vec3& scale,const glm::vec3& rotate, float degree);
+Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory, const std::string &name);
+
+Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory, const std::string &name);
+Texture2DCoreSP createTextureBumb(TextureCoreFactory &textureFactory, const std::string &name,const std::string &normalFileName);
+TransformationSP
+createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
 
 ShapeSP
 getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur, const GeometryCoreSP &core);
@@ -116,7 +119,6 @@ void useSimpleViewer() {
     viewer->initSimpleRenderer(camera, scene, light);
 
 
-
     camera->translate(glm::vec3(0.f, 0.f, 1.f))
             ->dolly(-1.f);
 
@@ -126,12 +128,21 @@ void useSimpleViewer() {
 
 MaterialCoreSP
 createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine) {
-    auto matRed = MaterialCore::create();
-    matRed->setAmbient(ambient)->setDiffuse(diffuse)
+    auto mat = MaterialCore::create();
+    mat->setAmbient(ambient)->setDiffuse(diffuse)
             ->setSpecular(specular)
             ->setShininess(shine)
             ->init();
-    return matRed;
+    return mat;
+}
+MaterialCoreSP
+createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine,const glm::vec4& emission) {
+    auto mat = MaterialCore::create();
+    mat->setAmbient(ambient)->setDiffuse(diffuse)
+            ->setSpecular(specular)
+            ->setShininess(shine)->setEmission(emission)
+            ->init();
+    return mat;
 }
 
 
@@ -187,7 +198,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                     ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
                     ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
                     ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER)
+                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
             });
 
     // Phong shader with texture mapping
@@ -201,17 +212,17 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto skybox = shaderFactory.createShaderFromSourceFiles(
             {
-                    ShaderFile("color_vert.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("color_frag.glsl", GL_FRAGMENT_SHADER),
-                    //  ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    //   ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+                    ShaderFile("bump_vert.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("bump_frag.glsl", GL_FRAGMENT_SHADER),
+                      ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                       ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
             });
 
     auto shaderPhongTex2 = shaderFactory.createShaderFromSourceFiles(
             {
-                    ShaderFile("phong_vert_inner.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("phong_frag_inner.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("blinn_phong_lighting_inner.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
+                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
+                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
                     ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
             });
 
@@ -251,11 +262,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     // lights
     auto sonne = Light::create();
-    sonne->setSpecular(glm::vec4(1, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1, 1, 1, 1))->setAmbient(
-                    glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, 35.f, 0, 1.f))
+    sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
+                    glm::vec4(.4, .4, .4, 1))->setSpot(glm::normalize(glm::vec4(1,1,1,1)),180.f,.1f)
+            ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
             ->init();
-
     auto matStern = Light::create();
     matStern->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
                     glm::vec4(.1, .1, .1, 1))
@@ -264,45 +274,43 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     LightSP mats[50];
     LightPositionSP lightPositionSp[50];
-     createSterne(mats,lightPositionSp);
+    createSterne(mats, lightPositionSp);
     auto l = LightPosition::create(sonne);
 
     // materials
-    MaterialCoreSP matRed = createMat(glm::vec4(1.f, 0.5f, 0.5f, 1.f), glm::vec4(1.f, 0.5f, 0.5f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
-    MaterialCoreSP matWhite = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
-    MaterialCoreSP matGreen = createMat(glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
-    MaterialCoreSP matBlack = createMat(glm::vec4(0, 0, 0, 0), glm::vec4(0, 0, 0, 0), glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
-  //  MaterialCoreSP matNacht = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.1, .1, .1, .1), glm::vec4(1.f, 1.f, 1.f, 1.f), 20000000.0);
-    MaterialCoreSP matTag = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.1, .1, .1, .1), glm::vec4(1.f, 1.f, 1.f, 1.f), 200.0);
+    MaterialCoreSP matRed = createMat(glm::vec4(1.f, 0.5f, 0.5f, 1.f), glm::vec4(1.f, 0.5f, 0.5f, 1.f),
+                                      glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
+    MaterialCoreSP matWhite = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                                        glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 200.0);
+    MaterialCoreSP matGreen = createMat(glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.1f, 0.8f, 0.3f, 1.f),
+                                        glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
+    MaterialCoreSP matBlack = createMat(glm::vec4(0, 0, 0, 0), glm::vec4(0, 0, 0, 0), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                                        20.0);
+    //  MaterialCoreSP matNacht = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.1, .1, .1, .1), glm::vec4(1.f, 1.f, 1.f, 1.f), 20000000.0);
+    MaterialCoreSP matTag = createMat(glm::vec4(0.f, .7f, 1.f, 1), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                                     0.0299,glm::vec4(0.f,0.f,.0f,.1));
 
 
     auto TransAni2 = TransformAnimation::create();
-    auto atmosTrans = Transformation::create();
 
 
     // textures
     TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
     Texture2DCoreSP texWood = createTexture(textureFactory, "wood_256.png");
     Texture2DCoreSP texBrick = createTexture(textureFactory, "neu1.png");
-    Texture2DCoreSP texStadt = createTexture(textureFactory, "ct-map.png");
-    Texture2DCoreSP himmelTex = createTextureMip(textureFactory, "panorama-fake-sky.png");
-   // Texture2DCoreSP nachtTex = createTextureMip(textureFactory, "panorama-fake-sky.png");
+    Texture2DCoreSP texStadt = createTextureBumb(textureFactory, "ct-map.png","ct-map-bumb.png");
+    Texture2DCoreSP himmelTex = createTexture(textureFactory, "panorama-fake-sky.png");
+    // Texture2DCoreSP nachtTex = createTextureMip(textureFactory, "panorama-fake-sky.png");
 
     GeometryCoreFactory geometryFactory;
 
 
     auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
     auto floor = Shape::create();
-    floor->addCore(shaderPhongTex)->addCore(matWhite)->addCore(texStadt)
+    floor->addCore(skybox)->addCore(matWhite)->addCore(texStadt)
             ->addCore(floorCore);
     auto floorTrans = Transformation::create();
     floorTrans->scale(glm::vec3(0.07, 0.07, 0.07));
-    auto TransAni3 = TransformAnimation::create();
-
-    TransAni2->setUpdateFunc([](TransformAnimation *anim2, double currTime, double diffTime, double totalTime) {
-        anim2->rotate(-1.f, glm::vec3(0.f, 0.f, 1.f));
-
-    });
 
     auto himmelCore = geometryFactory.createSphere(20, 101, 110);
     auto nachtHimmelCore = geometryFactory.createHalfSphere(20, 101, 110);
@@ -310,9 +318,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
 
     //ShapeSP nachtHimmel = getPtr(shaderPhongTex2, matNacht, himmelTex, himmelCore);
-    ShapeSP himmel = getPtr(shaderPhongTex2,matTag,himmelTex,himmelCore);
-    ShapeSP jet = getPtr(shaderPhongTex,matWhite,texBrick,jetcore);
-    ShapeSP camObject = getPtr(shaderPhongTex,matWhite,texBrick,camObjectCore);
+    ShapeSP himmel = getPtr(shaderPhongTex2, matTag, himmelTex, himmelCore);
+    ShapeSP jet = getPtr(shaderPhongTex, matWhite, texBrick, jetcore);
+    ShapeSP camObject = getPtr(shaderPhongTex, matWhite, texBrick, camObjectCore);
 
 
     auto flug = Group::create();
@@ -328,22 +336,20 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     }
 
 
-    TransAni3->setUpdateFunc([](TransformAnimation *anim3, double currTime, double diffTime, double totalTime) {
-         anim3->rotate(.1f, glm::vec3(0, 0, 0.1));
-
-    });
     auto TransAni4 = TransformAnimation::create();
     TransAni4->setUpdateFunc([](TransformAnimation *anim4, double currTime, double diffTime, double totalTime) {
         anim4->rotate(-.1f, glm::vec3(0, 0, 0.1));
     });
-    viewer->addAnimation(TransAni2);
-    viewer->addAnimation(TransAni3);
+
     viewer->addAnimation(TransAni4);
     viewer->startAnimations();
-  //  TransformationSP nachtHimmelTrans = createTransformation(glm::vec3(0,0,0),glm::vec3(1,1,1),glm::vec3(1,0,0),2000000.f);
-    TransformationSP himmelTrans = createTransformation(glm::vec3(0,0,0),glm::vec3(1,1,1),glm::vec3(1,0,0),20.f);
-    TransformationSP jetTrans= createTransformation(glm::vec3(4.3f, 0.2f, 0.3f),glm::vec3(0.05, 0.05, 0.05),glm::vec3(0.f, 1.f, 0.f),-90.f);
-    TransformationSP camObjectTrans= createTransformation(glm::vec3(0.f, -0.1f, -0.3f),glm::vec3(0.05, 0.05, 0.05),glm::vec3(0.f, 1.f, 0.f),180.);
+    //  TransformationSP nachtHimmelTrans = createTransformation(glm::vec3(0,0,0),glm::vec3(1,1,1),glm::vec3(1,0,0),2000000.f);
+    TransformationSP himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
+                                                        4.f);
+    TransformationSP jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
+                                                     glm::vec3(0.f, 1.f, 0.f), -90.f);
+    TransformationSP camObjectTrans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(0.05, 0.05, 0.05),
+                                                           glm::vec3(0.f, 1.f, 0.f), 180.);
 
 
     himmelTrans->addChild(himmel);
@@ -353,6 +359,9 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     camObjectTrans->setVisible(true);
 
     flugTrans->addChild(camObjectTrans);
+    floorTrans->addChild(floor);
+
+
 
 
 
@@ -360,21 +369,68 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     // teapot shape and transf
     // ormation
 
+    auto teapotAnim = TransformAnimation::create();
+    float angularVel = .0011f;
+    glm::vec3 axis(0.f, 0.f, 1.f);
+    teapotAnim->setUpdateFunc(
+            [angularVel, axis](TransformAnimation* animation,
+                               double currTime, double diffTime, double totalTime) {
+                animation->rotate(angularVel, axis);
+            });
+    viewer->addAnimation(teapotAnim);
+// add transformation (translation) to be applied before animation
+    auto teapotAnimTrans = Transformation::create();
+    teapotAnimTrans->translate(glm::vec3(0.3f, 0.f, 0.f));
 
 
-    atmosTrans = TransAni2;
-    atmosTrans->addChild(atmos);
-    // create scene graph
+    auto teapotTrans = Transformation::create();
+    teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+
+    teapotAnim->addChild(teapotAnimTrans);
+    teapotAnimTrans->addChild(sonne);
+
+
+
+
+
+// add transformation (translation) to be applied before animation
+
+// add transformation (translation) to be applied before animation
+    auto atmosAnim = TransformAnimation::create();
+    float angularVel2 = .001f;
+    glm::vec3 axis2(0.f, 0.f, 1.f);
+    atmosAnim->setUpdateFunc(
+            [angularVel2, axis2](TransformAnimation* animation,
+                               double currTime, double diffTime, double totalTime) {
+                animation->rotate(angularVel2, axis2);
+            });
+    viewer->addAnimation(atmosAnim);
+// add transformation (translation) to be applied before animation
+    auto atmosAnimTrans = Transformation::create();
+
+    auto atmosTrans = Transformation::create();
+    atmosTrans->rotate(180.f, glm::vec3(0.f, 0.f, 1.f));
+
+    atmosAnim->addChild(atmosAnimTrans);
+    atmosAnimTrans->addChild(atmos);
+
+
+
+
+
+
+
+
     scene = Group::create();
-    scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(sonne);
+    scene->addChild(atmosAnim);
+    scene->addChild(sonne);
     sonne->addChild(camera);
-    sonne->addChild(mats[0]);
-    sonne->addChild(himmel);
-
+   sonne->addChild(himmel);
+    sonne->addChild(floorTrans);
 
 //    mats[49]->addChild(nachtHimmelTrans);
-    floorTrans->addChild(floor);
-    sonne->addChild(floorTrans);
+
+
     camObjectTrans->addChild(camObject);
     camera->addChild(camObjectTrans);
     viewer->startAnimations();
@@ -391,7 +447,8 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 }
 
 ShapeSP
-getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur, const GeometryCoreSP &core) {
+getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
+       const GeometryCoreSP &core) {
     auto nachtHimmel = Shape::create();
     nachtHimmel->addCore(mat)
             ->addCore(shade)
@@ -400,31 +457,38 @@ getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCore
     return nachtHimmel;
 }
 
-Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory,const std::string& name) {
+Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory, const std::string &name) {
     auto texWood = textureFactory.create2DTextureFromFile(
             name, GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     return texWood;
 }
 
-Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory,const std::string& name) {
+Texture2DCoreSP createTextureBumb(TextureCoreFactory &textureFactory, const std::string &name,const std::string &normalFileName) {
+    auto texWood = textureFactory.createBumpMapFromFiles(name,normalFileName,GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    return texWood;
+}
+Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory, const std::string &name) {
     auto texWood = textureFactory.create2DTextureFromFile(
             name, GL_REPEAT, GL_REPEAT, GL_NEAREST_MIPMAP_NEAREST, GL_NEAREST);
     return texWood;
 }
-TransformationSP createTransformation(const glm::vec3& translate, const glm::vec3& scale,const glm::vec3& rotate, float degree){
+
+TransformationSP
+createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree) {
     auto jetTrans = Transformation::create();
     jetTrans->translate(translate);
     jetTrans->rotate(degree, rotate);
     jetTrans->scale(scale);
     return jetTrans;
 }
+
 void createSterne(LightSP *mats, LightPositionSP *lightPositionSp) {
 
     for (int j = 0; j < 50; j++) {
         float sx1 = rand() % 800 + 1;
-        float sy1 =rand() % 180 + 19;
+        float sy1 = rand() % 180 + 19;
         float sz1 = rand() % 800 + 1;
-        std::cout<<sx1<<" "<<sy1<<" "<<sz1<<std::endl;
+        std::cout << sx1 << " " << sy1 << " " << sz1 << std::endl;
         mats[j] = Light::create();
         mats[j]->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.0, 0, 0, 1))->setAmbient(
                         glm::vec4(.1, .1, .1, 1))

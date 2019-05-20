@@ -16,7 +16,7 @@ struct Light {
   vec4 halfVector;      // used as vec3, expected as normalized
   vec4 spotDirection;   // used as vec3, expected as normalized
   float spotCosCutoff;
-  float spotExponent;   
+  float spotExponent;
 };
 
 layout(std140) uniform LightBlock {
@@ -28,7 +28,7 @@ struct Material {
   vec4 ambient;
   vec4 diffuse;
   vec4 specular;
-  float shininess;  
+  float shininess;
 };
 
 layout(std140) uniform MaterialBlock {
@@ -42,26 +42,26 @@ uniform vec4 globalAmbientLight;
 // --- declarations ---
 
 
-void directionalLight(const in int idx, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
+void directionalLight(const in int idx, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
 
-void pointLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
+void pointLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
 
-void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
+void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
 
 
 // --- implementations ---
 
-  
-void applyLighting(const in vec3 ecVertex, const in vec3 ecNormal, 
-    out vec4 emissionAmbientDiffuse, out vec4 specular) {
-  
+
+void applyLighting(const in vec3 ecVertex, const in vec3 ecNormal,
+out vec4 emissionAmbientDiffuse, out vec4 specular) {
+
   // normalized view direction and surface normal
   vec3 v = normalize(-ecVertex);
   vec3 n = normalize(ecNormal);
-  
+
   // add contributions of light sources
   vec4 ambient = vec4(0., 0., 0., 0.);
   vec4 diffuse = vec4(0., 0., 0., 0.);
@@ -79,46 +79,46 @@ void applyLighting(const in vec3 ecVertex, const in vec3 ecNormal,
       }
     }
   }
-  
+
   // multiply with material parameters, add emission and global ambient light
-  emissionAmbientDiffuse = material.emission 
-      + material.ambient * (globalAmbientLight + ambient) 
-      + material.diffuse * diffuse;
-  specular *= material.specular;  
+  emissionAmbientDiffuse = material.emission
+  + material.ambient * (globalAmbientLight + ambient)
+  + material.diffuse * diffuse;
+  specular *= material.specular;
 }
 
 
-void directionalLight(const in int idx, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
-  
+void directionalLight(const in int idx, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
+
   // normalized light source direction (half vector is provided by application)
   vec3 s = normalize(lights[idx].position.xyz);
-  
+
   // ambient
   ambient += lights[idx].ambient;
-  
+
   // diffuse
   float sDotN = max(0., dot(s, n));
   diffuse += lights[idx].diffuse * sDotN;
 
   // specular
   float hDotN = dot(lights[idx].halfVector.xyz, n);
-  if (hDotN < 90.) {
+  if (hDotN > 0.) {
     specular += lights[idx].specular * pow(hDotN, material.shininess);
   }
 }
 
 
-void pointLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
+void pointLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
 
   // normalized light source direction and half vector
   vec3 s = normalize(lights[idx].position.xyz - ecVertex);
   vec3 h = normalize(v + s);
-  
+
   // ambient
   ambient += lights[idx].ambient;
-  
+
   // diffuse
   float sDotN = max(0., dot(s, n));
   diffuse += lights[idx].diffuse * sDotN;
@@ -126,13 +126,13 @@ void pointLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const
   // specular
   float hDotN = dot(h, n);
   if (hDotN > 0.) {
-    specular += lights[idx].specular * pow(hDotN, material.shininess);  
+    specular += lights[idx].specular * pow(hDotN, material.shininess);
   }
 }
 
 
-void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n, 
-    inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
+void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const in vec3 n,
+inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
 
   // normalized light source direction and half vector
   vec3 s = normalize(lights[idx].position.xyz - ecVertex);
@@ -141,20 +141,20 @@ void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const 
   // check if surface point is inside spotlight cone
   float dirDotS = dot(lights[idx].spotDirection.xyz, -s);
   if (dirDotS >= lights[idx].spotCosCutoff) {
-    
+
     // spot attenuation from center to edges
     float attenuation = pow(dirDotS, lights[idx].spotExponent);
-    
+
     // ambient
     ambient += attenuation * lights[idx].ambient;
-    
+
     // diffuse
     float sDotN = max(0., dot(s, n));
     diffuse += attenuation * lights[idx].diffuse * sDotN;
-    
+
     // specular
     float hDotN = dot(h, n);
-    if (hDotN > 0.) {
+    if (hDotN < 0.f && hDotN >- 60.f) {
       specular += attenuation * lights[idx].specular * pow(hDotN, material.shininess);
     }
   }
