@@ -5,7 +5,7 @@
 #include <iostream>
 #include "EnvoirementHelper.h"
 #include "MatFactory.h"
-
+#include "TexturHelper.h"
 
 
 ShapeSP
@@ -19,16 +19,7 @@ getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCore
     return nachtHimmel;
 }
 
-Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory, const std::string &name) {
-    auto texWood = textureFactory.create2DTextureFromFile(
-            name, GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
-    return texWood;
-}
 
-Texture2DCoreSP createTextureBumb(TextureCoreFactory &textureFactory, const std::string &name,const std::string &normalFileName) {
-    auto texWood = textureFactory.createBumpMapFromFiles(name,normalFileName,GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
-    return texWood;
-}
 Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory, const std::string &name) {
     auto texWood = textureFactory.create2DTextureFromFile(
             name, GL_REPEAT, GL_REPEAT, GL_NEAREST_MIPMAP_NEAREST, GL_NEAREST);
@@ -157,20 +148,12 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     auto TransAni2 = TransformAnimation::create();
 
 
-    // textures
-    TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
-    Texture2DCoreSP texWood = createTexture(textureFactory, "wood_256.png");
-    Texture2DCoreSP texBrick = createTexture(textureFactory, "neu1.png");
-    Texture2DCoreSP texStadt = createTextureBumb(textureFactory, "hannover.PNG","hannover-bumb.png");
-    Texture2DCoreSP himmelTex = createTexture(textureFactory, "panorama-fake-sky.png");
-    // Texture2DCoreSP nachtTex = createTextureMip(textureFactory, "panorama-fake-sky.png");
-
     GeometryCoreFactory geometryFactory;
 
 
     auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/hannover.obj");
     auto floor = Shape::create();
-    floor->addCore(skybox)->addCore(MatFactory::getWhite())->addCore(texStadt)
+    floor->addCore(skybox)->addCore(MatFactory::getWhite())->addCore(TexturHelper::getStadt())
             ->addCore(floorCore);
     auto floorTrans = Transformation::create();
     floorTrans->scale(glm::vec3(0.007, 0.007, 0.007));
@@ -181,15 +164,15 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
 
     //ShapeSP nachtHimmel = getPtr(shaderPhongTex2, matNacht, himmelTex, himmelCore);
-    ShapeSP himmel = getPtr(shaderPhongTex2, MatFactory::getTag(), himmelTex, himmelCore);
-    ShapeSP jet = getPtr(shaderPhongTex, MatFactory::getWhite(), texBrick, jetcore);
-    ShapeSP camObject = getPtr(shaderPhongTex, MatFactory::getWhite(), texBrick, camObjectCore);
+    ShapeSP himmel = getPtr(shaderPhongTex2, MatFactory::getTag(), TexturHelper::getHimmel(), himmelCore);
+    ShapeSP jet = getPtr(shaderPhongTex, MatFactory::getWhite(), TexturHelper::getBrick(), jetcore);
+    ShapeSP camObject = getPtr(shaderPhongTex, MatFactory::getWhite(),TexturHelper::getBrick(), camObjectCore);
 
 
     auto flug = Group::create();
     flug->addCore(shaderPhongTex)
             ->addCore(MatFactory::getWhite())
-            ->addCore(texWood);
+            ->addCore(TexturHelper::getBrick());
     auto flugTrans = Transformation::create();
 
     auto atmos = Group::create();

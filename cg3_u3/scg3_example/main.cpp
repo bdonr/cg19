@@ -175,6 +175,5 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     scene = Group::create();
     EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
 
-
 }
 
