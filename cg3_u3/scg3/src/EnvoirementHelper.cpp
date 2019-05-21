@@ -4,27 +4,9 @@
 
 #include <iostream>
 #include "EnvoirementHelper.h"
+#include "MatFactory.h"
 
-MaterialCoreSP createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
-MaterialCoreSP createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine,const glm::vec4& emission);
-MaterialCoreSP
-createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine) {
-    auto mat = MaterialCore::create();
-    mat->setAmbient(ambient)->setDiffuse(diffuse)
-            ->setSpecular(specular)
-            ->setShininess(shine)
-            ->init();
-    return mat;
-}
-MaterialCoreSP
-createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine,const glm::vec4& emission) {
-    auto mat = MaterialCore::create();
-    mat->setAmbient(ambient)->setDiffuse(diffuse)
-            ->setSpecular(specular)
-            ->setShininess(shine)->setEmission(emission)
-            ->init();
-    return mat;
-}
+
 
 ShapeSP
 getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
@@ -172,20 +154,6 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     createSterne(mats, lightPositionSp);
     auto l = LightPosition::create(sonne);
 
-    // materials
-    MaterialCoreSP matRed = createMat(glm::vec4(1.f, 0.5f, 0.5f, 1.f), glm::vec4(1.f, 0.5f, 0.5f, 1.f),
-                                      glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
-    MaterialCoreSP matWhite = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                                        glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 200.0);
-    MaterialCoreSP matGreen = createMat(glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.1f, 0.8f, 0.3f, 1.f),
-                                        glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
-    MaterialCoreSP matBlack = createMat(glm::vec4(0, 0, 0, 0), glm::vec4(0, 0, 0, 0), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                                        20.0);
-    //  MaterialCoreSP matNacht = createMat(glm::vec4(0, .7, 1, 1), glm::vec4(.1, .1, .1, .1), glm::vec4(1.f, 1.f, 1.f, 1.f), 20000000.0);
-    MaterialCoreSP matTag = createMat(glm::vec4(0.f, .7f, 1.f, 1), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                                      0.0299,glm::vec4(0.f,0.f,.0f,.1));
-
-
     auto TransAni2 = TransformAnimation::create();
 
 
@@ -202,7 +170,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
 
     auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/hannover.obj");
     auto floor = Shape::create();
-    floor->addCore(skybox)->addCore(matWhite)->addCore(texStadt)
+    floor->addCore(skybox)->addCore(MatFactory::getWhite())->addCore(texStadt)
             ->addCore(floorCore);
     auto floorTrans = Transformation::create();
     floorTrans->scale(glm::vec3(0.007, 0.007, 0.007));
@@ -213,14 +181,14 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
 
     //ShapeSP nachtHimmel = getPtr(shaderPhongTex2, matNacht, himmelTex, himmelCore);
-    ShapeSP himmel = getPtr(shaderPhongTex2, matTag, himmelTex, himmelCore);
-    ShapeSP jet = getPtr(shaderPhongTex, matWhite, texBrick, jetcore);
-    ShapeSP camObject = getPtr(shaderPhongTex, matWhite, texBrick, camObjectCore);
+    ShapeSP himmel = getPtr(shaderPhongTex2, MatFactory::getTag(), himmelTex, himmelCore);
+    ShapeSP jet = getPtr(shaderPhongTex, MatFactory::getWhite(), texBrick, jetcore);
+    ShapeSP camObject = getPtr(shaderPhongTex, MatFactory::getWhite(), texBrick, camObjectCore);
 
 
     auto flug = Group::create();
     flug->addCore(shaderPhongTex)
-            ->addCore(matWhite)
+            ->addCore(MatFactory::getWhite())
             ->addCore(texWood);
     auto flugTrans = Transformation::create();
 
