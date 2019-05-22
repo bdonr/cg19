@@ -13,6 +13,7 @@ private:
     static MaterialCoreSP white;
     static MaterialCoreSP black;
     static MaterialCoreSP tag;
+    static MaterialCoreSP stadt;
 
 public:
     static const MaterialCoreSP &getRed();
@@ -22,6 +23,7 @@ public:
     static const MaterialCoreSP &getBlack();
 
     static const MaterialCoreSP &getTag();
+    static const MaterialCoreSP &getStadt();
 
 
 private:

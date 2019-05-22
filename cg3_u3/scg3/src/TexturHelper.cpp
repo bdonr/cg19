@@ -38,7 +38,7 @@ const Texture2DCoreSP &TexturHelper::getBrick() {
 
 const Texture2DCoreSP &TexturHelper::getStadt() {
     if(stadt== nullptr) {
-        stadt = createTextureBumb("hannover.PNG", "hannover-bumb.png");
+        stadt = createTextureBumb("ct-map.png", "ct-map-bumb.png");
     }
     return stadt;
 }

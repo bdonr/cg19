@@ -8,6 +8,7 @@ MaterialCoreSP MatFactory::red= nullptr;
 MaterialCoreSP MatFactory::white= nullptr;
 MaterialCoreSP MatFactory::black= nullptr;
 MaterialCoreSP MatFactory::tag= nullptr;
+MaterialCoreSP MatFactory::stadt= nullptr;
 
 MaterialCoreSP
 MatFactory::createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine) {
@@ -39,10 +40,16 @@ const MaterialCoreSP &MatFactory::getRed() {
 
 const MaterialCoreSP &MatFactory::getWhite() {
     if(white.get()== nullptr){
-        white = createMat(glm::vec4(0.1f, 0.8f, 0.3f, 1.f), glm::vec4(0.1f, 0.8f, 0.3f, 1.f),
-                          glm::vec4(0.5f, 0.5f, 0.5f, 1.f), 20.0);
+        white = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                          glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0),glm::vec4(1,1,1,1);
     }
     return white;
+}const MaterialCoreSP &MatFactory::getStadt() {
+    if(stadt.get()== nullptr){
+        stadt = createMat(glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                          glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
+    }
+    return stadt;
 }
 
 

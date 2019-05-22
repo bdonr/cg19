@@ -499,6 +499,6 @@ add_executable(cg3_u3
         scg3/scg3.h
         scg3/scg3_ext.h
         scg3_example/main.cpp
-        scg3/src/EnvoirementHelper.cpp scg3/src/EnvoirementHelper.h scg3/src/MatFactory.cpp scg3/src/MatFactory.h scg3/src/TexturHelper.cpp scg3/src/TexturHelper.h scg3/src/ShaderFactory.cpp scg3/src/ShaderFactory.h)
+        scg3/src/EnvoirementHelper.cpp scg3/src/EnvoirementHelper.h scg3/src/MatFactory.cpp scg3/src/MatFactory.h scg3/src/TexturHelper.cpp scg3/src/TexturHelper.h scg3/src/ShaderFactory.cpp scg3/src/ShaderFactory.h scg3/src/SceneObjetFactory.cpp scg3/src/SceneObjetFactory.h)
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GL GLEW glfw)

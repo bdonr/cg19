@@ -3,37 +3,8 @@
 //
 
 #include <iostream>
-#include "EnvoirementHelper.h"
-#include "MatFactory.h"
-#include "TexturHelper.h"
-#include "ShaderFactory.h"
+#include "SceneObjetFactory.h"
 
-ShapeSP
-getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
-       const GeometryCoreSP &core) {
-    auto nachtHimmel = Shape::create();
-    nachtHimmel->addCore(mat)
-            ->addCore(shade)
-            ->addCore(textur)
-            ->addCore(core);
-    return nachtHimmel;
-}
-
-
-Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory, const std::string &name) {
-    auto texWood = textureFactory.create2DTextureFromFile(
-            name, GL_REPEAT, GL_REPEAT, GL_NEAREST_MIPMAP_NEAREST, GL_NEAREST);
-    return texWood;
-}
-
-TransformationSP
-createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree) {
-    auto jetTrans = Transformation::create();
-    jetTrans->translate(translate);
-    jetTrans->rotate(degree, rotate);
-    jetTrans->scale(scale);
-    return jetTrans;
-}
 
 void createSterne(LightSP *mats, LightPositionSP *lightPositionSp) {
 
@@ -57,8 +28,7 @@ int dmod(double time, double d) {
 }
 
 
-
-void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, GroupSP &scene){
+void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
 
     // camera controllers
@@ -69,102 +39,17 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
                     KeyboardController::create(camera),
                     MouseController::create(camera)
             });
-    auto sonne = Light::create();
-    sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
-                    glm::vec4(.4, .4, .4, 1))->setSpot(glm::normalize(glm::vec4(1,1,1,1)),180.f,.1f)
-            ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
-            ->init();
-    auto matStern = Light::create();
-    matStern->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(.1, .1, .1, 1))->setAmbient(
-                    glm::vec4(.1, .1, .1, 1))
-            ->setPosition(glm::vec4(0.f, -15.f, 0, 1.f))
-            ->init();
-
-    LightSP mats[50];
-    LightPositionSP lightPositionSp[50];
-    createSterne(mats, lightPositionSp);
-    auto l = LightPosition::create(sonne);
-
-    auto TransAni2 = TransformAnimation::create();
-
-
-    GeometryCoreFactory geometryFactory;
-
-
-    auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/hannover.obj");
-    auto floor = Shape::create();
-    floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(TexturHelper::getStadt())
-            ->addCore(floorCore);
-    auto floorTrans = Transformation::create();
-    floorTrans->scale(glm::vec3(0.007, 0.007, 0.007));
-
-    auto himmelCore = geometryFactory.createSphere(20, 101, 110);
-    auto nachtHimmelCore = geometryFactory.createHalfSphere(20, 101, 110);
-    auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
-    auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
-
-    //ShapeSP nachtHimmel = getPtr(shaderPhongTex2, matNacht, himmelTex, himmelCore);
-    ShapeSP himmel = getPtr(ShaderFactory::getPhong(true), MatFactory::getTag(), TexturHelper::getHimmel(), himmelCore);
-    ShapeSP jet = getPtr(ShaderFactory::getPhong(true), MatFactory::getWhite(), TexturHelper::getBrick(), jetcore);
-    ShapeSP camObject = getPtr(ShaderFactory::getPhong(true), MatFactory::getWhite(),TexturHelper::getBrick(), camObjectCore);
-
-
-    auto flug = Group::create();
-    flug->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getWhite())
-            ->addCore(TexturHelper::getBrick());
-    auto flugTrans = Transformation::create();
-
-    auto atmos = Group::create();
-    atmos->addChild(l);
-    for (int i = 0; i < 50; i++) {
-        atmos->addChild(lightPositionSp[i]);
-    }
-
-
-    auto TransAni4 = TransformAnimation::create();
-    TransAni4->setUpdateFunc([](TransformAnimation *anim4, double currTime, double diffTime, double totalTime) {
-        anim4->rotate(-.1f, glm::vec3(0, 0, 0.1));
-    });
-
-    viewer->addAnimation(TransAni4);
-    viewer->startAnimations();
-    //  TransformationSP nachtHimmelTrans = createTransformation(glm::vec3(0,0,0),glm::vec3(1,1,1),glm::vec3(1,0,0),2000000.f);
-    TransformationSP himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
-                                                        4.f);
-    TransformationSP jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
-                                                     glm::vec3(0.f, 1.f, 0.f), -90.f);
-    TransformationSP camObjectTrans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(0.05, 0.05, 0.05),
-                                                           glm::vec3(0.f, 1.f, 0.f), 180.);
-
-
-    himmelTrans->addChild(himmel);
-//    nachtHimmelTrans->addChild(nachtHimmel);
-
-
-    camObjectTrans->setVisible(true);
-
-    flugTrans->addChild(camObjectTrans);
-    floorTrans->addChild(floor);
-
-
-
-
-
-//--------------------------------####################################################################
-    // teapot shape and transf
-    // ormation
 
     auto teapotAnim = TransformAnimation::create();
-    float angularVel = .0011f;
+    float angularVel = .1f;
     glm::vec3 axis(0.f, 0.f, 1.f);
     teapotAnim->setUpdateFunc(
-            [angularVel, axis](TransformAnimation* animation,
+            [angularVel, axis](TransformAnimation *animation,
                                double currTime, double diffTime, double totalTime) {
                 animation->rotate(angularVel, axis);
             });
     viewer->addAnimation(teapotAnim);
-// add transformation (translation) to be applied before animation
+
     auto teapotAnimTrans = Transformation::create();
     teapotAnimTrans->translate(glm::vec3(0.3f, 0.f, 0.f));
 
@@ -173,40 +58,14 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
 
     teapotAnim->addChild(teapotAnimTrans);
-    teapotAnimTrans->addChild(sonne);
+    teapotAnimTrans->addChild(SceneObjetFactory::getSonne());
 
 
-
-
-
-// add transformation (translation) to be applied before animation
-
-// add transformation (translation) to be applied before animation
-    auto atmosAnim = TransformAnimation::create();
-    float angularVel2 = .001f;
-    glm::vec3 axis2(0.f, 0.f, 1.f);
-    atmosAnim->setUpdateFunc(
-            [angularVel2, axis2](TransformAnimation* animation,
-                                 double currTime, double diffTime, double totalTime) {
-                animation->rotate(angularVel2, axis2);
-            });
-    viewer->addAnimation(atmosAnim);
-// add transformation (translation) to be applied before animation
-    auto atmosAnimTrans = Transformation::create();
-
-    auto atmosTrans = Transformation::create();
-    atmosTrans->rotate(180.f, glm::vec3(0.f, 0.f, 1.f));
-
-    atmosAnim->addChild(atmosAnimTrans);
-    atmosAnimTrans->addChild(atmos);
-
-    scene->addChild(atmosAnim);
-    scene->addChild(sonne);
-    sonne->addChild(camera);
-    sonne->addChild(himmel);
-    sonne->addChild(floorTrans);
-
-    camObjectTrans->addChild(camObject);
-    camera->addChild(camObjectTrans);
+    scene->addChild(teapotAnim);
+    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getGroup());
+    SceneObjetFactory::getSonne()->addChild(camera);
+    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getHimmel());
+    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getFloor());
+    camera->addChild(SceneObjetFactory::getCamObject());
     viewer->startAnimations();
 }
