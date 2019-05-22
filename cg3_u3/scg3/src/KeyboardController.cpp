@@ -249,6 +249,6 @@ void KeyboardController::checkInput(ViewState* viewState) {
 }
 
 void KeyboardController::setDing(NodeSP N){
-  this->ding1 = N;
+    this->ding1 = N;
 }
 } /* namespace scg */

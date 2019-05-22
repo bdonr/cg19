@@ -80,7 +80,7 @@ const GroupSP& SceneObjetFactory::getTorus() {
     if (torus == nullptr) {
         torus = Group::create();
         torus->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
-        auto torusCore = geometryFactory.createTorus(3,.7,55,55);
+        auto torusCore = geometryFactory.createTorus(3,.7,3,3);
         ShapeSP torusShape = Shape::create();
         torusShape->addCore(torusCore);
         createTorrusseTrans(torusShape);

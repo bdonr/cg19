@@ -35,7 +35,11 @@
 
 //#include <scg3.h>
 #include "../scg3/scg3.h"
-
+#include "EnvoirementHelper.h"
+#include "MatFactory.h"
+#include "TexturHelper.h"
+#include "ShaderFactory.h"
+#include "SceneObjetFactory.h"
 using namespace scg;
 
 
@@ -195,7 +199,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto bulletTrans = Transformation::create();
     bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
-
+    auto light = SceneObjetFactory::getSonne();
     TransAni->setUpdateFunc(
             [camera, light, bulletTrans, ZielKugelTrans1, ZielKugelTrans2, ZielKugelTrans3, camObjectTrans, kugel1, kugel2, kugel3](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
@@ -329,11 +333,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                 // std::cout << totalTime << std::endl;
 
             });
-    auto TransAni2 = TransformAnimation::create();
-    auto atmos = Group::create();
-    atmos->addChild(l);
 
-    auto atmosTrans = Transformation::create();
 
     // set texture matrix
 //  texWood->scale2D(glm::vec2(4.f, 4.f));
@@ -344,38 +344,38 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
     auto bullet = Shape::create();
-    bullet->addCore(shaderPhong)
-            ->addCore(matBlack)
+    bullet->addCore(ShaderFactory::getPhong(true))
+            ->addCore(MatFactory::getRed())
             ->addCore(bulletCore);
 
     auto kugelcore1 = geometryFactory.createSphere(0.05, 100, 100);
 
-    kugel1->addCore(shaderPhong)
-            ->addCore(matRed)
+    kugel1->addCore(ShaderFactory::getPhong(true))
+            ->addCore(MatFactory::getRed())
             ->addCore(kugelcore1);
 
     ZielKugelTrans1->translate(glm::vec3(4.3f, 4.f, 2.3f));
 
     auto kugelcore2 = geometryFactory.createSphere(0.05, 100, 100);
 
-    kugel2->addCore(shaderPhong)
-            ->addCore(matRed)
+    kugel2->addCore(ShaderFactory::getPhong(true))
+            ->addCore(MatFactory::getRed())
             ->addCore(kugelcore2);
 
     ZielKugelTrans2->translate(glm::vec3(-2.3f, 7.f, -3.3f));
 
     auto kugelcore3 = geometryFactory.createSphere(0.05, 100, 100);
 
-    kugel3->addCore(shaderPhong)
-            ->addCore(matRed)
+    kugel3->addCore(ShaderFactory::getPhong(true))
+            ->addCore(MatFactory::getRed())
             ->addCore(kugelcore3);
 
     ZielKugelTrans3->translate(glm::vec3(0.3f, 4.f, 0.f));
 
     // create scene graph
     scene = Group::create();
-    scene->addCore(shaderPhong)->addChild(atmosTrans)->addChild(light);
-    light->addChild(ZielKugelTrans1)
+    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
+    SceneObjetFactory::getSonne()->addChild(ZielKugelTrans1)
             ->addChild(ZielKugelTrans2)
             ->addChild(ZielKugelTrans3);
     bulletTrans->addChild(bullet);
@@ -383,19 +383,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     ZielKugelTrans1->addChild(kugel1);
     ZielKugelTrans2->addChild(kugel2);
     ZielKugelTrans3->addChild(kugel3);
-    camera
-            ->addChild(bulletTrans);
-
-
-    // cam an die transformation des obejktes binden
-//TransAni->addChild(camera);
-/*
-#if SCG_MOVING_CAM
- TransAni->addChild(camera);
-#else
-  scene->addChild(camera);
-#endif
- */
+    camera->addChild(bulletTrans);
+    
+    KeyboardControllerSP controller = KeyboardController::create(camera);
+    viewer->addController(controller);
     controller->setDing(bulletTrans);
 }
 
@@ -405,8 +396,7 @@ void bulletTravelAndTest() {
     }
     bulletTravel = bulletTravel + 0.2;
 
-    scene = Group::create();
-    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
+
 
 
 }

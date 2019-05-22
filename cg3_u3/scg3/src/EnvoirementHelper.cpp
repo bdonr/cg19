@@ -34,9 +34,10 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     // camera controllers
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
+
     viewer->addControllers(
             {
-                    KeyboardController::create(camera),
+
                     MouseController::create(camera)
             });
 
@@ -68,5 +69,6 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getHimmel());
     //SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getFloor());
     camera->addChild(SceneObjetFactory::getCamObject());
+
     viewer->startAnimations();
 }
