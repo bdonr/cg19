@@ -6,7 +6,7 @@
 #include "EnvoirementHelper.h"
 #include "MatFactory.h"
 #include "TexturHelper.h"
-
+#include "ShaderFactory.h"
 
 ShapeSP
 getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
@@ -61,74 +61,14 @@ int dmod(double time, double d) {
 void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, GroupSP &scene){
 
 
-    ShaderCoreFactory shaderFactory("../scg3/shaders;../../scg3/shaders");
-    double y = 0.0;
-#ifdef SCG_CPP11_INITIALIZER_LISTS
-    // Phong shader
-    auto shaderPhong = shaderFactory.createShaderFromSourceFiles(
-            {
-                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
-            });
-
-    // Phong shader with texture mapping
-    auto shaderPhongTex = shaderFactory.createShaderFromSourceFiles(
-            {
-                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
-            });
-
-    auto skybox = shaderFactory.createShaderFromSourceFiles(
-            {
-                    ShaderFile("bump_vert.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("bump_frag.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
-            });
-
-    auto shaderPhongTex2 = shaderFactory.createShaderFromSourceFiles(
-            {
-                    ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
-                    ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-                    ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
-            });
-
-#else
-    // Phong shader
-    std::vector<ShaderFile> shaderFiles;
-    shaderFiles.push_back(ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER));
-    shaderFiles.push_back(ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER));
-    shaderFiles.push_back(ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER));
-    shaderFiles.push_back(ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER));
-    auto shaderPhong = shaderFactory.createShaderFromSourceFiles(shaderFiles);
-
-    // Phong shader with texture mapping
-    shaderFiles.clear();
-    shaderFiles.push_back(ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER));
-    shaderFiles.push_back(ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER));
-    shaderFiles.push_back(ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER));
-    shaderFiles.push_back(ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER));
-    auto shaderPhongTex = shaderFactory.createShaderFromSourceFiles(shaderFiles);
-#endif
-
     // camera controllers
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
-#ifdef SCG_CPP11_INITIALIZER_LISTS
     viewer->addControllers(
             {
                     KeyboardController::create(camera),
                     MouseController::create(camera)
             });
-#else
-    viewer->addController(KeyboardController::create(camera))
-          ->addController(MouseController::create(camera));
-#endif
     auto sonne = Light::create();
     sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
                     glm::vec4(.4, .4, .4, 1))->setSpot(glm::normalize(glm::vec4(1,1,1,1)),180.f,.1f)
@@ -153,7 +93,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
 
     auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/hannover.obj");
     auto floor = Shape::create();
-    floor->addCore(skybox)->addCore(MatFactory::getWhite())->addCore(TexturHelper::getStadt())
+    floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(TexturHelper::getStadt())
             ->addCore(floorCore);
     auto floorTrans = Transformation::create();
     floorTrans->scale(glm::vec3(0.007, 0.007, 0.007));
@@ -164,13 +104,13 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP viewer, CameraSP camera, Gr
     auto camObjectCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
 
     //ShapeSP nachtHimmel = getPtr(shaderPhongTex2, matNacht, himmelTex, himmelCore);
-    ShapeSP himmel = getPtr(shaderPhongTex2, MatFactory::getTag(), TexturHelper::getHimmel(), himmelCore);
-    ShapeSP jet = getPtr(shaderPhongTex, MatFactory::getWhite(), TexturHelper::getBrick(), jetcore);
-    ShapeSP camObject = getPtr(shaderPhongTex, MatFactory::getWhite(),TexturHelper::getBrick(), camObjectCore);
+    ShapeSP himmel = getPtr(ShaderFactory::getPhong(true), MatFactory::getTag(), TexturHelper::getHimmel(), himmelCore);
+    ShapeSP jet = getPtr(ShaderFactory::getPhong(true), MatFactory::getWhite(), TexturHelper::getBrick(), jetcore);
+    ShapeSP camObject = getPtr(ShaderFactory::getPhong(true), MatFactory::getWhite(),TexturHelper::getBrick(), camObjectCore);
 
 
     auto flug = Group::create();
-    flug->addCore(shaderPhongTex)
+    flug->addCore(ShaderFactory::getPhong(true))
             ->addCore(MatFactory::getWhite())
             ->addCore(TexturHelper::getBrick());
     auto flugTrans = Transformation::create();
