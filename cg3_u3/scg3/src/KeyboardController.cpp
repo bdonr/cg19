@@ -36,7 +36,7 @@ KeyboardController::KeyboardController(CameraSP camera)
     : CameraController(camera) {
   moveVelocity_ = 0.3f;
   rotateVelocity_ = 50.0f;
-  flightVelocityStep_ = 0.1f;
+  flightVelocityStep_ = 0.2f;
 
   std::cout << "Keyboard camera control enabled" << std::endl;
   std::cout << "- space: toggle fly/examine mode" << std::endl;
@@ -76,23 +76,12 @@ void KeyboardController::checkInput(ViewState* viewState) {
 
   // camera movement
   if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-    if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
-        glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
-      camera_->dolly(moveVelocity_ * diffTime);
-    }
-    else {
-      camera_->translate(glm::vec3(0.0f, 0.0f, -moveVelocity_ * diffTime));
-    }
+      camera_->translate(glm::vec3(0.0f, 0.0f, -0.008f));
   }
   if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-    if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS ||
-        glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS) {
-      camera_->dolly(-moveVelocity_ * diffTime);
-    }
-    else {
-      camera_->translate(glm::vec3(0.0f, 0.0f, moveVelocity_ * diffTime));
-    }
+      camera_->translate(glm::vec3(0.0f, 0.0f, 0.006f));
   }
+
   if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
     camera_->rotateYaw(rotateVelocity_/4 * diffTime);
     //camera_->translate(glm::vec3(-moveVelocity_ * diffTime, 0.0f, 0.0f));
@@ -157,7 +146,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   // continuous flight velocity
   //E verringer flightVelocity_ und flugzeug wird schneller
   static bool toggleSpeedUp = false;
-  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS && !toggleSpeedUp && flightVelocity_ > -0.8) {
+  if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS && !toggleSpeedUp && flightVelocity_ > -1.2) {
     flightVelocity_ -= flightVelocityStep_;
     toggleSpeedUp = true;
     std::cout<<flightVelocity_<<std::endl;
@@ -167,7 +156,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   }
   //Q erhöht flightVelocity_ und macht flugzeug langsammer
   static bool toggleSpeedDown = false;
-  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < 0.2) {
+  if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < -0.61) {
     flightVelocity_ += flightVelocityStep_;
     toggleSpeedDown = true;
     std::cout<<flightVelocity_<<std::endl;
@@ -176,8 +165,14 @@ void KeyboardController::checkInput(ViewState* viewState) {
     toggleSpeedDown = false;
   }
 
+  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+    ding1->setVisible(true);
+  }else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) {
+    ding1->setVisible(false);
+  }
+
   // toggle fly/examine mode
-  static bool toggleKeySpace = false;
+ /* static bool toggleKeySpace = false;
   if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !toggleKeySpace) {
     static bool prevDrawCenterMode = false;
     isFlyMode_ = !isFlyMode_;
@@ -195,7 +190,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) {
     toggleKeySpace = false;
   }
-
+*/
   // toggle frame rate output
   static bool toggleKeyH = false;
   if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS && !toggleKeyH) {
@@ -253,5 +248,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
   camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 }
 
-
+void KeyboardController::setDing(NodeSP N){
+  this->ding1 = N;
+}
 } /* namespace scg */
