@@ -316,7 +316,7 @@ public:
   static const OGLSampler TEXTURE1;
 
   // parameters
-  static const int MAX_NUMBER_OF_LIGHTS = 10;
+  static const int MAX_NUMBER_OF_LIGHTS = 100;
 
 };
 

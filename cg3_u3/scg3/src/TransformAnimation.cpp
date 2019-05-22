@@ -82,8 +82,6 @@ TransformAnimation* TransformAnimation::setUpdateFunc(std::function<void(Transfo
   updateFunc_ = updateFunc;
   return this;
 }
-
-
 void TransformAnimation::start(double currTime) {
   if (!isStarted_ && startFunc_ != nullptr) {
     startFunc_(this);

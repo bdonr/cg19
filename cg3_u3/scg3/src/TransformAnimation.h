@@ -127,8 +127,7 @@ public:
    *    void f(TransformAnimation*, double, double, double).
    * \return this pointer for method chaining
    */
-  TransformAnimation* setUpdateFunc(std::function<void(TransformAnimation*, double, double, double)> updateFunc);
-
+  TransformAnimation* setUpdateFunc( std::function  <void (TransformAnimation*, double, double, double)> updateFunc);
   /**
    * Start or restart animation with given time, call start function (if defined).
    *
@@ -149,8 +148,7 @@ protected:
   glm::vec3 vec3Param_;
   glm::mat4 mat4Param_;
   std::function<void(TransformAnimation*)> startFunc_;
-  std::function<void(TransformAnimation*, double, double, double)> updateFunc_;
-
+  std::function<void(TransformAnimation*, double, double, double)> mutable updateFunc_;
 };
 
 } /* namespace scg */
