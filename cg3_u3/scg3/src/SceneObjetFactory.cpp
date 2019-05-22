@@ -9,10 +9,13 @@ TransformationSP SceneObjetFactory::floorTrans;
 TransformationSP SceneObjetFactory::himmelTrans;
 TransformationSP SceneObjetFactory::jetTrans;
 TransformationSP SceneObjetFactory::camObject;
+GroupSP SceneObjetFactory::torus;
 LightSP SceneObjetFactory::sonne;
 GroupSP SceneObjetFactory::group;
+
  std::vector<TransformationSP> SceneObjetFactory::transformations;
 
+std::vector<TransformationSP> SceneObjetFactory::torusseTrans;
 
 GeometryCoreFactory SceneObjetFactory::geometryFactory;
 
@@ -73,6 +76,30 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
     }
     return himmelTrans;
 }
+const GroupSP& SceneObjetFactory::getTorus() {
+    if (torus == nullptr) {
+        torus = Group::create();
+        torus->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
+        auto torusCore = geometryFactory.createTorus(3,.7,55,55);
+        ShapeSP torusShape = Shape::create();
+        torusShape->addCore(torusCore);
+        createTorrusseTrans(torusShape);
+    }
+    return torus;
+}
+
+void SceneObjetFactory::createTorrusseTrans(const ShapeSP &torusShape) {
+    if(torusseTrans.size()==0) {
+        int j = 0;
+        for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
+            torusseTrans.push_back(
+                    createTransformation(glm::vec3(0, 0, 0), glm::vec3(1-i, 1-i, 1-i), glm::vec3(1, 0, 0),0.f));
+            torusseTrans.at(j)->addChild(torusShape);
+            torus->addChild(torusseTrans.at(j));
+            j++;
+        }
+    }
+}
 
 
 const TransformationSP &SceneObjetFactory::getFloor() {
@@ -107,7 +134,7 @@ const TransformationSP &SceneObjetFactory::getCamObject() {
     return camObject;
 }
 
-TransformationSP SceneObjetFactory::getKugel() {
+const TransformationSP SceneObjetFactory::getKugel() {
     auto x = geometryFactory.createSphere(.1f, 100, 100);
     auto x1 = Shape::create();
     x1->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite())
