@@ -96,6 +96,10 @@ createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const g
 ShapeSP
 getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur, const GeometryCoreSP &core);
 
+void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP &ZielKugelTrans2,
+           TransformationSP &ZielKugelTrans3, ShapeSP &kugel1, ShapeSP &kugel2, ShapeSP &kugel3,
+           TransformationSP &bulletTrans,LightSP light,ViewerSP viewer);
+
 /**
  * \brief The main function.
  */
@@ -186,30 +190,71 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
 
-    auto TransAni = TransformAnimation::create();
-    auto ZielKugelTrans1 = Transformation::create();
-    auto ZielKugelTrans2 = Transformation::create();
-    ZielKugelTrans2->setVisible(false);
-    auto ZielKugelTrans3 = Transformation::create();
-    ZielKugelTrans3->setVisible(false);
-    auto kugel1 = Shape::create();
-    auto kugel2 = Shape::create();
-    auto kugel3 = Shape::create();
-    auto camObjectTrans = Transformation::create();
+    TransformationSP ZielKugelTrans1;
+    TransformationSP ZielKugelTrans2;
+    TransformationSP ZielKugelTrans3;
+    ShapeSP kugel1;
+    ShapeSP kugel2;
+    ShapeSP kugel3;
+    TransformationSP bulletTrans;
+    logic(camera, ZielKugelTrans1, ZielKugelTrans2, ZielKugelTrans3, kugel1, kugel2, kugel3, bulletTrans,SceneObjetFactory::getSonne(),viewer);
 
-    auto bulletTrans = Transformation::create();
+
+    // set texture matrix
+//  texWood->scale2D(glm::vec2(4.f, 4.f));
+
+    // floor shape and transformation
+    GeometryCoreFactory geometryFactory;
+    
+
+    auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
+    auto bullet = Shape::create();
+    bullet->addCore(ShaderFactory::getPhong(true))
+            ->addCore(MatFactory::getRed())
+            ->addCore(bulletCore);
+    // create scene graph
+    scene = Group::create();
+
+    KeyboardControllerSP controller = KeyboardController::create(camera);
+    viewer->addController(controller);
+    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
+    SceneObjetFactory::getSonne()->addChild(ZielKugelTrans1)
+            ->addChild(ZielKugelTrans2)
+            ->addChild(ZielKugelTrans3)->addChild(camera);
+    bulletTrans->addChild(bullet);
+    bulletTrans->setVisible(false);
+    camera->addChild(bulletTrans);
+
+    viewer->startAnimations();
+    controller->setDing(bulletTrans);
+
+}
+
+void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP &ZielKugelTrans2,
+           TransformationSP &ZielKugelTrans3, ShapeSP &kugel1, ShapeSP &kugel2, ShapeSP &kugel3,
+           TransformationSP &bulletTrans,LightSP light,ViewerSP viewer) {
+    ZielKugelTrans1 = SceneObjetFactory::getZielscheiben()[0];
+    ZielKugelTrans2 = SceneObjetFactory::getZielscheiben()[1];
+    ZielKugelTrans3 = SceneObjetFactory::getZielscheiben()[2];
+
+    bulletTrans = Transformation::create();
+    auto TransAni = TransformAnimation::create();
+    ZielKugelTrans2->setVisible(false);
+    ZielKugelTrans3->setVisible(false);
+    auto camObjectTrans = Transformation::create();
     bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
-    auto light = SceneObjetFactory::getSonne();
     TransAni->setUpdateFunc(
-            [camera, light, bulletTrans, ZielKugelTrans1, ZielKugelTrans2, ZielKugelTrans3, camObjectTrans, kugel1, kugel2, kugel3](
+            [camera, light, bulletTrans, ZielKugelTrans1, ZielKugelTrans2, ZielKugelTrans3, camObjectTrans](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 /* die projektile bewegen sich die ganze zeit, sie laufen vorwärts und springen dan beim errreichen
  * der maximal distanz zurück, die kugeln sind daurhaft unsichbar nur beim drücken von SPACE werden
  * diese sichtbar und können interagieren
- * */
-                bulletTrans->translate(glm::vec3(0, 0., -0.1));
+ /            std::cout<<camera->getMatrix()[3][0];
+             std::cout<<camera->getMatrix()[3][1]<<;
+             std::cout<<camera->getMatrix()[3][2];
+ **/               bulletTrans->translate(glm::vec3(0, 0., -0.02));
                 bulletTravelAndTest();
-                if (bulletTravel > 5) {
+                if (bulletTravel > 25) {
                     bulletTrans->translate(glm::vec3(0, 0, 2.5));
 /*
  * 0.1 * 5 = 0.5 * 5 = 2.5 rechung für den zurücksprung
@@ -244,8 +289,28 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                 float diff2 = sqrt(pow(camSomeDif2.x, 2) + pow(camSomeDif2.y, 2) + pow(camSomeDif2.z, 2));
                 float diff3 = sqrt(pow(camSomeDif3.x, 2) + pow(camSomeDif3.y, 2) + pow(camSomeDif3.z, 2));
 
-                double rad1 = 0.04;
-                double rad2 = 0.08;
+                double rad1 = 0.2;
+                double rad2 = 0.3;
+
+
+                std::vector<TransformationSP> x = SceneObjetFactory::getZielscheiben();
+
+                for(int i =1; i<x.size(); i++){
+                    glm::vec3 kk = glm::vec3(x[i-1]->getMatrix()[3][0],
+                                    x[i-1]->getMatrix()[3][1],
+                                    x[i-1]->getMatrix()[3][2]);
+                    float diff1 = sqrt(pow(camObjPos.x-kk.x, 2) + pow(camObjPos.y-kk.y, 2) + pow(camObjPos.z-kk.z, 2));
+                    if(x[i-1]->isVisible()) {
+                        if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
+                            x[i-1]->setVisible(false);
+                            x[i]->setVisible(true);
+                        }
+                    }
+                    if(i==5){
+                        i=0;
+                    }
+                }
+                /**
                 if (ZielKugelTrans1->isVisible()) {
                     if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
                         ZielKugelTrans1->setVisible(false);
@@ -261,7 +326,7 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                         ZielKugelTrans3->setVisible(false);
                         ZielKugelTrans1->setVisible(true);
                     }
-                }
+                }**/
 /*kolision detection beim treffen der projektile auf objecte*/
                 glm::mat4 tempBulletMat = camera->getMatrix();
                 tempBulletMat *= bulletTrans->getMatrix();
@@ -333,65 +398,12 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
                 // std::cout << totalTime << std::endl;
 
             });
+    viewer->addAnimation(TransAni);
 
-
-    // set texture matrix
-//  texWood->scale2D(glm::vec2(4.f, 4.f));
-
-    // floor shape and transformation
-    GeometryCoreFactory geometryFactory;
-    
-
-    auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
-    auto bullet = Shape::create();
-    bullet->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getRed())
-            ->addCore(bulletCore);
-
-    auto kugelcore1 = geometryFactory.createSphere(0.05, 100, 100);
-
-    kugel1->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getRed())
-            ->addCore(kugelcore1);
-
-    ZielKugelTrans1->translate(glm::vec3(4.3f, 4.f, 2.3f));
-
-    auto kugelcore2 = geometryFactory.createSphere(0.05, 100, 100);
-
-    kugel2->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getRed())
-            ->addCore(kugelcore2);
-
-    ZielKugelTrans2->translate(glm::vec3(-2.3f, 7.f, -3.3f));
-
-    auto kugelcore3 = geometryFactory.createSphere(0.05, 100, 100);
-
-    kugel3->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getRed())
-            ->addCore(kugelcore3);
-
-    ZielKugelTrans3->translate(glm::vec3(0.3f, 4.f, 0.f));
-
-    // create scene graph
-    scene = Group::create();
-    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
-    SceneObjetFactory::getSonne()->addChild(ZielKugelTrans1)
-            ->addChild(ZielKugelTrans2)
-            ->addChild(ZielKugelTrans3);
-    bulletTrans->addChild(bullet);
-    bulletTrans->setVisible(false);
-    ZielKugelTrans1->addChild(kugel1);
-    ZielKugelTrans2->addChild(kugel2);
-    ZielKugelTrans3->addChild(kugel3);
-    camera->addChild(bulletTrans);
-    
-    KeyboardControllerSP controller = KeyboardController::create(camera);
-    viewer->addController(controller);
-    controller->setDing(bulletTrans);
 }
 
 void bulletTravelAndTest() {
-    if (bulletTravel > 5) {
+    if (bulletTravel > 25) {
         bulletTravel = 0;
     }
     bulletTravel = bulletTravel + 0.2;

@@ -79,7 +79,7 @@ void KeyboardController::checkInput(ViewState* viewState) {
       camera_->translate(glm::vec3(0.0f, 0.0f, -0.008f));
   }
   if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-      camera_->translate(glm::vec3(0.0f, 0.0f, 0.006f));
+      camera_->translate(glm::vec3(0.0f, 0.0f, 0.003f));
   }
 
   if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {

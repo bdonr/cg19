@@ -9,13 +9,13 @@ TransformationSP SceneObjetFactory::floorTrans;
 TransformationSP SceneObjetFactory::himmelTrans;
 TransformationSP SceneObjetFactory::jetTrans;
 TransformationSP SceneObjetFactory::camObject;
-GroupSP SceneObjetFactory::torus;
+std::vector<TransformationSP> SceneObjetFactory::zielscheiben;
+
 LightSP SceneObjetFactory::sonne;
 GroupSP SceneObjetFactory::group;
 
- std::vector<TransformationSP> SceneObjetFactory::transformations;
+std::vector<TransformationSP> SceneObjetFactory::transformations;
 
-std::vector<TransformationSP> SceneObjetFactory::torusseTrans;
 
 GeometryCoreFactory SceneObjetFactory::geometryFactory;
 
@@ -42,10 +42,10 @@ SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::v
 
 const std::vector<TransformationSP> &
 SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
-                                float degree) {
-    if(transformations.size()==0) {
+                             float degree) {
+    if (transformations.size() == 0) {
         for (int i = 0; i < menge; i++) {
-            std::cout <<i<< "blka" << std::endl;
+            std::cout << i << "blka" << std::endl;
             transformations.push_back(getKugel());
         }
     }
@@ -76,29 +76,50 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
     }
     return himmelTrans;
 }
-const GroupSP& SceneObjetFactory::getTorus() {
-    if (torus == nullptr) {
-        torus = Group::create();
-        torus->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
-        auto torusCore = geometryFactory.createTorus(3,.7,3,3);
-        ShapeSP torusShape = Shape::create();
-        torusShape->addCore(torusCore);
-        createTorrusseTrans(torusShape);
+
+
+/**
+ * erstelle mehrere Torusse mit jweilig eigener Transformation -> zielscheibe
+ * @param torusShape
+ */
+const TransformationSP SceneObjetFactory::createTorrusseTrans() {
+    auto toruss = Group::create();
+    auto torusCore = geometryFactory.createTorus(0.5, .1, 15, 15);
+    ShapeSP torusShape = Shape::create();
+    torusShape->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite());
+    torusShape->addCore(torusCore);
+    int j = 0;
+    for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
+        TransformationSP x = createTransformation(glm::vec3(0, 0, 0), glm::vec3( i,i,i),
+                                                  glm::vec3(1, 0, 0), 0.f);
+        x->addChild(torusShape);
+        toruss->addChild(x);
+        j++;
     }
-    return torus;
+    TransformationSP x = Transformation::create();
+    x->addChild(toruss);
+    return x;
 }
 
-void SceneObjetFactory::createTorrusseTrans(const ShapeSP &torusShape) {
-    if(torusseTrans.size()==0) {
-        int j = 0;
-        for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
-            torusseTrans.push_back(
-                    createTransformation(glm::vec3(0, 0, 0), glm::vec3(1-i, 1-i, 1-i), glm::vec3(1, 0, 0),0.f));
-            torusseTrans.at(j)->addChild(torusShape);
-            torus->addChild(torusseTrans.at(j));
-            j++;
+const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
+    if (zielscheiben.size() == 0) {
+        for (int i = 0; i < 5; i++) {
+            TransformationSP y= createTorrusseTrans();
+            y = createRandompos(y);
+            y->scale(glm::vec3(.4,.4,.4));
+            zielscheiben.push_back(y);
         }
     }
+    return zielscheiben;
+}
+
+
+ TransformationSP& SceneObjetFactory::createRandompos(TransformationSP& trans){
+    float x = rand()%14+1.1;
+    float y = rand()%10+1.1;
+    float z = rand()%14+1.1;
+    trans->translate(glm::vec3(x,y,z));
+    return trans;
 }
 
 
@@ -116,9 +137,6 @@ const TransformationSP &SceneObjetFactory::getFloor() {
     return floorTrans;
 }
 
-const std::vector<TransformationSP> &SceneObjetFactory::getFlugzeuge() const {
-
-}
 
 const TransformationSP &SceneObjetFactory::getCamObject() {
     if (camObject == nullptr) {
@@ -139,7 +157,8 @@ const TransformationSP SceneObjetFactory::getKugel() {
     auto x1 = Shape::create();
     x1->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite())
             ->addCore(x);
-    TransformationSP trans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(1, 1, 1),glm::vec3(0.f, 1.f, 0.f), 180.);
+    TransformationSP trans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(1, 1, 1),
+                                                  glm::vec3(0.f, 1.f, 0.f), 180.);
     trans->addChild(x1);
     return trans;
 }
@@ -160,11 +179,11 @@ const GroupSP &SceneObjetFactory::getGroup() {
         group = Group::create();
         group->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getStadt())->addCore(
                 TexturHelper::getBrick());
-getSterne(100, glm::vec3(0.1, 0.1, 0.1), glm::vec3(0.1, 0.1, 0.1),
-                                                           glm::vec3(0.1, 0.1, 0.1), 0);
+        getSterne(100, glm::vec3(0.1, 0.1, 0.1), glm::vec3(0.1, 0.1, 0.1),
+                  glm::vec3(0.1, 0.1, 0.1), 0);
 
-            for (int i = 0; i < transformations.size()-1; i++) {
-                group->addChild(transformations.at(i));
+        for (int i = 0; i < transformations.size() - 1; i++) {
+            group->addChild(transformations.at(i));
 
         }
 
