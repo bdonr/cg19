@@ -65,7 +65,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
     scene->addChild(teapotAnim);
     SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getGroup());
     SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getHimmel());
-    //SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getFloor());
+    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getFloor());
     camera->addChild(SceneObjetFactory::getCamObject());
 
     viewer->startAnimations();

@@ -86,10 +86,13 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     auto toruss = Group::create();
     auto torusCore = geometryFactory.createTorus(0.5, .1, 15, 15);
     ShapeSP torusShape = Shape::create();
-    torusShape->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite());
+    torusShape->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
     torusShape->addCore(torusCore);
     int j = 0;
     for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
+        if(j==3){
+            torusShape->addCore(MatFactory::getRed());
+        }
         TransformationSP x = createTransformation(glm::vec3(0, 0, 0), glm::vec3( i,i,i),
                                                   glm::vec3(1, 0, 0), 0.f);
         x->addChild(torusShape);

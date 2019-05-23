@@ -100,6 +100,8 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
            TransformationSP &ZielKugelTrans3, ShapeSP &kugel1, ShapeSP &kugel2, ShapeSP &kugel3,
            TransformationSP &bulletTrans,LightSP light,ViewerSP viewer);
 
+void checkDurchflugZielscheibe(const glm::vec3 &camObjPos);
+
 /**
  * \brief The main function.
  */
@@ -278,56 +280,12 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
                 glm::vec3 kugelObjPos3 = glm::vec3(ZielKugelTrans3->getMatrix()[3][0],
                                                    ZielKugelTrans3->getMatrix()[3][1],
                                                    ZielKugelTrans3->getMatrix()[3][2]);
-                glm::vec3 camSomeDif1 = camObjPos;
-                camSomeDif1 -= kugelObjPos1;
-                glm::vec3 camSomeDif2 = camObjPos;
-                camSomeDif2 -= kugelObjPos2;
-                glm::vec3 camSomeDif3 = camObjPos;
-                camSomeDif3 -= kugelObjPos3;
-
-                float diff1 = sqrt(pow(camSomeDif1.x, 2) + pow(camSomeDif1.y, 2) + pow(camSomeDif1.z, 2));
-                float diff2 = sqrt(pow(camSomeDif2.x, 2) + pow(camSomeDif2.y, 2) + pow(camSomeDif2.z, 2));
-                float diff3 = sqrt(pow(camSomeDif3.x, 2) + pow(camSomeDif3.y, 2) + pow(camSomeDif3.z, 2));
-
-                double rad1 = 0.2;
-                double rad2 = 0.3;
 
 
-                std::vector<TransformationSP> x = SceneObjetFactory::getZielscheiben();
+                checkDurchflugZielscheibe(camObjPos);
 
-                for(int i =1; i<x.size(); i++){
-                    glm::vec3 kk = glm::vec3(x[i-1]->getMatrix()[3][0],
-                                    x[i-1]->getMatrix()[3][1],
-                                    x[i-1]->getMatrix()[3][2]);
-                    float diff1 = sqrt(pow(camObjPos.x-kk.x, 2) + pow(camObjPos.y-kk.y, 2) + pow(camObjPos.z-kk.z, 2));
-                    if(x[i-1]->isVisible()) {
-                        if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                            x[i-1]->setVisible(false);
-                            x[i]->setVisible(true);
-                        }
-                    }
-                    if(i==5){
-                        i=0;
-                    }
-                }
-                /**
-                if (ZielKugelTrans1->isVisible()) {
-                    if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                        ZielKugelTrans1->setVisible(false);
-                        ZielKugelTrans2->setVisible(true);
-                    }
-                } else if (ZielKugelTrans2->isVisible()) {
-                    if (glm::abs(rad1 - rad2) < diff2 && diff2 < (rad1 + rad2)) {
-                        ZielKugelTrans2->setVisible(false);
-                        ZielKugelTrans3->setVisible(true);
-                    }
-                } else if (ZielKugelTrans3->isVisible()) {
-                    if (glm::abs(rad1 - rad2) < diff3 && diff3 < (rad1 + rad2)) {
-                        ZielKugelTrans3->setVisible(false);
-                        ZielKugelTrans1->setVisible(true);
-                    }
-                }**/
-/*kolision detection beim treffen der projektile auf objecte*/
+
+                /*kolision detection beim treffen der projektile auf objecte*/
                 glm::mat4 tempBulletMat = camera->getMatrix();
                 tempBulletMat *= bulletTrans->getMatrix();
 
@@ -400,6 +358,32 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
             });
     viewer->addAnimation(TransAni);
 
+}
+
+void checkDurchflugZielscheibe(const glm::vec3 &camObjPos) {
+    double rad1 = 0.2;
+    double rad2 = 0.3;
+
+
+    std::vector<TransformationSP> x = SceneObjetFactory::getZielscheiben();
+
+    for (int i = 0; i < x.size(); i++) {
+        glm::vec3 kk = glm::vec3(x[i]->getMatrix()[3][0],
+                                 x[i]->getMatrix()[3][1],
+                                 x[i]->getMatrix()[3][2]);
+        float diff1 = sqrt(pow(camObjPos.x - kk.x, 2) + pow(camObjPos.y - kk.y, 2) + pow(camObjPos.z - kk.z, 2));
+        if (i < 4 && x[i]->isVisible()) {
+            if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
+                x[i]->setVisible(false);
+                x[i + 1]->setVisible(true);
+            }
+        }
+        if (i == 4 && x[i]->isVisible()) {
+            x[0]->setVisible(true);
+            x[1]->setVisible(false);
+            i = 0;
+        }
+    }
 }
 
 void bulletTravelAndTest() {
