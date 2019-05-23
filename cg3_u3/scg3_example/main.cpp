@@ -32,6 +32,7 @@
 #include "Transformation.h"
 
 #include <src/EnvoirementHelper.h>
+#include <thread>
 
 //#include <scg3.h>
 #include "../scg3/scg3.h"
@@ -100,7 +101,7 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
            TransformationSP &ZielKugelTrans3, ShapeSP &kugel1, ShapeSP &kugel2, ShapeSP &kugel3,
            TransformationSP &bulletTrans,LightSP light,ViewerSP viewer);
 
-void checkDurchflugZielscheibe(const glm::vec3 &camObjPos);
+void checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time);
 
 /**
  * \brief The main function.
@@ -282,7 +283,7 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
                                                    ZielKugelTrans3->getMatrix()[3][2]);
 
 
-                checkDurchflugZielscheibe(camObjPos);
+                checkDurchflugZielscheibe(camObjPos,totalTime);
 
 
                 /*kolision detection beim treffen der projektile auf objecte*/
@@ -328,7 +329,7 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
                 }
 
 
-                if (camera->getPosition().x > 15) {
+        /**        if (camera->getPosition().x > 15) {
                     camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
                 } else if (camera->getPosition().x < -15) {
                     camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -341,7 +342,7 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
                 } else if (camera->getPosition().y > 10.0) {
                     camera->rotate(15.0f, glm::vec3(1.0f, 0.f, 0.0f));
                 }
-
+**/
                 /*
                  * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
                  * also bewegt sich die camera nach -Z
@@ -360,29 +361,24 @@ void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP
 
 }
 
-void checkDurchflugZielscheibe(const glm::vec3 &camObjPos) {
+void checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time) {
     double rad1 = 0.2;
     double rad2 = 0.3;
 
 
     std::vector<TransformationSP> x = SceneObjetFactory::getZielscheiben();
-
     for (int i = 0; i < x.size(); i++) {
         glm::vec3 kk = glm::vec3(x[i]->getMatrix()[3][0],
                                  x[i]->getMatrix()[3][1],
                                  x[i]->getMatrix()[3][2]);
         float diff1 = sqrt(pow(camObjPos.x - kk.x, 2) + pow(camObjPos.y - kk.y, 2) + pow(camObjPos.z - kk.z, 2));
-        if (i < 4 && x[i]->isVisible()) {
+        if (x[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
                 x[i]->setVisible(false);
                 x[i + 1]->setVisible(true);
             }
         }
-        if (i == 4 && x[i]->isVisible()) {
-            x[0]->setVisible(true);
-            x[1]->setVisible(false);
-            i = 0;
-        }
+
     }
 }
 

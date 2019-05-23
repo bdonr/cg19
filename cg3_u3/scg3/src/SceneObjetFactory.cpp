@@ -83,33 +83,35 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
  * @param torusShape
  */
 const TransformationSP SceneObjetFactory::createTorrusseTrans() {
-    auto toruss = Group::create();
-    auto torusCore = geometryFactory.createTorus(0.5, .1, 15, 15);
+    auto torussGroup = Group::create();
+    auto torusCore = geometryFactory.createTorus(0.5, .1, 16, 16);
     ShapeSP torusShape = Shape::create();
     torusShape->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
     torusShape->addCore(torusCore);
     int j = 0;
     for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
-        if(j==3){
-            torusShape->addCore(MatFactory::getRed());
-        }
-        TransformationSP x = createTransformation(glm::vec3(0, 0, 0), glm::vec3( i,i,i),
+        TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3( i,i,i),
                                                   glm::vec3(1, 0, 0), 0.f);
-        x->addChild(torusShape);
-        toruss->addChild(x);
+        toursTrans->addChild(torusShape);
+        torussGroup->addChild(toursTrans);
         j++;
     }
-    TransformationSP x = Transformation::create();
-    x->addChild(toruss);
-    return x;
+    TransformationSP grouptrans = Transformation::create();
+    grouptrans->addChild(torussGroup);
+    return grouptrans;
 }
 
 const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
     if (zielscheiben.size() == 0) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             TransformationSP y= createTorrusseTrans();
             y = createRandompos(y);
             y->scale(glm::vec3(.4,.4,.4));
+            y->setVisible(false);
+            if(i==0){
+                y->setVisible(true);
+            }
+
             zielscheiben.push_back(y);
         }
     }
@@ -118,9 +120,9 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
 
 
  TransformationSP& SceneObjetFactory::createRandompos(TransformationSP& trans){
-    float x = rand()%14+1.1;
-    float y = rand()%10+1.1;
-    float z = rand()%14+1.1;
+    float x = rand()%10+0.1;
+    float y = rand()%10+0.1;
+    float z = rand()%10+0.1;
     trans->translate(glm::vec3(x,y,z));
     return trans;
 }
@@ -133,7 +135,7 @@ const TransformationSP &SceneObjetFactory::getFloor() {
         floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(
                         TexturHelper::getStadt())
                 ->addCore(floorCore);
-        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(.012, .012, .012), glm::vec3(1, 0, 0),
+        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(.025, .025, .025), glm::vec3(1, 0, 0),
                                           0.f);
         floorTrans->addChild(floor);
     }
