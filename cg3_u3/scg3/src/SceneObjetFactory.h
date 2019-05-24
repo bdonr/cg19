@@ -9,6 +9,8 @@
 #include "MatFactory.h"
 #include "TexturHelper.h"
 #include "ShaderFactory.h"
+#include "SceneObjetFactory.h"
+
 using namespace scg;
 class SceneObjetFactory {
     static TransformationSP himmelTrans;
