@@ -12,6 +12,7 @@ TransformationSP SceneObjetFactory::camObject;
 std::vector<TransformationSP> SceneObjetFactory::zielscheiben;
 
 LightSP SceneObjetFactory::sonne;
+LightSP SceneObjetFactory::mond;
 GroupSP SceneObjetFactory::group;
 
 std::vector<TransformationSP> SceneObjetFactory::transformations;
@@ -172,13 +173,22 @@ const LightSP &SceneObjetFactory::getSonne() {
     if (sonne == nullptr) {
         sonne = Light::create();
         sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
-                        glm::vec4(.4, .4, .4, 1))->setSpot(glm::normalize(glm::vec4(1, 1, 1, 1)), 180.f, .1f)
+                        glm::vec4(.1, .1, .1, 1))
                 ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
                 ->init();
     }
     return sonne;
 }
-
+const LightSP &SceneObjetFactory::getMond() {
+    if (mond == nullptr) {
+        mond = Light::create();
+        mond->setSpecular(glm::vec4(.4f, .4f, .4f, .4f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+                        glm::vec4(.4, .4, .4, 1))
+                ->setPosition(glm::vec4(0.f, -36.f, 0, 1.f))
+                ->init();
+    }
+    return mond;
+}
 const GroupSP &SceneObjetFactory::getGroup() {
     if (group == nullptr) {
         group = Group::create();
