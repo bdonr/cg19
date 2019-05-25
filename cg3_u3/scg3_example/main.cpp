@@ -155,7 +155,7 @@ void useCustomizedViewer() {
     auto viewer = Viewer::create();
     auto renderer = StandardRenderer::create();
     viewer->init(renderer)
-            ->createWindow("s c g 3   e x a m p l e", 1024, 768);
+            ->createWindow("Cg19 Projekt", 1024, 768);
 
 
     // create camera

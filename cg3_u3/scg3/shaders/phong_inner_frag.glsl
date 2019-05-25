@@ -38,9 +38,9 @@ void main(void) {
     vec4 color = applyTexture(texCoord0, emissionAmbientDiffuse, specular);
 
     // transform color by color matrix
-    vec4 transformedColor = colorMatrix * vec4(color.rgb, 1.);
+    vec4 transformedColor = colorMatrix * vec4(color.rgb,0.08);
     transformedColor /= transformedColor.a;   // perspective division
 
     // set final fragment color
-    fragColor = clamp(vec4(transformedColor.rgb, color.a), 0., 1.);
+    fragColor = clamp(vec4(transformedColor.rgb, color.a), 0., 1);
 }

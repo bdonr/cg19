@@ -68,7 +68,7 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
 
 const TransformationSP &SceneObjetFactory::getHimmel() {
     if (himmelTrans == nullptr) {
-        auto himmelCore = geometryFactory.createSphere(20, 101, 110);
+        auto himmelCore = geometryFactory.createSphere(30, 101, 110);
         ShapeSP himmel = getShape(ShaderFactory::getPhongreverse(true), MatFactory::getTag(), TexturHelper::getHimmel(),
                                   himmelCore);
         himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
@@ -136,7 +136,7 @@ const TransformationSP &SceneObjetFactory::getFloor() {
         floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(
                         TexturHelper::getStadt())
                 ->addCore(floorCore);
-        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(.025, .025, .025), glm::vec3(1, 0, 0),
+        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(.1, .1, .1), glm::vec3(1, 0, 0),
                                           0.f);
         floorTrans->addChild(floor);
     }
@@ -173,7 +173,7 @@ const LightSP &SceneObjetFactory::getSonne() {
     if (sonne == nullptr) {
         sonne = Light::create();
         sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
-                        glm::vec4(.1, .1, .1, 1))
+                        glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0,1,1),100,1)
                 ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
                 ->init();
     }
@@ -182,7 +182,7 @@ const LightSP &SceneObjetFactory::getSonne() {
 const LightSP &SceneObjetFactory::getMond() {
     if (mond == nullptr) {
         mond = Light::create();
-        mond->setSpecular(glm::vec4(.4f, .4f, .4f, .4f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+        mond->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
                         glm::vec4(.4, .4, .4, 1))
                 ->setPosition(glm::vec4(0.f, -36.f, 0, 1.f))
                 ->init();

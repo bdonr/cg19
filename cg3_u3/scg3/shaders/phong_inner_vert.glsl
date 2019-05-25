@@ -23,8 +23,8 @@ smooth out vec4 texCoord0;
 void main() {
 
   // transform vertex position and normal into eye coordinates 
-  ecVertex = -(modelViewMatrix * vVertex).xyz;
-  ecNormal = normalMatrix * vNormal;
+  ecVertex = (modelViewMatrix * vVertex).xyz;
+  ecNormal = (normalMatrix * vNormal).xyz;
 
   // set output values
   gl_Position = mvpMatrix * vVertex;

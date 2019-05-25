@@ -42,8 +42,8 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
             });
 
     auto teapotAnim = TransformAnimation::create();
-    float angularVel = .1f;
-    glm::vec3 axis(0.f, 0.f, 1.f);
+    float angularVel = 1.f;
+    glm::vec3 axis(0.f, 1.f, 0.f);
     teapotAnim->setUpdateFunc(
             [angularVel, axis](TransformAnimation *animation,
                                double currTime, double diffTime, double totalTime) {
@@ -60,10 +60,31 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
 
     teapotAnim->addChild(teapotAnimTrans);
     teapotAnimTrans->addChild(SceneObjetFactory::getSonne());
-    teapotAnimTrans->addChild(SceneObjetFactory::getMond());
 
 
+  /**  auto mondAnim = TransformAnimation::create();
+    float angularVelMond = 1.f;
+    glm::vec3 axisMond(0.f, 1.f, 0.f);
+    teapotAnim->setUpdateFunc(
+            [angularVelMond, axisMond](TransformAnimation *animation,
+                               double currTime, double diffTime, double totalTime) {
+                animation->rotate(angularVelMond, axisMond);
+            });
+    viewer->addAnimation(mondAnim);
+
+    auto mondAnimTrans = Transformation::create();
+    mondAnimTrans->translate(glm::vec3(0.3f, 0.f, 0.f));
+
+
+    auto mondTrans = Transformation::create();
+    mondTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+
+    mondAnim->addChild(mondAnimTrans);
+    mondAnimTrans->addChild(SceneObjetFactory::getMond());
+
+**/
     scene->addChild(teapotAnim);
+ //   scene->addChild(mondAnim);
     SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getGroup());
     SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getHimmel());
     SceneObjetFactory::getMond()->addChild(SceneObjetFactory::getHimmel());
