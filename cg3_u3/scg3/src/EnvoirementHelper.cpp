@@ -42,7 +42,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
             });
 
     auto teapotAnim = TransformAnimation::create();
-    float angularVel = .1f;
+    float angularVel = 1.f;
     glm::vec3 axis(0.f, 0.f, 1.f);
     teapotAnim->setUpdateFunc(
             [angularVel, axis](TransformAnimation *animation,

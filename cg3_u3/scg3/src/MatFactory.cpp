@@ -65,7 +65,7 @@ const MaterialCoreSP &MatFactory::getBlack() {
 const MaterialCoreSP &MatFactory::getTag() {
     if(tag.get()== nullptr){
         tag = createMat(glm::vec4(0.f, .7f, 1.f, 1), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                        0.0299,glm::vec4(0.f,0.f,.0f,.1));
+                        200,glm::vec4(0.f,0.f,.0f,.1));
     }
     return tag;
 }

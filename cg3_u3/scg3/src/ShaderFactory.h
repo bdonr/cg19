@@ -16,6 +16,7 @@ private:
     static ShaderCoreSP gauradwith;
     static ShaderCoreSP gauradwithout;
     static ShaderCoreSP phongreverse;
+    static ShaderCoreSP phongreversewithout;
     static ShaderCoreSP color;
     static ShaderCoreSP skybox;
 

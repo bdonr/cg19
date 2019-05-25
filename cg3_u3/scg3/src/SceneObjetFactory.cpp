@@ -68,7 +68,7 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
 const TransformationSP &SceneObjetFactory::getHimmel() {
     if (himmelTrans == nullptr) {
         auto himmelCore = geometryFactory.createSphere(20, 101, 110);
-        ShapeSP himmel = getShape(ShaderFactory::getPhong(true), MatFactory::getTag(), TexturHelper::getHimmel(),
+        ShapeSP himmel = getShape(ShaderFactory::getPhongreverse(true), MatFactory::getTag(), TexturHelper::getHimmel(),
                                   himmelCore);
         himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
                                            4.f);

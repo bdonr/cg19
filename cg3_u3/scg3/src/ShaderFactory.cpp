@@ -10,6 +10,7 @@ ShaderCoreSP ShaderFactory::phongwithout;
 ShaderCoreSP ShaderFactory::gauradwith;
 ShaderCoreSP ShaderFactory::gauradwithout;
 ShaderCoreSP ShaderFactory::phongreverse;
+ShaderCoreSP ShaderFactory::phongreversewithout;
 ShaderCoreSP ShaderFactory::color;
 ShaderCoreSP ShaderFactory::skybox;
 ShaderCoreFactory ShaderFactory::shaderFactory("../scg3/shaders;../../scg3/shaders");
@@ -44,9 +45,19 @@ const ShaderCoreSP &ShaderFactory::getGaurad(bool texturmode) {
 }
 
 const ShaderCoreSP &ShaderFactory::getPhongreverse(bool texturmode) {
-    return phongreverse;
-}
 
+    if (phongreverse == nullptr && texturmode) {
+        phongreverse = create("phong_inner", texturmode);
+    }
+    if (phongreversewithout == nullptr && !texturmode) {
+        phongreversewithout = create("phong_inner", texturmode);
+    }
+    if (texturmode) {
+        return phongreverse;
+    } else {
+        return phongreversewithout ;
+    }
+}
 const ShaderCoreSP &ShaderFactory::getColor() {
     return color;
 }
