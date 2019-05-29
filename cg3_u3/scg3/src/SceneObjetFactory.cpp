@@ -88,17 +88,16 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
  */
 const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
-    auto torusCore = geometryFactory.createTorus(0.5, .1, 16, 16);
+
+    auto torusCore = geometryFactory.createTorus(0.5, .1, rand()%13+3,40);
     ShapeSP torusShape = Shape::create();
     torusShape->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
     torusShape->addCore(torusCore);
-    int j = 0;
     for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
         TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
                                                            glm::vec3(1, 0, 0), 0.f);
         toursTrans->addChild(torusShape);
         torussGroup->addChild(toursTrans);
-        j++;
     }
     TransformationSP grouptrans = Transformation::create();
     grouptrans->addChild(torussGroup);
