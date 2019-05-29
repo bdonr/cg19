@@ -193,15 +193,8 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
-
-    TransformationSP ZielKugelTrans1;
-    TransformationSP ZielKugelTrans2;
-    TransformationSP ZielKugelTrans3;
-    ShapeSP kugel1;
-    ShapeSP kugel2;
-    ShapeSP kugel3;
     TransformationSP bulletTrans;
-    GameLogic::logic(camera, ZielKugelTrans1, ZielKugelTrans2, ZielKugelTrans3, kugel1, kugel2, kugel3, bulletTrans,SceneObjetFactory::getSonne(),viewer);
+    GameLogic::logic(camera, bulletTrans,viewer);
 
 
     // set texture matrix
@@ -222,14 +215,14 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     KeyboardControllerSP controller = KeyboardController::create(camera);
     viewer->addController(controller);
     EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
-    SceneObjetFactory::getSonne()->addChild(ZielKugelTrans1)
-            ->addChild(ZielKugelTrans2)
-            ->addChild(ZielKugelTrans3)->addChild(camera);
+    for(int i =0;i <SceneObjetFactory::getZielscheiben().size();i++){
+        SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getZielscheiben().at(i));
+    }
+    SceneObjetFactory::getSonne()->addChild(camera);
+
     bulletTrans->addChild(bullet);
     bulletTrans->setVisible(false);
     camera->addChild(bulletTrans);
-
-    viewer->startAnimations();
     controller->setDing(bulletTrans);
 
 }

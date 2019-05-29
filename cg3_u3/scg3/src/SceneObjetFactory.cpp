@@ -12,7 +12,10 @@ TransformationSP SceneObjetFactory::camObject;
 std::vector<TransformationSP> SceneObjetFactory::zielscheiben;
 
 LightSP SceneObjetFactory::sonne;
-LightSP SceneObjetFactory::mond;
+LightSP SceneObjetFactory::links;
+LightSP SceneObjetFactory::rechts;
+
+GroupSP SceneObjetFactory::frontlichter;
 GroupSP SceneObjetFactory::group;
 
 std::vector<TransformationSP> SceneObjetFactory::transformations;
@@ -91,8 +94,8 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     torusShape->addCore(torusCore);
     int j = 0;
     for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
-        TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3( i,i,i),
-                                                  glm::vec3(1, 0, 0), 0.f);
+        TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
+                                                           glm::vec3(1, 0, 0), 0.f);
         toursTrans->addChild(torusShape);
         torussGroup->addChild(toursTrans);
         j++;
@@ -105,11 +108,11 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
 const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
     if (zielscheiben.size() == 0) {
         for (int i = 0; i < 10; i++) {
-            TransformationSP y= createTorrusseTrans();
+            TransformationSP y = createTorrusseTrans();
             y = createRandompos(y);
-            y->scale(glm::vec3(.4,.4,.4));
+            y->scale(glm::vec3(.4, .4, .4));
             y->setVisible(false);
-            if(i==0){
+            if (i == 0) {
                 y->setVisible(true);
             }
 
@@ -120,11 +123,11 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
 }
 
 
- TransformationSP& SceneObjetFactory::createRandompos(TransformationSP& trans){
-    float x = rand()%10+0.1;
-    float y = rand()%10+0.1;
-    float z = rand()%10+0.1;
-    trans->translate(glm::vec3(x,y,z));
+TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
+    float x = rand() % 10 + 0.1;
+    float y = rand() % 10 + 0.1;
+    float z = rand() % 10 + 0.1;
+    trans->translate(glm::vec3(x, y, z));
     return trans;
 }
 
@@ -173,22 +176,22 @@ const LightSP &SceneObjetFactory::getSonne() {
     if (sonne == nullptr) {
         sonne = Light::create();
         sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
-                        glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0,1,1),100,1)
+                        glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0, 1, 1), 100, 1)
                 ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
                 ->init();
     }
     return sonne;
 }
-const LightSP &SceneObjetFactory::getMond() {
-    if (mond == nullptr) {
-        mond = Light::create();
-        mond->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
-                        glm::vec4(.4, .4, .4, 1))
-                ->setPosition(glm::vec4(0.f, -36.f, 0, 1.f))
-                ->init();
+
+const GroupSP &SceneObjetFactory::getFrontLichter() {
+    if (frontlichter == nullptr) {
+        frontlichter->addChild(getRechts());
+        frontlichter->addChild(getLinks());
     }
-    return mond;
+    return frontlichter;
 }
+
+
 const GroupSP &SceneObjetFactory::getGroup() {
     if (group == nullptr) {
         group = Group::create();
@@ -204,6 +207,35 @@ const GroupSP &SceneObjetFactory::getGroup() {
 
     }
     return group;
+}
+
+const LightSP &SceneObjetFactory::getLinks() {
+    if (links == nullptr) {
+        links = Light::create();
+        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],1.);
+        links->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+                        glm::vec4(.4, .4, .4, 1))
+                ->setPosition(k)
+                ->init();
+        links->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0]+.2), 10, 10);
+        links->addChild(getFloor());
+    }
+    return links;
+}
+
+const LightSP &SceneObjetFactory::getRechts() {
+    if (rechts == nullptr) {
+        rechts = Light::create();
+        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],1.);
+        rechts->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+                        glm::vec4(.4, .4, .4, 1))
+
+                ->setPosition(k)
+                ->init();
+        rechts->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0]+.2), 10, 10);
+        rechts->addChild(getFloor());
+    }
+    return rechts;
 }
 
 

@@ -18,7 +18,15 @@ class SceneObjetFactory {
     static TransformationSP camObject;
     static TransformationSP floorTrans;
     static LightSP sonne;
-    static LightSP mond;
+    static LightSP links;
+    static LightSP rechts;
+public:
+    static const LightSP &getLinks();
+
+    static const LightSP &getRechts();
+
+private:
+    static GroupSP frontlichter;
     static GeometryCoreFactory geometryFactory;
     static GroupSP group;
     static std::vector<TransformationSP> transformations;
@@ -35,7 +43,7 @@ public:
 
     static const  TransformationSP& getTorus();
     static const LightSP &getSonne();
-    static const LightSP& getMond();
+    const static GroupSP &getFrontLichter();
     static const GroupSP &getGroup();
     static const std::vector<TransformationSP> &getZielscheiben();
 
