@@ -6,7 +6,12 @@
 #include "GameLogic.h"
 
 double GameLogic::bulletTravel = 0;
-
+/**
+ * Basic Game Logic 
+ * @param camera
+ * @param bulletTrans
+ * @param viewer
+ */
 void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP viewer) {
     bulletTrans = Transformation::create();
     auto TransAni = TransformAnimation::create();
@@ -82,7 +87,11 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP 
     viewer->addAnimation(TransAni);
 
 }
-
+/**
+ * Check if jet Flought through the Target
+ * @param camObjPos
+ * @param time
+ */
 void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time) {
     double rad1 = 0.2;
     double rad2 = 0.3;
@@ -101,7 +110,11 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double tim
 
     }
 }
-
+/**
+ * Check if bullet  Flought through the Target
+ * @param camObjPos
+ * @param time
+ */
 void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time) {
     double rad1 = 0.1;
     double rad2 = 0.1;
