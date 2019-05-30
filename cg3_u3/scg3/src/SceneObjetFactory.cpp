@@ -2,10 +2,28 @@
 // Created by don on 21.05.19.
 //
 
+/**
+ * This class Creates SubTrees of Transformations
+ * It creates Transformations with its Groups Shapes and Cores
+ *  Feel free to add more Transformations as you need .
+ *  They can be easily
+ *  added to other Tranformations of your scene.
+ *  Just by adding them whith scene->addChild(your-TransFormation);
+ */
 #include <iostream>
 #include "SceneObjetFactory.h"
 
 SceneObjetFactory* SceneObjetFactory::instance;
+
+
+/**
+ * Create Shape with some properties
+ * @param shade
+ * @param mat
+ * @param textur
+ * @param core
+ * @return ShapeSP
+ */
 const ShapeSP
 SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
                             const GeometryCoreSP &core) {
@@ -17,6 +35,15 @@ SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat
     return nachtHimmel;
 }
 
+
+/**
+ * Create a Basic TransformationSP
+ * @param translate
+ * @param scale
+ * @param rotate
+ * @param degree
+ * @return TransformationSP
+ */
 const TransformationSP
 SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
                                         float degree) {
@@ -27,6 +54,15 @@ SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::v
     return trans;
 }
 
+/**
+ * Create a Group of Transformations which represent some Stars
+ * @param menge
+ * @param translate
+ * @param scale
+ * @param rotate
+ * @param degree
+ * @return
+ */
 const std::vector<TransformationSP> &
 SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
                              float degree) {
@@ -38,6 +74,11 @@ SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::v
     return transformations;
 }
 
+
+/**
+ * Create a jet
+ * @return TransformationSP
+ */
 const TransformationSP &SceneObjetFactory::getFlugzeug() {
     if (jetTrans == nullptr) {
         auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -50,7 +91,10 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
     return jetTrans;
 }
 
-
+/**
+ * Create a Heavensphere
+ * @return TransformationSP
+ */
 const TransformationSP &SceneObjetFactory::getHimmel() {
     if (himmelTrans == nullptr) {
         auto himmelCore = geometryFactory.createSphere(30, 101, 110);
@@ -65,8 +109,8 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
 
 
 /**
- * erstelle mehrere Torusse mit jweilig eigener Transformation -> zielscheibe
- * @param torusShape
+ * Creates a Group of Torus with its  TransformationSP
+ * @param TransformationSP
  */
 const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
@@ -85,6 +129,10 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     return grouptrans;
 }
 
+/**
+ * Creates ten Groups of Torus
+ * @return std::vector<TransformationSP>&
+ */
 const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
     if (zielscheiben.size() == 0) {
         for (int i = 0; i < 10; i++) {
@@ -102,7 +150,11 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
     return zielscheiben;
 }
 
-
+/**
+ * Translates a given TransformationSP to a RandomPosition
+ * @param trans
+ * @return TransformationSP
+ */
 TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
     float x = rand() % 10 + 0.1;
     float y = rand() % 10 + 0.1;
@@ -111,7 +163,10 @@ TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
     return trans;
 }
 
-
+/**
+ * Creates a Floor Transformation
+ * @return TransformationSP
+ */
 const TransformationSP &SceneObjetFactory::getFloor() {
     if (floorTrans == nullptr) {
        // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
@@ -127,7 +182,10 @@ const TransformationSP &SceneObjetFactory::getFloor() {
     return floorTrans;
 }
 
-
+/**
+ * Creates an object which will be used as a Object binded to the cam
+ * @return
+ */
 const TransformationSP &SceneObjetFactory::getCamObject() {
     if (camObject == nullptr) {
         auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -142,6 +200,10 @@ const TransformationSP &SceneObjetFactory::getCamObject() {
     return camObject;
 }
 
+/**
+ * Creats a Sphere
+ * @return
+ */
 const TransformationSP SceneObjetFactory::getKugel() {
     auto x = geometryFactory.createSphere(.1f, 100, 100);
     auto x1 = Shape::create();
@@ -153,6 +215,10 @@ const TransformationSP SceneObjetFactory::getKugel() {
     return trans;
 }
 
+/**
+ * Creates a Lightposition
+ * @return
+ */
 const LightSP &SceneObjetFactory::getSonne() {
     if (sonne == nullptr) {
         sonne = Light::create();
@@ -163,7 +229,10 @@ const LightSP &SceneObjetFactory::getSonne() {
     }
     return sonne;
 }
-
+/**
+ * Creates two Lights in a group
+ * @return
+ */
 const GroupSP &SceneObjetFactory::getFrontLichter() {
     if (frontlichter == nullptr) {
         frontlichter->addChild(getRechts());
@@ -219,6 +288,10 @@ const LightSP &SceneObjetFactory::getRechts() {
     return rechts;
 }
 
+/**
+ * Creates a Tower with a brick wall
+ * @return
+ */
 const TransformationSP& SceneObjetFactory::getTurm(){
     if(turmTrans == nullptr) {
         auto turmCore = geometryFactory.createConicalFrustum(.3,.3, 1, 10, 10, true);
@@ -237,6 +310,10 @@ const TransformationSP& SceneObjetFactory::getTurm(){
 
 }
 
+/**
+ *
+ * @return SceneObjetFactory *
+ */
  SceneObjetFactory * SceneObjetFactory::getInstance(){
     if(instance==nullptr){
         instance=new SceneObjetFactory();
@@ -244,7 +321,9 @@ const TransformationSP& SceneObjetFactory::getTurm(){
      return instance;
 }
 
-
+/**
+ * Constructor
+ */
 SceneObjetFactory::SceneObjetFactory(){
     shaderFactory= ShaderFactory::getInstance();
     matFactory = MatFactory::getInstance();
