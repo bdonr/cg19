@@ -5,15 +5,17 @@
 #include "ShaderFactory.h"
 
 
-ShaderCoreSP ShaderFactory::phongwith;
-ShaderCoreSP ShaderFactory::phongwithout;
-ShaderCoreSP ShaderFactory::gauradwith;
-ShaderCoreSP ShaderFactory::gauradwithout;
-ShaderCoreSP ShaderFactory::phongreverse;
-ShaderCoreSP ShaderFactory::phongreversewithout;
-ShaderCoreSP ShaderFactory::color;
-ShaderCoreSP ShaderFactory::skybox;
-ShaderCoreFactory ShaderFactory::shaderFactory("../scg3/shaders;../../scg3/shaders");
+ShaderFactory* ShaderFactory::instance;
+
+ShaderFactory::ShaderFactory(){
+    shaderFactory= ShaderCoreFactory("../scg3/shaders;../../scg3/shaders");
+}
+ShaderFactory* ShaderFactory::getInstance() {
+    if(instance== nullptr){
+        instance=new ShaderFactory();
+    }
+    return instance;
+}
 
 const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
 
@@ -29,6 +31,14 @@ const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
         return phongwithout;
     }
 }
+
+const ShaderCoreSP &ShaderFactory::getPhongBumb() {
+
+    if (phongbumb == nullptr) {
+        phongbumb = create("bump","bump");
+    }
+        return phongbumb;
+    }
 
 const ShaderCoreSP &ShaderFactory::getGaurad(bool texturmode) {
     if (gauradwith == nullptr && texturmode) {
@@ -73,5 +83,14 @@ const ShaderCoreSP ShaderFactory::create(const std::string &name, bool texturemo
                                                              ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
                                                              (texturemode) ? ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER) : ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER)
     });
+
+}
+const ShaderCoreSP ShaderFactory::create(const std::string &name1,const std::string &name2) {
+    return shaderFactory.createShaderFromSourceFiles({
+                                                             ShaderFile(name1+"_vert.glsl", GL_VERTEX_SHADER),
+                                                             ShaderFile(name2+"_frag.glsl", GL_FRAGMENT_SHADER),
+                                                             ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
+                                                             ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
+                                                     });
 
 }

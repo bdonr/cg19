@@ -7,7 +7,7 @@
 #include "../scg3/scg3.h"
 #include "EnvoirementHelper.h"
 #include "MatFactory.h"
-#include "TexturHelper.h"
+#include "TexturFactory.h"
 #include "ShaderFactory.h"
 #include "SceneObjetFactory.h"
 

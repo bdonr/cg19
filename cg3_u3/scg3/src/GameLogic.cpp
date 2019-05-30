@@ -7,7 +7,7 @@
 
 double GameLogic::bulletTravel = 0;
 
-void GameLogic::logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP viewer) {
+void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP viewer) {
     bulletTrans = Transformation::create();
     auto TransAni = TransformAnimation::create();
     auto camObjectTrans = Transformation::create();
@@ -21,14 +21,13 @@ void GameLogic::logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP v
  /            std::cout<<camera->getMatrix()[3][0];
              std::cout<<camera->getMatrix()[3][1]<<;
              std::cout<<camera->getMatrix()[3][2];
- **/               bulletTrans->translate(glm::vec3(0, 0., -0.02));
+ **/            bulletTrans->translate(glm::vec3(0, 0., -0.02));
                 bulletTravelAndTest();
-                if (bulletTravel > 25) {
+                if (bulletTravel > 24.8) {
                     bulletTrans->translate(glm::vec3(0, 0, 2.5));
-/*
- * 0.1 * 5 = 0.5 * 5 = 2.5 rechung für den zurücksprung
- */
                 }
+ /* 0.1 * 5 = 0.5 * 5 = 2.5 rechung für den zurücksprung
+ */
 /*kolision detection beim rammen des flugzeugs gegen die objekte*/
                 glm::mat4 tempCamObjMat = camera->getMatrix();
                 tempCamObjMat = glm::translate(tempCamObjMat, glm::vec3(0, -0.08, -0.2));
@@ -87,15 +86,16 @@ void GameLogic::logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP v
 void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time) {
     double rad1 = 0.2;
     double rad2 = 0.3;
-    for (int i = 0; i < SceneObjetFactory::getZielscheiben().size(); i++) {
-        glm::vec3 kk = glm::vec3(SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][0],
-                                 SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][1],
-                                 SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][2]);
+    SceneObjetFactory * insta = SceneObjetFactory::getInstance();
+    for (int i = 0; i < insta->getZielscheiben().size(); i++) {
+        glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],
+                                 insta->getZielscheiben()[i]->getMatrix()[3][1],
+                                 insta->getZielscheiben()[i]->getMatrix()[3][2]);
         float diff1 = sqrt(pow(camObjPos.x - kk.x, 2) + pow(camObjPos.y - kk.y, 2) + pow(camObjPos.z - kk.z, 2));
-        if (SceneObjetFactory::getZielscheiben()[i]->isVisible()) {
+        if (insta->getZielscheiben()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                SceneObjetFactory::getZielscheiben()[i]->setVisible(false);
-                SceneObjetFactory::getZielscheiben()[i + 1]->setVisible(true);
+                insta->getZielscheiben()[i]->setVisible(false);
+                insta->getZielscheiben()[i + 1]->setVisible(true);
             }
         }
 
@@ -105,16 +105,17 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double tim
 void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time) {
     double rad1 = 0.1;
     double rad2 = 0.1;
-    for (int i = 0; i < SceneObjetFactory::getZielscheiben().size(); i++) {
+    SceneObjetFactory * insta = SceneObjetFactory::getInstance();
+    for (int i = 0; i <insta->getZielscheiben().size(); i++) {
 
-        glm::vec3 kk = glm::vec3(SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][0],
-                                 SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][1],
-                                 SceneObjetFactory::getZielscheiben()[i]->getMatrix()[3][2]);
+        glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],
+                                 insta->getZielscheiben()[i]->getMatrix()[3][1],
+                                 insta->getZielscheiben()[i]->getMatrix()[3][2]);
         float diff1 = sqrt(pow(bullet.x - kk.x, 2) + pow(bullet.y - kk.y, 2) + pow(bullet.z - kk.z, 2));
-        if (SceneObjetFactory::getZielscheiben()[i]->isVisible()) {
+        if (insta->getZielscheiben()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                SceneObjetFactory::getZielscheiben()[i]->setVisible(false);
-                SceneObjetFactory::getZielscheiben()[i + 1]->setVisible(true);
+                insta->getZielscheiben()[i]->setVisible(false);
+                insta->getZielscheiben()[i + 1]->setVisible(true);
             }
         }
 
@@ -122,7 +123,7 @@ void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time) {
 }
 
 void GameLogic::bulletTravelAndTest() {
-    if (bulletTravel > 25) {
+    if (bulletTravel > 24.8) {
         bulletTravel = 0;
     }
     bulletTravel = bulletTravel + 0.2;

@@ -4,59 +4,87 @@
 
 #ifndef CG3_U3_SCENEOBJETFACTORY_H
 #define CG3_U3_SCENEOBJETFACTORY_H
+
 #include "../scg3/scg3.h"
 #include "EnvoirementHelper.h"
 #include "MatFactory.h"
-#include "TexturHelper.h"
+#include "TexturFactory.h"
 #include "ShaderFactory.h"
 #include "SceneObjetFactory.h"
 
 using namespace scg;
+
 class SceneObjetFactory {
-    static TransformationSP himmelTrans;
-    static TransformationSP jetTrans;
-    static TransformationSP camObject;
-    static TransformationSP floorTrans;
-    static LightSP sonne;
-    static LightSP links;
-    static LightSP rechts;
-public:
-    static const LightSP &getLinks();
 
-    static const LightSP &getRechts();
+public:
 
 private:
-    static GroupSP frontlichter;
-    static GeometryCoreFactory geometryFactory;
-    static GroupSP group;
-    static std::vector<TransformationSP> transformations;
-    static std::vector<TransformationSP> zielscheiben;
+    static SceneObjetFactory *instance;
+
+    SceneObjetFactory();
+
+    TransformationSP himmelTrans;
+    TransformationSP jetTrans;
+    TransformationSP camObject;
+    TransformationSP floorTrans;
+    TransformationSP turmTrans;
+    LightSP sonne;
+    LightSP links;
+    LightSP rechts;
+    GroupSP frontlichter;
+    GeometryCoreFactory geometryFactory;
+    GroupSP group;
+    std::vector<TransformationSP> transformations;
+    std::vector<TransformationSP> zielscheiben;
+    ShaderFactory *shaderFactory;
+    MatFactory *matFactory;
+    TexturFactory *textureFactory;
 public:
-    static const TransformationSP &getFlugzeug();
 
-    static const TransformationSP &getHimmel();
+    const LightSP &getLinks();
 
-    static const TransformationSP &getFloor();
+    const LightSP &getRechts();
 
-    static const TransformationSP &getCamObject();
-    static const TransformationSP getKugel();
+    const TransformationSP &getFlugzeug();
 
-    static const  TransformationSP& getTorus();
-    static const LightSP &getSonne();
-    const static GroupSP &getFrontLichter();
-    static const GroupSP &getGroup();
-    static const std::vector<TransformationSP> &getZielscheiben();
+    const TransformationSP &getHimmel();
 
+    const TransformationSP &getFloor();
+
+    const TransformationSP &getCamObject();
+
+    const TransformationSP getKugel();
+
+    const TransformationSP &getTorus();
+
+    const TransformationSP &getTurm();
+
+    const LightSP &getSonne();
+
+    const GroupSP &getFrontLichter();
+
+    const GroupSP &getGroup();
+
+    const std::vector<TransformationSP> &getZielscheiben();
+
+    static SceneObjetFactory *getInstance();
 
 private:
 
-    static const TransformationSP createTorrusseTrans();
-    static const TransformationSP createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
-    static const std::vector<TransformationSP>& getSterne(int menge,const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
-    static const ShapeSP getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
-             const GeometryCoreSP &core);
+    const TransformationSP createTorrusseTrans();
+
+    const TransformationSP
+    createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
+
+    const std::vector<TransformationSP> &
+    getSterne(int menge, const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
+
+    const ShapeSP getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
+                           const GeometryCoreSP &core);
+
     std::vector<TransformationSP> flugzeuge;
-    static TransformationSP& createRandompos(TransformationSP& trans);
+
+    TransformationSP &createRandompos(TransformationSP &trans);
 };
 
 

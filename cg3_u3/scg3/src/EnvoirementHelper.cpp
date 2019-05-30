@@ -57,9 +57,9 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
 
     auto teapotTrans = Transformation::create();
     teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
-
+    SceneObjetFactory* insta= SceneObjetFactory::getInstance();
     teapotAnim->addChild(teapotAnimTrans);
-    teapotAnimTrans->addChild(SceneObjetFactory::getSonne());
+    teapotAnimTrans->addChild(insta->getSonne());
 
     viewer->addAnimation(teapotAnim);
   /**  auto mondAnim = TransformAnimation::create();
@@ -85,10 +85,11 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
 **/
     scene->addChild(teapotAnim);
  //   scene->addChild(mondAnim);
-    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getGroup());
-    SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getHimmel());
-  //  SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getFloor());
-    camera->addChild(SceneObjetFactory::getCamObject());
+    insta->getSonne()->addChild(insta->getGroup());
+    insta->getSonne()->addChild(insta->getHimmel());
+    insta->getSonne()->addChild(insta->getFloor());
+    insta->getSonne()->addChild(insta->getTurm());
+    camera->addChild(insta->getCamObject());
 
     viewer->startAnimations();
 }

@@ -6,35 +6,41 @@
 #define CG3_U3_SHADERFACTORY_H
 
 #include "../scg3/scg3.h"
+
 using namespace scg;
 
 class ShaderFactory {
 
 private:
-    static ShaderCoreSP phongwith;
-    static ShaderCoreSP phongwithout;
-    static ShaderCoreSP gauradwith;
-    static ShaderCoreSP gauradwithout;
-    static ShaderCoreSP phongreverse;
-    static ShaderCoreSP phongreversewithout;
-    static ShaderCoreSP color;
-    static ShaderCoreSP skybox;
-
-
+    ShaderCoreSP phongwith;
+    ShaderCoreSP phongwithout;
+    ShaderCoreSP gauradwith;
+    ShaderCoreSP gauradwithout;
+    ShaderCoreSP phongreverse;
+    ShaderCoreSP phongreversewithout;
+    ShaderCoreSP phongbumb;
+    ShaderCoreSP color;
+    ShaderCoreSP skybox;
+    ShaderCoreFactory shaderFactory;
+    static ShaderFactory* instance;
 public:
-    static const ShaderCoreSP &getPhong(bool texturmode);
+    const ShaderCoreSP &getPhong(bool texturmode);
 
-    static const ShaderCoreSP &getGaurad(bool texturmode);
+    const ShaderCoreSP &getGaurad(bool texturmode);
 
-    static const ShaderCoreSP &getPhongreverse(bool texturmode);
+    const ShaderCoreSP &getPhongreverse(bool texturmode);
 
-    static const ShaderCoreSP &getColor();
+    const ShaderCoreSP &getPhongBumb();
 
-    static const ShaderCoreSP &getSkybox(bool texturmode);
+    const ShaderCoreSP &getColor();
 
+    const ShaderCoreSP &getSkybox(bool texturmode);
+    static ShaderFactory* getInstance();
 private:
-    static const ShaderCoreSP create(const std::string& name,bool texturemode);
-    static ShaderCoreFactory shaderFactory;
+    const ShaderCoreSP create(const std::string &name, bool texturemode);
+
+    const ShaderCoreSP create(const std::string &name1, const std::string &name2);
+    ShaderFactory();
 };
 
 

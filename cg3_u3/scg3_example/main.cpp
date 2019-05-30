@@ -38,7 +38,7 @@
 #include "../scg3/scg3.h"
 #include "EnvoirementHelper.h"
 #include "MatFactory.h"
-#include "TexturHelper.h"
+#include "TexturFactory.h"
 #include "ShaderFactory.h"
 #include "SceneObjetFactory.h"
 #include "GameLogic.h"
@@ -202,12 +202,11 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     // floor shape and transformation
     GeometryCoreFactory geometryFactory;
-    
 
     auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
     auto bullet = Shape::create();
-    bullet->addCore(ShaderFactory::getPhong(true))
-            ->addCore(MatFactory::getRed())
+    bullet->addCore(ShaderFactory::getInstance()->getPhong(true))
+            ->addCore(MatFactory::getInstance()->getRed())
             ->addCore(bulletCore);
     // create scene graph
     scene = Group::create();
@@ -215,10 +214,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     KeyboardControllerSP controller = KeyboardController::create(camera);
     viewer->addController(controller);
     EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
-    for(int i =0;i <SceneObjetFactory::getZielscheiben().size();i++){
-        SceneObjetFactory::getSonne()->addChild(SceneObjetFactory::getZielscheiben().at(i));
+    for(int i =0;i <SceneObjetFactory::getInstance()->getZielscheiben().size();i++){
+        SceneObjetFactory::getInstance()->getSonne()->addChild(SceneObjetFactory::getInstance()->getZielscheiben().at(i));
     }
-    SceneObjetFactory::getSonne()->addChild(camera);
+    SceneObjetFactory::getInstance()->getSonne()->addChild(camera);
 
     bulletTrans->addChild(bullet);
     bulletTrans->setVisible(false);

@@ -5,24 +5,7 @@
 #include <iostream>
 #include "SceneObjetFactory.h"
 
-TransformationSP SceneObjetFactory::floorTrans;
-TransformationSP SceneObjetFactory::himmelTrans;
-TransformationSP SceneObjetFactory::jetTrans;
-TransformationSP SceneObjetFactory::camObject;
-std::vector<TransformationSP> SceneObjetFactory::zielscheiben;
-
-LightSP SceneObjetFactory::sonne;
-LightSP SceneObjetFactory::links;
-LightSP SceneObjetFactory::rechts;
-
-GroupSP SceneObjetFactory::frontlichter;
-GroupSP SceneObjetFactory::group;
-
-std::vector<TransformationSP> SceneObjetFactory::transformations;
-
-
-GeometryCoreFactory SceneObjetFactory::geometryFactory;
-
+SceneObjetFactory* SceneObjetFactory::instance;
 const ShapeSP
 SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
                             const GeometryCoreSP &core) {
@@ -49,7 +32,6 @@ SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::v
                              float degree) {
     if (transformations.size() == 0) {
         for (int i = 0; i < menge; i++) {
-            std::cout << i << "blka" << std::endl;
             transformations.push_back(getKugel());
         }
     }
@@ -59,7 +41,7 @@ SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::v
 const TransformationSP &SceneObjetFactory::getFlugzeug() {
     if (jetTrans == nullptr) {
         auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
-        ShapeSP jet = getShape(ShaderFactory::getPhong(true), MatFactory::getWhite(), TexturHelper::getBrick(),
+        ShapeSP jet = getShape(shaderFactory->getPhong(true), matFactory->getWhite(), textureFactory->getBrick(),
                                jetcore);
         jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
                                         glm::vec3(0.f, 1.f, 0.f), -90.f);
@@ -72,10 +54,10 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
 const TransformationSP &SceneObjetFactory::getHimmel() {
     if (himmelTrans == nullptr) {
         auto himmelCore = geometryFactory.createSphere(30, 101, 110);
-        ShapeSP himmel = getShape(ShaderFactory::getPhongreverse(true), MatFactory::getTag(), TexturHelper::getHimmel(),
+        ShapeSP himmel = getShape(shaderFactory->getPhongreverse(true), matFactory->getTag(), textureFactory->getHimmel(),
                                   himmelCore);
         himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
-                                           4.f);
+                                           20.f);
         himmelTrans->addChild(himmel);
     }
     return himmelTrans;
@@ -88,10 +70,9 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
  */
 const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
-
     auto torusCore = geometryFactory.createTorus(0.5, .1, rand()%13+3,40);
     ShapeSP torusShape = Shape::create();
-    torusShape->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite());
+    torusShape->addCore(ShaderFactory::getInstance()->getPhong(false))->addCore(matFactory->getWhite());
     torusShape->addCore(torusCore);
     for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
         TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
@@ -133,12 +114,13 @@ TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
 
 const TransformationSP &SceneObjetFactory::getFloor() {
     if (floorTrans == nullptr) {
-        auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
+       // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
+        auto floorCore = geometryFactory.createCuboid(glm::vec3(50,.1,50));
         auto floor = Shape::create();
-        floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(
-                        TexturHelper::getStadt())
+        floor->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getStadt())->addCore(
+                        textureFactory->getStadt())
                 ->addCore(floorCore);
-        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(.1, .1, .1), glm::vec3(1, 0, 0),
+        floorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
                                           0.f);
         floorTrans->addChild(floor);
     }
@@ -150,8 +132,8 @@ const TransformationSP &SceneObjetFactory::getCamObject() {
     if (camObject == nullptr) {
         auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
         auto floor = Shape::create();
-        floor->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getWhite())->addCore(
-                        TexturHelper::getBrick())
+        floor->addCore(shaderFactory->getPhong(true))->addCore(matFactory->getWhite())->addCore(
+                        textureFactory->getBrick())
                 ->addCore(floorCore);
         camObject = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(0.05, 0.05, 0.05),
                                          glm::vec3(0.f, 1.f, 0.f), 180.);
@@ -163,7 +145,7 @@ const TransformationSP &SceneObjetFactory::getCamObject() {
 const TransformationSP SceneObjetFactory::getKugel() {
     auto x = geometryFactory.createSphere(.1f, 100, 100);
     auto x1 = Shape::create();
-    x1->addCore(ShaderFactory::getPhong(false))->addCore(MatFactory::getWhite())
+    x1->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getWhite())
             ->addCore(x);
     TransformationSP trans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(1, 1, 1),
                                                   glm::vec3(0.f, 1.f, 0.f), 180.);
@@ -194,8 +176,8 @@ const GroupSP &SceneObjetFactory::getFrontLichter() {
 const GroupSP &SceneObjetFactory::getGroup() {
     if (group == nullptr) {
         group = Group::create();
-        group->addCore(ShaderFactory::getPhong(true))->addCore(MatFactory::getStadt())->addCore(
-                TexturHelper::getBrick());
+        group->addCore(shaderFactory->getPhong(true))->addCore(matFactory->getStadt())->addCore(
+                textureFactory->getBrick());
         getSterne(100, glm::vec3(0.1, 0.1, 0.1), glm::vec3(0.1, 0.1, 0.1),
                   glm::vec3(0.1, 0.1, 0.1), 0);
 
@@ -237,4 +219,34 @@ const LightSP &SceneObjetFactory::getRechts() {
     return rechts;
 }
 
+const TransformationSP& SceneObjetFactory::getTurm(){
+    if(turmTrans == nullptr) {
+        auto turmCore = geometryFactory.createConicalFrustum(.3,.3, 1, 10, 10, true);
+        auto turmShape = Shape::create();
+        turmShape->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getWhite())->addCore(
+                textureFactory->getMauer())->addCore(turmCore);
+        turmTrans = Transformation::create();
 
+        turmTrans->rotate(90.f,glm::vec3(1,0,0));
+        turmTrans->translate(glm::vec3(0,0,-.1));
+        turmTrans->scale(glm::vec3(.1,.1,.1));
+
+        turmTrans->addChild(turmShape);
+    }
+    return turmTrans;
+
+}
+
+ SceneObjetFactory * SceneObjetFactory::getInstance(){
+    if(instance==nullptr){
+        instance=new SceneObjetFactory();
+    }
+     return instance;
+}
+
+
+SceneObjetFactory::SceneObjetFactory(){
+    shaderFactory= ShaderFactory::getInstance();
+    matFactory = MatFactory::getInstance();
+    textureFactory = TexturFactory::getInstance();
+}

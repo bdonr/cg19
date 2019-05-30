@@ -26,10 +26,10 @@
 
 namespace scg {
 
-
+//TODO -.8f
 CameraController::CameraController(CameraSP camera)
     : camera_(camera), moveVelocity_(0.f), rotateVelocity_(0.f),
-      flightVelocity_(-0.8f), flightVelocityStep_(0.f), isFlyMode_(true) {
+      flightVelocity_(-0.0f), flightVelocityStep_(0.f), isFlyMode_(true) {
 }
 
 

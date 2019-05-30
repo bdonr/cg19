@@ -4,33 +4,50 @@
 
 #ifndef CG3_U3_MATFACTORY_H
 #define CG3_U3_MATFACTORY_H
+
 #include "../scg3/scg3.h"
+
 using namespace scg;
+
 class MatFactory {
 
 private:
-    static MaterialCoreSP red;
-    static MaterialCoreSP white;
-    static MaterialCoreSP black;
-    static MaterialCoreSP tag;
-    static MaterialCoreSP stadt;
+    MaterialCoreSP red;
+    MaterialCoreSP white;
+    MaterialCoreSP black;
+    MaterialCoreSP tag;
+    MaterialCoreSP stadt;
+    static MatFactory *instance;
+
+    MatFactory();
 
 public:
-    static const MaterialCoreSP &getRed();
+    static MatFactory *getInstance();
 
-    static const MaterialCoreSP &getWhite();
+    const MaterialCoreSP &getRed();
 
-    static const MaterialCoreSP &getBlack();
+    const MaterialCoreSP &getWhite();
 
-    static const MaterialCoreSP &getTag();
-    static const MaterialCoreSP &getStadt();
+    /**
+     * Black Material
+     * @return MaterialCoreSP
+     */
+    const MaterialCoreSP &getBlack();
 
+    const MaterialCoreSP &getTag();
+
+    const MaterialCoreSP &getStadt();
 
 private:
 
+    MaterialCoreSP
+    createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
 
-     static MaterialCoreSP createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
-     static MaterialCoreSP createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine,const glm::vec4& emission);
+    MaterialCoreSP
+    createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine,
+              const glm::vec4 &emission);
+
+
 };
 
 
