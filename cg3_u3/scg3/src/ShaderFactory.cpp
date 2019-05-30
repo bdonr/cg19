@@ -4,19 +4,31 @@
 
 #include "ShaderFactory.h"
 
-
+/**
+ * This class creates diffrent Shader
+ * with and without textures and more
+ * feel Free to add some of your own shader
+ */
 ShaderFactory* ShaderFactory::instance;
 
 ShaderFactory::ShaderFactory(){
     shaderFactory= ShaderCoreFactory("../scg3/shaders;../../scg3/shaders");
 }
+/**
+ * get instance of ShaderFactory
+ * @return ShaderFactory*
+ */
 ShaderFactory* ShaderFactory::getInstance() {
     if(instance== nullptr){
         instance=new ShaderFactory();
     }
     return instance;
 }
-
+/**
+ *  Creates a Phong shader with or without texturemode
+ * @param texturmode
+ * @return ShaderCoreSP
+ */
 const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
 
     if (phongwith == nullptr && texturmode) {
@@ -32,6 +44,10 @@ const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
     }
 }
 
+/**
+ * Creates a phong based bumb shader
+ * @return ShaderCoreSP
+ */
 const ShaderCoreSP &ShaderFactory::getPhongBumb() {
 
     if (phongbumb == nullptr) {
@@ -40,6 +56,11 @@ const ShaderCoreSP &ShaderFactory::getPhongBumb() {
         return phongbumb;
     }
 
+/**
+ *  Creates a Gouraud shader with or without texturemode
+ * @param texturmode
+ * @return ShaderCoreSP
+ */
 const ShaderCoreSP &ShaderFactory::getGaurad(bool texturmode) {
     if (gauradwith == nullptr && texturmode) {
         gauradwith = create("gouraud", texturmode);
@@ -53,7 +74,11 @@ const ShaderCoreSP &ShaderFactory::getGaurad(bool texturmode) {
         return gauradwithout;
     }
 }
-
+/**
+ * A Test Shader with invertet Vertex normals
+ * @param texturmode
+ * @return
+ */
 const ShaderCoreSP &ShaderFactory::getPhongreverse(bool texturmode) {
 
     if (phongreverse == nullptr && texturmode) {
@@ -68,14 +93,25 @@ const ShaderCoreSP &ShaderFactory::getPhongreverse(bool texturmode) {
         return phongreversewithout ;
     }
 }
+
+
 const ShaderCoreSP &ShaderFactory::getColor() {
     return color;
 }
-
+/**
+ * Create a skybox shader
+ * @param texturmode
+ * @return
+ */
 const ShaderCoreSP &ShaderFactory::getSkybox(bool texturmode) {
     return create("bump",true);
 }
-
+/**
+ * Creates Shader by params
+ * @param name
+ * @param texturemode
+ * @return
+ */
 const ShaderCoreSP ShaderFactory::create(const std::string &name, bool texturemode) {
     return shaderFactory.createShaderFromSourceFiles({
                                                              ShaderFile(name+"_vert.glsl", GL_VERTEX_SHADER),
@@ -85,6 +121,12 @@ const ShaderCoreSP ShaderFactory::create(const std::string &name, bool texturemo
     });
 
 }
+/**
+ * Creates Shader by Two different params
+ * @param name
+ * @param texturemode
+ * @return
+ */
 const ShaderCoreSP ShaderFactory::create(const std::string &name1,const std::string &name2) {
     return shaderFactory.createShaderFromSourceFiles({
                                                              ShaderFile(name1+"_vert.glsl", GL_VERTEX_SHADER),

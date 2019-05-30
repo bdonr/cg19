@@ -6,8 +6,7 @@
  * This class Creates SubTrees of Transformations
  * It creates Transformations with its Groups Shapes and Cores
  *  Feel free to add more Transformations as you need .
- *  They can be easily
- *  added to other Tranformations of your scene.
+ *  They can be easily added to your scene.
  *  Just by adding them whith scene->addChild(your-TransFormation);
  */
 #include <iostream>
@@ -289,7 +288,7 @@ const LightSP &SceneObjetFactory::getRechts() {
 }
 
 /**
- * Creates a Tower with a brick wall
+ * Creates a Tower with a 3D brick wall
  * @return
  */
 const TransformationSP& SceneObjetFactory::getTurm(){
@@ -303,7 +302,6 @@ const TransformationSP& SceneObjetFactory::getTurm(){
         turmTrans->rotate(90.f,glm::vec3(1,0,0));
         turmTrans->translate(glm::vec3(0,0,-.1));
         turmTrans->scale(glm::vec3(.1,.1,.1));
-
         turmTrans->addChild(turmShape);
     }
     return turmTrans;
