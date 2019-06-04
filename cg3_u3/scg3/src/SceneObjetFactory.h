@@ -94,6 +94,9 @@ private:
     void createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
 
     const TransformAnimationSP getAnimatedStern();
+
+    TransformAnimationSP
+    createTorusAnimation(const GeometryCoreSP &torusCore, const std::vector<ShapeSP> &torusShape, int j, float i);
 };
 
 

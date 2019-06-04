@@ -116,36 +116,12 @@ const TransformAnimationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
 
     //unterschiedliche formen 3 eck bishin zu vieleck
-    auto torusCore = geometryFactory.createTorus(0.5, .1, rand() % 13 + 3, 40);
+    auto torusCore = geometryFactory.createTorus(0.5, .1, 50, 40);
     std::vector<ShapeSP> torusShape;
-
-
     int j = 0;
     for (float i = 1.0f; i >= 0.0; i = i - 0.1) {
         createShapesWithDifferentColors(j, torusCore, torusShape);
-        TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
-                                                           glm::vec3(1, 0, 0), 1.f);
-        torusShape[j]->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getWhite())->addCore(
-                torusCore);
-
-        toursTrans->addChild(torusShape[j]);
-        auto TransAni = TransformAnimation::create();
-        glm::vec3 rotatex;
-        if(j&2==0){
-            rotatex = glm::vec3(1, 0, 0);
-        }
-        else{
-            rotatex = glm::vec3(0,1,1);
-        }
-        TransAni->setUpdateFunc(
-                [toursTrans,j,rotatex](
-                        TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                    toursTrans->rotate(j, rotatex);
-                }
-        );
-        TransAni->addChild(toursTrans);
-        viewer->addAnimation(TransAni);
-
+        TransformAnimationSP TransAni = createTorusAnimation(torusCore, torusShape, j, i);
         if (j == 9) {
             std::cout << "stern" << std::endl;
             torussGroup->addChild(getAnimatedStern());
@@ -167,6 +143,33 @@ const TransformAnimationSP SceneObjetFactory::createTorrusseTrans() {
     );
     viewer->addAnimation(TransAni);
     TransAni->addChild(grouptrans);
+    return TransAni;
+}
+
+TransformAnimationSP
+SceneObjetFactory::createTorusAnimation(const GeometryCoreSP &torusCore, const std::vector<ShapeSP> &torusShape, int j,
+                                        float i) {
+    TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
+                                                       glm::vec3(1, 0, 0), 1.f);
+    torusShape[j]->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getWhite())->addCore(
+            torusCore);
+
+    toursTrans->addChild(torusShape[j]);
+    auto TransAni = TransformAnimation::create();
+    glm::vec3 rotatex;
+    if (j & 2 == 0) {
+        rotatex = glm::vec3(1, 0, 0);
+    } else {
+        rotatex = glm::vec3(0, 1, 1);
+    }
+    TransAni->setUpdateFunc(
+            [toursTrans, j, rotatex](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                toursTrans->rotate(j, rotatex);
+            }
+    );
+    TransAni->addChild(toursTrans);
+    viewer->addAnimation(TransAni);
     return TransAni;
 }
 
@@ -236,9 +239,9 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
  * @return TransformationSP
  */
 TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
-    float x = rand() % 10 + 0.1;
-    float y = rand() % 10 + 0.1;
-    float z = rand() % 10 + 0.1;
+    float x = rand() % 15 -15;
+    float y = rand() % 15 ;
+    float z = rand() % 15 -15;
     trans->translate(glm::vec3(x, y, z));
     return trans;
 }
@@ -292,6 +295,8 @@ const TransformationSP SceneObjetFactory::getKugel() {
     TransformationSP trans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(1, 1, 1),
                                                   glm::vec3(0.f, 1.f, 0.f), 180.);
     trans->addChild(x1);
+
+    trans->scale(glm::vec3(.1,.1,.1));
     return trans;
 }
 
@@ -304,7 +309,7 @@ const LightSP &SceneObjetFactory::getSonne() {
         sonne = Light::create();
         sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
                         glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0, 1, 1), 100, 1)
-                ->setPosition(glm::vec4(0.f, 10.f, 0, 1.f))
+                ->setPosition(glm::vec4(0.f, 20.f, 0, 1.f))
                 ->init();
     }
     return sonne;
@@ -341,34 +346,29 @@ const GroupSP &SceneObjetFactory::getGroup() {
 }
 
 const LightSP &SceneObjetFactory::getLinks() {
+
     if (links == nullptr) {
         links = Light::create();
-        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
-                                getCamObject()->getMatrix()[3][0], 1.);
-        links->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
-                        glm::vec4(.4, .4, .4, 1))
-                ->setPosition(k)
+
+        links->setSpecular(glm::vec4(1.f, 0.f, .0f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+                        glm::vec4(1, .4, .4, 1))
+                ->setPosition(glm::vec4(0,0,-1,1))
                 ->init();
-        links->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
-                                 getCamObject()->getMatrix()[3][0] + .2), 10, 10);
-        links->addChild(getFloor());
     }
+    LightPositionSP x = LightPosition::create(links);
+
     return links;
 }
 
 const LightSP &SceneObjetFactory::getRechts() {
     if (rechts == nullptr) {
         rechts = Light::create();
-        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
-                                getCamObject()->getMatrix()[3][0], 1.);
-        rechts->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
-                        glm::vec4(.4, .4, .4, 1))
+        glm::vec4 k = glm::vec4(0,0,1,1);
+        rechts->setSpecular(glm::vec4(0.f, .8f, .0f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
+                        glm::vec4(.4, 4, .4, 1))
 
                 ->setPosition(k)
                 ->init();
-        rechts->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
-                                  getCamObject()->getMatrix()[3][0] + .2), 10, 10);
-        rechts->addChild(getFloor());
     }
     return rechts;
 }
@@ -398,7 +398,23 @@ const TransformationSP &SceneObjetFactory::getTurm() {
         kugelShape->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getBlack())->addCore(
                 textureFactory->getMauer())->addCore(kugelCore);
         kugelTrans->addChild(kugelShape);
+        kugelTrans->translate(glm::vec3(0,0,-.5555));
+        kugelTrans->scale(glm::vec3(.1,.1,.1));
+
         group->addChild(kugelTrans);
+
+        TransformationSP kugelTrans2 = Transformation::create();
+        ShapeSP kugelShape2 = Shape::create();
+        kugelShape2->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getBlack())->addCore(
+                textureFactory->getMauer())->addCore(kugelCore);
+        kugelTrans2->addChild(kugelShape2);
+        kugelTrans2->translate(glm::vec3(0,0,-.8));
+        kugelTrans2->scale(glm::vec3(.04,.04,.04));
+
+        group->addChild(getLinks());
+        group->addChild(getRechts());
+        getRechts()->addChild(kugelTrans2);
+        getLinks()->addChild(kugelTrans2);
 
         turmTrans = Transformation::create();
         turmTrans->addChild(group);
