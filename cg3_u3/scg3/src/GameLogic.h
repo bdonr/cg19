@@ -13,13 +13,16 @@
 
 class GameLogic {
 public:
-    static void logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP viewer);
+    static void logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP& viewer);
 private:
     static double bulletTravel;
     static void bulletTravelAndTest();
-    static void checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time);
-    static void checkBulletTreffer(const glm::vec3 &bullet,double time);
-    };
+     static void checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time);
+     static void checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP& viewer);
+
+    static void checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time, ViewerSP& viewer);
+
+};
 
 
 #endif //CG3_U3_GAMELOGIC_H

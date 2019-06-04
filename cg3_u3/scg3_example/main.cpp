@@ -79,30 +79,7 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
  */
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
-void bulletTravelAndTest();
 
-int dmod(double time, double d);
-
-void createSterne(LightSP *mats, LightPositionSP *lightPositionSp);
-
-MaterialCoreSP
-createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const glm::vec4 &diffuse, const float &shine);
-
-Texture2DCoreSP createTexture(TextureCoreFactory &textureFactory, const std::string &name);
-
-Texture2DCoreSP createTextureMip(TextureCoreFactory &textureFactory, const std::string &name);
-Texture2DCoreSP createTextureBumb(TextureCoreFactory &textureFactory, const std::string &name,const std::string &normalFileName);
-TransformationSP
-createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
-
-ShapeSP
-getPtr(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur, const GeometryCoreSP &core);
-
-void logic(CameraSP &camera, TransformationSP &ZielKugelTrans1, TransformationSP &ZielKugelTrans2,
-           TransformationSP &ZielKugelTrans3, ShapeSP &kugel1, ShapeSP &kugel2, ShapeSP &kugel3,
-           TransformationSP &bulletTrans,LightSP light,ViewerSP viewer);
-
-void checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time);
 
 /**
  * \brief The main function.
@@ -214,10 +191,10 @@ void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     KeyboardControllerSP controller = KeyboardController::create(camera);
     viewer->addController(controller);
     EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
-    for(int i =0;i <SceneObjetFactory::getInstance()->getZielscheiben().size();i++){
-        SceneObjetFactory::getInstance()->getSonne()->addChild(SceneObjetFactory::getInstance()->getZielscheiben().at(i));
+    for(int i =0;i <SceneObjetFactory::getInstance(viewer)->getZielscheiben().size();i++){
+        SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(SceneObjetFactory::getInstance(viewer)->getZielscheiben().at(i));
     }
-    SceneObjetFactory::getInstance()->getSonne()->addChild(camera);
+    SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(camera);
 
     bulletTrans->addChild(bullet);
     bulletTrans->setVisible(false);

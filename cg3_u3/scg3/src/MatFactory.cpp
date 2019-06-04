@@ -75,8 +75,8 @@ MatFactory::createMat(const glm::vec4 &ambient, const glm::vec4 &specular, const
  */
 const MaterialCoreSP &MatFactory::getRed() {
     if(red.get()== nullptr){
-        red = createMat(glm::vec4(1.f, 0.5f, 0.5f, 1.f), glm::vec4(1.f, 0.5f, 0.5f, 1.f),
-                  glm::vec4(1.f, 1.f, 1.f, 1.f), 20.0);
+        red = createMat(glm::vec4(1.f, 0.f, 0.f, 1.f), glm::vec4(1.f, 0.f, 0.f, 1.f),
+                  glm::vec4(1.f, 1.f, 1.f, 1.f), .25);
     }
     return red;
 }
@@ -108,12 +108,32 @@ const MaterialCoreSP &MatFactory::getStadt() {
 
 const MaterialCoreSP &MatFactory::getBlack() {
     if(black.get()== nullptr){
-        black = createMat(glm::vec4(0, 0, 0, 0), glm::vec4(0, 0, 0, 0), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                          2000.0);
+        black = createMat(glm::vec4(0.1, 0.1, 0.1, 1), glm::vec4(0.1, 0.1, 0.1, 1), glm::vec4(1.f, 1.f, 1.f, 1.f),
+                          .40);
     }
     return black;
 }
 
+
+/**
+ * Cyan Material from http://devernay.free.fr/cours/opengl/materials.html
+ * @return
+ */
+const MaterialCoreSP &MatFactory::getCyan() {
+    if(cyan.get()== nullptr){
+        cyan = createMat(glm::vec4(0.0,0.1,0.06, 1), glm::vec4(0.0,0.50980392,0.50980392, 1), glm::vec4(0.50196078,0.50196078,0.50196078, 1.f),
+                          .25);
+    }
+    return cyan;
+}
+
+const MaterialCoreSP &MatFactory::getGold() {
+    if(gold.get()== nullptr){
+        gold = createMat(glm::vec4(0.24725 ,0.1995 ,0.0745, 1), glm::vec4(0.75164,0.60648,0.22648, 1), glm::vec4(0.628281,0.555802,0.366065, 1.f),
+                         .4,glm::vec4(0.75164,0.60648,0.22648,1));
+    }
+    return gold;
+}
 /**
  * Day Material
  * @return MaterialCoreSP

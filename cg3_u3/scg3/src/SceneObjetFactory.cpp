@@ -12,7 +12,7 @@
 #include <iostream>
 #include "SceneObjetFactory.h"
 
-SceneObjetFactory* SceneObjetFactory::instance;
+SceneObjetFactory *SceneObjetFactory::instance;
 
 
 /**
@@ -97,7 +97,8 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
 const TransformationSP &SceneObjetFactory::getHimmel() {
     if (himmelTrans == nullptr) {
         auto himmelCore = geometryFactory.createSphere(30, 101, 110);
-        ShapeSP himmel = getShape(shaderFactory->getPhongreverse(true), matFactory->getTag(), textureFactory->getHimmel(),
+        ShapeSP himmel = getShape(shaderFactory->getPhongreverse(true), matFactory->getTag(),
+                                  textureFactory->getHimmel(),
                                   himmelCore);
         himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
                                            20.f);
@@ -113,19 +114,72 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
  */
 const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
-    auto torusCore = geometryFactory.createTorus(0.5, .1, rand()%13+3,40);
-    ShapeSP torusShape = Shape::create();
-    torusShape->addCore(ShaderFactory::getInstance()->getPhong(false))->addCore(matFactory->getWhite());
-    torusShape->addCore(torusCore);
-    for (float i = 1.0f; i >= 0.0; i = i - 0.3) {
+
+    //unterschiedliche formen 3 eck bishin zu vieleck
+    auto torusCore = geometryFactory.createTorus(0.5, .1, rand() % 13 + 3, 40);
+    std::vector<ShapeSP> torusShape;
+
+
+    int j = 0;
+    for (float i = 1.0f; i >= 0.0; i = i - 0.1) {
+        createShapesWithDifferentColors(j, torusCore, torusShape);
         TransformationSP toursTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(i, i, i),
-                                                           glm::vec3(1, 0, 0), 0.f);
-        toursTrans->addChild(torusShape);
-        torussGroup->addChild(toursTrans);
+                                                           glm::vec3(1, 0, 0), 1.f);
+        torusShape[j]->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getWhite())->addCore(
+                torusCore);
+
+        toursTrans->addChild(torusShape[j]);
+        if (j == 9) {
+            std::cout << "stern" << std::endl;
+            torussGroup->addChild(getAnimatedStern());
+        } else {
+            torussGroup->addChild(toursTrans);
+        }
+        std::cout << "j" << j << std::endl;
+        j++;
+
     }
     TransformationSP grouptrans = Transformation::create();
     grouptrans->addChild(torussGroup);
     return grouptrans;
+}
+
+const TransformationSP SceneObjetFactory::getStern() {
+    auto torusCore = geometryFactory.createTorus(0, .9, 3, 50);
+    TransformationSP toursTrans = Transformation::create();
+    auto torusShape = Shape::create();
+    torusShape->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getGold())->addCore(torusCore);
+    toursTrans->addChild(torusShape);
+    toursTrans->scale(glm::vec3(.1f, .1f, .1f));
+    return toursTrans;
+}
+
+const TransformAnimationSP SceneObjetFactory::getAnimatedStern() {
+    auto sternTrans = getStern();
+    auto TransAni = TransformAnimation::create();
+    TransAni->setUpdateFunc(
+            [sternTrans](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                sternTrans->rotate(1, glm::vec3(0, 1, 0));
+            }
+    );
+    TransAni->addChild(sternTrans);
+    viewer->addAnimation(TransAni);
+    return TransAni;
+
+}
+
+void
+SceneObjetFactory::createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore,
+                                                   std::vector<ShapeSP> &torusShape) const {
+    torusShape.push_back(Shape::create());
+    torusShape.at(i)->addCore(ShaderFactory::getInstance()->getPhong(false));
+    if (i % 2 == 0) {
+        torusShape.at(i)->addCore(matFactory->getBlack());
+    } else {
+        torusShape.at(i)->addCore(matFactory->getRed());
+    }
+    torusShape.at(i)->addCore(torusCore);
 }
 
 /**
@@ -137,7 +191,7 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
         for (int i = 0; i < 10; i++) {
             TransformationSP y = createTorrusseTrans();
             y = createRandompos(y);
-            y->scale(glm::vec3(.4, .4, .4));
+            y->scale(glm::vec3(1, 1, .4));
             y->setVisible(false);
             if (i == 0) {
                 y->setVisible(true);
@@ -168,8 +222,8 @@ TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
  */
 const TransformationSP &SceneObjetFactory::getFloor() {
     if (floorTrans == nullptr) {
-       // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
-        auto floorCore = geometryFactory.createCuboid(glm::vec3(50,.1,50));
+        // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
+        auto floorCore = geometryFactory.createCuboid(glm::vec3(50, .1, 50));
         auto floor = Shape::create();
         floor->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getStadt())->addCore(
                         textureFactory->getStadt())
@@ -228,6 +282,7 @@ const LightSP &SceneObjetFactory::getSonne() {
     }
     return sonne;
 }
+
 /**
  * Creates two Lights in a group
  * @return
@@ -261,12 +316,14 @@ const GroupSP &SceneObjetFactory::getGroup() {
 const LightSP &SceneObjetFactory::getLinks() {
     if (links == nullptr) {
         links = Light::create();
-        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],1.);
+        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
+                                getCamObject()->getMatrix()[3][0], 1.);
         links->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
                         glm::vec4(.4, .4, .4, 1))
                 ->setPosition(k)
                 ->init();
-        links->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0]+.2), 10, 10);
+        links->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
+                                 getCamObject()->getMatrix()[3][0] + .2), 10, 10);
         links->addChild(getFloor());
     }
     return links;
@@ -275,13 +332,15 @@ const LightSP &SceneObjetFactory::getLinks() {
 const LightSP &SceneObjetFactory::getRechts() {
     if (rechts == nullptr) {
         rechts = Light::create();
-        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],getCamObject()->getMatrix()[3][0],1.);
+        glm::vec4 k = glm::vec4(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
+                                getCamObject()->getMatrix()[3][0], 1.);
         rechts->setSpecular(glm::vec4(.8f, .8f, .8f, 1.f))->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))->setAmbient(
                         glm::vec4(.4, .4, .4, 1))
 
                 ->setPosition(k)
                 ->init();
-        rechts->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0]+.2), 10, 10);
+        rechts->setSpot(glm::vec3(getCamObject()->getMatrix()[3][0], getCamObject()->getMatrix()[3][0],
+                                  getCamObject()->getMatrix()[3][0] + .2), 10, 10);
         rechts->addChild(getFloor());
     }
     return rechts;
@@ -291,20 +350,37 @@ const LightSP &SceneObjetFactory::getRechts() {
  * Creates a Tower with a 3D brick wall
  * @return
  */
-const TransformationSP& SceneObjetFactory::getTurm(){
-    if(turmTrans == nullptr) {
-        auto turmCore = geometryFactory.createConicalFrustum(.3,.3, 1, 10, 10, true);
+const TransformationSP &SceneObjetFactory::getTurm() {
+
+    if (turmTrans == nullptr) {
+        GroupSP group = Group::create();
+
+        auto turmCore = geometryFactory.createConicalFrustum(.3, .3, 1, 10, 10, true);
         auto turmShape = Shape::create();
         turmShape->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getWhite())->addCore(
                 textureFactory->getMauer())->addCore(turmCore);
-        turmTrans = Transformation::create();
 
-        turmTrans->rotate(90.f,glm::vec3(1,0,0));
-        turmTrans->translate(glm::vec3(0,0,-.1));
-        turmTrans->scale(glm::vec3(.1,.1,.1));
-        turmTrans->addChild(turmShape);
+        auto bodyTrans = Transformation::create();
+        bodyTrans->addChild(turmShape);
+        group->addChild(bodyTrans);
+
+
+        TransformationSP kugelTrans = Transformation::create();
+        auto kugelCore = geometryFactory.createSphere(2, 100, 100);
+        ShapeSP kugelShape = Shape::create();
+        kugelShape->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getBlack())->addCore(
+                textureFactory->getMauer())->addCore(kugelCore);
+        kugelTrans->addChild(kugelShape);
+        group->addChild(kugelTrans);
+
+        turmTrans = Transformation::create();
+        turmTrans->addChild(group);
+        turmTrans->rotate(90.f, glm::vec3(1, 0, 0));
+        turmTrans->translate(glm::vec3(0, 0, -.1));
+        turmTrans->scale(glm::vec3(.1, .1, .1));
     }
     return turmTrans;
+
 
 }
 
@@ -312,18 +388,19 @@ const TransformationSP& SceneObjetFactory::getTurm(){
  *
  * @return SceneObjetFactory *
  */
- SceneObjetFactory * SceneObjetFactory::getInstance(){
-    if(instance==nullptr){
-        instance=new SceneObjetFactory();
+SceneObjetFactory *SceneObjetFactory::getInstance(ViewerSP viewerSp) {
+    if (instance == nullptr) {
+        instance = new SceneObjetFactory(viewerSp);
     }
-     return instance;
+    return instance;
 }
 
 /**
  * Constructor
  */
-SceneObjetFactory::SceneObjetFactory(){
-    shaderFactory= ShaderFactory::getInstance();
+SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
+    this->viewer = viewer;
+    shaderFactory = ShaderFactory::getInstance();
     matFactory = MatFactory::getInstance();
     textureFactory = TexturFactory::getInstance();
 }

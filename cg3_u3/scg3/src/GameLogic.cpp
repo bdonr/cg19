@@ -5,20 +5,22 @@
 #include <iostream>
 #include "GameLogic.h"
 
-double GameLogic::bulletTravel = 0;
+
 /**
  * Basic Game Logic 
  * @param camera
  * @param bulletTrans
  * @param viewer
  */
-void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP viewer) {
+
+double GameLogic::bulletTravel =0;
+void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP& viewer) {
     bulletTrans = Transformation::create();
     auto TransAni = TransformAnimation::create();
     auto camObjectTrans = Transformation::create();
     bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
     TransAni->setUpdateFunc(
-            [camera, bulletTrans, camObjectTrans](
+            [camera, bulletTrans, camObjectTrans,&viewer](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 /* die projektile bewegen sich die ganze zeit, sie laufen vorwärts und springen dan beim errreichen
  * der maximal distanz zurück, die kugeln sind daurhaft unsichbar nur beim drücken von SPACE werden
@@ -40,7 +42,7 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP 
                 glm::vec3 camObjPos = glm::vec3(tempCamObjMat[3][0], tempCamObjMat[3][1], tempCamObjMat[3][2]);
 
 
-                checkDurchflugZielscheibe(camObjPos, totalTime);
+                checkDurchflugZielscheibe(camObjPos, totalTime,viewer);
 
 
                 /*kolision detection beim treffen der projektile auf objecte*/
@@ -52,7 +54,7 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP 
                 float bulletZ = tempBulletMat[3][2];
 
                 glm::vec3 bullObjPos = glm::vec3(bulletX, bulletY, bulletZ);
-                checkBulletTreffer(bullObjPos, totalTime);
+                checkBulletTreffer(bullObjPos, totalTime,viewer);
 
 
 
@@ -92,10 +94,10 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP 
  * @param camObjPos
  * @param time
  */
-void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time) {
+void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time, ViewerSP& viewer) {
     double rad1 = 0.2;
     double rad2 = 0.3;
-    SceneObjetFactory * insta = SceneObjetFactory::getInstance();
+    SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
     for (int i = 0; i < insta->getZielscheiben().size(); i++) {
         glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],
                                  insta->getZielscheiben()[i]->getMatrix()[3][1],
@@ -115,10 +117,10 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double tim
  * @param camObjPos
  * @param time
  */
-void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time) {
+void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP& viewer) {
     double rad1 = 0.1;
     double rad2 = 0.1;
-    SceneObjetFactory * insta = SceneObjetFactory::getInstance();
+    SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
     for (int i = 0; i <insta->getZielscheiben().size(); i++) {
 
         glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],

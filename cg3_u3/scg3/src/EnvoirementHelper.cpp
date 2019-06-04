@@ -57,7 +57,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP& viewer, CameraSP& camera, 
 
     auto teapotTrans = Transformation::create();
     teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
-    SceneObjetFactory* insta= SceneObjetFactory::getInstance();
+    SceneObjetFactory* insta= SceneObjetFactory::getInstance(viewer);
     teapotAnim->addChild(teapotAnimTrans);
     teapotAnimTrans->addChild(insta->getSonne());
 

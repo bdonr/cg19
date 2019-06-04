@@ -16,7 +16,9 @@ private:
     MaterialCoreSP white;
     MaterialCoreSP black;
     MaterialCoreSP tag;
+    MaterialCoreSP cyan;
     MaterialCoreSP stadt;
+    MaterialCoreSP gold;
     static MatFactory *instance;
 
     MatFactory();
@@ -33,10 +35,13 @@ public:
      * @return MaterialCoreSP
      */
     const MaterialCoreSP &getBlack();
+    const MaterialCoreSP &getCyan();
 
     const MaterialCoreSP &getTag();
 
     const MaterialCoreSP &getStadt();
+
+    const MaterialCoreSP &getGold();
 
 private:
 

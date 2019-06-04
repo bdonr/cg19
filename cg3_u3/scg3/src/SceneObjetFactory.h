@@ -21,7 +21,7 @@ public:
 private:
     static SceneObjetFactory *instance;
 
-    SceneObjetFactory();
+    SceneObjetFactory(ViewerSP viewer);
 
     TransformationSP himmelTrans;
     TransformationSP jetTrans;
@@ -39,6 +39,7 @@ private:
     ShaderFactory *shaderFactory;
     MatFactory *matFactory;
     TexturFactory *textureFactory;
+    ViewerSP viewer;
 public:
 
     const LightSP &getLinks();
@@ -67,8 +68,8 @@ public:
 
     const std::vector<TransformationSP> &getZielscheiben();
 
-    static SceneObjetFactory *getInstance();
-
+    static SceneObjetFactory *getInstance(ViewerSP viewer);
+    const TransformationSP getStern();
 private:
 
     const TransformationSP createTorrusseTrans();
@@ -85,6 +86,14 @@ private:
     std::vector<TransformationSP> flugzeuge;
 
     TransformationSP &createRandompos(TransformationSP &trans);
+
+    void createShapesWithDifferentColors(const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
+
+
+
+    void createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
+
+    const TransformAnimationSP getAnimatedStern();
 };
 
 
