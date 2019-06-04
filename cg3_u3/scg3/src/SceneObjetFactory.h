@@ -72,7 +72,7 @@ public:
     const TransformationSP getStern();
 private:
 
-    const TransformationSP createTorrusseTrans();
+    const TransformAnimationSP createTorrusseTrans();
 
     const TransformationSP
     createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);

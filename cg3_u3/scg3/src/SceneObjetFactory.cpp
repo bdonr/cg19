@@ -112,7 +112,7 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
  * Creates a Group of Torus with its  TransformationSP
  * @param TransformationSP
  */
-const TransformationSP SceneObjetFactory::createTorrusseTrans() {
+const TransformAnimationSP SceneObjetFactory::createTorrusseTrans() {
     auto torussGroup = Group::create();
 
     //unterschiedliche formen 3 eck bishin zu vieleck
@@ -129,11 +129,28 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
                 torusCore);
 
         toursTrans->addChild(torusShape[j]);
+        auto TransAni = TransformAnimation::create();
+        glm::vec3 rotatex;
+        if(j&2==0){
+            rotatex = glm::vec3(1, 0, 0);
+        }
+        else{
+            rotatex = glm::vec3(0,1,1);
+        }
+        TransAni->setUpdateFunc(
+                [toursTrans,j,rotatex](
+                        TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                    toursTrans->rotate(j, rotatex);
+                }
+        );
+        TransAni->addChild(toursTrans);
+        viewer->addAnimation(TransAni);
+
         if (j == 9) {
             std::cout << "stern" << std::endl;
             torussGroup->addChild(getAnimatedStern());
         } else {
-            torussGroup->addChild(toursTrans);
+            torussGroup->addChild(TransAni);
         }
         std::cout << "j" << j << std::endl;
         j++;
@@ -141,7 +158,16 @@ const TransformationSP SceneObjetFactory::createTorrusseTrans() {
     }
     TransformationSP grouptrans = Transformation::create();
     grouptrans->addChild(torussGroup);
-    return grouptrans;
+    auto TransAni = TransformAnimation::create();
+    TransAni->setUpdateFunc(
+            [grouptrans](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                grouptrans->rotate(1, glm::vec3(1, 0, 0));
+            }
+    );
+    viewer->addAnimation(TransAni);
+    TransAni->addChild(grouptrans);
+    return TransAni;
 }
 
 const TransformationSP SceneObjetFactory::getStern() {
@@ -150,6 +176,7 @@ const TransformationSP SceneObjetFactory::getStern() {
     auto torusShape = Shape::create();
     torusShape->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getGold())->addCore(torusCore);
     toursTrans->addChild(torusShape);
+    toursTrans->rotate(90,glm::vec3(1,0,0));
     toursTrans->scale(glm::vec3(.1f, .1f, .1f));
     return toursTrans;
 }
@@ -160,7 +187,7 @@ const TransformAnimationSP SceneObjetFactory::getAnimatedStern() {
     TransAni->setUpdateFunc(
             [sternTrans](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                sternTrans->rotate(1, glm::vec3(0, 1, 0));
+                sternTrans->rotate(1, glm::vec3(0, 0, 1));
             }
     );
     TransAni->addChild(sternTrans);
@@ -277,7 +304,7 @@ const LightSP &SceneObjetFactory::getSonne() {
         sonne = Light::create();
         sonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
                         glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0, 1, 1), 100, 1)
-                ->setPosition(glm::vec4(0.f, 36.f, 0, 1.f))
+                ->setPosition(glm::vec4(0.f, 10.f, 0, 1.f))
                 ->init();
     }
     return sonne;
