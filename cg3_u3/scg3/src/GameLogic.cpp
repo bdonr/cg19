@@ -56,27 +56,26 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
                 glm::vec3 bullObjPos = glm::vec3(bulletX, bulletY, bulletZ);
                 checkBulletTreffer(bullObjPos, totalTime,viewer);
 
-                        if (camera->getPosition().x > 15 || camera->getPosition().x < -15 || camera->getPosition().y > 15
-                        || camera->getPosition().y < -15 || camera->getPosition().z > 15 || camera->getPosition().z<-15 ) {
-                            glm::vec3 temppos = glm::vec3(camera->getPosition().x, camera->getPosition().y,
-                                                          camera->getPosition().z);
+                if (camera->getPosition().x > 15) {
+                    //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                } else if (camera->getPosition().x < -15) {
+                    //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                } else if (camera->getPosition().z > 15) {
+                    //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                } else if (camera->getPosition().z < -15) {
+                    //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                } else if (camera->getPosition().y < 1.0) {
+                    //camera->rotate(-15.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                } else if (camera->getPosition().y > 10.0) {
+                    //  camera->rotate(15.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                    camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
+                }
 
-
-                            if (camera->getPosition().x > 15) {
-                                temppos.x - .001;
-                            } else if (camera->getPosition().x < -15) {
-                                temppos.x + .001;
-                            } else if (camera->getPosition().z > 15) {
-                                temppos.z - .001;
-                            } else if (camera->getPosition().z < -15) {
-                                temppos.z - .001;
-                            } else if (camera->getPosition().y < 2.0) {
-                                temppos.y - .001;
-                            } else if (camera->getPosition().y > 15.0) {
-                                temppos.y - .001;
-                            }
-                            camera->translate(temppos) ;
-                        }
 
 
                 /*

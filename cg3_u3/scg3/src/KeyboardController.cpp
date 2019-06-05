@@ -60,7 +60,7 @@ KeyboardController::~KeyboardController() {
 }
 
 
-KeyboardControllerSP KeyboardController::create(CameraSP camera) {
+KeyboardControllerSP KeyboardController::create(CameraSP& camera) {
   return std::make_shared<KeyboardController>(camera);
 }
 
@@ -165,10 +165,12 @@ void KeyboardController::checkInput(ViewState* viewState) {
     toggleSpeedDown = false;
   }
 
-  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-    ding1->setVisible(true);
-  }else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) {
-    ding1->setVisible(false);
+  if(ding1) {
+      if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+            ding1->setVisible(true);
+      } else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) {
+          ding1->setVisible(false);
+      }
   }
 
   // toggle fly/examine mode

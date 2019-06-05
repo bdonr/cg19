@@ -26,9 +26,11 @@ private:
     TransformationSP himmelTrans;
     TransformationSP jetTrans;
     TransformationSP camObject;
+    TransformationSP bulletTrans;
     TransformationSP floorTrans;
     TransformationSP turmTrans;
     LightSP sonne;
+    LightSP videosonne;
     LightSP links;
     LightSP rechts;
     GroupSP frontlichter;
@@ -40,13 +42,14 @@ private:
     MatFactory *matFactory;
     TexturFactory *textureFactory;
     ViewerSP viewer;
+
 public:
 
     const LightSP &getLinks();
 
     const LightSP &getRechts();
 
-    const TransformationSP &getFlugzeug();
+    const TransformationSP getFlugzeug();
 
     const ShapeSP  getHimmel();
 
@@ -58,6 +61,8 @@ public:
 
     const TransformationSP &getTorus();
 
+    const LightSP &getVideoSonne();
+    const TransformAnimationSP createFlugzeugGruppe();
     const TransformationSP &getTurm();
 
     const LightSP &getSonne();
@@ -70,6 +75,7 @@ public:
 
     static SceneObjetFactory *getInstance(ViewerSP viewer);
     const TransformationSP getStern();
+     TransformationSP& createBullet();
 private:
 
     const TransformAnimationSP createTorrusseTrans();
@@ -97,6 +103,12 @@ private:
 
     TransformAnimationSP
     createTorusAnimation(const GeometryCoreSP &torusCore, const std::vector<ShapeSP> &torusShape, int j, float i);
+
+
+
+    const TransformAnimationSP getFlugzeugAnimated();
+
+
 };
 
 

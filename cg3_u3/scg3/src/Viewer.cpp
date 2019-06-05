@@ -139,16 +139,6 @@ Viewer* Viewer::initSimpleRenderer(CameraSP& camera, GroupSP& scene) {
 
 
 Viewer* Viewer::initSimpleRenderer(CameraSP& camera, GroupSP& scene, LightSP& light) {
-
-  initSimpleRenderer(camera, scene);
-
-  // white directed light from direction (1, 1, 1)
-  light = Light::create();
-  light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-      ->setPosition(glm::vec4(1.f, 1.f, 1.f, 0.f))
-      ->init();
-  scene->addChild(light);
-
   return this;
 }
 

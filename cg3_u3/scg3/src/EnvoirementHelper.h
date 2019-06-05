@@ -9,6 +9,7 @@ using namespace scg;
 class EnvoirementHelper {
 public:
     static  void createSunFloorscene(ViewerSP& viewer, CameraSP& camera, GroupSP &scene);
+    static void createVideoScene(ViewerSP &viewer, CameraSP &camera, GroupSP &scene);
 
 };
 

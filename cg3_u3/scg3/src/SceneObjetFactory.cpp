@@ -78,15 +78,15 @@ SceneObjetFactory::getSterne(int menge, const glm::vec3 &translate, const glm::v
  * Create a jet
  * @return TransformationSP
  */
-const TransformationSP &SceneObjetFactory::getFlugzeug() {
-    if (jetTrans == nullptr) {
+const TransformationSP  SceneObjetFactory::getFlugzeug() {
+
         auto jetcore = geometryFactory.createModelFromOBJFile("../scg3/models/jet.obj");
         ShapeSP jet = getShape(shaderFactory->getPhong(true), matFactory->getWhite(), textureFactory->getBrick(),
                                jetcore);
-        jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
+        auto jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
                                         glm::vec3(0.f, 1.f, 0.f), -90.f);
         jetTrans->addChild(jet);
-    }
+
     return jetTrans;
 }
 
@@ -326,7 +326,16 @@ const LightSP &SceneObjetFactory::getSonne() {
     }
     return sonne;
 }
-
+const LightSP &SceneObjetFactory::getVideoSonne() {
+    if (videosonne == nullptr) {
+        videosonne = Light::create();
+        videosonne->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))->setAmbient(
+                        glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0, 1, 1), 100, 1)
+                ->setPosition(glm::vec4(0.f, 20.f, 0, 1.f))
+                ->init();
+    }
+    return videosonne;
+}
 /**
  * Creates two Lights in a group
  * @return
@@ -459,3 +468,70 @@ SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
     matFactory = MatFactory::getInstance();
     textureFactory = TexturFactory::getInstance();
 }
+
+const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe(){
+    auto group = Group::create();
+    group->addChild(getFlugzeugAnimated());
+    auto groupTrans = Transformation::create();
+    auto TransAni = TransformAnimation::create();
+    TransAni->setUpdateFunc(
+            [groupTrans](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                groupTrans->translate(glm::vec3(-.001, 0, 0));
+            });
+
+    groupTrans->addChild(group);
+    groupTrans->translate(glm::vec3(0,4,0));
+    TransAni->addChild(groupTrans);
+    viewer->addAnimation(TransAni);
+    return TransAni;
+}
+const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
+    auto flug1 = getFlugzeug();
+    auto flug2 = getFlugzeug();
+    auto flug3 = getFlugzeug();
+
+    flug1->translate(glm::vec3(0,0,0));
+    flug2->translate(glm::vec3(5,-.3,-3));
+    flug3->translate(glm::vec3(-5,-.3,-3));
+
+    auto TransAni = TransformAnimation::create();
+
+    TransAni->setUpdateFunc(
+            [flug1,flug2,flug3](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+
+               flug2->rotate(-1,glm::vec3(0,0,1));
+                flug2->translate(glm::vec3(.11,0,0));
+               flug3->rotate(1,glm::vec3(0,0,1));
+                flug3->translate(glm::vec3(-.11,0,0));
+            }
+    );
+
+    TransAni->addChild(flug1);
+    TransAni->addChild(flug2);
+    TransAni->addChild(flug3);
+    viewer->addAnimation(TransAni);
+    return TransAni;
+
+}
+
+TransformationSP& SceneObjetFactory::createBullet(){
+    if(bulletTrans== nullptr) {
+        GeometryCoreFactory geometryFactory;
+        auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
+        auto bullet = Shape::create();
+        bullet->addCore(ShaderFactory::getInstance()->getPhong(true))
+                ->addCore(MatFactory::getInstance()->getRed())
+                ->addCore(bulletCore);
+       bulletTrans = Transformation::create();
+
+        bulletTrans->addChild(bullet);
+        bulletTrans->setVisible(false);
+    }
+    return bulletTrans;
+}
+
+
+
+

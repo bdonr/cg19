@@ -76,7 +76,7 @@ const Texture2DCoreSP &TexturFactory::getBrick() {
  */
 const Texture2DCoreSP &TexturFactory::getStadt() {
     if (stadt == nullptr) {
-        stadt = createTextureBumb("riesenBild.png", "riesenBild-bumb2.png");
+        stadt = createTextureBumb("GiantMap.png", "GiantMap-bumb.png");
     }
     return stadt;
 }

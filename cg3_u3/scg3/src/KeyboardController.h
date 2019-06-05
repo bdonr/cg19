@@ -55,7 +55,7 @@ NodeSP ding1;
   /**
    * Create shared pointer with given camera transformation.
    */
-  static KeyboardControllerSP create(CameraSP camera);
+  static KeyboardControllerSP create(CameraSP& camera);
 
   /**
    * Check input devices, called by Viewer::startMainLoop().

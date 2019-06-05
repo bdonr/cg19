@@ -52,7 +52,7 @@ struct SCGConfiguration {
 
     static const int viewerType = 1;  // 0: simple, 1: customized
     // for customized viewer:
-    static const int sceneType = 1;   // 0: teapot, 1: table
+    static const int sceneType = 0;   // 0: teapot, 1: table
 };
 
 
@@ -164,43 +164,15 @@ void useCustomizedViewer() {
 
 
 void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
-
+    scene = Group::create();
+    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
 }
 
 
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
-    TransformationSP bulletTrans;
-    GameLogic::logic(camera, bulletTrans,viewer);
-
-
-    // set texture matrix
-//  texWood->scale2D(glm::vec2(4.f, 4.f));
-
-    // floor shape and transformation
-    GeometryCoreFactory geometryFactory;
-
-    auto bulletCore = geometryFactory.createSphere(0.005, 10, 10);
-    auto bullet = Shape::create();
-    bullet->addCore(ShaderFactory::getInstance()->getPhong(true))
-            ->addCore(MatFactory::getInstance()->getRed())
-            ->addCore(bulletCore);
-    // create scene graph
     scene = Group::create();
-
-    KeyboardControllerSP controller = KeyboardController::create(camera);
-    viewer->addController(controller);
-    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
-    for(int i =0;i <SceneObjetFactory::getInstance(viewer)->getZielscheiben().size();i++){
-        SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(SceneObjetFactory::getInstance(viewer)->getZielscheiben().at(i));
-    }
-    SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(camera);
-
-    bulletTrans->addChild(bullet);
-    bulletTrans->setVisible(false);
-    camera->addChild(bulletTrans);
-    controller->setDing(bulletTrans);
-
+    EnvoirementHelper::createVideoScene(viewer,camera,scene);
 }
 
 
