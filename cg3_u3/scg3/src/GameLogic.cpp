@@ -15,7 +15,7 @@
 
 double GameLogic::bulletTravel =0;
 void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP& viewer) {
-    bulletTrans = Transformation::create();
+
     auto TransAni = TransformAnimation::create();
     auto camObjectTrans = Transformation::create();
     bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
@@ -124,8 +124,8 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time
  * @param time
  */
 void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP& viewer) {
-    double rad1 = 0.1;
-    double rad2 = 0.1;
+    double rad1 = .1;
+    double rad2 = .1;
     SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
     for (int i = 0; i <insta->getZielscheiben().size(); i++) {
 

@@ -165,13 +165,13 @@ void KeyboardController::checkInput(ViewState* viewState) {
     toggleSpeedDown = false;
   }
 
-  if(ding1) {
+ // if(ding1) {
       if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
             ding1->setVisible(true);
       } else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE) {
           ding1->setVisible(false);
       }
-  }
+ // }
 
   // toggle fly/examine mode
  /* static bool toggleKeySpace = false;

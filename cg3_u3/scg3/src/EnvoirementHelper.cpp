@@ -36,7 +36,7 @@ void EnvoirementHelper::createSunFloorscene(ViewerSP &viewer, CameraSP &camera, 
         SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(
                 SceneObjetFactory::getInstance(viewer)->getZielscheiben().at(i));
     }
-    SceneObjetFactory::getInstance(viewer)->getSonne()->addChild(camera);
+    insta->getSonne()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
 }

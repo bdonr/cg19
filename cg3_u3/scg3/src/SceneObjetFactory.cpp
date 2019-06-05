@@ -154,6 +154,7 @@ const TransformAnimationSP SceneObjetFactory::createTorrusseTrans() {
             }
     );
     viewer->addAnimation(TransAni);
+    grouptrans->scale(glm::vec3(.1,.1,.1));
     TransAni->addChild(grouptrans);
     return TransAni;
 }
