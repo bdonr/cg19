@@ -13,7 +13,7 @@ private:
      Texture2DCoreSP wood;
      Texture2DCoreSP brick;
      Texture2DCoreSP stadt;
-     Texture2DCoreSP himmel;
+    CubeMapCoreSP himmel;
      Texture2DCoreSP mauer;
      TextureCoreFactory textureFactory;
      static TexturFactory* instance;
@@ -26,7 +26,7 @@ public:
 
      const Texture2DCoreSP &getStadt();
 
-     const Texture2DCoreSP &getHimmel();
+     const CubeMapCoreSP & getHimmel();
      const Texture2DCoreSP &getMauer();
 
 private:

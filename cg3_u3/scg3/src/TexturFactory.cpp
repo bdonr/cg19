@@ -94,9 +94,12 @@ const Texture2DCoreSP &TexturFactory::getMauer() {
  * Heaven Texture
  * @return Texture2DCoreSP
  */
-const Texture2DCoreSP &TexturFactory::getHimmel() {
-    if (himmel == nullptr) {
-        himmel = createTexture("panorama-fake-sky.png");
-    }
+const CubeMapCoreSP &TexturFactory::getHimmel() {
+    himmel= textureFactory.createCubeMapFromFiles(
+            {
+                    "skybox_xpos.png", "skybox_xneg.png",
+                    "skybox_ypos.png", "skybox_yneg.png",
+                    "skybox_zpos.png", "skybox_zneg.png"
+            });
     return himmel;
 }

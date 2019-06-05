@@ -48,7 +48,7 @@ public:
 
     const TransformationSP &getFlugzeug();
 
-    const TransformationSP &getHimmel();
+    const ShapeSP  getHimmel();
 
     const TransformationSP &getFloor();
 

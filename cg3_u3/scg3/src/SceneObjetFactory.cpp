@@ -94,8 +94,19 @@ const TransformationSP &SceneObjetFactory::getFlugzeug() {
  * Create a Heavensphere
  * @return TransformationSP
  */
-const TransformationSP &SceneObjetFactory::getHimmel() {
-    if (himmelTrans == nullptr) {
+const ShapeSP  SceneObjetFactory::getHimmel() {
+
+        auto skybox = Shape::create();
+
+        auto skyboxCore = geometryFactory.createCube(50.f);
+        skybox->addCore(shaderFactory->getSkyBox())
+                ->addCore(textureFactory->getHimmel())
+                ->addCore(skyboxCore);
+
+
+
+
+        /**
         auto himmelCore = geometryFactory.createSphere(30, 101, 110);
         ShapeSP himmel = getShape(shaderFactory->getPhongreverse(true), matFactory->getTag(),
                                   textureFactory->getHimmel(),
@@ -103,8 +114,9 @@ const TransformationSP &SceneObjetFactory::getHimmel() {
         himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
                                            20.f);
         himmelTrans->addChild(himmel);
-    }
-    return himmelTrans;
+    }**/
+
+    return skybox;
 }
 
 

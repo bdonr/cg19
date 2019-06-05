@@ -35,12 +35,15 @@ public:
     const ShaderCoreSP &getColor();
 
     const ShaderCoreSP &getSkybox(bool texturmode);
+    const ShaderCoreSP getSkyBox();
     static ShaderFactory* getInstance();
 private:
     const ShaderCoreSP create(const std::string &name, bool texturemode);
 
     const ShaderCoreSP create(const std::string &name1, const std::string &name2);
     ShaderFactory();
+
+
 };
 
 

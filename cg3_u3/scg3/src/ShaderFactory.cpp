@@ -43,7 +43,14 @@ const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
         return phongwithout;
     }
 }
-
+const ShaderCoreSP ShaderFactory::getSkyBox(){
+auto shaderSkybox = shaderFactory.createShaderFromSourceFiles(
+        {
+                ShaderFile("skybox_vert.glsl", GL_VERTEX_SHADER),
+                ShaderFile("skybox_frag.glsl", GL_FRAGMENT_SHADER)
+        });
+return shaderSkybox;
+}
 /**
  * Creates a phong based bumb shader
  * @return ShaderCoreSP

@@ -58,20 +58,20 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
 
 
 
-                /**        if (camera->getPosition().x > 15) {
-                            camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                      if (camera->getPosition().x > 15) {
+                            camera->translate(glm::vec3(camera->getMatrix()[3][2]-.4, camera->getMatrix()[3][1], camera->getMatrix()[3][0]));
                         } else if (camera->getPosition().x < -15) {
-                            camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                          camera->translate(glm::vec3(camera->getMatrix()[3][2]+.4, camera->getMatrix()[3][1], camera->getMatrix()[3][0]));
                         } else if (camera->getPosition().z > 15) {
-                            camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1], camera->getMatrix()[3][0]-.4));
                         } else if (camera->getPosition().z < -15) {
-                            camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-                        } else if (camera->getPosition().y < 1.0) {
-                            camera->rotate(-15.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1], camera->getMatrix()[3][0]+.4));
+                        } else if (camera->getPosition().y < 2.0) {
+                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1]-.4, camera->getMatrix()[3][0]));
                         } else if (camera->getPosition().y > 10.0) {
-                            camera->rotate(15.0f, glm::vec3(1.0f, 0.f, 0.0f));
+                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1]+.4, camera->getMatrix()[3][0]));
                         }
-        **/
+
                 /*
                  * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
                  * also bewegt sich die camera nach -Z
