@@ -56,21 +56,28 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
                 glm::vec3 bullObjPos = glm::vec3(bulletX, bulletY, bulletZ);
                 checkBulletTreffer(bullObjPos, totalTime,viewer);
 
+                        if (camera->getPosition().x > 15 || camera->getPosition().x < -15 || camera->getPosition().y > 15
+                        || camera->getPosition().y < -15 || camera->getPosition().z > 15 || camera->getPosition().z<-15 ) {
+                            glm::vec3 temppos = glm::vec3(camera->getPosition().x, camera->getPosition().y,
+                                                          camera->getPosition().z);
 
 
-                      if (camera->getPosition().x > 15) {
-                            camera->translate(glm::vec3(camera->getMatrix()[3][2]-.4, camera->getMatrix()[3][1], camera->getMatrix()[3][0]));
-                        } else if (camera->getPosition().x < -15) {
-                          camera->translate(glm::vec3(camera->getMatrix()[3][2]+.4, camera->getMatrix()[3][1], camera->getMatrix()[3][0]));
-                        } else if (camera->getPosition().z > 15) {
-                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1], camera->getMatrix()[3][0]-.4));
-                        } else if (camera->getPosition().z < -15) {
-                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1], camera->getMatrix()[3][0]+.4));
-                        } else if (camera->getPosition().y < 2.0) {
-                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1]-.4, camera->getMatrix()[3][0]));
-                        } else if (camera->getPosition().y > 10.0) {
-                          camera->translate(glm::vec3(camera->getMatrix()[3][2], camera->getMatrix()[3][1]+.4, camera->getMatrix()[3][0]));
+                            if (camera->getPosition().x > 15) {
+                                temppos.x - .001;
+                            } else if (camera->getPosition().x < -15) {
+                                temppos.x + .001;
+                            } else if (camera->getPosition().z > 15) {
+                                temppos.z - .001;
+                            } else if (camera->getPosition().z < -15) {
+                                temppos.z - .001;
+                            } else if (camera->getPosition().y < 2.0) {
+                                temppos.y - .001;
+                            } else if (camera->getPosition().y > 15.0) {
+                                temppos.y - .001;
+                            }
+                            camera->translate(temppos) ;
                         }
+
 
                 /*
                  * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
