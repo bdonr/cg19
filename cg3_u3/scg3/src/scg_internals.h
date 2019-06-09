@@ -156,6 +156,7 @@ SCG_DECLARE_CLASS(GeometryCoreFactory);
 SCG_DECLARE_CLASS(Group);
 SCG_DECLARE_CLASS(InfoTraverser);
 SCG_DECLARE_CLASS(KeyboardController);
+SCG_DECLARE_CLASS(videoKeyboardController);
 SCG_DECLARE_CLASS(Leaf);
 SCG_DECLARE_CLASS(Light);
 SCG_DECLARE_CLASS(LightPosition);

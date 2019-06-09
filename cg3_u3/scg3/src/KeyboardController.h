@@ -41,7 +41,7 @@ namespace scg {
 class KeyboardController: public CameraController {
 
 public:
-NodeSP ding1;
+NodeSP bullet;
   /**
    * Constructor with given camera transformation.
    */
@@ -64,7 +64,7 @@ NodeSP ding1;
    */
   virtual void checkInput(ViewState* viewState);
 
-  virtual void setDing(NodeSP N);
+  virtual void setBullet(NodeSP N);
 
 };
 

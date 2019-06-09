@@ -17,17 +17,13 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP &came
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
 
-    viewer->addControllers(
-            {
 
-                    MouseController::create(camera)
-            });
 
     SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
     LightFactory *lightFactory = LightFactory::getInstance();
     GameLogic::logic(camera, insta->createBullet(),viewer);
     camera->addChild(insta->createBullet());
-    controller->setDing(insta->createBullet());
+    controller->setBullet(insta->createBullet());
     scene->addChild(lightFactory->getSonne());
     scene->addChild(insta->getHimmel());
 
@@ -54,6 +50,7 @@ void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP &camera,
 
                     MouseController::create(camera)
             });
+
 
     SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
     LightFactory *lightFactory = LightFactory::getInstance();

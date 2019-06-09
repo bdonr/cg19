@@ -54,7 +54,9 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
                 float bulletZ = tempBulletMat[3][2];
 
                 glm::vec3 bullObjPos = glm::vec3(bulletX, bulletY, bulletZ);
-                checkBulletTreffer(bullObjPos, totalTime,viewer);
+                if(bulletTrans->isVisible()) {
+                    checkBulletTreffer(bullObjPos, totalTime, viewer);
+                }
 
                 if (camera->getPosition().x > 15) {
                     //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -101,8 +103,8 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
  * @param time
  */
 void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time, ViewerSP& viewer) {
-    double rad1 = 0.2;
-    double rad2 = 0.3;
+    double rad1 = 0.1;
+    double rad2 = 0.1401;
     SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
     for (int i = 0; i < insta->getZielscheiben().size(); i++) {
         glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],

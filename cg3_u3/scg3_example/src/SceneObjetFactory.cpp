@@ -232,9 +232,9 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
  * @return TransformationSP
  */
 TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
-    float x = rand() % 15 - 15;
-    float y = rand() % 15;
-    float z = rand() % 15 - 15;
+    float x = rand() % 1;
+    float y = rand() % 1;
+    float z = rand() % 1;
     trans->translate(glm::vec3(x, y, z));
     return trans;
 }
