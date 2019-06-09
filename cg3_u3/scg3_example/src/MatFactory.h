@@ -5,7 +5,7 @@
 #ifndef CG3_U3_MATFACTORY_H
 #define CG3_U3_MATFACTORY_H
 
-#include "../scg3/scg3.h"
+#include "scg3.h"
 
 using namespace scg;
 
@@ -15,7 +15,6 @@ private:
     MaterialCoreSP red;
     MaterialCoreSP white;
     MaterialCoreSP black;
-    MaterialCoreSP tag;
     MaterialCoreSP cyan;
     MaterialCoreSP stadt;
     MaterialCoreSP gold;
@@ -36,8 +35,6 @@ public:
      */
     const MaterialCoreSP &getBlack();
     const MaterialCoreSP &getCyan();
-
-    const MaterialCoreSP &getTag();
 
     const MaterialCoreSP &getStadt();
 

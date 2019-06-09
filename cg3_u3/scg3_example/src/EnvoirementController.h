@@ -2,11 +2,11 @@
 // Created by don on 21.05.19.
 //
 
-#ifndef CG3_U3_ENVOIREMENTHELPER_H
-#define CG3_U3_ENVOIREMENTHELPER_H
-#include "../scg3/scg3.h"
+#ifndef CG3_U3_ENVOIREMENTCONTROLLER_H
+#define CG3_U3_ENVOIREMENTCONTROLLER_H
+#include "scg3.h"
 using namespace scg;
-class EnvoirementHelper {
+class EnvoirementController {
 public:
     static  void createSunFloorscene(ViewerSP& viewer, CameraSP& camera, GroupSP &scene);
     static void createVideoScene(ViewerSP &viewer, CameraSP &camera, GroupSP &scene);
@@ -14,4 +14,4 @@ public:
 };
 
 
-#endif //CG3_U3_ENVOIREMENTHELPER_H
+#endif //CG3_U3_ENVOIREMENTCONTROLLER_H

@@ -4,8 +4,8 @@
 
 #ifndef CG3_U3_GAMELOGIC_H
 #define CG3_U3_GAMELOGIC_H
-#include "../scg3/scg3.h"
-#include "EnvoirementHelper.h"
+#include "scg3.h"
+#include "EnvoirementController.h"
 #include "MatFactory.h"
 #include "TexturFactory.h"
 #include "ShaderFactory.h"

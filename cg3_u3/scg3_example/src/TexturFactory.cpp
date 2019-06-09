@@ -24,7 +24,7 @@ TexturFactory *TexturFactory::getInstance() {
  * Constructor
  */
 TexturFactory::TexturFactory() {
-    textureFactory = TextureCoreFactory("../scg3/textures;../../scg3/textures");
+    textureCoreFactory = TextureCoreFactory("../scg3/textures;../../scg3/textures");
 }
 /**
  * Creates Textur of given Name
@@ -32,7 +32,7 @@ TexturFactory::TexturFactory() {
  * @return Texture2DCoreSP
  */
 Texture2DCoreSP TexturFactory::createTexture(const std::string &name) {
-    auto texWood = textureFactory.create2DTextureFromFile(
+    auto texWood = textureCoreFactory.create2DTextureFromFile(
             name, GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     return texWood;
 }
@@ -44,7 +44,7 @@ Texture2DCoreSP TexturFactory::createTexture(const std::string &name) {
  * @return Texture2DCoreSP
  */
 Texture2DCoreSP TexturFactory::createTextureBumb(const std::string &name, const std::string &normalFileName) {
-    auto texWood = textureFactory.createBumpMapFromFiles(name, normalFileName, GL_REPEAT, GL_REPEAT,
+    auto texWood = textureCoreFactory.createBumpMapFromFiles(name, normalFileName, GL_REPEAT, GL_REPEAT,
                                                          GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     return texWood;
 }
@@ -95,7 +95,7 @@ const Texture2DCoreSP &TexturFactory::getMauer() {
  * @return Texture2DCoreSP
  */
 const CubeMapCoreSP &TexturFactory::getHimmel() {
-    himmel= textureFactory.createCubeMapFromFiles(
+    himmel= textureCoreFactory.createCubeMapFromFiles(
             {
                     "skybox_xpos.png", "skybox_xneg.png",
                     "skybox_ypos.png", "skybox_yneg.png",

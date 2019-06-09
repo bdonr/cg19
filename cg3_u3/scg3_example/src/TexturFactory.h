@@ -4,7 +4,7 @@
 
 #ifndef CG3_U3_TEXTURFACTORY_H
 #define CG3_U3_TEXTURFACTORY_H
-#include "../scg3/scg3.h"
+#include "scg3.h"
 
 using namespace scg;
 class TexturFactory {
@@ -15,7 +15,7 @@ private:
      Texture2DCoreSP stadt;
     CubeMapCoreSP himmel;
      Texture2DCoreSP mauer;
-     TextureCoreFactory textureFactory;
+     TextureCoreFactory textureCoreFactory;
      static TexturFactory* instance;
     TexturFactory();
 public:

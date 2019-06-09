@@ -491,14 +491,27 @@ add_executable(cg3_u3
         scg3/src_ext/StereoRendererAnaglyph.h
         scg3/src_ext/StereoRendererPassive.cpp
         scg3/src_ext/StereoRendererPassive.h
-        scg3/src/MatFactory.h
-        scg3/src/MatFactory.cpp
-        scg3/src/EnvoirementHelper.h
-        scg3/src/EnvoirementHelper.cpp
+        scg3_example/src/MatFactory.h
+        scg3_example/src/MatFactory.cpp
+        scg3_example/src/EnvoirementController.h
+        scg3_example/src/EnvoirementController.cpp
 
         scg3/scg3.h
         scg3/scg3_ext.h
         scg3_example/main.cpp
-        scg3/src/EnvoirementHelper.cpp scg3/src/EnvoirementHelper.h scg3/src/MatFactory.cpp scg3/src/MatFactory.h scg3/src/TexturFactory.cpp scg3/src/TexturFactory.h scg3/src/ShaderFactory.cpp scg3/src/ShaderFactory.h scg3/src/SceneObjetFactory.cpp scg3/src/SceneObjetFactory.h scg3/src/GameLogic.cpp scg3/src/GameLogic.h)
+        scg3_example/src/EnvoirementController.cpp
+        scg3_example/src/EnvoirementController.h
+        scg3_example/src/MatFactory.cpp
+        scg3_example/src/MatFactory.h
+        scg3_example/src/TexturFactory.cpp
+        scg3_example/src/TexturFactory.h
+        scg3_example/src/ShaderFactory.cpp
+        scg3_example/src/ShaderFactory.h
+        scg3_example/src/SceneObjetFactory.cpp
+        scg3_example/src/SceneObjetFactory.h
+        scg3_example/src/GameLogic.cpp
+        scg3_example/src/GameLogic.h
+        scg3_example/src/TorusFactory.cpp
+        scg3_example/src/TorusFactory.h scg3_example/src/LightFactory.cpp scg3_example/src/LightFactory.h)
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GL GLEW glfw)

@@ -134,14 +134,3 @@ const MaterialCoreSP &MatFactory::getGold() {
     }
     return gold;
 }
-/**
- * Day Material
- * @return MaterialCoreSP
- */
-const MaterialCoreSP &MatFactory::getTag() {
-    if(tag.get()== nullptr){
-        tag = createMat(glm::vec4(0.f, .7f, 1.f, 1), glm::vec4(1.f, 1.f, 1.f, 1.f), glm::vec4(1.f, 1.f, 1.f, 1.f),
-                        20,glm::vec4(0.f,0.f,.0f,.1));
-    }
-    return tag;
-}

@@ -31,16 +31,16 @@ ShaderFactory* ShaderFactory::getInstance() {
  */
 const ShaderCoreSP &ShaderFactory::getPhong(bool texturmode) {
 
-    if (phongwith == nullptr && texturmode) {
-        phongwith = create("phong", texturmode);
+    if (phongwithTexture == nullptr && texturmode) {
+        phongwithTexture = create("phong", texturmode);
     }
-    if (phongwithout == nullptr && !texturmode) {
-        phongwithout = create("phong", texturmode);
+    if (phongwithoutTexture == nullptr && !texturmode) {
+        phongwithoutTexture = create("phong", texturmode);
     }
     if (texturmode) {
-        return phongwith;
+        return phongwithTexture;
     } else {
-        return phongwithout;
+        return phongwithoutTexture;
     }
 }
 const ShaderCoreSP ShaderFactory::getSkyBox(){
@@ -63,56 +63,6 @@ const ShaderCoreSP &ShaderFactory::getPhongBumb() {
         return phongbumb;
     }
 
-/**
- *  Creates a Gouraud shader with or without texturemode
- * @param texturmode
- * @return ShaderCoreSP
- */
-const ShaderCoreSP &ShaderFactory::getGaurad(bool texturmode) {
-    if (gauradwith == nullptr && texturmode) {
-        gauradwith = create("gouraud", texturmode);
-    }
-    if (gauradwithout == nullptr && !texturmode) {
-        gauradwithout = create("gouraud", texturmode);
-    }
-    if (texturmode) {
-        return gauradwith;
-    } else {
-        return gauradwithout;
-    }
-}
-/**
- * A Test Shader with invertet Vertex normals
- * @param texturmode
- * @return
- */
-const ShaderCoreSP &ShaderFactory::getPhongreverse(bool texturmode) {
-
-    if (phongreverse == nullptr && texturmode) {
-        phongreverse = create("phong_inner", texturmode);
-    }
-    if (phongreversewithout == nullptr && !texturmode) {
-        phongreversewithout = create("phong_inner", texturmode);
-    }
-    if (texturmode) {
-        return phongreverse;
-    } else {
-        return phongreversewithout ;
-    }
-}
-
-
-const ShaderCoreSP &ShaderFactory::getColor() {
-    return color;
-}
-/**
- * Create a skybox shader
- * @param texturmode
- * @return
- */
-const ShaderCoreSP &ShaderFactory::getSkybox(bool texturmode) {
-    return create("bump",true);
-}
 /**
  * Creates Shader by params
  * @param name
@@ -143,3 +93,7 @@ const ShaderCoreSP ShaderFactory::create(const std::string &name1,const std::str
                                                      });
 
 }
+
+ShaderFactory::~ShaderFactory() {
+}
+

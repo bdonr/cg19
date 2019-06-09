@@ -31,17 +31,17 @@
 #include <sstream>
 #include "Transformation.h"
 
-#include <src/EnvoirementHelper.h>
+#include "src/EnvoirementController.h"
 #include <thread>
 
 //#include <scg3.h>
 #include "../scg3/scg3.h"
-#include "EnvoirementHelper.h"
-#include "MatFactory.h"
-#include "TexturFactory.h"
-#include "ShaderFactory.h"
-#include "SceneObjetFactory.h"
-#include "GameLogic.h"
+#include "src/EnvoirementController.h"
+#include "src/MatFactory.h"
+#include "src/TexturFactory.h"
+#include "src/ShaderFactory.h"
+#include "src/SceneObjetFactory.h"
+#include "src/GameLogic.h"
 using namespace scg;
 
 
@@ -52,7 +52,7 @@ struct SCGConfiguration {
 
     static const int viewerType = 1;  // 0: simple, 1: customized
     // for customized viewer:
-    static const int sceneType = 0;   // 0: teapot, 1: table
+    static const int sceneType = 1;   // 0: teapot, 1: table
 };
 
 
@@ -165,14 +165,15 @@ void useCustomizedViewer() {
 
 void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     scene = Group::create();
-    EnvoirementHelper::createSunFloorscene(viewer,camera,scene);
+    EnvoirementController::createVideoScene(viewer,camera,scene);
+
 }
 
 
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 
     scene = Group::create();
-    EnvoirementHelper::createVideoScene(viewer,camera,scene);
+    EnvoirementController::createSunFloorscene(viewer,camera,scene);
 }
 
 
