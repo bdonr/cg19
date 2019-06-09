@@ -42,6 +42,8 @@
 #include "src/ShaderFactory.h"
 #include "src/SceneObjetFactory.h"
 #include "src/GameLogic.h"
+#include "src/LightFactory.h"
+
 using namespace scg;
 
 
@@ -67,6 +69,7 @@ void useSimpleViewer();
  */
 void useCustomizedViewer();
 
+void checkChooseScene(ViewerSP &viewer, CameraSP &camera);
 
 /**
  * \brief Create a scene consisting of a teapot, a camera, and a light.
@@ -79,12 +82,18 @@ void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
  */
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
+void createScene2(ViewerSP viewer, CameraSP camera);
 
+void createScene1(ViewerSP viewer, CameraSP camera);
 
 /**
  * \brief The main function.
  */
 double bulletTravel = 0;
+int chooseScene = 1;
+GroupSP scene1;
+GroupSP scene2;
+StandardRendererSP renderer;
 
 int main() {
 
@@ -105,75 +114,77 @@ int main() {
 }
 
 
-// Minimal application using a simple viewer.
-void useSimpleViewer() {
-
-    // create viewer with default renderer, camera, and light
-    auto viewer = Viewer::create();
-    CameraSP camera;
-    GroupSP scene;
-    LightSP light;
-    viewer->initSimpleRenderer(camera, scene, light);
-
-
-    camera->translate(glm::vec3(0.f, 0.f, 1.f))
-            ->dolly(-1.f);
-
-    viewer->addAnimation(scg::AnimationSP());
-    viewer->startMainLoop();
-}
-
-
-
 // Typical application using a customized viewer.
 void useCustomizedViewer() {
 
     // create viewer and renderer
-    auto viewer = Viewer::create();
-    auto renderer = StandardRenderer::create();
+    ViewerSP viewer = Viewer::create();
+    renderer = StandardRenderer::create();
     viewer->init(renderer)
             ->createWindow("Cg19 Projekt", 1024, 768);
 
 
     // create camera
-    auto camera = PerspectiveCamera::create();
+    CameraSP camera = PerspectiveCamera::create();
     camera->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
     renderer->setCamera(camera);
 
-    // create scene
-    GroupSP scene;
-    switch (SCGConfiguration::sceneType) {
-        case 0:
-            createTeapotScene(viewer, camera, scene);
-            break;
-        case 1:
-            createTableScene(viewer, camera, scene);
-            break;
-        default:
-            throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
-    }
-    renderer->setScene(scene);
 
-    // start animations, enter main loop
+    createScene1(viewer, camera);
+    createScene2(viewer, camera);
+    checkChooseScene(viewer, camera);
+    renderer->setScene(scene1);
 
     viewer->startAnimations()
             ->startMainLoop();
+
 }
 
 
-
 void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
-    scene = Group::create();
-    EnvoirementController::createVideoScene(viewer,camera,scene);
-
+    renderer->setScene(scene2);
 }
 
 
 void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
+    renderer->setScene(scene1);
 
-    scene = Group::create();
-    EnvoirementController::createSunFloorscene(viewer,camera,scene);
+}
+
+void checkChooseScene(ViewerSP &viewer, CameraSP &camera) {
+    switch (chooseScene) {
+        case 0:
+            createTeapotScene(viewer, camera, scene1);
+            break;
+        case 1:
+            createTableScene(viewer, camera, scene2);
+            break;
+        default:
+            throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
+    }
 }
 
 
+void createScene1(ViewerSP viewer, CameraSP camera) {
+    scene1 = Group::create();
+    EnvoirementController::createVideoScene(viewer, camera, scene1);
+}
+
+void createScene2(ViewerSP viewer, CameraSP camera) {
+    scene2 = Group::create();
+
+    TransformAnimationSP transAni = TransformAnimation::create();
+    transAni->setUpdateFunc(
+            [&camera, &viewer](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+
+                if (chooseScene == 1) {
+                    chooseScene = 0;
+                    checkChooseScene(viewer, camera);
+                    chooseScene = 3;
+                }
+
+            }
+    );
+}

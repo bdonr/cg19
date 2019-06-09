@@ -44,6 +44,7 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP &came
 
 void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP &camera, GroupSP &scene) {
 
+
     viewer->addController(KeyboardController::create(camera));
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
