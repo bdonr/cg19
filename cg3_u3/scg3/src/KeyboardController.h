@@ -42,6 +42,8 @@ class KeyboardController: public CameraController {
 
 public:
 NodeSP bullet;
+bool isMovement = true;
+int  chooseScene;
   /**
    * Constructor with given camera transformation.
    */

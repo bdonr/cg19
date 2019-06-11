@@ -90,12 +90,13 @@ void createStandartScene(ViewerSP viewer, CameraSP camera);
  * \brief The main function.
  */
 double bulletTravel = 0;
-int chooseScene = 1;
+int actualscene = 1;
 GroupSP standartScene;
 GroupSP videoScene;
 StandardRendererSP renderer;
 CameraSP videoCam;
 CameraSP flyCam;
+KeyboardControllerSP controller;
 int main() {
 
     int result = 0;
@@ -129,23 +130,24 @@ void useCustomizedViewer() {
      videoCam = PerspectiveCamera::create();
     videoCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
-    renderer->setCamera(videoCam);
 
-     flyCam = PerspectiveCamera::create();
+
+    flyCam = PerspectiveCamera::create();
     flyCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
+
     renderer->setCamera(flyCam);
 
     createStandartScene(viewer, flyCam);
     createVideoScene(viewer, videoCam);
     checkChooseScene(viewer);
-    renderer->setScene(standartScene);
+
     viewer->addControllers(
             {
 
                     MouseController::create(flyCam)
             });
-    KeyboardControllerSP controller = KeyboardController::create(flyCam);
+    controller = KeyboardController::create(flyCam);
     viewer->addController(controller);
 
 
@@ -158,21 +160,24 @@ void useCustomizedViewer() {
 
 void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(videoScene);
+    renderer->setCamera(videoCam);
 }
 
 
 void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(standartScene);
-
+    renderer->setCamera(flyCam);
 }
 
 void checkChooseScene(ViewerSP &viewer) {
-    switch (chooseScene) {
+    switch (actualscene) {
         case 0:
             showVideoScene(viewer, videoCam, standartScene);
+
             break;
         case 1:
             showStandartScene(viewer, flyCam, videoScene);
+
             break;
         default:
             throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
@@ -184,14 +189,11 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
     standartScene = Group::create();
     TransformAnimationSP transAni = TransformAnimation::create();
     transAni->setUpdateFunc(
-            [&camera, &viewer](
+            [&camera, &viewer,controller](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-
-                if (chooseScene == 1) {
-                    chooseScene = 0;
+                    //hier weitermachen !!!!!!!!!!!!!!!!!!!!!!1
+                  //  actualscene = 0;
                     checkChooseScene(viewer);
-                    chooseScene = 3;
-                }
 
             }
     );
@@ -203,18 +205,16 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
     flyCam->addChild(instance->getCamObject());
     standartScene->addChild(transAni);
     viewer->addAnimation(transAni);
+
+
 }
 
-void createVideoScene(ViewerSP viewer, CameraSP camera) {
+void createVideoScene(ViewerSP viewer, CameraSP videoCam) {
     videoScene = Group::create();
-    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory * lightFactory= LightFactory::getInstance();
 
-    videoScene->addChild(instance->getHimmel());
-    videoScene->addChild(lightFactory->getVideoSonne());
+   // EnvoirementController::createSunFloorscene();
 
-    lightFactory->getVideoSonne()->addChild(videoCam);
-    videoCam->addChild(instance->getCamObject());
+   std::cout<<"videoscene"<<std::endl;
 
-    lightFactory->getVideoSonne()->addChild(instance->getFloor());
+    EnvoirementController::createVideoSceneHelper(viewer, videoCam, videoScene);
 }

@@ -38,26 +38,32 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP &came
 
 }
 
-void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP &camera, GroupSP &scene) {
+void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP &videoCam, GroupSP &scene) {
 
-
-    viewer->addController(KeyboardController::create(camera));
-    camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
+    KeyboardControllerSP controller=KeyboardController::create(videoCam);
+    viewer->addController(controller);
+    videoCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
 
     viewer->addControllers(
             {
 
-                    MouseController::create(camera)
+                    MouseController::create(videoCam)
             });
 
 
     SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
     LightFactory *lightFactory = LightFactory::getInstance();
     scene->addChild(lightFactory->getVideoSonne());
- scene->addChild(insta->getHimmel());
+    scene->addChild(insta->getHimmel());
     lightFactory->getVideoSonne()->addChild(insta->getFloor());
+
     lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
-    lightFactory->getVideoSonne()->addChild(camera);
+
+    lightFactory->getVideoSonne()->addChild(videoCam);
+
+
+
+    controller->isMovement=false;
 
 }
