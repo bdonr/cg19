@@ -96,8 +96,8 @@ GroupSP videoScene;
 StandardRendererSP renderer;
 CameraSP videoCam;
 CameraSP flyCam;
-VideoKeyboardControllerSP videocontroller;
-FloorKeyboardControllerSP floorcontroller;
+VideoKeyboardControllerSP videocontroller = VideoKeyboardController::create(videoCam);
+FloorKeyboardControllerSP floorcontroller = FloorKeyboardController::create(flyCam);
 int main() {
 
     int result = 0;
@@ -142,14 +142,12 @@ void useCustomizedViewer() {
     createVideoScene(viewer, videoCam);
     checkChooseScene(viewer);
     renderer->setScene(standartScene);
+
     viewer->addControllers(
             {
 
                     MouseController::create(flyCam)
             });
-     videocontroller = VideoKeyboardController::create(flyCam);
-     floorcontroller = FloorKeyboardController::create(videoCam);
-
     viewer->addController(videocontroller);
     viewer->addController(floorcontroller);
 
@@ -185,9 +183,8 @@ void checkChooseScene(ViewerSP &viewer) {
 
 
 void createStandartScene(ViewerSP viewer, CameraSP camera) {
-
-    //floorcontroller->setEnable(true);
-    //videocontroller->setEnable(false);
+    floorcontroller->setEnable(true);
+    videocontroller->setEnable(false);
     standartScene = Group::create();
     TransformAnimationSP transAni = TransformAnimation::create();
     transAni->setUpdateFunc(
@@ -213,8 +210,8 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
 }
 
 void createVideoScene(ViewerSP viewer, CameraSP camera) {
-    //floorcontroller.get()->setEnable(false);
-    //videocontroller->setEnable(true);
+    floorcontroller->setEnable(false);
+    videocontroller->setEnable(true);
     videoScene = Group::create();
     SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
     LightFactory *lightFactory = LightFactory::getInstance();

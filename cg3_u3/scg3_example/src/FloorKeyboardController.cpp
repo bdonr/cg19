@@ -15,9 +15,6 @@
 
 namespace  scg {
 
-
-
-
     void FloorKeyboardController::checkInput(scg::ViewState *viewState) {
         if(enable) {
             static double lastTime(glfwGetTime());
@@ -218,7 +215,6 @@ namespace  scg {
     FloorKeyboardControllerSP FloorKeyboardController::create(CameraSP &camera) {
         return std::make_shared<FloorKeyboardController>(camera);
     }
-
 
     void FloorKeyboardController::setEnable(bool enable) {
         this->enable = enable;

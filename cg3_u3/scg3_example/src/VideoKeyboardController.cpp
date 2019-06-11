@@ -8,6 +8,18 @@
 namespace scg {
     void VideoKeyboardController::checkInput(ViewState *viewState) {
 
+        static double lastTime(glfwGetTime());
+        GLFWwindow *window = viewState->getWindow();
+
+        // determine time difference
+        double currTime = glfwGetTime();
+        GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
+        lastTime = currTime;
+
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+
+            //camera_->translate(glm::vec3(0.0f, 0.0f, -0.008f));
+        }
     }
 
     VideoKeyboardControllerSP VideoKeyboardController::create(CameraSP &camera) {
@@ -28,7 +40,7 @@ namespace scg {
     }
 
     void VideoKeyboardController::setEnable(bool enable) {
-        this->enable = enable;
+        this->enable = true;
     }
 
 
