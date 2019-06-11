@@ -247,7 +247,9 @@ namespace scg {
                 toggleKeyL = false;
             }
             if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
-                chooseScene=0;
+
+                std::cout<<"f gedrückt"<<std::endl;
+                chooseScene=1;
             }
 //
             // continuous flight action

@@ -69,7 +69,7 @@ void useSimpleViewer();
  */
 void useCustomizedViewer();
 
-void checkChooseScene(ViewerSP &viewer);
+void checkChooseScene(ViewerSP viewer);
 
 /**
  * \brief Create a scene consisting of a teapot, a camera, and a light.
@@ -138,9 +138,9 @@ void useCustomizedViewer() {
 
     renderer->setCamera(flyCam);
 
-    createStandartScene(viewer, flyCam);
-    createVideoScene(viewer, videoCam);
+
     checkChooseScene(viewer);
+
 
     viewer->addControllers(
             {
@@ -150,14 +150,12 @@ void useCustomizedViewer() {
     controller = KeyboardController::create(flyCam);
     viewer->addController(controller);
 
-
-
     viewer->startAnimations()
             ->startMainLoop();
 
 }
 
-
+/*
 void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(videoScene);
     renderer->setCamera(videoCam);
@@ -168,20 +166,17 @@ void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(standartScene);
     renderer->setCamera(flyCam);
 }
+ */
 
-void checkChooseScene(ViewerSP &viewer) {
-    switch (actualscene) {
-        case 0:
-            showVideoScene(viewer, videoCam, standartScene);
+void checkChooseScene(ViewerSP viewer) {
+        if(actualscene==1){
+            createStandartScene( viewer,  flyCam);
+         }else if(actualscene==0){
+            std::cout<<"hier ist man jettz im aufruf des createn der videoScene"<<std::endl;
+            createVideoScene( viewer,  flyCam);
+        }
 
-            break;
-        case 1:
-            showStandartScene(viewer, flyCam, videoScene);
 
-            break;
-        default:
-            throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
-    }
 }
 
 
@@ -189,32 +184,43 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
     standartScene = Group::create();
     TransformAnimationSP transAni = TransformAnimation::create();
     transAni->setUpdateFunc(
-            [&camera, &viewer,controller](
+            [camera, viewer](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                    //hier weitermachen !!!!!!!!!!!!!!!!!!!!!!1
-                  //  actualscene = 0;
-                    checkChooseScene(viewer);
+
+                    if(controller->chooseScene==1){
+                        std::cout<<"actualscene ist 0"<<std::endl;
+                        //controller->isMovement=false;
+                        actualscene=0;
+                        checkChooseScene(viewer);
+                    }
 
             }
     );
+
     SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
     LightFactory * lightFactory= LightFactory::getInstance();
     standartScene->addChild(instance->getHimmel());
     standartScene->addChild(lightFactory->getSonne());
     lightFactory->getSonne()->addChild(flyCam);
     flyCam->addChild(instance->getCamObject());
+
+
+
     standartScene->addChild(transAni);
     viewer->addAnimation(transAni);
-
+    renderer->setScene(standartScene);
 
 }
 
-void createVideoScene(ViewerSP viewer, CameraSP videoCam) {
+void createVideoScene(ViewerSP viewer, CameraSP cam) {
+    std::cout<<"videoscene"<<std::endl;
     videoScene = Group::create();
 
    // EnvoirementController::createSunFloorscene();
 
-   std::cout<<"videoscene"<<std::endl;
 
-    EnvoirementController::createVideoSceneHelper(viewer, videoCam, videoScene);
+
+   // EnvoirementController::createVideoSceneHelper(viewer, cam, videoScene);
+
+    renderer->setScene(videoScene);
 }
