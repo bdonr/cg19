@@ -96,6 +96,8 @@ GroupSP videoScene;
 StandardRendererSP renderer;
 CameraSP videoCam;
 CameraSP flyCam;
+VideoKeyboardControllerSP videocontroller;
+FloorKeyboardControllerSP floorcontroller;
 int main() {
 
     int result = 0;
@@ -126,12 +128,12 @@ void useCustomizedViewer() {
 
 
     // create camera
-     videoCam = PerspectiveCamera::create();
+    videoCam = PerspectiveCamera::create();
     videoCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
     renderer->setCamera(videoCam);
 
-     flyCam = PerspectiveCamera::create();
+    flyCam = PerspectiveCamera::create();
     flyCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
     renderer->setCamera(flyCam);
@@ -145,9 +147,11 @@ void useCustomizedViewer() {
 
                     MouseController::create(flyCam)
             });
-    KeyboardControllerSP controller = KeyboardController::create(flyCam);
-    viewer->addController(controller);
+     videocontroller = VideoKeyboardController::create(flyCam);
+     floorcontroller = FloorKeyboardController::create(videoCam);
 
+    viewer->addController(videocontroller);
+    viewer->addController(floorcontroller);
 
 
     viewer->startAnimations()
@@ -181,6 +185,9 @@ void checkChooseScene(ViewerSP &viewer) {
 
 
 void createStandartScene(ViewerSP viewer, CameraSP camera) {
+
+    //floorcontroller->setEnable(true);
+    //videocontroller->setEnable(false);
     standartScene = Group::create();
     TransformAnimationSP transAni = TransformAnimation::create();
     transAni->setUpdateFunc(
@@ -195,8 +202,8 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
             }
     );
-    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory * lightFactory= LightFactory::getInstance();
+    SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
+    LightFactory *lightFactory = LightFactory::getInstance();
     standartScene->addChild(instance->getHimmel());
     standartScene->addChild(lightFactory->getSonne());
     lightFactory->getSonne()->addChild(flyCam);
@@ -206,9 +213,11 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
 }
 
 void createVideoScene(ViewerSP viewer, CameraSP camera) {
+    //floorcontroller.get()->setEnable(false);
+    //videocontroller->setEnable(true);
     videoScene = Group::create();
-    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory * lightFactory= LightFactory::getInstance();
+    SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
+    LightFactory *lightFactory = LightFactory::getInstance();
 
     videoScene->addChild(instance->getHimmel());
     videoScene->addChild(lightFactory->getVideoSonne());
