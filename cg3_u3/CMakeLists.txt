@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(cg3_u3)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 include_directories(scg3)
 include_directories(scg3/extern/glew/include)
@@ -514,4 +514,4 @@ add_executable(cg3_u3
         scg3_example/src/TorusFactory.cpp
         scg3_example/src/TorusFactory.h scg3_example/src/LightFactory.cpp scg3_example/src/LightFactory.h scg3_example/src/videoKeyboardController.cpp scg3_example/src/videoKeyboardController.h)
         find_package(OpenGL REQUIRED)
-        target_link_libraries(cg3_u3 GLEW GL glfw3 Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11)
+        target_link_libraries(cg3_u3 GLEW GL glfw )

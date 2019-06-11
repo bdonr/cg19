@@ -264,14 +264,14 @@ const TransformationSP &SceneObjetFactory::getFloor() {
  */
 const TransformationSP &SceneObjetFactory::getCamObject() {
     if (camObject == nullptr) {
-        auto floorCore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
-        auto floor = Shape::create();
-        floor->addCore(shaderFactory->getPhong(true))->addCore(matFactory->getWhite())->addCore(
+        auto flugzeugCore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
+        auto flugzeugShape = Shape::create();
+        flugzeugShape->addCore(shaderFactory->getPhong(true))->addCore(matFactory->getWhite())->addCore(
                         textureFactory->getBrick())
-                ->addCore(floorCore);
+                ->addCore(flugzeugCore);
         camObject = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(0.05, 0.05, 0.05),
                                          glm::vec3(0.f, 1.f, 0.f), 180.);
-        camObject->addChild(floor);
+        camObject->addChild(flugzeugShape);
     }
     return camObject;
 }

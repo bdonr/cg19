@@ -256,6 +256,7 @@ namespace scg {
             camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
         } else {
             if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+
                 chooseScene=1;
             }
         }

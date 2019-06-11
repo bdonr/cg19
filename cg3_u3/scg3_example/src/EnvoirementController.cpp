@@ -36,12 +36,13 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP &came
     lightFactory->getSonne()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
+  //  lightFactory->getSonne()->addChild(lightFactory->getVideoSonne2());
+
 }
 
 void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP &videoCam, GroupSP &scene) {
 
-    KeyboardControllerSP controller=KeyboardController::create(videoCam);
-    viewer->addController(controller);
+
     videoCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
 
@@ -62,8 +63,10 @@ void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP &v
 
     lightFactory->getVideoSonne()->addChild(videoCam);
 
+    insta->getCamObject()->setVisible(false);
 
 
-    controller->isMovement=false;
+
+
 
 }

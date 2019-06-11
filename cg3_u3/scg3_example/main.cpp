@@ -1,3 +1,5 @@
+#include <utility>
+
 /**
  * \file main.cpp
  * \brief A simple scg3 example application.
@@ -169,10 +171,11 @@ void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
  */
 
 void checkChooseScene(ViewerSP viewer) {
+
         if(actualscene==1){
             createStandartScene( viewer,  flyCam);
          }else if(actualscene==0){
-            std::cout<<"hier ist man jettz im aufruf des createn der videoScene"<<std::endl;
+
             createVideoScene( viewer,  flyCam);
         }
 
@@ -184,14 +187,19 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
     standartScene = Group::create();
     TransformAnimationSP transAni = TransformAnimation::create();
     transAni->setUpdateFunc(
-            [camera, viewer](
+            [move(camera), viewer](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 
                     if(controller->chooseScene==1){
-                        std::cout<<"actualscene ist 0"<<std::endl;
-                        //controller->isMovement=false;
+                        std::cout<<"hier kurz mal der test wie oft ich in der if lande"<<std::endl;
+                        controller->isMovement=false;
+
                         actualscene=0;
                         checkChooseScene(viewer);
+                        actualscene=3;
+                        controller->chooseScene=2;
+
+                        viewer->startAnimations();
                     }
 
             }
@@ -220,7 +228,10 @@ void createVideoScene(ViewerSP viewer, CameraSP cam) {
 
 
 
-   // EnvoirementController::createVideoSceneHelper(viewer, cam, videoScene);
+    EnvoirementController::createVideoSceneHelper(viewer, cam, videoScene);
+
+
+
 
     renderer->setScene(videoScene);
 }
