@@ -74,13 +74,13 @@ void checkChooseScene(ViewerSP viewer);
 /**
  * \brief Create a scene consisting of a teapot, a camera, and a light.
  */
-void showVideoScene(ViewerSP viewer, CameraSP camera);
+void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 
 /**
  * \brief Create a scene consisting of a floor, a table, a teapot, a camera, and a light.
  */
-void showStandartScene(ViewerSP viewer, CameraSP camera);
+void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 void createVideoScene(ViewerSP viewer, CameraSP camera);
 
@@ -141,7 +141,7 @@ void useCustomizedViewer() {
     renderer->setCamera(flyCam);
 
 
-
+    checkChooseScene(viewer);
 
     videocontroller = VideoKeyboardController::create(flyCam);
     floorcontroller = FloorKeyboardController::create(flyCam);
@@ -153,34 +153,28 @@ void useCustomizedViewer() {
     viewer->addController(videocontroller);
     viewer->addController(floorcontroller);
 
-    createVideoScene(viewer,flyCam);
-    createStandartScene(viewer,flyCam);
-
-    checkChooseScene(viewer);
 
     viewer->startAnimations()
             ->startMainLoop();
 
 }
 
-
-void showVideoScene(ViewerSP viewer, CameraSP camera) {
+/*
+void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(videoScene);
 }
 
 
-void showStandartScene(ViewerSP viewer, CameraSP camera) {
+void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(standartScene);
 }
-
-
+*/
 void checkChooseScene(ViewerSP viewer) {
 
     if (actualscene == 1) {
-        showStandartScene(viewer, flyCam);
-
+        createStandartScene(viewer, flyCam);
     } else if (actualscene == 0) {
-        showVideoScene( viewer,  flyCam);
+        createVideoScene(viewer, flyCam);
     }
 
 }
@@ -188,16 +182,19 @@ void checkChooseScene(ViewerSP viewer) {
 
 void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
-    standartScene = Group::create();
-    transAni = TransformAnimation::create();
-    transAni->setUpdateFunc(
-            [move(camera), viewer](
-                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                    std::cout<<"transsensex"<<std::endl;
-                    if(floorcontroller->isChooseScene()==false){
+    if(standartScene== nullptr) {
 
-                        if(actualscene==1){
-                            actualscene=0;
+
+        standartScene = Group::create();
+        transAni = TransformAnimation::create();
+        transAni->setUpdateFunc(
+                [move(camera), viewer](
+                        TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                    std::cout << "transsensex" << std::endl;
+                    if (floorcontroller->isChooseScene() == false) {
+
+                        if (actualscene == 1) {
+                            actualscene = 0;
 
                             checkChooseScene(viewer);
 
@@ -205,31 +202,35 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
 
                         viewer->startAnimations();
-                    }else{
-                        std::cout<<"im transani"<<std::endl;
-                        if(actualscene==0){
-                            actualscene=1;
+                    } else {
+                        std::cout << "im transani" << std::endl;
+                        if (actualscene == 0) {
+                            actualscene = 1;
 
                             checkChooseScene(viewer);
 
                         }
                     }
 
-            }
-    );
-    SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory *lightFactory = LightFactory::getInstance();
-    standartScene->addChild(instance->getHimmel());
-    standartScene->addChild(lightFactory->getSonne());
-    lightFactory->getSonne()->addChild(flyCam);
-    flyCam->addChild(instance->getCamObject());
-    standartScene->addChild(transAni);
-    viewer->addAnimation(transAni);
-    renderer->setScene(standartScene);
+                }
+        );
+        SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
+        LightFactory *lightFactory = LightFactory::getInstance();
+        standartScene->addChild(instance->getHimmel());
+        standartScene->addChild(lightFactory->getSonne());
+        lightFactory->getSonne()->addChild(flyCam);
+        flyCam->addChild(instance->getCamObject());
+        standartScene->addChild(transAni);
+        viewer->addAnimation(transAni);
 
+    }
+    renderer->setScene(standartScene);
 }
 
 void createVideoScene(ViewerSP viewer, CameraSP camera) {
+
+    if(videoScene== nullptr){
+
 
     videoScene = Group::create();
 
@@ -240,5 +241,7 @@ void createVideoScene(ViewerSP viewer, CameraSP camera) {
     videoScene->addChild(transAni);
     viewer->addAnimation(transAni);
 
+
+    }
     renderer->setScene(videoScene);
 }
