@@ -7,12 +7,15 @@
 
 #include "scg3.h"
 #include "scg_internals.h"
+#include "Group.h"
+
 namespace scg {
 
     class VideoKeyboardController : public CameraController {
     private:
         bool enable;
         bool chooseScene;
+        GroupSP gameScene;
     public:
         bool isChooseScene() const;
 
@@ -32,7 +35,7 @@ namespace scg {
 
         void setEnable(bool enable);
 
-
+        void setGameScene(GroupSP gameScene);
     };
 
 }

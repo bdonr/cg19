@@ -9,6 +9,8 @@
 #include "scg_glew.h"
 #include "CameraController.h"
 #include "scg_internals.h"
+#include "StandardRenderer.h"
+#include "Group.h"
 namespace scg {
 
 /**
@@ -21,6 +23,9 @@ namespace scg {
     private:
         bool enable;
         bool chooseScene;
+        StandardRendererSP renderer;
+        GroupSP videoScene;
+        GroupSP gameScene;
     public:
         bool isChooseScene() const;
 
@@ -56,6 +61,11 @@ namespace scg {
         bool isEnable() const;
 
         void setEnable(bool enable);
+
+        void setRenderer(StandardRendererSP &renderer);
+
+        void setVideoScene(GroupSP videoScene);
+        void setGameScene(GroupSP gameScene);
     };
 
 }

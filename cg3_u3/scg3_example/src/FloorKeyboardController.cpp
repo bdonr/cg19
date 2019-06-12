@@ -15,6 +15,8 @@
 
 namespace  scg {
 
+
+
     void FloorKeyboardController::checkInput(scg::ViewState *viewState) {
         static double lastTime(glfwGetTime());
         GLFWwindow *window = viewState->getWindow();
@@ -23,7 +25,7 @@ namespace  scg {
         GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
         lastTime = currTime;
 
-        if(chooseScene) {
+
 
                 // camera movement
                 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -200,22 +202,46 @@ namespace  scg {
 
                 //Hier wird die Scene gewechselt
                 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+                    std::cout << "scene wechselllllllnnn" << std::endl;
+                   // renderer->getScene()->setVisible(false);
+
+                    renderer->setScene(videoScene);
+
+                    chooseScene = false;
+                }
+                if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+                    std::cout << "scene wechselllllllnnn zurückkk" << std::endl;
+                    // renderer->getScene()->setVisible(false);
+
+                    renderer->setScene(gameScene);
 
                     chooseScene = false;
                 }
 
-
-            }else{
-                if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-                    std::cout << "scene zurüchhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhk" << std::endl;
-                    chooseScene = true;
-                }
-            }
-
     }
 
-    FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera) ,chooseScene{true} {
+    FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera)  {
         std::cout << "Floor camera control enabled" << std::endl;
+
+        moveVelocity_ = 0.3f;
+        rotateVelocity_ = 50.0f;
+        flightVelocityStep_ = 0.2f;
+
+        std::cout << "Keyboard camera control enabled" << std::endl;
+        std::cout << "- space: toggle fly/examine mode" << std::endl;
+        std::cout << "- arrow keys (fly mode/default): rotate around yaw and pitch axes" << std::endl;
+        std::cout << "  + alt: rotate around roll and pitch axes" << std::endl;
+        std::cout << "- arrow keys (examine mode): rotate around azimuth and elevation axes" << std::endl;
+        std::cout << "  + alt: rotate around roll and elevation axes" << std::endl;
+        std::cout << "- w/s: move forward/backward" << std::endl;
+        std::cout << "  + alt: dolly in/out (relative to center point)" << std::endl;
+        std::cout << "- a/d/x/z: move left/right/up/down (a/d/x/y on German keyboard)" << std::endl;
+        std::cout << "- q/e: increase/decrease continuous flight velocity" << std::endl;
+        std::cout << "- h: toggle frame rate output (to console)" << std::endl;
+        std::cout << "- j: toggle center point visibility" << std::endl;
+        std::cout << "- k: toggle mouse cursor visibility" << std::endl;
+        std::cout << "- l: toggle polygon mode (fill/line)" << std::endl;
+        std::cout << std::endl;
 
     }
 
@@ -246,6 +272,16 @@ namespace  scg {
     void FloorKeyboardController::setChooseScene(bool chooseScene) {
         FloorKeyboardController::chooseScene = chooseScene;
     }
+    void FloorKeyboardController::setRenderer(StandardRendererSP &renderer) {
+        this->renderer=renderer;
+    }
+    void FloorKeyboardController::setVideoScene(GroupSP videoScene) {
+        this->videoScene=videoScene;
+    }
+    void FloorKeyboardController::setGameScene(scg::GroupSP gameScene) {
+        this->gameScene=gameScene;
+    }
+
 
 
 }

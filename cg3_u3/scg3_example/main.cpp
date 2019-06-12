@@ -1,3 +1,5 @@
+#include <utility>
+
 /**
  * \file main.cpp
  * \brief A simple scg3 example application.
@@ -99,6 +101,8 @@ CameraSP flyCam;
 VideoKeyboardControllerSP videocontroller ;
 FloorKeyboardControllerSP floorcontroller ;
 TransformAnimationSP transAni;
+ViewerSP viewer;
+
 int main() {
 
     int result = 0;
@@ -122,7 +126,7 @@ int main() {
 void useCustomizedViewer() {
 
     // create viewer and renderer
-    ViewerSP viewer = Viewer::create();
+    viewer= Viewer::create();
     renderer = StandardRenderer::create();
     viewer->init(renderer)
             ->createWindow("Cg19 Projekt", 1024, 768);
@@ -133,25 +137,38 @@ void useCustomizedViewer() {
     videoCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
 
+    // Create Scenes
+    videoScene = Group::create();
+    standartScene = Group::create();
 
     flyCam = PerspectiveCamera::create();
     flyCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
 
-    renderer->setCamera(flyCam);
-    ///
-
-    checkChooseScene(viewer);
-
-    videocontroller = VideoKeyboardController::create(flyCam);
+    videocontroller = VideoKeyboardController::create(videoCam);
     floorcontroller = FloorKeyboardController::create(flyCam);
+
+    //set Camera and first scene
+    renderer->setCamera(flyCam);
+
+
+    //set scene in controller
+    floorcontroller->setVideoScene(videoScene);
+    floorcontroller->setGameScene(standartScene);
+    floorcontroller->setRenderer(renderer);
+
+
+    createStandartScene(viewer, flyCam);
+    createVideoScene(viewer, flyCam);
+
+    renderer->setScene(standartScene);
+
     viewer->addControllers(
             {
-
+                    floorcontroller,
+                    videocontroller,
                     MouseController::create(flyCam)
             });
-    viewer->addController(videocontroller);
-    viewer->addController(floorcontroller);
 
 
     viewer->startAnimations()
@@ -171,77 +188,31 @@ void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 */
 void checkChooseScene(ViewerSP viewer) {
 
-    if (actualscene == 1) {
-        createStandartScene(viewer, flyCam);
-    } else if (actualscene == 0) {
-        createVideoScene(viewer, flyCam);
-    }
 
 }
 
 
 void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
-    if(standartScene== nullptr) {
+   EnvoirementController::createSunFloorscene(viewer, camera, standartScene);
 
-
-        standartScene = Group::create();
-        transAni = TransformAnimation::create();
-        transAni->setUpdateFunc(
-                [move(camera), viewer](
-                        TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                    std::cout << "transsensex" << std::endl;
-                    if (floorcontroller->isChooseScene() == false) {
-
-                        if (actualscene == 1) {
-                            actualscene = 0;
-
-                            checkChooseScene(viewer);
-
-                        }
-
-
-                        viewer->startAnimations();
-                    } else {
-                        std::cout << "im transani" << std::endl;
-                        if (actualscene == 0) {
-                            actualscene = 1;
-
-                            checkChooseScene(viewer);
-
-                        }
-                    }
-
-                }
-        );
-        SceneObjetFactory *instance = SceneObjetFactory::getInstance(viewer);
-        LightFactory *lightFactory = LightFactory::getInstance();
-        standartScene->addChild(instance->getHimmel());
-        standartScene->addChild(lightFactory->getSonne());
-        lightFactory->getSonne()->addChild(flyCam);
-        flyCam->addChild(instance->getCamObject());
-        standartScene->addChild(transAni);
-        viewer->addAnimation(transAni);
-
-    }
-    renderer->setScene(standartScene);
 }
 
 void createVideoScene(ViewerSP viewer, CameraSP camera) {
 
-    if(videoScene== nullptr){
+
+    videoCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
+            ->dolly(-1.f);
+
+    SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
+    LightFactory *lightFactory = LightFactory::getInstance();
+    videoScene->addChild(lightFactory->getVideoSonne());
+
+    lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
+    lightFactory->getVideoSonne()->addChild(insta->getFloor());
+
+    //hier nochmal gucken schwarzes bild nach setten der scene
+  // EnvoirementController::createVideoSceneHelper(viewer, camera, videoScene);
 
 
-    videoScene = Group::create();
-
-
-    EnvoirementController::createVideoSceneHelper(viewer, camera, videoScene);
-
-
-    videoScene->addChild(transAni);
-    viewer->addAnimation(transAni);
-
-
-    }
-    renderer->setScene(videoScene);
 }
