@@ -512,6 +512,12 @@ add_executable(cg3_u3
         scg3_example/src/GameLogic.cpp
         scg3_example/src/GameLogic.h
         scg3_example/src/TorusFactory.cpp
-        scg3_example/src/TorusFactory.h scg3_example/src/LightFactory.cpp scg3_example/src/LightFactory.h scg3_example/src/videoKeyboardController.cpp scg3_example/src/videoKeyboardController.h)
-        find_package(OpenGL REQUIRED)
-        target_link_libraries(cg3_u3 GLEW GL glfw )
+        scg3_example/src/TorusFactory.h
+        scg3_example/src/LightFactory.cpp
+        scg3_example/src/LightFactory.h
+        scg3_example/src/VideoKeyboardController.cpp
+        scg3_example/src/VideoKeyboardController.h
+        scg3_example/src/FloorKeyboardController.cpp
+        scg3_example/src/FloorKeyboardController.h)
+find_package(OpenGL REQUIRED)
+target_link_libraries(cg3_u3 GL GLEW glfw)

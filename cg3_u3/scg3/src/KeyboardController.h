@@ -66,7 +66,7 @@ int  chooseScene;
    */
   virtual void checkInput(ViewState* viewState);
 
-  virtual void setBullet(NodeSP N);
+
 
 };
 

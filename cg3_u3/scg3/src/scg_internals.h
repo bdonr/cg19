@@ -156,7 +156,6 @@ SCG_DECLARE_CLASS(GeometryCoreFactory);
 SCG_DECLARE_CLASS(Group);
 SCG_DECLARE_CLASS(InfoTraverser);
 SCG_DECLARE_CLASS(KeyboardController);
-SCG_DECLARE_CLASS(videoKeyboardController);
 SCG_DECLARE_CLASS(Leaf);
 SCG_DECLARE_CLASS(Light);
 SCG_DECLARE_CLASS(LightPosition);
@@ -180,8 +179,8 @@ SCG_DECLARE_CLASS(Transformation);
 SCG_DECLARE_CLASS(Traverser);
 SCG_DECLARE_CLASS(Viewer);
 SCG_DECLARE_CLASS(ViewState);
-
-
+SCG_DECLARE_CLASS(FloorKeyboardController);
+SCG_DECLARE_CLASS(VideoKeyboardController);
 /**
  * Macros causing compiler errors for obsolete classes and functions.
  */
