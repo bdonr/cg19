@@ -96,9 +96,10 @@ GroupSP videoScene;
 StandardRendererSP renderer;
 CameraSP videoCam;
 CameraSP flyCam;
-VideoKeyboardControllerSP videocontroller ;
-FloorKeyboardControllerSP floorcontroller ;
+VideoKeyboardControllerSP videocontroller;
+FloorKeyboardControllerSP floorcontroller;
 TransformAnimationSP transAni;
+
 int main() {
 
     int result = 0;
@@ -152,14 +153,15 @@ void useCustomizedViewer() {
             });
     viewer->addController(videocontroller);
     viewer->addController(floorcontroller);
-
+    createVideoScene(viewer,flyCam);
+    createStandartScene(viewer,flyCam);
 
     viewer->startAnimations()
             ->startMainLoop();
 
 }
 
-/*
+
 void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(videoScene);
 }
@@ -168,7 +170,7 @@ void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
 void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
     renderer->setScene(standartScene);
 }
-*/
+
 void checkChooseScene(ViewerSP viewer) {
 
     if (actualscene == 1) {
@@ -182,9 +184,7 @@ void checkChooseScene(ViewerSP viewer) {
 
 void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
-    if(standartScene== nullptr) {
-
-
+    if (standartScene == nullptr) {
         standartScene = Group::create();
         transAni = TransformAnimation::create();
         transAni->setUpdateFunc(
@@ -229,18 +229,11 @@ void createStandartScene(ViewerSP viewer, CameraSP camera) {
 
 void createVideoScene(ViewerSP viewer, CameraSP camera) {
 
-    if(videoScene== nullptr){
-
-
-    videoScene = Group::create();
-
-
-    EnvoirementController::createVideoSceneHelper(viewer, camera, videoScene);
-
-
-    videoScene->addChild(transAni);
-    viewer->addAnimation(transAni);
-
+    if (videoScene == nullptr) {
+        videoScene = Group::create();
+        EnvoirementController::createVideoSceneHelper(viewer, camera, videoScene);
+        videoScene->addChild(transAni);
+        viewer->addAnimation(transAni);
 
     }
     renderer->setScene(videoScene);
