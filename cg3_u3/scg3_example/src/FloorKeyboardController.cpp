@@ -16,7 +16,7 @@
 namespace  scg {
 
     void FloorKeyboardController::checkInput(scg::ViewState *viewState) {
-        if(enable) {
+
             static double lastTime(glfwGetTime());
             GLFWwindow *window = viewState->getWindow();
             // determine time difference
@@ -196,7 +196,7 @@ namespace  scg {
 
             // continuous flight action
             camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
-        }
+        
     }
 
     FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera) {

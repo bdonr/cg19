@@ -12,6 +12,14 @@ public:
 
 	TorusFactory();
 
+	/**
+	 * Creates a Torus with given parameters
+	 * @param torusRadius
+	 * @param innerRadius
+	 * @param torusTeile
+	 * @param kreisTeile
+	 * @return
+	 */
 	GeometryCoreSP createTorus(GLfloat torusRadius, GLfloat innerRadius, int torusTeile, int kreisTeile);
 
 	virtual ~TorusFactory();
