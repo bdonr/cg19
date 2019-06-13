@@ -9,6 +9,8 @@
 #include "scg_glew.h"
 #include "CameraController.h"
 #include "scg_internals.h"
+#include "StandardRenderer.h"
+#include "Group.h"
 namespace scg {
 
 /**
@@ -19,16 +21,12 @@ namespace scg {
  */
     class FloorKeyboardController: public CameraController {
     private:
-        bool enable;
-        bool chooseScene;
-    public:
-        bool isChooseScene() const;
 
-        void setChooseScene(bool chooseScene);
-
+        StandardRendererSP renderer;
+        GroupSP videoScene;
     public:
         NodeSP bullet;
-
+        bool movement=true;
         /**
          * Constructor with given camera transformation.
          */
@@ -51,16 +49,30 @@ namespace scg {
          */
         virtual void checkInput(ViewState* viewState);
 
+        //wird  nicht benutzt möglicherweise kann es weg????
         virtual void setBullet(NodeSP N);
 
-        bool isEnable() const;
+        /**
+      *
+      * set the renderer in controller
+      *
+      */
+        void setRenderer(StandardRendererSP &renderer);
+        /**
+      *
+      * set the flightShowScene in controller
+      *
+      */
+        void setVideoScene(GroupSP videoScene);
 
-        void setEnable(bool enable);
+        /**
+       *
+       * gif de Kamera toröch vun düsse controller
+       *
+        */
+        CameraSP getCamera() const;
     };
 
 }
-
-
-
 
 #endif //CG3_U3_FLOORKEYBOARDCONTROLLER_H

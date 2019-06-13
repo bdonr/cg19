@@ -8,7 +8,7 @@
 #include "LightFactory.h"
 
 
-void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP &camera, GroupSP &scene) {
+void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
 
 
 

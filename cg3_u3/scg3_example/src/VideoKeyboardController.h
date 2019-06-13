@@ -7,16 +7,17 @@
 
 #include "scg3.h"
 #include "scg_internals.h"
+#include "Group.h"
+
 namespace scg {
 
-    class VideoKeyboardController : public CameraController {
+    class VideoKeyboardController : public FloorKeyboardController {
     private:
         bool enable;
         bool chooseScene;
-    public:
-        bool isChooseScene() const;
+        GroupSP gameScene;
+        StandardRendererSP renderer;
 
-        void setChooseScene(bool chooseScene);
 
     public:
         static VideoKeyboardControllerSP create(CameraSP &camera);
@@ -28,11 +29,20 @@ namespace scg {
 
         virtual ~VideoKeyboardController();
 
-        bool isEnable() const;
 
-        void setEnable(bool enable);
+        /**
+       *
+       * set the gameScene in controller
+       *
+         */
+        void setGameScene(GroupSP gameScene);
 
-
+        /**
+      *
+      * set the renderer in controller
+      *
+        */
+        void setRenderer(StandardRendererSP &renderer);
     };
 
 }
