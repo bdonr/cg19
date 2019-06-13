@@ -134,8 +134,10 @@ void useCustomizedViewer() {
     //give scenes and renderer for controllers
     floorcontroller->setVideoScene(flightShowScene);
     videocontroller->setGameScene(gameScene);
+    floorcontroller->setGameScene(gameScene);
     floorcontroller->setRenderer(renderer);
     videocontroller->setRenderer(renderer);
+    floorcontroller->setCam(flightShowCam);
 
     //create scenes once with Helper
     createGameScene(viewer, gameCam, flightShowScene);

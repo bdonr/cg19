@@ -16,10 +16,16 @@ namespace scg {
             lastTime = currTime;
 
 
-            if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-                movement=true;
+           /* if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+
+
+
                 renderer->setScene(gameScene);
+                FloorKeyboardController::movement=true;
+                printf("movement aus dem videocontroller ");
+                std::cout<<movement<<std::endl;
         }
+            */
     }
 
     void VideoKeyboardController::setGameScene(scg::GroupSP gameScene) {

@@ -209,9 +209,15 @@ namespace  scg {
 
         }
 
-            std::cout << "floorkontroller geht noch" << std::endl;
-
         }
+        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+
+            renderer->setScene(gameScene);
+            FloorKeyboardController::movement=true;
+            movement=true;
+            //camera_=currentCam;
+        }
+
     }
 
     FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera)  {
@@ -242,8 +248,13 @@ namespace  scg {
 
     }
 
-    CameraSP FloorKeyboardController::getCamera() const{
-        return camera_;
+    void FloorKeyboardController::setGameScene(GroupSP gameScene) {
+        this->gameScene=gameScene;
+
+    }
+
+    CameraSP FloorKeyboardController::setCam(CameraSP camera){
+        return currentCam=camera;
     }
 
 }
