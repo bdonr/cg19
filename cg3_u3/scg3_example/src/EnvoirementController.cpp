@@ -11,7 +11,6 @@
 void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
 
 
-
     // camera controllers
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
@@ -39,7 +38,7 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camer
 
 }
 
-void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP &videoCam, GroupSP &scene) {
+void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP videoCam, GroupSP scene) {
 
 
     videoCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))

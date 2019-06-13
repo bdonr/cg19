@@ -265,6 +265,7 @@
 #include "src/Traverser.h"
 #include "src/Viewer.h"
 #include "src/ViewState.h"
+#include "../scg3_example/src/Steuerung.h"
 #include "../scg3_example/src/FloorKeyboardController.h"
 #include "../scg3_example/src/VideoKeyboardController.h"
 

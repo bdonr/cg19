@@ -17,7 +17,7 @@ namespace scg {
 
 
             if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-                movement=true;
+                Steuerung::enable=true;
                 renderer->setScene(gameScene);
         }
     }
@@ -33,7 +33,7 @@ namespace scg {
         return std::make_shared<VideoKeyboardController>(camera);
     }
 
-    VideoKeyboardController::VideoKeyboardController(const CameraSP &camera) : FloorKeyboardController(camera),chooseScene{false} {
+    VideoKeyboardController::VideoKeyboardController(const CameraSP &camera) : CameraController(camera),chooseScene{false} {
         std::cout << "Video camera control enabled" << std::endl;
         std::cout << "press f to return to original scene" << std::endl;
     }

@@ -8,8 +8,8 @@
 using namespace scg;
 class EnvoirementController {
 public:
-    static  void createSunFloorscene(ViewerSP& viewer, CameraSP& camera, GroupSP &scene);
-    static void createVideoSceneHelper(ViewerSP &viewer, CameraSP &camera, GroupSP &scene);
+    static  void createSunFloorscene(ViewerSP& viewer, CameraSP camera, GroupSP scene);
+    static void createVideoSceneHelper(ViewerSP &viewer, CameraSP camera, GroupSP scene);
 
 };
 

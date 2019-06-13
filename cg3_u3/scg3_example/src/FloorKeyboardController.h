@@ -7,10 +7,10 @@
 
 
 #include "scg_glew.h"
-#include "CameraController.h"
 #include "scg_internals.h"
 #include "StandardRenderer.h"
 #include "Group.h"
+#include "scg3.h"
 namespace scg {
 
 /**
@@ -19,14 +19,13 @@ namespace scg {
  * See implementation of constructor KeyboardController::KeyboardController(),
  * which prints a list of control actions.
  */
-    class FloorKeyboardController: public CameraController {
+    class FloorKeyboardController: public CameraController,public Steuerung {
     private:
 
         StandardRendererSP renderer;
         GroupSP videoScene;
     public:
         NodeSP bullet;
-        bool movement=true;
         /**
          * Constructor with given camera transformation.
          */

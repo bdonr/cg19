@@ -23,7 +23,7 @@ namespace  scg {
         GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
         lastTime = currTime;
 
-        if(movement){
+        if(Steuerung::enable){
         // camera movement
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 
@@ -205,7 +205,7 @@ namespace  scg {
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
             camera_->rotatePitch(-3.0);
             renderer->setScene(videoScene);
-            movement=false;
+            Steuerung::enable=false;
 
         }
 
