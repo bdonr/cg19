@@ -39,7 +39,7 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camer
     lightFactory->getSonne()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
-    lightFactory->getSonne()->addChild(lightFactory->getVideoSonne2());
+
 
 }
 
@@ -54,5 +54,6 @@ void EnvoirementController::createVideoSceneHelper(ViewerSP &viewer, CameraSP vi
     scene->addChild(lightFactory->getVideoSonne());
 
     lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
+    lightFactory->getSonne()->addChild(lightFactory->getVideoSonne2());
 
 }

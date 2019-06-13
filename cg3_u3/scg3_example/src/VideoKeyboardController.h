@@ -11,15 +11,13 @@
 
 namespace scg {
 
-    class VideoKeyboardController : public CameraController {
+    class VideoKeyboardController : public FloorKeyboardController {
     private:
         bool enable;
         bool chooseScene;
         GroupSP gameScene;
-    public:
-        bool isChooseScene() const;
+        StandardRendererSP renderer;
 
-        void setChooseScene(bool chooseScene);
 
     public:
         static VideoKeyboardControllerSP create(CameraSP &camera);
@@ -31,11 +29,20 @@ namespace scg {
 
         virtual ~VideoKeyboardController();
 
-        bool isEnable() const;
 
-        void setEnable(bool enable);
-
+        /**
+       *
+       * set the gameScene in controller
+       *
+         */
         void setGameScene(GroupSP gameScene);
+
+        /**
+      *
+      * set the renderer in controller
+      *
+        */
+        void setRenderer(StandardRendererSP &renderer);
     };
 
 }

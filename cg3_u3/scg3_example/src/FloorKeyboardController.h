@@ -21,19 +21,12 @@ namespace scg {
  */
     class FloorKeyboardController: public CameraController {
     private:
-        bool enable;
-        bool chooseScene;
+
         StandardRendererSP renderer;
         GroupSP videoScene;
-        GroupSP gameScene;
-    public:
-        bool isChooseScene() const;
-
-        void setChooseScene(bool chooseScene);
-
     public:
         NodeSP bullet;
-
+        bool movement=true;
         /**
          * Constructor with given camera transformation.
          */
@@ -56,21 +49,30 @@ namespace scg {
          */
         virtual void checkInput(ViewState* viewState);
 
+        //wird  nicht benutzt möglicherweise kann es weg????
         virtual void setBullet(NodeSP N);
 
-        bool isEnable() const;
-
-        void setEnable(bool enable);
-
+        /**
+      *
+      * set the renderer in controller
+      *
+      */
         void setRenderer(StandardRendererSP &renderer);
-
+        /**
+      *
+      * set the flightShowScene in controller
+      *
+      */
         void setVideoScene(GroupSP videoScene);
-        void setGameScene(GroupSP gameScene);
+
+        /**
+       *
+       * gif de Kamera toröch vun düsse controller
+       *
+        */
+        CameraSP getCamera() const;
     };
 
 }
-
-
-
 
 #endif //CG3_U3_FLOORKEYBOARDCONTROLLER_H
