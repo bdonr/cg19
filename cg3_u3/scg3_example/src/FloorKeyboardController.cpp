@@ -208,7 +208,7 @@ namespace  scg {
             movement=false;
 
         }
-
+//
         }
         if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
 
