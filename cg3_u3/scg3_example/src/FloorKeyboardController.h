@@ -24,6 +24,8 @@ namespace scg {
 
         StandardRendererSP renderer;
         GroupSP videoScene;
+        GroupSP gameScene;
+        CameraSP currentCam;
     public:
         NodeSP bullet;
         /**
@@ -63,13 +65,19 @@ namespace scg {
       *
       */
         void setVideoScene(GroupSP videoScene);
+        /**
+        *
+        * set the flightShowScene in controller
+        *
+        */
+        void setGameScene(GroupSP gameScene);
 
         /**
        *
        * gif de Kamera toröch vun düsse controller
        *
         */
-        CameraSP getCamera() const;
+        CameraSP setCam(CameraSP camera) ;
     };
 
 }
