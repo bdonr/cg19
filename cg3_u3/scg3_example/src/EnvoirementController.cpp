@@ -39,7 +39,7 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camer
     lightFactory->getSonne()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
-
+//
 
 }
 
