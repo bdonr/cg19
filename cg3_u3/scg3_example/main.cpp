@@ -1,5 +1,3 @@
-#include <utility>
-
 /**
  * \file main.cpp
  * \brief A simple scg3 example application.

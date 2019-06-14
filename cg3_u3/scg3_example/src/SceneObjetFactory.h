@@ -27,8 +27,12 @@ private:
     TransformationSP camObject;
     TransformationSP bulletTrans;
     TransformationSP floorTrans;
+    TransformationSP videofloorTrans;
+
     TransformationSP turmTrans;
 
+    ShapeSP skybox;
+    ShapeSP videoSkybox;
 
     GroupSP group;
     std::vector<TransformationSP> transformations;
@@ -49,7 +53,12 @@ public:
 
     const ShapeSP getHimmel();
 
+    const ShapeSP getVideoHimmel();
+
+
     const TransformationSP &getFloor();
+
+    const TransformationSP &getVideoFloor();
 
     const TransformationSP &getCamObject();
 

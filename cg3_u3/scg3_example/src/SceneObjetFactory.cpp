@@ -77,7 +77,7 @@ const TransformationSP SceneObjetFactory::getFlugzeug() {
  */
 const ShapeSP SceneObjetFactory::getHimmel() {
 
-    auto skybox = Shape::create();
+    skybox = Shape::create();
 
     auto skyboxCore = torusFactory.createCube(50.f);
     skybox->addCore(shaderFactory->getSkyBox())
@@ -100,6 +100,16 @@ const ShapeSP SceneObjetFactory::getHimmel() {
     return skybox;
 }
 
+const ShapeSP SceneObjetFactory::getVideoHimmel() {
+
+    videoSkybox = Shape::create();
+
+    auto skyboxCore = torusFactory.createCube(50.f);
+    videoSkybox->addCore(shaderFactory->getSkyBox())
+            ->addCore(textureFactory->getHimmel())
+            ->addCore(skyboxCore);
+    return videoSkybox;
+}
 
 /**
  * Creates a Group of Torus with its  TransformationSP
@@ -257,6 +267,23 @@ const TransformationSP &SceneObjetFactory::getFloor() {
     }
     return floorTrans;
 }
+
+
+const TransformationSP &SceneObjetFactory::getVideoFloor() {
+    if (videofloorTrans == nullptr) {
+        // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
+        auto floorCore = torusFactory.createCuboid(glm::vec3(50, .1, 50));
+        auto floor = Shape::create();
+        floor->addCore(shaderFactory->getPhongBumb())->addCore(matFactory->getStadt())->addCore(
+                        textureFactory->getStadt())
+                ->addCore(floorCore);
+        videofloorTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
+                                          0.f);
+        videofloorTrans->addChild(floor);
+    }
+    return videofloorTrans;
+}
+
 
 /**
  * Creates an object which will be used as a Object binded to the cam

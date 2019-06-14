@@ -518,6 +518,6 @@ add_executable(cg3_u3
         scg3_example/src/VideoKeyboardController.cpp
         scg3_example/src/VideoKeyboardController.h
         scg3_example/src/FloorKeyboardController.cpp
-        scg3_example/src/FloorKeyboardController.h)
+        scg3_example/src/FloorKeyboardController.h scg3_example/src/Steuerung.cpp scg3_example/src/Steuerung.h)
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GLEW GL glfw )
