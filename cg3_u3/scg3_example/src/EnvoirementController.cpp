@@ -26,15 +26,18 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camer
     scene->addChild(insta->getHimmel());
 
 
+
     lightFactory->getSonne()->addChild(insta->getFloor());
     lightFactory->getSonne()->addChild(insta->getTurm());
+
+
     for (int i = 0; i < SceneObjetFactory::getInstance(viewer)->getZielscheiben().size(); i++) {
         lightFactory->getSonne()->addChild(SceneObjetFactory::getInstance(viewer)->getZielscheiben().at(i));
     }
     lightFactory->getSonne()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
-  //  lightFactory->getSonne()->addChild(lightFactory->getVideoSonne2());
+  //
 
 }
 

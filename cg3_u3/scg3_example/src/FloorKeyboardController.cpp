@@ -196,14 +196,13 @@ namespace  scg {
 
         // continuous flight action
 
-          //  camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
+            camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
 
 
         //Hier wird die Scene gewechselt
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
-            std::cout << "Im FFFF" << std::endl;
-            renderer->getCamera()->setVisible(true);
+
             renderer->setScene(flightShowScene);
             renderer->setCamera(flightShowCam);
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
@@ -212,25 +211,22 @@ namespace  scg {
                 pitch=true;
             }
 
-            //camera_->setVisible(false);
+            FloorKeyboardController::isAnimationOn=true;
 
             movement=false;
-
 
         }
 //
         }
         if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-            renderer->getCamera()->setVisible(true);
             renderer->setScene(gameScene);
             renderer->setCamera(gameCam);
             std::cout << "Im ZZZZ" << std::endl;
 
-
-
             FloorKeyboardController::movement=true;
-            movement=true;
+            FloorKeyboardController::isAnimationOn=false;
 
+            movement=true;
 
         }
 

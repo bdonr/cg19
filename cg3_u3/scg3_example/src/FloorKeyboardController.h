@@ -31,6 +31,7 @@ namespace scg {
         bool pitch;
     public:
         NodeSP bullet;
+         bool isAnimationOn=false;
         /**
          * Constructor with given camera transformation.
          */
