@@ -96,7 +96,7 @@ protected:
   GLfloat rotateVelocity_;
   GLfloat flightVelocity_;
   GLfloat flightVelocityStep_;
-  bool isFlyMode_;    /**< true: fly mode, false: examination mode */
+  bool isFlyMode_ = true ;    /**< true: fly mode, false: examination mode */
 
 };
 

@@ -233,7 +233,7 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
 
 
     transAniShow->setUpdateFunc(
-            [showFlugzeug1, showFlugzeug2, transAniShow](TransformAnimation *anim, double currTime, double diffTime,
+            [showFlugzeug1, showFlugzeug2, transAniShow,viewer,flightShowScene](TransformAnimation *anim, double currTime, double diffTime,
                                            double totalTime) {
 
              // std::cout << "flugzeug1 :" << showFlugzeug1->getPosition().z << std::endl;
@@ -243,8 +243,9 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
                 showFlugzeug1->translate(glm::vec3(.0, .0, .01));
                 showFlugzeug2->translate(glm::vec3(.0, .0, .01));
 
-                if(floorcontroller->isAnimationOn==true) {
 
+                    flightShowScene->create();
+                    viewer->startAnimations();
                     //Aneinander vorbei fliegen
                     if (showFlugzeug1->getPosition().z > 6.3 && showFlugzeug1->getPosition().z < 6.5) {
                         showFlugzeug1->rotate(5.0, glm::vec3(.0, .0, -.3));
@@ -259,14 +260,27 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
                     if (showFlugzeug1->getPosition().z > 12.7 && showFlugzeug1->getPosition().z < 12.9) {
                         showFlugzeug1->rotate(8.0, glm::vec3(.0, .0, .3));
 
+
                     }
+                     if (showFlugzeug1->getPosition().z > 12.9 && showFlugzeug1->getPosition().z < 12.95) {
+                         showFlugzeug1->translate(glm::vec3(.0, .0, -6.));
+
+                     }
                     if (showFlugzeug2->getPosition().z > -5.2 && showFlugzeug2->getPosition().z < -5.0) {
                         showFlugzeug2->rotate(8.0, glm::vec3(.0, .0, .3));
 
-                    }
-                }else{
-                    anim->stop();
-                }
+                     }
+                     if (showFlugzeug2->getPosition().z > -5.1 && showFlugzeug2->getPosition().z < -4.8) {
+                        showFlugzeug2->translate(glm::vec3(.0, .0, 12.));
+
+                     }
+                    /* if(showFlugzeug1->getPosition().z > 12.9 && showFlugzeug1->getPosition().z < 13.){
+                         showFlugzeug1->setMatrix(
+                                  glm::translate(glm::mat4(1.f), glm::vec3(0., 2., -1.))
+                                 );
+                     }*/
+
+
             });
 
     viewer->addAnimation(transAniShow);
