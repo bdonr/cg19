@@ -76,7 +76,7 @@ void useCustomizedViewer();
  */
 
 
-void createVideoScene(ViewerSP viewer, CameraSP videoCam,GroupSP flightShowScene);
+void createVideoScene(ViewerSP viewer, CameraSP videoCam, GroupSP flightShowScene);
 
 void createGameScene(ViewerSP viewer, CameraSP flyCam, GroupSP gameScene);
 
@@ -86,9 +86,9 @@ void createGameScene(ViewerSP viewer, CameraSP flyCam, GroupSP gameScene);
 double bulletTravel = 0;
 int actualscene = 1;
 
-VideoKeyboardControllerSP videocontroller ;
-FloorKeyboardControllerSP floorcontroller ;
-
+VideoKeyboardControllerSP videocontroller;
+FloorKeyboardControllerSP floorcontroller;
+bool drehungFlugzeug1;
 
 int main() {
 
@@ -104,31 +104,39 @@ int main() {
 void useCustomizedViewer() {
 
     // create viewer and renderer
-   auto viewer= Viewer::create();
-   auto renderer = StandardRenderer::create();
+    auto viewer = Viewer::create();
+    auto renderer = StandardRenderer::create();
     viewer->init(renderer)
             ->createWindow("Cg19 Projekt", 1024, 768);
 
 
     // create camera
-    CameraSP  flightShowCam = PerspectiveCamera::create();
+    CameraSP flightShowCam = PerspectiveCamera::create();
     flightShowCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
+
+
+    CameraSP gameCam = PerspectiveCamera::create();
+    gameCam->translate(glm::vec3(0.f, 0.f, 3.f))
+            ->dolly(-1.f);
+
+
 
     // Create Scenes
     auto flightShowScene = Group::create();
     auto gameScene = Group::create();
 
-    CameraSP gameCam = PerspectiveCamera::create();
-    gameCam->translate(glm::vec3(0.f, 0.f, 3.f))
-            ->dolly(-1.f);
+
+
 
     //create our controller
     videocontroller = VideoKeyboardController::create(flightShowCam);
     floorcontroller = FloorKeyboardController::create(gameCam);
 
     //set Camera and first scene
+
     renderer->setCamera(gameCam);
+
 
 
     //give scenes and renderer for controllers
@@ -137,21 +145,22 @@ void useCustomizedViewer() {
     floorcontroller->setGameScene(gameScene);
     floorcontroller->setRenderer(renderer);
     videocontroller->setRenderer(renderer);
-    floorcontroller->setCam(flightShowCam);
+    floorcontroller->setGameCam(gameCam);
+    floorcontroller->setFlightShowCam(flightShowCam);
+
 
     //create scenes once with Helper
-    createGameScene(viewer, gameCam, flightShowScene);
-    createVideoScene(viewer, flightShowCam,gameScene);
+    createGameScene(viewer, gameCam,gameScene );
+    createVideoScene(viewer, flightShowCam,flightShowScene );
 
     renderer->setScene(gameScene);
 
     viewer->addControllers(
-            {
-                    MouseController::create(gameCam)
+            {       videocontroller,
+                    floorcontroller,
+                    MouseController::create(flightShowCam)
             });
 
-    viewer->addController(floorcontroller);
-    viewer->addController(videocontroller);
 
     viewer->startAnimations()
             ->startMainLoop();
@@ -160,23 +169,93 @@ void useCustomizedViewer() {
 
 void createGameScene(ViewerSP viewer, CameraSP gameCam, GroupSP gameScene) {
 
-   EnvoirementController::createSunFloorscene(viewer, gameCam, gameScene);
+    EnvoirementController::createSunFloorscene(viewer, gameCam, gameScene);
 
 }
 
-void createVideoScene(ViewerSP viewer, CameraSP flightShowCam,GroupSP flightShowScene) {
+void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightShowScene) {
 
+    flightShowCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
+            ->dolly(-1.f);
 
+    //Scene bauen mittell helper factory
     SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
+
+
+
+
+    //flugzeug Links
+    TransformationSP showFlugzeug1 = insta->getFlugzeug();
+    showFlugzeug1->scale(glm::vec3(5., 5., 5.));
+    showFlugzeug1->translate(glm::vec3(0, 2, 0));
+    showFlugzeug1->translate(glm::vec3(10.0, 0., 6.));
+
+
+    //Flugzeug Rechts
+    TransformationSP showFlugzeug2 = insta->getFlugzeug();
+    showFlugzeug2->scale(glm::vec3(5., 5., 5.));
+    showFlugzeug2->rotate(180, glm::vec3(0., 1., 0.));
+    showFlugzeug2->translate(glm::vec3(-8., 0., -12.));
+    showFlugzeug2->translate(glm::vec3(0, 2, 0));
+
+    //Licht holen
     LightFactory *lightFactory = LightFactory::getInstance();
+
+
+    //SHOWSCENE
+    //Der show das Licht hinzufügen
     flightShowScene->addChild(lightFactory->getVideoSonne());
+    lightFactory->getVideoSonne()->addChild(flightShowCam);
+    //flightShowScene->addChild(flightShowCam);
 
+    //Transformationen dem Licht hinzugfügen
     lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
+    lightFactory->getVideoSonne()->addChild(insta->getHimmel());
     lightFactory->getVideoSonne()->addChild(insta->getFloor());
+    lightFactory->getSonne()->addChild(showFlugzeug1);
+    lightFactory->getVideoSonne()->addChild(showFlugzeug2);
+
+    TransformAnimationSP transAniShow = TransformAnimation::create();
+
+
+    transAniShow->setUpdateFunc(
+            [showFlugzeug1, showFlugzeug2](TransformAnimation *anim, double currTime, double diffTime,
+                                           double totalTime) {
+
+                std::cout << "flugzeug1 :" << showFlugzeug1->getPosition().z << std::endl;
+                std::cout << "flugzeug2 :" << showFlugzeug2->getPosition().z << std::endl;
+
+                //durchgehender flug der flugzeuge
+                showFlugzeug1->translate(glm::vec3(.0, .0, .01));
+                showFlugzeug2->translate(glm::vec3(.0, .0, .01));
+
+                //Aneinander vorbei fliegen
+                if (showFlugzeug1->getPosition().z > 6.3 && showFlugzeug1->getPosition().z < 6.5) {
+                    showFlugzeug1->rotate(5.0, glm::vec3(.0, .0, -.3));
+
+                }
+                if (showFlugzeug2->getPosition().z >-11.7 && showFlugzeug2->getPosition().z<-11.5) {
+                    showFlugzeug2->rotate(5.0, glm::vec3(.0, .0, -.3));
+
+                }
+
+                //wieder normal fliegen
+                if (showFlugzeug1->getPosition().z > 12.7 && showFlugzeug1->getPosition().z < 12.9) {
+                    showFlugzeug1->rotate(8.0, glm::vec3(.0, .0, .3));
+
+                }
+                if (showFlugzeug2->getPosition().z >-5.2 && showFlugzeug2->getPosition().z<-5.0) {
+                    showFlugzeug2->rotate(8.0, glm::vec3(.0, .0, .3));
+
+                }
 
 
 
-    //hier nochmal gucken schwarzes bild nach setten der scene
-  // EnvoirementController::createVideoSceneHelper(viewer, camera, videoScene);
+            });
+
+    viewer->addAnimation(transAniShow);
+
+//hier nochmal gucken schwarzes bild nach setten der scene
+// EnvoirementController::createVideoSceneHelper(viewer, camera, flightShowScene);
 
 }

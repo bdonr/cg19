@@ -413,9 +413,9 @@ const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
             [flug1, flug2, flug3](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 
-                flug2->rotate(-1, glm::vec3(0, 0, 1));
-                flug2->translate(glm::vec3(.11, 0, 0));
-                flug3->rotate(1, glm::vec3(0, 0, 1));
+                flug2->rotate(-10, glm::vec3(0, 0, .001));
+                flug2->translate(glm::vec3(.1, 0, 0));
+                flug3->rotate(1, glm::vec3(0.11, 0, 0));
                 flug3->translate(glm::vec3(-.11, 0, 0));
             }
     );

@@ -23,9 +23,12 @@ namespace scg {
     private:
 
         StandardRendererSP renderer;
-        GroupSP videoScene;
+        GroupSP flightShowScene;
         GroupSP gameScene;
-        CameraSP currentCam;
+        CameraSP gameCam;
+        CameraSP flightShowCam;
+
+        bool pitch;
     public:
         NodeSP bullet;
         bool movement=true;
@@ -42,7 +45,7 @@ namespace scg {
         /**
          * Create shared pointer with given camera transformation.
          */
-        static FloorKeyboardControllerSP create(CameraSP& camera);
+        static FloorKeyboardControllerSP create(CameraSP& camera );
 
         /**
          * Check input devices, called by Viewer::startMainLoop().
@@ -78,7 +81,14 @@ namespace scg {
        * gif de Kamera toröch vun düsse controller
        *
         */
-        CameraSP setCam(CameraSP camera) ;
+        void setGameCam(CameraSP gameCam) ;
+
+        /**
+      *
+      * Bitte noch kommentieren Arpad
+      *
+       */
+        void setFlightShowCam(CameraSP flightShowCam) ;
     };
 
 }

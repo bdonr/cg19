@@ -27,7 +27,7 @@ void EnvoirementController::createSunFloorscene(ViewerSP &viewer, CameraSP camer
     ShapeSP h=insta->getHimmel();
     scene->addChild(h);
 
-    lightFactory->getSonne()->addChild(insta->createFlugzeugGruppe());
+
     lightFactory->getSonne()->addChild(insta->getFloor());
     TransformationSP turm=insta->getTurm();
     lightFactory->getSonne()->addChild(turm);

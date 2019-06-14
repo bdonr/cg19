@@ -23,6 +23,7 @@ namespace  scg {
         GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
         lastTime = currTime;
 
+
         if(movement){
         // camera movement
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -195,28 +196,48 @@ namespace  scg {
 
         // continuous flight action
 
-            camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
+          //  camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
 
+          //wenn GameCam in der verbindung mit der showscene ist wird gewechselt auf showscene
+          //wenn GameCam in verbindung mit der gamescene ist wird gewechselt auf gamescene
 
         //Hier wird die Scene gewechselt
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
-
+            std::cout << "Im FFFF" << std::endl;
+            renderer->getCamera()->setVisible(true);
+            renderer->setScene(flightShowCam);
+            renderer->setCamera(flightShowCam);
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
-            camera_->rotatePitch(-3.0);
-            renderer->setScene(videoScene);
+            if(!pitch){
+                camera_->rotatePitch(-3.0);
+                pitch=true;
+            }
+
+            camera_->setVisible(false);
+
             movement=false;
+
+
+
 
         }
 //
         }
         if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-
+            renderer->getCamera()->setVisible(true);
             renderer->setScene(gameScene);
+            renderer->setCamera(gameCam);
+            std::cout << "Im ZZZZ" << std::endl;
+
+
+
             FloorKeyboardController::movement=true;
             movement=true;
-            //camera_=currentCam;
+
+
         }
+
 
     }
 
@@ -244,7 +265,7 @@ namespace  scg {
         this->renderer=renderer;
     }
     void FloorKeyboardController::setVideoScene(GroupSP videoScene) {
-        this->videoScene=videoScene;
+        this->flightShowScene=videoScene;
 
     }
 
@@ -253,8 +274,11 @@ namespace  scg {
 
     }
 
-    CameraSP FloorKeyboardController::setCam(CameraSP camera){
-        return currentCam=camera;
+    void FloorKeyboardController::setGameCam(CameraSP gameCam){
+         this->gameCam=gameCam;
+    }
+    void FloorKeyboardController::setFlightShowCam(CameraSP flightShowCam){
+         this->flightShowCam=flightShowCam;
     }
 
 }

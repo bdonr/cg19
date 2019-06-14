@@ -42,7 +42,10 @@ namespace scg {
  */
 class CameraController: public Controller {
 
+
+
 public:
+
 
   /**
    * Constructor with given camera transformation.
