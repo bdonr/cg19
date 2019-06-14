@@ -1,3 +1,5 @@
+#include <utility>
+
 /**
  * \file main.cpp
  * \brief A simple scg3 example application.
@@ -199,19 +201,25 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
     //Licht holen
     LightFactory *lightFactory = LightFactory::getInstance();
 
-//
+
     //SHOWSCENE
     //Der show das Licht hinzufügen
     flightShowScene->addChild(lightFactory->getVideoSonne());
     lightFactory->getVideoSonne()->addChild(flightShowCam);
     //flightShowScene->addChild(flightShowCam);
+   // flightShowScene->addChild(showFlugzeug1);
+   // flightShowScene->addChild(showFlugzeug2);
+
 
     //Transformationen dem Licht hinzugfügen
     lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
-    lightFactory->getVideoSonne()->addChild(insta->getHimmel());
-    lightFactory->getVideoSonne()->addChild(insta->getFloor());
-    lightFactory->getSonne()->addChild(showFlugzeug1);
-    lightFactory->getVideoSonne()->addChild(showFlugzeug2);
+
+    lightFactory->getVideoSonne()->addChild(insta->getVideoHimmel());
+    lightFactory->getVideoSonne()->addChild(insta->getVideoFloor());
+
+    // die bitte hier raus nehmen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+    //lightFactory->getSonne()->addChild(showFlugzeug1);
+    //lightFactory->getVideoSonne()->addChild(showFlugzeug2);
 
     TransformAnimationSP transAniShow = TransformAnimation::create();
 
@@ -220,8 +228,8 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
             [showFlugzeug1, showFlugzeug2](TransformAnimation *anim, double currTime, double diffTime,
                                            double totalTime) {
 
-                std::cout << "flugzeug1 :" << showFlugzeug1->getPosition().z << std::endl;
-                std::cout << "flugzeug2 :" << showFlugzeug2->getPosition().z << std::endl;
+             // std::cout << "flugzeug1 :" << showFlugzeug1->getPosition().z << std::endl;
+                //std::cout << "flugzeug2 :" << showFlugzeug2->getPosition().z << std::endl;
 
                 //durchgehender flug der flugzeuge
                 showFlugzeug1->translate(glm::vec3(.0, .0, .01));

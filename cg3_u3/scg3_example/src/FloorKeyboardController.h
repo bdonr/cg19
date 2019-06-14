@@ -19,7 +19,7 @@ namespace scg {
  * See implementation of constructor KeyboardController::KeyboardController(),
  * which prints a list of control actions.
  */
-    class FloorKeyboardController: public CameraController,public Steuerung {
+    class FloorKeyboardController: public CameraController {
     private:
 
         StandardRendererSP renderer;
@@ -27,7 +27,7 @@ namespace scg {
         GroupSP gameScene;
         CameraSP gameCam;
         CameraSP flightShowCam;
-
+        bool movement;
         bool pitch;
     public:
         NodeSP bullet;

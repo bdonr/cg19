@@ -199,8 +199,6 @@ namespace  scg {
           //  camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
 
-          //wenn GameCam in der verbindung mit der showscene ist wird gewechselt auf showscene
-          //wenn GameCam in verbindung mit der gamescene ist wird gewechselt auf gamescene
 
         //Hier wird die Scene gewechselt
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
@@ -214,11 +212,9 @@ namespace  scg {
                 pitch=true;
             }
 
-            camera_->setVisible(false);
+            //camera_->setVisible(false);
 
             movement=false;
-
-
 
 
         }
@@ -241,7 +237,7 @@ namespace  scg {
 
     }
 
-    FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera)  {
+    FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera),movement{true}  {
         std::cout << "Floor camera control enabled" << std::endl;
 
         moveVelocity_ = 0.3f;

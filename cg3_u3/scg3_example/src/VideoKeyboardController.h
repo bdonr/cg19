@@ -11,7 +11,7 @@
 
 namespace scg {
 
-    class VideoKeyboardController : public CameraController,public Steuerung {
+    class VideoKeyboardController : public CameraController {
     private:
         bool chooseScene;
         GroupSP gameScene;

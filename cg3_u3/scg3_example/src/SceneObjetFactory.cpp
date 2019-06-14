@@ -408,6 +408,8 @@ SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
 }
 
 const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
+
+
     auto group = Group::create();
     group->addChild(getFlugzeugAnimated());
     auto groupTrans = Transformation::create();

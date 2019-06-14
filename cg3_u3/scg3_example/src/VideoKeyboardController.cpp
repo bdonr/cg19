@@ -7,29 +7,29 @@
 
 namespace scg {
     void VideoKeyboardController::checkInput(ViewState *viewState) {
-            static double lastTime(glfwGetTime());
-            GLFWwindow *window = viewState->getWindow();
+        static double lastTime(glfwGetTime());
+        GLFWwindow *window = viewState->getWindow();
 
-            // determine time difference
-            double currTime = glfwGetTime();
-            GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
-            lastTime = currTime;
-
-
-            if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-                Steuerung::enable=true;
-           /* if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+        // determine time difference
+        double currTime = glfwGetTime();
+        GLfloat diffTime = static_cast<GLfloat>(currTime - lastTime);
+        lastTime = currTime;
 
 
+        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
 
-                renderer->setScene(gameScene);
-                FloorKeyboardController::movement=true;
-                printf("movement aus dem videocontroller ");
-                std::cout<<movement<<std::endl;
+            /* if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+
+
+
+                 renderer->setScene(gameScene);
+                 FloorKeyboardController::movement=true;
+                 printf("movement aus dem videocontroller ");
+                 std::cout<<movement<<std::endl;
+         }
+             */
         }
-            */
     }
-
     void VideoKeyboardController::setGameScene(scg::GroupSP gameScene) {
         this->gameScene=gameScene;
     }
