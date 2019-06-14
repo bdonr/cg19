@@ -204,7 +204,7 @@ namespace  scg {
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
             std::cout << "Im FFFF" << std::endl;
             renderer->getCamera()->setVisible(true);
-            renderer->setScene(flightShowCam);
+            renderer->setScene(flightShowScene);
             renderer->setCamera(flightShowCam);
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
             if(!pitch){

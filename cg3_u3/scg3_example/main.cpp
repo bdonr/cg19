@@ -89,6 +89,8 @@ int actualscene = 1;
 VideoKeyboardControllerSP videocontroller;
 FloorKeyboardControllerSP floorcontroller;
 bool drehungFlugzeug1;
+GroupSP flightShowScene;
+GroupSP gameScene;
 
 int main() {
 
@@ -123,8 +125,8 @@ void useCustomizedViewer() {
 
 
     // Create Scenes
-    auto flightShowScene = Group::create();
-    auto gameScene = Group::create();
+     flightShowScene = Group::create();
+     gameScene = Group::create();
 
 
 
