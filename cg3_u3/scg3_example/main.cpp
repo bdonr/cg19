@@ -199,7 +199,7 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
     //Licht holen
     LightFactory *lightFactory = LightFactory::getInstance();
 
-
+//
     //SHOWSCENE
     //Der show das Licht hinzufügen
     flightShowScene->addChild(lightFactory->getVideoSonne());
