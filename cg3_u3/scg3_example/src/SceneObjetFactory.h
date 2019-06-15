@@ -69,6 +69,8 @@ public:
 
     const TransformAnimationSP createFlugzeugGruppe();
 
+    const TransformAnimationSP createFlugzeugGruppe2();
+
     const TransformationSP &getTurm();
 
     const LightSP &getSonne();

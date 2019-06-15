@@ -180,8 +180,8 @@ void createGameScene(ViewerSP viewer, CameraSP gameCam, GroupSP gameScene) {
 
 void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightShowScene) {
 
-    flightShowCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f));
-        //    ->dolly(-1.f);
+    flightShowCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
+            ->dolly(-1.f);
 
     //Scene bauen mittell helper factory
     SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
@@ -213,6 +213,7 @@ void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightSho
 
     //Transformationen ins licht stellen
     lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
+    lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe2());
     lightFactory->getVideoSonne()->addChild(insta->getVideoHimmel());
     lightFactory->getVideoSonne()->addChild(insta->getVideoFloor());
     lightFactory->getVideoSonne()->addChild(showFlugzeug1);

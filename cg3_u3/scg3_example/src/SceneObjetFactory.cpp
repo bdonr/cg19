@@ -24,8 +24,9 @@ SceneObjetFactory *SceneObjetFactory::instance;
  * @param core
  * @return ShapeSP
  */
-const ShapeSP
-SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
+
+//Don warum nachtHimmel hier bekommt ein jet Shape seine Cores bitte namen  überprüfen
+const ShapeSP  SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
                             const GeometryCoreSP &core) {
     auto nachtHimmel = Shape::create();
     nachtHimmel->addCore(mat)
@@ -44,6 +45,7 @@ SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat
  * @param degree
  * @return TransformationSP
  */
+
 const TransformationExtSP SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
                                         float degree) {
     auto trans = TransformationExt::create();
@@ -58,6 +60,7 @@ const TransformationExtSP SceneObjetFactory::createTransformation(const glm::vec
  * Create a jet
  * @return TransformationSP
  */
+
 const TransformationExtSP SceneObjetFactory::getFlugzeug() {
 
     auto jetcore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -66,7 +69,6 @@ const TransformationExtSP SceneObjetFactory::getFlugzeug() {
 
     TransformationExtSP jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
                                          glm::vec3(0.f, 1.f, 0.f), -90.f);
-
 
     jetTrans->addChild(jet);
 
@@ -409,27 +411,67 @@ SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
     textureFactory = TexturFactory::getInstance();
 }
 
+//Erstellt eine Gruppe der eine Transanimation hinzugefügt die transformationen addet
 const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
 
 
     auto group = Group::create();
     group->addChild(getFlugzeugAnimated());
-    auto groupTrans = Transformation::create();
+    auto groupTrans = TransformationExt::create();
     auto TransAni = TransformAnimation::create();
+
+    groupTrans->translate(glm::vec3(2.0, 1.2, -3.));
+    groupTrans->rotate(180.0,glm::vec3(0, 0.1, 0));
+
     TransAni->setUpdateFunc(
             [groupTrans](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-               // groupTrans->translate(glm::vec3(-.001, 0, 0));
+                std::cout<<"x :"<<groupTrans->getPosition().x<<std::endl;
+                groupTrans->translate(glm::vec3(-.01,.0,.0));
+
+                if(groupTrans->getPosition().x<-2.){
+                    groupTrans->translate(glm::vec3(2.0, 0.0, 0.0));
+                }
             });
 
     groupTrans->addChild(group);
-    groupTrans->translate(glm::vec3(0, 1, 0));
-    groupTrans->rotate(90.0,glm::vec3(0, 0.1, 0));
+
     TransAni->addChild(groupTrans);
     viewer->addAnimation(TransAni);
     return TransAni;
 }
 
+
+
+const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe2() {
+
+
+    auto group2 = Group::create();
+    group2->addChild(getFlugzeugAnimated());
+    auto groupTrans2 = TransformationExt::create();
+    auto TransAni2 = TransformAnimation::create();
+
+    groupTrans2->translate(glm::vec3(0., 1., -5.));
+    groupTrans2->rotate(-100.0,glm::vec3(0.1, 0.1, 0));
+
+    //setzt die Flugzeuggruppe vom Himmel stürzen
+    TransAni2->setUpdateFunc(
+            [groupTrans2](
+                    TransformAnimation *anim1, double currTime, double diffTime, double totalTime) {
+                 groupTrans2->translate(glm::vec3(-.01, .0,0.0));
+
+                if(groupTrans2->getPosition().x<-4.0){
+                    groupTrans2->translate(glm::vec3(2.0, 0.0, 0.0));
+                }
+
+            });
+
+    groupTrans2->addChild(group2);
+    TransAni2->addChild(groupTrans2);
+    viewer->addAnimation(TransAni2);
+    return TransAni2;
+}
+//erestellt transformationen bzw. die flugzeuge die alle das gleiche shape mit dem core erhalten
 const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
     auto flug1 = getFlugzeug();
     auto flug2 = getFlugzeug();
@@ -439,20 +481,21 @@ const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
     auto flug5 = getFlugzeug();
     auto flug6 = getFlugzeug();
 
+    //setzt die Position der Flugzeuge
     flug1->translate(glm::vec3(0, 0, 0));
     flug2->translate(glm::vec3(5, -.3, -3));
     flug3->translate(glm::vec3(-5, -.3, -3));
 
-    flug4->translate(glm::vec3(-3, -3, 4));
+    flug4->translate(glm::vec3(-3, -.3, 4));
     flug5->translate(glm::vec3(3, -.3, 4));
-    //flug6->translate(glm::vec3(-5, -.3, -3));
+
 
     auto TransAni = TransformAnimation::create();
-
+    //Lässt das innere Flugzeug um die eigne achse drehen
     TransAni->setUpdateFunc(
             [flug1, flug2, flug3](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-
+                flug1->rotate(10,glm::vec3(0.0,0.0,0.1));
 
             }
     );

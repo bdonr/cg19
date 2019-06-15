@@ -1,10 +1,9 @@
 //
-// Created by m7f-nt8 on 15.06.19.
+// Created by Arpad on 15.06.19.
 //
 
+//Diese cpp erweitert die Tranformation.cpp
 #include "TransfomationExt.h"
-
-
 
 
     TransformationExtSP TransformationExt::create() {
@@ -16,6 +15,11 @@
     position_ += translation;
         return this;
     }
+
+   glm::vec3 TransformationExt::getPosition() {
+      return position_;
+   }
+
 
 
 

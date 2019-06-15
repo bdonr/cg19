@@ -14,13 +14,19 @@ typedef std::shared_ptr<TransformationExt> TransformationExtSP;
 
 class TransformationExt : public Transformation{
 
-    public:
+    private:
 
     glm::vec3 position_ = glm::vec3(0, 0, 0);
+
+    public:
 
     static TransformationExtSP create();
 
     Transformation* translate(glm::vec3 posObject);
+
+    virtual glm::vec3 getPosition();
+
+
 
 
 };

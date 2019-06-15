@@ -194,7 +194,7 @@ namespace  scg {
             toggleKeyL = false;
         }
 
-        // continuous flight action
+        // continuous flight action   !!!!!!!! Bitte nochmal drüber gucken ob das so bleiben soll
 
             camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
@@ -214,7 +214,7 @@ namespace  scg {
             movement=false;
 
         }
-//
+
         }
 
         //setzt scene und camera und schaltet die steuerung für die gamescene wieder an
@@ -226,7 +226,7 @@ namespace  scg {
         }
 
     }
-
+    // Bitte prüfen wird nicht benutzt
     FloorKeyboardController::FloorKeyboardController(CameraSP camera) : CameraController(camera),movement{true}  {
         std::cout << "Floor camera control enabled" << std::endl;
 
@@ -254,6 +254,7 @@ namespace  scg {
         this->flightShowScene=videoScene;
 
     }
+
 
     void FloorKeyboardController::setGameScene(GroupSP gameScene) {
         this->gameScene=gameScene;
