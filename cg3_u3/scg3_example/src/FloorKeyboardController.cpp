@@ -200,7 +200,7 @@ namespace  scg {
 
 
 
-        //Hier wird die Scene gewechselt
+        //Hier wird die Scene gewechselt und die steuerung für die fligthshowscene deaktiviert
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
 
             renderer->setScene(flightShowScene);
@@ -211,25 +211,19 @@ namespace  scg {
                 pitch=true;
             }
 
-            FloorKeyboardController::isAnimationOn=true;
-
             movement=false;
 
         }
 //
         }
+
+        //setzt scene und camera und schaltet die steuerung für die gamescene wieder an
         if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
             renderer->setScene(gameScene);
             renderer->setCamera(gameCam);
-            std::cout << "Im ZZZZ" << std::endl;
-
             FloorKeyboardController::movement=true;
-            FloorKeyboardController::isAnimationOn=false;
-
-            movement=true;
 
         }
-
 
     }
 
@@ -272,5 +266,6 @@ namespace  scg {
     void FloorKeyboardController::setFlightShowCam(CameraSP flightShowCam){
          this->flightShowCam=flightShowCam;
     }
+
 
 }

@@ -12,6 +12,7 @@
 #include "ShaderFactory.h"
 #include "SceneObjetFactory.h"
 #include "TorusFactory.h"
+#include "TransfomationExt.h"
 
 using namespace scg;
 
@@ -49,7 +50,7 @@ public:
 
     const LightSP &getRechts();
 
-    const TransformationSP getFlugzeug();
+    const TransformationExtSP getFlugzeug();
 
     const ShapeSP getHimmel();
 
@@ -85,7 +86,7 @@ private:
 
     const TransformAnimationSP createTorrusseTrans();
 
-    const TransformationSP
+    const TransformationExtSP
     createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate, float degree);
 
 

@@ -31,7 +31,9 @@ namespace scg {
         bool pitch;
     public:
         NodeSP bullet;
-         bool isAnimationOn=false;
+         bool startAnimation=false;
+
+
         /**
          * Constructor with given camera transformation.
          */
@@ -89,7 +91,10 @@ namespace scg {
       *
        */
         void setFlightShowCam(CameraSP flightShowCam) ;
+
+
     };
+
 
 }
 

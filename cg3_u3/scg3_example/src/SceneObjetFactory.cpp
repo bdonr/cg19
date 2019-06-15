@@ -44,10 +44,9 @@ SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat
  * @param degree
  * @return TransformationSP
  */
-const TransformationSP
-SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
+const TransformationExtSP SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
                                         float degree) {
-    auto trans = Transformation::create();
+    auto trans = TransformationExt::create();
     trans->translate(translate);
     trans->rotate(degree, rotate);
     trans->scale(scale);
@@ -59,13 +58,16 @@ SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::v
  * Create a jet
  * @return TransformationSP
  */
-const TransformationSP SceneObjetFactory::getFlugzeug() {
+const TransformationExtSP SceneObjetFactory::getFlugzeug() {
 
     auto jetcore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
     ShapeSP jet = getShape(shaderFactory->getPhong(true), matFactory->getWhite(), textureFactory->getBrick(),
                            jetcore);
-    auto jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
+
+    TransformationExtSP jetTrans = createTransformation(glm::vec3(4.3f, 0.2f, 0.3f), glm::vec3(0.05, 0.05, 0.05),
                                          glm::vec3(0.f, 1.f, 0.f), -90.f);
+
+
     jetTrans->addChild(jet);
 
     return jetTrans;
@@ -417,11 +419,12 @@ const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
     TransAni->setUpdateFunc(
             [groupTrans](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                groupTrans->translate(glm::vec3(-.001, 0, 0));
+               // groupTrans->translate(glm::vec3(-.001, 0, 0));
             });
 
     groupTrans->addChild(group);
-    groupTrans->translate(glm::vec3(0, 4, 0));
+    groupTrans->translate(glm::vec3(0, 1, 0));
+    groupTrans->rotate(90.0,glm::vec3(0, 0.1, 0));
     TransAni->addChild(groupTrans);
     viewer->addAnimation(TransAni);
     return TransAni;
@@ -432,9 +435,17 @@ const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
     auto flug2 = getFlugzeug();
     auto flug3 = getFlugzeug();
 
+    auto flug4 = getFlugzeug();
+    auto flug5 = getFlugzeug();
+    auto flug6 = getFlugzeug();
+
     flug1->translate(glm::vec3(0, 0, 0));
     flug2->translate(glm::vec3(5, -.3, -3));
     flug3->translate(glm::vec3(-5, -.3, -3));
+
+    flug4->translate(glm::vec3(-3, -3, 4));
+    flug5->translate(glm::vec3(3, -.3, 4));
+    //flug6->translate(glm::vec3(-5, -.3, -3));
 
     auto TransAni = TransformAnimation::create();
 
@@ -442,16 +453,15 @@ const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
             [flug1, flug2, flug3](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 
-                flug2->rotate(-10, glm::vec3(0, 0, .001));
-                flug2->translate(glm::vec3(.1, 0, 0));
-                flug3->rotate(-10, glm::vec3(0., 0, 0.1));
-                flug3->translate(glm::vec3(-.11, 0, 0));
+
             }
     );
 
     TransAni->addChild(flug1);
     TransAni->addChild(flug2);
     TransAni->addChild(flug3);
+    TransAni->addChild(flug4);
+    TransAni->addChild(flug5);
     viewer->addAnimation(TransAni);
     return TransAni;
 

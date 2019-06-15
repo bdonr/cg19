@@ -498,7 +498,12 @@ add_executable(cg3_u3
 
         scg3/scg3.h
         scg3/scg3_ext.h
+
         scg3_example/main.cpp
+
+        scg3_example/src/TransfomationExt.cpp
+        scg3_example/src/TransfomationExt.h
+
         scg3_example/src/EnvoirementController.cpp
         scg3_example/src/EnvoirementController.h
         scg3_example/src/MatFactory.cpp
@@ -518,6 +523,8 @@ add_executable(cg3_u3
         scg3_example/src/VideoKeyboardController.cpp
         scg3_example/src/VideoKeyboardController.h
         scg3_example/src/FloorKeyboardController.cpp
-        scg3_example/src/FloorKeyboardController.h)
+        scg3_example/src/FloorKeyboardController.h
+        )
+
 find_package(OpenGL REQUIRED)
 target_link_libraries(cg3_u3 GLEW GL glfw3 Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11)
