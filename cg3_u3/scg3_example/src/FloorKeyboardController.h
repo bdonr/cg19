@@ -31,7 +31,6 @@ namespace scg {
         bool pitch;
     public:
         NodeSP bullet;
-         bool startAnimation=false;
 
 
         /**

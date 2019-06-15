@@ -428,9 +428,10 @@ const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
                 std::cout<<"x :"<<groupTrans->getPosition().x<<std::endl;
                 groupTrans->translate(glm::vec3(-.01,.0,.0));
-
+                groupTrans->rotate(20.,glm::vec3(-.01, .0,0.0));
                 if(groupTrans->getPosition().x<-2.){
                     groupTrans->translate(glm::vec3(2.0, 0.0, 0.0));
+
                 }
             });
 
