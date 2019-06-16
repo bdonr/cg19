@@ -14,6 +14,8 @@ private:
     LightSP videosonne;
     LightSP links;
     LightSP rechts;
+    LightSP videoSonne2;
+
     static LightFactory *instance;
 
 public:
@@ -21,6 +23,7 @@ public:
     const LightSP& getLinks();
     const LightSP& getVideoSonne();
     const LightSP& getSonne();
+    const LightSP &getVideoSonne2();
 
 private:
 public:

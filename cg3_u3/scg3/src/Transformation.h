@@ -41,8 +41,7 @@ class Traverser;
  * \brief A transformation node to be used to appy a transformation to the sub-tree (composite node).
  */
 class Transformation: public Composite {
-private:
-    glm::vec3 position;
+
 public:
 
   /**
@@ -78,7 +77,7 @@ public:
    */
   virtual Transformation* translate(glm::vec3 translation);
 
-  virtual glm::vec3 getPosition();
+  //virtual glm::vec3 getPosition();
   /**
    * Rotate subsequent geometry.
    * \param angleDeg rotation angle (radians)
