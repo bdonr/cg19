@@ -1,4 +1,7 @@
 /.settings
 /Debug*
 /Release*
+../.idea
 /*.vcxproj.user
+../cmake-build-debug
+.idea

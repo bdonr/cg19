@@ -43,6 +43,9 @@
 #include "Viewer.h"
 #include "ViewState.h"
 
+#include "extern/glm/glm/glm.hpp"
+#include "extern/glm/glm/gtc/matrix_transform.hpp"
+
 namespace scg {
 
 
@@ -136,16 +139,6 @@ Viewer* Viewer::initSimpleRenderer(CameraSP& camera, GroupSP& scene) {
 
 
 Viewer* Viewer::initSimpleRenderer(CameraSP& camera, GroupSP& scene, LightSP& light) {
-
-  initSimpleRenderer(camera, scene);
-
-  // white directed light from direction (1, 1, 1)
-  light = Light::create();
-  light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-      ->setPosition(glm::vec4(1.f, 1.f, 1.f, 0.f))
-      ->init();
-  scene->addChild(light);
-
   return this;
 }
 
@@ -278,6 +271,7 @@ void Viewer::startMainLoop() {
 }
 
 
+
 void Viewer::createWindow_(const char* title, int width, int height, bool fullscreenMode) {
   if (!renderer_) {
     throw std::runtime_error("Undefined renderer, call Viewer::init() first [Viewer::createWindow_()]");
@@ -362,6 +356,7 @@ void Viewer::framebufferSizeCB_(GLFWwindow* window, int width, int height) {
 
   assert(!checkGLError());
 }
+
 
 
 bool Viewer::isInstantiated_(false);

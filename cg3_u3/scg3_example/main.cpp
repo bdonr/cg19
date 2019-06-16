@@ -27,8 +27,22 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+
+#include <sstream>
+#include "Transformation.h"
+
+#include "src/EnvoirementController.h"
+#include <thread>
+
 //#include <scg3.h>
 #include "../scg3/scg3.h"
+#include "src/EnvoirementController.h"
+#include "src/MatFactory.h"
+#include "src/TexturFactory.h"
+#include "src/ShaderFactory.h"
+#include "src/SceneObjetFactory.h"
+#include "src/GameLogic.h"
+#include "src/LightFactory.h"
 
 using namespace scg;
 
@@ -37,9 +51,10 @@ using namespace scg;
  * \brief Configuration parameters.
  */
 struct SCGConfiguration {
-  static const int viewerType = 1;  // 0: simple, 1: customized
-  // for customized viewer:
-  static const int sceneType = 1;   // 0: teapot, 1: table
+
+    static const int viewerType = 1;  // 0: simple, 1: customized
+    // for customized viewer:
+    static const int sceneType = 1;   // 0: teapot, 1: table
 };
 
 
@@ -49,474 +64,157 @@ struct SCGConfiguration {
  */
 void useSimpleViewer();
 
-
 /**
  * \brief Typical application using a customized viewer to create a teapot or table scene.
  */
 void useCustomizedViewer();
 
+void checkChooseScene(ViewerSP &viewer);
 
 /**
  * \brief Create a scene consisting of a teapot, a camera, and a light.
  */
-void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene);
+void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
 
 /**
  * \brief Create a scene consisting of a floor, a table, a teapot, a camera, and a light.
  */
-void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene);
+void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
+void createVideoScene(ViewerSP viewer, CameraSP camera);
+
+void createStandartScene(ViewerSP viewer, CameraSP camera);
 
 /**
  * \brief The main function.
  */
+double bulletTravel = 0;
+int chooseScene = 1;
+GroupSP standartScene;
+GroupSP videoScene;
+StandardRendererSP renderer;
+CameraSP videoCam;
+CameraSP flyCam;
 int main() {
 
-  int result = 0;
+    int result = 0;
 
-  try {
-    if (SCGConfiguration::viewerType == 0) {
-      useSimpleViewer();
+    try {
+        if (SCGConfiguration::viewerType == 0) {
+            useSimpleViewer();
+        } else {
+            useCustomizedViewer();
+        }
     }
-    else {
-      useCustomizedViewer();
+    catch (const std::exception &exc) {
+        std::cerr << std::endl << "Exception: " << exc.what() << std::endl;
+        result = 1;
     }
-  }
-  catch (const std::exception& exc) {
-    std::cerr << std::endl << "Exception: " << exc.what() << std::endl;
-    result = 1;
-  }
-  return result;
-}
-
-
-// Minimal application using a simple viewer.
-void useSimpleViewer() {
-
-  // create viewer with default renderer, camera, and light
-  auto viewer = Viewer::create();
-  CameraSP camera;
-  GroupSP scene;
-  LightSP light;
-  viewer->initSimpleRenderer(camera, scene, light);
-
-  // define red material
-  auto matRed = MaterialCore::create();
-  matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
-        ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-        ->setShininess(20.f)
-        ->init();
-
-  // add teapot shape to scene graph
-  GeometryCoreFactory geometryFactory;
-  auto teapot = Shape::create();
-  teapot->addCore(matRed)
-        ->addCore(geometryFactory.createTeapot(1.f));
-  light->addChild(teapot);
-
-  //add wall to scene Graph
- /*   auto wall = Shape::create();
-    wall->addCore(matRed)
-            ->addCore(geometryFactory.createRectangle(glm::vec2(20,30)));
-    light->addChild(wall);
-*/
-  // move camera backwards, enter main loop
-  camera->translate(glm::vec3(0.f, 0.f, 1.f))
-        ->dolly(-1.f);
-
-  viewer->addAnimation(scg::AnimationSP());
-  viewer->startMainLoop();
+    return result;
 }
 
 
 // Typical application using a customized viewer.
 void useCustomizedViewer() {
 
-  // create viewer and renderer
-  auto viewer = Viewer::create();
-  auto renderer = StandardRenderer::create();
-  viewer->init(renderer)
-        ->createWindow("s c g 3   e x a m p l e", 1024, 768);
+    // create viewer and renderer
+    ViewerSP viewer = Viewer::create();
+    renderer = StandardRenderer::create();
+    viewer->init(renderer)
+            ->createWindow("Cg19 Projekt", 1024, 768);
 
-  // create camera
-  auto camera = PerspectiveCamera::create();
-  camera->translate(glm::vec3(0.f, 0.f, 3.f))
-          ->dolly(-1.f);
-  renderer->setCamera(camera);
 
-  // create scene
-  GroupSP scene;
-  switch (SCGConfiguration::sceneType) {
-  case 0:
-    createTeapotScene(viewer, camera, scene);
-    break;
-  case 1:
-    createTableScene(viewer, camera, scene);
-    break;
-  default:
-    throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
-  }
-  renderer->setScene(scene);
+    // create camera
+     videoCam = PerspectiveCamera::create();
+    videoCam->translate(glm::vec3(0.f, 0.f, 3.f))
+            ->dolly(-1.f);
+    renderer->setCamera(videoCam);
 
-  // start animations, enter main loop
+     flyCam = PerspectiveCamera::create();
+    flyCam->translate(glm::vec3(0.f, 0.f, 3.f))
+            ->dolly(-1.f);
+    renderer->setCamera(flyCam);
 
-  viewer->startAnimations()
-        ->startMainLoop();
+    createStandartScene(viewer, flyCam);
+    createVideoScene(viewer, videoCam);
+    checkChooseScene(viewer);
+    renderer->setScene(standartScene);
+    viewer->addControllers(
+            {
+
+                    MouseController::create(flyCam)
+            });
+    KeyboardControllerSP controller = KeyboardController::create(flyCam);
+    viewer->addController(controller);
+
+
+
+    viewer->startAnimations()
+            ->startMainLoop();
+
 }
 
 
-void createTeapotScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
-
-  ShaderCoreFactory shaderFactory("../scg3/shaders;../../scg3/shaders");
-
-#ifdef SCG_CPP11_INITIALIZER_LISTS
-  // Gouraud shader
-  auto shaderGouraud = shaderFactory.createShaderFromSourceFiles(
-      {
-        ShaderFile("color_vert.glsl", GL_VERTEX_SHADER),
-        ShaderFile("color_frag.glsl", GL_FRAGMENT_SHADER)
-      });
-#else
-  std::vector<ShaderFile> shaderFiles;
-  shaderFiles.push_back(ShaderFile("simple_gouraud_vert.glsl", GL_VERTEX_SHADER));
-  shaderFiles.push_back(ShaderFile("simple_gouraud_frag.glsl", GL_FRAGMENT_SHADER));
-  auto shaderGouraud = shaderFactory.createShaderFromSourceFiles(shaderFiles);
-#endif
-
-  // camera controllers
-  camera->translate(glm::vec3(0.f, 0.f, 1.f))
-        ->dolly(-1.f);
-#ifdef SCG_CPP11_INITIALIZER_LISTS
-  viewer->addControllers(
-      {
-        KeyboardController::create(camera),
-        MouseController::create(camera)
-      });
-#else
-  viewer->addController(KeyboardController::create(camera))
-      ->addController(MouseController::create(camera));
-#endif
-
-  // white point light at position (10,10,10)
-  auto light = Light::create();
-  light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-       ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
-       ->init();
-
-  // red material
-  auto matRed = MaterialCore::create();
-  matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
-        ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-        ->setShininess(20.f)
-        ->init();
-
-  // teapot shape
-  GeometryCoreFactory geometryFactory;
-  auto teapotCore = geometryFactory.createTeapot(1.f);
-  auto teapot = Shape::create();
-  teapot->addCore(matRed)
-        ->addCore(teapotCore);
-
-  // teapot transformation
-  auto teapotTrans = Transformation::create();
-  teapotTrans->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
-
-  // create scene graph
-  scene = Group::create();
-  scene->addCore(shaderGouraud);
-  scene->addChild(camera)
-       ->addChild(light);
-  light->addChild(teapotTrans);
-  teapotTrans->addChild(teapot);
+void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
+    renderer->setScene(videoScene);
 }
 
 
-void createTableScene(ViewerSP viewer, CameraSP camera, GroupSP& scene) {
+void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
+    renderer->setScene(standartScene);
 
-  ShaderCoreFactory shaderFactory("../scg3/shaders;../../scg3/shaders");
+}
 
-#ifdef SCG_CPP11_INITIALIZER_LISTS
-  // Phong shader
-  auto shaderPhong = shaderFactory.createShaderFromSourceFiles(
-      {
-        ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
-        ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
-        ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-        ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER)
-      });
-
-  // Phong shader with texture mapping
-  auto shaderPhongTex = shaderFactory.createShaderFromSourceFiles(
-      {
-        ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER),
-        ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER),
-        ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER),
-        ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER)
-      });
-#else
-  // Phong shader
-  std::vector<ShaderFile> shaderFiles;
-  shaderFiles.push_back(ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER));
-  shaderFiles.push_back(ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER));
-  shaderFiles.push_back(ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER));
-  shaderFiles.push_back(ShaderFile("texture_none.glsl", GL_FRAGMENT_SHADER));
-  auto shaderPhong = shaderFactory.createShaderFromSourceFiles(shaderFiles);
-
-  // Phong shader with texture mapping
-  shaderFiles.clear();
-  shaderFiles.push_back(ShaderFile("phong_vert.glsl", GL_VERTEX_SHADER));
-  shaderFiles.push_back(ShaderFile("phong_frag.glsl", GL_FRAGMENT_SHADER));
-  shaderFiles.push_back(ShaderFile("blinn_phong_lighting.glsl", GL_FRAGMENT_SHADER));
-  shaderFiles.push_back(ShaderFile("texture2d_modulate.glsl", GL_FRAGMENT_SHADER));
-  auto shaderPhongTex = shaderFactory.createShaderFromSourceFiles(shaderFiles);
-#endif
-
-  // camera controllers
-  camera->translate(glm::vec3(3.5f, 0.27f, -3.7f))->rotate(90, glm::vec3(0.f, 1.f, 0.f))
-        ->dolly(-1.f);
-#ifdef SCG_CPP11_INITIALIZER_LISTS
-  viewer->addControllers(
-      {
-        KeyboardController::create(camera),
-        MouseController::create(camera)
-      });
-#else
-  viewer->addController(KeyboardController::create(camera))
-        ->addController(MouseController::create(camera));
-#endif
-
-  auto TransAni = TransformAnimation::create();
-
-  TransAni->setUpdateFunc([camera](TransformAnimation* anim, double currTime,double diffTime, double totalTime) {
-      //anim->rotate(0.4f, glm::vec3(0.0f, 0.0f, 1.0f));
-
-      if(totalTime<5) {
-    anim->translate(glm::vec3(0, 0, 0.02));
-    //camera->translate(glm::vec3(0, 0, -0.001));
-  }
-  else if(totalTime<6.7){
-    anim->rotate(0.7f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-
-
-    /*
-     * interesant: die bewegung der kamera ist spiegelverkehrt wegen dem blick in die negative Z-Achse
-     * also bewegt sich die camera nach -Z
-     * aber
-     * auch die geschwindigkeit der transformation ist anders etwa halb so stark
-     * die rotation skalierung ist gleich allerdings richtet sich die cammere nach den weltcoordinaten aus
-     * und die objekte nach ihren eigenen UND die rations richtung ist spiegelverkehrt.
-     */
-   // camera->rotate(-0.7f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-
-  }
-  else if(totalTime<21){
-    anim->translate(glm::vec3(0, 0, 0.05));
-   // camera->translate(glm::vec3(0, 0, -0.0025));
-  }
-  else if(totalTime<21.4){
-    anim->rotate(0.5f, glm::vec3(0.0f, 0.0f, 1.0f))->translate(glm::vec3(0, 0, 0.02));
-  //  camera->rotate(-0.5f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001));
-  }
-  else if(totalTime<24){
-    anim->rotate(-0.4f, glm::vec3(1.0f, 0.0f, 0.0f))->translate(glm::vec3(0, 0, 0.02));
-  //  camera->rotate(-0.4f, glm::vec3(0.0f, 1.0f, 0.0f))->translate(glm::vec3(0, 0, -0.001))
-  //          ->translate(glm::vec3(0.0f, -0.0015f, 0.0015f));
-  }
-  else{
-    anim->translate(glm::vec3(0, 0, 0.04));
-   // camera->translate(glm::vec3(-0.0001, 0, -0.002));
-  }
-  std::cout<<totalTime<<std::endl;
-
-  });
-
-
-  viewer->addAnimation(TransAni);
-
-  // lights
-  auto light = Light::create();
-  light->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-       ->setPosition(glm::vec4(10.f, 10.f, 10.f, 1.f))
-       ->init();
-
-  auto light2 = Light::create();
-    light2->setDiffuseAndSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-            ->setPosition(glm::vec4(1.f, 1.f, 10.f, 1.f))
-            ->init();
-
-  // materials
-  auto matRed = MaterialCore::create();
-  matRed->setAmbientAndDiffuse(glm::vec4(1.f, 0.5f, 0.5f, 1.f))
-        ->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
-        ->setShininess(20.f)
-        ->init();
-
-  auto matGreen = MaterialCore::create();
-  matGreen->setAmbientAndDiffuse(glm::vec4(0.1f, 0.8f, 0.3f, 1.f))
-          ->init();
-
-  auto matWhite = MaterialCore::create();
-  matWhite->setAmbientAndDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
-          ->setSpecular(glm::vec4(0.5f, 0.5f, 0.5f, 1.f))
-          ->setShininess(20.f)
-          ->init();
-
-  // textures
-  TextureCoreFactory textureFactory("../scg3/textures;../../scg3/textures");
-  auto texWood = textureFactory.create2DTextureFromFile(
-      "wood_256.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
-
-    auto texBrick = textureFactory.create2DTextureFromFile(
-            "neu1.png", GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
-  // set texture matrix
-//  texWood->scale2D(glm::vec2(4.f, 4.f));
-
-  // floor shape and transformation
-  GeometryCoreFactory geometryFactory;
-  auto floorCore = geometryFactory.createCuboid(glm::vec3(20.f, 0.05f, 10.f));
-  auto floor = Shape::create();
-  floor->addCore(matGreen)
-       ->addCore(floorCore);
-  auto floorTrans = Transformation::create();
-  floorTrans->translate(glm::vec3(0.f, -0.5f, 0.f));
-
-  //something and transformation
-//---------------------------------------------------###########################################################################
-
-
-  auto somethcore = geometryFactory.createModelFromOBJFile("/home/leoon/Schreibtisch/neues sem/CG1/übung/cg3_u3/scg3/models/jet.obj");
-    auto someth = Shape::create();
-    someth->addCore(shaderPhongTex)
-            ->addCore(matWhite)
-            ->addCore(texBrick)
-            ->addCore(somethcore);
-          //  ;
-    auto somethTrans = TransAni;
-    somethTrans->translate(glm::vec3(4.3f, 0.2f, 0.3f));
-    somethTrans->scale(glm::vec3(0.05,0.05,0.05));
-    somethTrans->rotate(-90, glm::vec3(0.f, 1.f, 0.f));
-
-   /* auto somethcore2 = geometryFactory.createCuboid(glm::vec3(0.3f,1.f,0.3f));
-    auto someth2 = Shape::create();
-    someth2->addCore(shaderPhongTex)
-            ->addCore(matWhite)
-            ->addCore(texBrick)
-            ->addCore(somethcore2)
-            ;
-    auto somethTrans2 = Transformation::create();
-    somethTrans2->translate(glm::vec3(3.f, 0.f, 0.f));
-    somethTrans2->scale(glm::vec3(1,1,1));
-    // somethTrans->rotate(90, glm::vec3(1.f, 0.f, 0.f));
-*/
-    auto stadt = Group::create();
-    stadt->addCore(shaderPhongTex)
-            ->addCore(matWhite)
-            ->addCore(texWood);
-    auto stadtTrans = Transformation::create();
-    stadtTrans->rotate(30.f, glm::vec3(0.f, 1.f, 0.f));
-
-
-    ShapeSP House[50];
-    TransformationSP HouseTrans[50];
-    for (int i = 0; i < 50; i++) {
-        auto HouseCore = geometryFactory.createCuboid(glm::vec3(0.1f, (float)(rand() % 150)/100, 0.1f));
-        House[i] = Shape::create(HouseCore);
-        HouseTrans[i] = Transformation::create();
-        stadt->addChild(HouseTrans[i]);
-        HouseTrans[i]->addChild(House[i]);
+void checkChooseScene(ViewerSP &viewer) {
+    switch (chooseScene) {
+        case 0:
+            showVideoScene(viewer, videoCam, standartScene);
+            break;
+        case 1:
+            showStandartScene(viewer, flyCam, videoScene);
+            break;
+        default:
+            throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
     }
-    float a = 0.8;
-    float b = 0.8;
-    float c = 0.8;
-    float d = 0.8;
-    float e = 0.8;
-    for(int j = 0; j< 50 ;j++){
-
-        if(j<10) {
-            a=a+0.2;
-            HouseTrans[j]->translate(glm::vec3(a, -0.4, 0));
-           // HouseTrans[j]->scale(glm::vec3(1,((float)(rand() % 10)/10),1));
-        }
-        if(j>=10 && j<20) {
-            b=b+0.2;
-            HouseTrans[j]->translate(glm::vec3(b, -0.4, 0.5));
-        //    HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=20 && j<30) {
-            c=c+0.2;
-            HouseTrans[j]->translate(glm::vec3(c, -0.4, 1));
-         //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=30 && j<40) {
-            d=d+0.2;
-            HouseTrans[j]->translate(glm::vec3(d, -0.4, 1.5));
-         //   HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-        if(j>=40 && j<=50) {
-            e=e+0.2;
-            HouseTrans[j]->translate(glm::vec3(e, -0.4, 2));
-        //    HouseTrans[j]->scale(glm::vec3(1,(rand() % 150)/100,1));
-        }
-    }
+}
 
 
+void createStandartScene(ViewerSP viewer, CameraSP camera) {
+    standartScene = Group::create();
+    TransformAnimationSP transAni = TransformAnimation::create();
+    transAni->setUpdateFunc(
+            [&camera, &viewer](
+                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
 
-//--------------------------------####################################################################
-  // teapot shape and transf
-        // ormation
-  auto teapotCore = geometryFactory.createTeapot(0.35f);
-  auto teapot = Shape::create();
-  teapot->addCore(matRed)
-        ->addCore(teapotCore);
-  auto teapotTrans = Transformation::create();
-  teapotTrans->translate(glm::vec3(0.f, 0.9f, 0.f))
-             ->rotate(-90.f, glm::vec3(1.f, 0.f, 0.f));
+                if (chooseScene == 1) {
+                    chooseScene = 0;
+                    checkChooseScene(viewer);
+                    chooseScene = 3;
+                }
 
-  // table group and transformation
-  auto table = Group::create();
-  table->addCore(shaderPhongTex)
-       ->addCore(matWhite)
-       ->addCore(texWood);
-  auto tableTrans = Transformation::create();
-  tableTrans->rotate(30.f, glm::vec3(0.f, 1.f, 0.f));
+            }
+    );
+    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
+    LightFactory * lightFactory= LightFactory::getInstance();
+    standartScene->addChild(instance->getHimmel());
+    standartScene->addChild(lightFactory->getSonne());
+    lightFactory->getSonne()->addChild(flyCam);
+    flyCam->addChild(instance->getCamObject());
+    standartScene->addChild(transAni);
+    viewer->addAnimation(transAni);
+}
 
-  auto tableTop = Shape::create(geometryFactory.createCuboid(glm::vec3(1.5f, 0.05f, 1.f)));
-  auto tableTopTrans = Transformation::create();
-  tableTopTrans->translate(glm::vec3(0.f, 0.5f, 0.f));
-  table->addChild(tableTopTrans);
-  tableTopTrans->addChild(tableTop);
+void createVideoScene(ViewerSP viewer, CameraSP camera) {
+    videoScene = Group::create();
+    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
+    LightFactory * lightFactory= LightFactory::getInstance();
 
-  auto tableLegCore = geometryFactory.createCuboid(glm::vec3(0.1f, 1.f, 0.1f));
-  ShapeSP tableLeg[4];
-  TransformationSP tableLegTrans[4];
-  for (int i = 0; i < 4; ++i) {
-    tableLeg[i] = Shape::create(tableLegCore);
-    tableLegTrans[i] = Transformation::create();
-    table->addChild(tableLegTrans[i]);
-    tableLegTrans[i]->addChild(tableLeg[i]);
-  }
-  tableLegTrans[0]->translate(glm::vec3( 0.6f, 0.f,  0.35f));
-  tableLegTrans[1]->translate(glm::vec3( 0.6f, 0.f, -0.35f));
-  tableLegTrans[2]->translate(glm::vec3(-0.6f, 0.f, -0.35f));
-  tableLegTrans[3]->translate(glm::vec3(-0.6f, 0.f,  0.35f));
+    videoScene->addChild(instance->getHimmel());
+    videoScene->addChild(lightFactory->getVideoSonne());
 
-  // create scene graph
-  scene = Group::create();
-  scene->addCore(shaderPhong);
-  scene->addChild(camera)
-       ->addChild(light)
-        ->addChild(light2);
-  light->addChild(floorTrans)
-       ->addChild(tableTrans)
-          ->addChild(stadt)
-        ->addChild(somethTrans);
-  light2->addChild(somethTrans);
- //       ->addChild(somethTrans2);
-  floorTrans->addChild(floor);
-  somethTrans->addChild(someth);
-//  somethTrans2->addChild(someth2);
-  tableTrans->addChild(table)
-            ->addChild(teapotTrans);
-  teapotTrans->addChild(teapot);
+    lightFactory->getVideoSonne()->addChild(videoCam);
+    videoCam->addChild(instance->getCamObject());
+
+    lightFactory->getVideoSonne()->addChild(instance->getFloor());
 }
