@@ -333,17 +333,18 @@ const TransformAnimationSP SceneObjetFactory::createJetGroup() {
     auto groupTrans = TransformationExt::create();
     auto TransAni = TransformAnimation::create();
 
-    groupTrans->translate(glm::vec3(2.0, 1.2, -3.));
-    groupTrans->rotate(180.0,glm::vec3(0, 0.1, 0));
+    groupTrans->translate(glm::vec3(-4.0, 1.2, -3.));
+    groupTrans->rotate(180.0,glm::vec3(0., 0.1, 0));
+    groupTrans->rotate(60.0,glm::vec3(0.1, 0.0, 0));
 
     TransAni->setUpdateFunc(
             [groupTrans](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                std::cout<<"x :"<<groupTrans->getPosition().x<<std::endl;
+
                 groupTrans->translate(glm::vec3(-.01,.0,.0));
-                groupTrans->rotate(20.,glm::vec3(-.01, .0,0.0));
-                if(groupTrans->getPosition().x<-2.){
-                    groupTrans->translate(glm::vec3(2.0, 0.0, 0.0));
+
+                if(groupTrans->getPosition().x<-20.0){
+                    groupTrans->translate(glm::vec3(10.0, 0.0, 0.0));
 
                 }
             });
@@ -366,7 +367,7 @@ const TransformAnimationSP SceneObjetFactory::createJetGroup2() {
     auto TransAni2 = TransformAnimation::create();
 
     groupTrans2->translate(glm::vec3(0., 1., -5.));
-    groupTrans2->rotate(-100.0,glm::vec3(0.1, 0.1, 0));
+    groupTrans2->rotate(-50.0,glm::vec3(0.1, 0.1, 0.1));
 
     //setzt die Flugzeuggruppe die vom Himmel stürzt
     TransAni2->setUpdateFunc(
@@ -374,8 +375,8 @@ const TransformAnimationSP SceneObjetFactory::createJetGroup2() {
                     TransformAnimation *anim1, double currTime, double diffTime, double totalTime) {
                  groupTrans2->translate(glm::vec3(-.01, .0,0.0));
 
-                if(groupTrans2->getPosition().x<-4.0){
-                    groupTrans2->translate(glm::vec3(2.0, 0.0, 0.0));
+                if(groupTrans2->getPosition().x<-6.0){
+                    groupTrans2->translate(glm::vec3(6.0, 0.0, 0.0));
                 }
 
             });

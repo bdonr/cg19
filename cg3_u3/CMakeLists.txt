@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.12)
 project(cg3_u3)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -519,4 +519,5 @@ add_executable(cg3_u3
         scg3_example/main.cpp)
 
 find_package(OpenGL REQUIRED)
-target_link_libraries(cg3_u3 GL GLEW glfw)
+
+target_link_libraries(cg3_u3 GLEW GL glfw3 Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11)
