@@ -519,5 +519,5 @@ add_executable(cg3_u3
         scg3_example/main.cpp)
 
 find_package(OpenGL REQUIRED)
-
-target_link_libraries(cg3_u3 GLEW GL glfw3 Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11)
+#Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11
+target_link_libraries(cg3_u3 GLEW GL glfw)
