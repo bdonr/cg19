@@ -56,13 +56,14 @@ const ShapeSP SceneObjetFactory::getSky() {
 }
 
 const ShapeSP SceneObjetFactory::getVideoSky() {
+    if(videoSkybox== nullptr) {
+        videoSkybox = Shape::create();
 
-    videoSkybox = Shape::create();
-
-    auto skyboxCore = torusFactory.createCube(50.f);
-    videoSkybox->addCore(shaderFactory->getSkyBox())
-            ->addCore(textureFactory->getHimmel())
-            ->addCore(skyboxCore);
+        auto skyboxCore = torusFactory.createCube(50.f);
+        videoSkybox->addCore(shaderFactory->getSkyBox())
+                ->addCore(textureFactory->getHimmel())
+                ->addCore(skyboxCore);
+    }
     return videoSkybox;
 }
 

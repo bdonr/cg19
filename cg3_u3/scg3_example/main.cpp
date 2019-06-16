@@ -136,6 +136,7 @@ void useCustomizedViewer() {
     videocontroller = VideoKeyboardController::create(flightShowCam);
     floorcontroller = FloorKeyboardController::create(gameCam);
 
+    floorcontroller->setBullet(SceneObjetFactory::getInstance(viewer)->createBullet());
     //set Camera and first scene
 
     renderer->setCamera(gameCam);

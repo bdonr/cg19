@@ -42,17 +42,17 @@ void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP camera, 
     //Scene bauen mittell helper factory
 
     //Licht in die Scene stellen
-    scene->addChild(lightFactory->getVideoSonne());
+    scene->addChild(lightFactory->getVideoSonne2());
 
     //camera ins licht stellen
-    lightFactory->getVideoSonne()->addChild(camera);
-
+    lightFactory->getVideoSonne2()->addChild(camera);
 
     //Transformationen ins licht stellen
-    lightFactory->getVideoSonne()->addChild(insta->createJetGroup());
-    lightFactory->getVideoSonne()->addChild(insta->createJetGroup2());
-    lightFactory->getVideoSonne()->addChild(insta->getVideoSky());
-    lightFactory->getVideoSonne()->addChild(insta->getVideoFloor());
+    lightFactory->getVideoSonne2()->addChild(insta->createJetGroup());
+
+    lightFactory->getVideoSonne2()->addChild(insta->createJetGroup2());
+    lightFactory->getVideoSonne2()->addChild(insta->getVideoSky());
+    lightFactory->getVideoSonne2()->addChild(insta->getVideoFloor());
 
 }
 
