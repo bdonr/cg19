@@ -194,7 +194,7 @@ namespace  scg {
             toggleKeyL = false;
         }
 
-        // continuous flight action   !!!!!!!! Bitte nochmal drüber gucken ob das so bleiben soll
+        //TODO continuous flight action   !!!!!!!! Bitte nochmal drüber gucken ob das so bleiben soll
 
             camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
