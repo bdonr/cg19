@@ -31,7 +31,7 @@ namespace  scg {
             camera_->translate(glm::vec3(0.0f, 0.0f, -0.008f));
         }
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-            camera_->translate(glm::vec3(0.0f, 0.0f, 0.003f));
+            camera_->translate(glm::vec3(0.0f, 0.0f, 0.001f));
         }
 
         if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
@@ -106,7 +106,7 @@ namespace  scg {
         }
         //Q erhöht flightVelocity_ und macht flugzeug langsammer
         static bool toggleSpeedDown = false;
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < -0.61) {
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && !toggleSpeedDown && flightVelocity_ < -0.81) {
             flightVelocity_ += flightVelocityStep_;
             toggleSpeedDown = true;
             std::cout << flightVelocity_ << std::endl;

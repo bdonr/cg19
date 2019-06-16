@@ -114,6 +114,9 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time
         if (insta->getTargets()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
                 insta->getTargets()[i]->setVisible(false);
+                if(i==9){
+                    i=0;
+                }
                 insta->getTargets()[i + 1]->setVisible(true);
             }
         }
@@ -138,9 +141,14 @@ void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP
         if (insta->getTargets()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
                 insta->getTargets()[i]->setVisible(false);
+                if(i==9){
+                    i=0;
+                }
                 insta->getTargets()[i + 1]->setVisible(true);
+
             }
         }
+
 
     }
 }
