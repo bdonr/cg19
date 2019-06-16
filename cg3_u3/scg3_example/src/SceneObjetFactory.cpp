@@ -363,7 +363,7 @@ const TransformAnimationSP SceneObjetFactory::createJetGroup2() {
     groupTrans2->translate(glm::vec3(0., 1., -5.));
     groupTrans2->rotate(-100.0,glm::vec3(0.1, 0.1, 0));
 
-    //setzt die Flugzeuggruppe vom Himmel stürzen
+    //setzt die Flugzeuggruppe die vom Himmel stürzt
     TransAni2->setUpdateFunc(
             [groupTrans2](
                     TransformAnimation *anim1, double currTime, double diffTime, double totalTime) {
