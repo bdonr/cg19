@@ -105,7 +105,7 @@ public:
      * with Shape and Cores
      * @return
      */
-    const TransformAnimationSP createSkyGroup2();
+    const TransformAnimationSP createJetGroup2();
 
 
     /**

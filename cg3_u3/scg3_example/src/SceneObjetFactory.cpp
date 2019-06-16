@@ -351,7 +351,7 @@ const TransformAnimationSP SceneObjetFactory::createJetGroup() {
 
 
 
-const TransformAnimationSP SceneObjetFactory::createSkyGroup2() {
+const TransformAnimationSP SceneObjetFactory::createJetGroup2() {
 
 
     auto group2 = Group::create();
