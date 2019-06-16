@@ -1,3 +1,5 @@
+#include <utility>
+
 /**
  * \file main.cpp
  * \brief A simple scg3 example application.
@@ -69,48 +71,34 @@ void useSimpleViewer();
  */
 void useCustomizedViewer();
 
-void checkChooseScene(ViewerSP &viewer);
-
-/**
- * \brief Create a scene consisting of a teapot, a camera, and a light.
- */
-void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
-
-
 /**
  * \brief Create a scene consisting of a floor, a table, a teapot, a camera, and a light.
  */
-void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene);
 
-void createVideoScene(ViewerSP viewer, CameraSP camera);
 
-void createStandartScene(ViewerSP viewer, CameraSP camera);
+void createVideoScene(ViewerSP viewer, CameraSP videoCam, GroupSP flightShowScene);
+
+void createGameScene(ViewerSP viewer, CameraSP flyCam, GroupSP gameScene);
 
 /**
  * \brief The main function.
  */
 double bulletTravel = 0;
-int chooseScene = 1;
-GroupSP standartScene;
-GroupSP videoScene;
-StandardRendererSP renderer;
-CameraSP videoCam;
-CameraSP flyCam;
+int actualscene = 1;
+
+VideoKeyboardControllerSP videocontroller;
+FloorKeyboardControllerSP floorcontroller;
+bool drehungFlugzeug1;
+GroupSP flightShowScene;
+GroupSP gameScene;
+EnvoirementController* envoirementControllerinstance;
+
 int main() {
 
     int result = 0;
+    useCustomizedViewer();
 
-    try {
-        if (SCGConfiguration::viewerType == 0) {
-            useSimpleViewer();
-        } else {
-            useCustomizedViewer();
-        }
-    }
-    catch (const std::exception &exc) {
-        std::cerr << std::endl << "Exception: " << exc.what() << std::endl;
-        result = 1;
-    }
+
     return result;
 }
 
@@ -119,35 +107,65 @@ int main() {
 void useCustomizedViewer() {
 
     // create viewer and renderer
-    ViewerSP viewer = Viewer::create();
-    renderer = StandardRenderer::create();
+    auto viewer = Viewer::create();
+    auto renderer = StandardRenderer::create();
     viewer->init(renderer)
             ->createWindow("Cg19 Projekt", 1024, 768);
 
-
+    envoirementControllerinstance=EnvoirementController::getControllerInstance(viewer);
     // create camera
-     videoCam = PerspectiveCamera::create();
-    videoCam->translate(glm::vec3(0.f, 0.f, 3.f))
+    CameraSP flightShowCam = PerspectiveCamera::create();
+    flightShowCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
-    renderer->setCamera(videoCam);
 
-     flyCam = PerspectiveCamera::create();
-    flyCam->translate(glm::vec3(0.f, 0.f, 3.f))
+
+    CameraSP gameCam = PerspectiveCamera::create();
+    gameCam->translate(glm::vec3(0.f, 0.f, 3.f))
             ->dolly(-1.f);
-    renderer->setCamera(flyCam);
 
-    createStandartScene(viewer, flyCam);
-    createVideoScene(viewer, videoCam);
-    checkChooseScene(viewer);
-    renderer->setScene(standartScene);
+
+
+    // Create Scenes
+     flightShowScene = Group::create();
+     gameScene = Group::create();
+
+
+
+
+    //create our controller
+    videocontroller = VideoKeyboardController::create(flightShowCam);
+    floorcontroller = FloorKeyboardController::create(gameCam);
+
+    floorcontroller->setBullet(SceneObjetFactory::getInstance(viewer)->createBullet());
+    //set Camera and first scene
+
+    renderer->setCamera(gameCam);
+
+
+
+    //give scenes and renderer for controllers
+    floorcontroller->setVideoScene(flightShowScene);
+    //videocontroller->setGameScene(gameScene);
+    floorcontroller->setGameScene(gameScene);
+    floorcontroller->setRenderer(renderer);
+    //videocontroller->setRenderer(renderer);
+    floorcontroller->setGameCam(gameCam);
+    floorcontroller->setFlightShowCam(flightShowCam);
+
+
+
+
+    //create scenes once with EnviromentController
+    createGameScene(viewer, gameCam,gameScene );
+    createVideoScene(viewer, flightShowCam,flightShowScene );
+
+    renderer->setScene(gameScene);
+
     viewer->addControllers(
-            {
-
-                    MouseController::create(flyCam)
+            {       videocontroller,
+                    floorcontroller,
+                    MouseController::create(flightShowCam)
             });
-    KeyboardControllerSP controller = KeyboardController::create(flyCam);
-    viewer->addController(controller);
-
 
 
     viewer->startAnimations()
@@ -155,66 +173,15 @@ void useCustomizedViewer() {
 
 }
 
+void createGameScene(ViewerSP viewer, CameraSP gameCam, GroupSP gameScene) {
 
-void showVideoScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
-    renderer->setScene(videoScene);
-}
-
-
-void showStandartScene(ViewerSP viewer, CameraSP camera, GroupSP &scene) {
-    renderer->setScene(standartScene);
+    envoirementControllerinstance->createStandartScene(viewer, gameCam, gameScene);
 
 }
 
-void checkChooseScene(ViewerSP &viewer) {
-    switch (chooseScene) {
-        case 0:
-            showVideoScene(viewer, videoCam, standartScene);
-            break;
-        case 1:
-            showStandartScene(viewer, flyCam, videoScene);
-            break;
-        default:
-            throw std::runtime_error("Invalid value of SCGConfiguration::sceneType [main()]");
-    }
-}
+void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightShowScene) {
 
 
-void createStandartScene(ViewerSP viewer, CameraSP camera) {
-    standartScene = Group::create();
-    TransformAnimationSP transAni = TransformAnimation::create();
-    transAni->setUpdateFunc(
-            [&camera, &viewer](
-                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+    envoirementControllerinstance->createVideoScene(viewer, flightShowCam, flightShowScene);
 
-                if (chooseScene == 1) {
-                    chooseScene = 0;
-                    checkChooseScene(viewer);
-                    chooseScene = 3;
-                }
-
-            }
-    );
-    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory * lightFactory= LightFactory::getInstance();
-    standartScene->addChild(instance->getHimmel());
-    standartScene->addChild(lightFactory->getSonne());
-    lightFactory->getSonne()->addChild(flyCam);
-    flyCam->addChild(instance->getCamObject());
-    standartScene->addChild(transAni);
-    viewer->addAnimation(transAni);
-}
-
-void createVideoScene(ViewerSP viewer, CameraSP camera) {
-    videoScene = Group::create();
-    SceneObjetFactory * instance = SceneObjetFactory::getInstance(viewer);
-    LightFactory * lightFactory= LightFactory::getInstance();
-
-    videoScene->addChild(instance->getHimmel());
-    videoScene->addChild(lightFactory->getVideoSonne());
-
-    lightFactory->getVideoSonne()->addChild(videoCam);
-    videoCam->addChild(instance->getCamObject());
-
-    lightFactory->getVideoSonne()->addChild(instance->getFloor());
 }

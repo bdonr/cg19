@@ -30,7 +30,18 @@ const LightSP &LightFactory::getVideoSonne() {
     }
     return videosonne;
 }
-
+const LightSP &LightFactory::getVideoSonne2() {
+    if (videoSonne2 == nullptr) {
+        videoSonne2 = Light::create();
+        videoSonne2->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
+                ->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
+                ->setAmbient(glm::vec4(.1, .1, .1, 1))
+                ->setSpot(glm::vec3(0, 1, 1), 100, 1)
+                ->setPosition(glm::vec4(20.f, 20.f, 0, 1.f))
+                ->init();
+    }
+    return videoSonne2;
+}
 
 
 const LightSP &LightFactory::getLinks() {

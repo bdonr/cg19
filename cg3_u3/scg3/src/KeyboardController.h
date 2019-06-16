@@ -42,6 +42,8 @@ class KeyboardController: public CameraController {
 
 public:
 NodeSP bullet;
+bool isMovement = true;
+int  chooseScene;
   /**
    * Constructor with given camera transformation.
    */
@@ -64,7 +66,7 @@ NodeSP bullet;
    */
   virtual void checkInput(ViewState* viewState);
 
-  virtual void setBullet(NodeSP N);
+
 
 };
 
