@@ -187,9 +187,9 @@ const std::vector<TransformationSP> &SceneObjetFactory::getTargets() {
 
 
 TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
-    float x = rand() % 15-3;
-    float y = rand() % 15-3;
-    float z = rand() % 15-3;
+    float x = rand() % 15+3;
+    float y = rand() % 15+3;
+    float z = rand() % 15+3;
     trans->translate(glm::vec3(x, y, z));
     return trans;
 }
