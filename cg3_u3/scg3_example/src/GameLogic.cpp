@@ -18,7 +18,7 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
 
     auto TransAni = TransformAnimation::create();
     auto camObjectTrans = Transformation::create();
-    bulletTrans->translate(glm::vec3(0.02f, -0.08f, -0.2f));
+    bulletTrans->translate(glm::vec3(0.00f, -0.05f, -0.2f));
     TransAni->setUpdateFunc(
             [camera, bulletTrans, camObjectTrans,&viewer](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
