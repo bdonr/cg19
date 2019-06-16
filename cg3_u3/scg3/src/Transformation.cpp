@@ -29,7 +29,7 @@ namespace scg {
 
 
 Transformation::Transformation()
-    : matrix_(1.0f), position(0.0f) {
+    : matrix_(1.0f) {
 }
 
 
@@ -55,13 +55,9 @@ Transformation* Transformation::setMatrix(const glm::mat4& matrix) {
 
 Transformation* Transformation::translate(glm::vec3 translation) {
   matrix_ = glm::translate(matrix_, translation);
-  position += translation;
   return this;
 }
 
-glm::vec3 Transformation::getPosition(){
-  return this->position;
-}
 
 Transformation* Transformation::rotateRad(GLfloat angleRad, glm::vec3 axis) {
   matrix_ = glm::rotate(matrix_, angleRad, axis);

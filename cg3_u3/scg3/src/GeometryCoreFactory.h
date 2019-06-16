@@ -171,7 +171,6 @@ public:
    * \param size approximate diameter
    */
   GeometryCoreSP createTeapot(GLfloat size);
-    GeometryCoreSP createTorus(GLfloat torusRadius, GLfloat innerRadius, int nStacks, int nSlices);
   /**
    * Create Utah teapot along z axis and centered at origin with normals and texture coordinates
    * (1024 triangles), using a fixed normal per triangle optimal for flat shading.

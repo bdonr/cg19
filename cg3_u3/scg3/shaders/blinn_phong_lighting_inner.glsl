@@ -154,7 +154,7 @@ inout vec4 ambient, inout vec4 diffuse, inout vec4 specular) {
 
     // specular
     float hDotN = dot(h, n);
-    if (hDotN < 0.f && hDotN >- 60.f) {
+    if (hDotN >0.f) {
       specular += attenuation * lights[idx].specular * pow(hDotN, material.shininess);
     }
   }

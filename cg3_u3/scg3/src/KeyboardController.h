@@ -41,7 +41,9 @@ namespace scg {
 class KeyboardController: public CameraController {
 
 public:
-NodeSP ding1;
+NodeSP bullet;
+bool isMovement = true;
+int  chooseScene;
   /**
    * Constructor with given camera transformation.
    */
@@ -55,7 +57,7 @@ NodeSP ding1;
   /**
    * Create shared pointer with given camera transformation.
    */
-  static KeyboardControllerSP create(CameraSP camera);
+  static KeyboardControllerSP create(CameraSP& camera);
 
   /**
    * Check input devices, called by Viewer::startMainLoop().
@@ -64,7 +66,7 @@ NodeSP ding1;
    */
   virtual void checkInput(ViewState* viewState);
 
-  virtual void setDing(NodeSP N);
+
 
 };
 

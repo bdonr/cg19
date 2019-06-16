@@ -154,7 +154,7 @@ void spotLight(const in int idx, const in vec3 ecVertex, const in vec3 v, const 
     
     // specular
     float hDotN = dot(h, n);
-    if (hDotN > 0.) {
+    if (hDotN >0.) {
       specular += attenuation * lights[idx].specular * pow(hDotN, material.shininess);
     }
   }
