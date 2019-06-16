@@ -106,15 +106,15 @@ void GameLogic::checkDurchflugZielscheibe(const glm::vec3 &camObjPos,double time
     double rad1 = 0.1;
     double rad2 = 0.1401;
     SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
-    for (int i = 0; i < insta->getZielscheiben().size(); i++) {
-        glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],
-                                 insta->getZielscheiben()[i]->getMatrix()[3][1],
-                                 insta->getZielscheiben()[i]->getMatrix()[3][2]);
+    for (int i = 0; i < insta->getTargets().size(); i++) {
+        glm::vec3 kk = glm::vec3(insta->getTargets()[i]->getMatrix()[3][0],
+                                 insta->getTargets()[i]->getMatrix()[3][1],
+                                 insta->getTargets()[i]->getMatrix()[3][2]);
         float diff1 = sqrt(pow(camObjPos.x - kk.x, 2) + pow(camObjPos.y - kk.y, 2) + pow(camObjPos.z - kk.z, 2));
-        if (insta->getZielscheiben()[i]->isVisible()) {
+        if (insta->getTargets()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                insta->getZielscheiben()[i]->setVisible(false);
-                insta->getZielscheiben()[i + 1]->setVisible(true);
+                insta->getTargets()[i]->setVisible(false);
+                insta->getTargets()[i + 1]->setVisible(true);
             }
         }
 
@@ -129,16 +129,16 @@ void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP
     double rad1 = .1;
     double rad2 = .1;
     SceneObjetFactory * insta = SceneObjetFactory::getInstance(viewer);
-    for (int i = 0; i <insta->getZielscheiben().size(); i++) {
+    for (int i = 0; i < insta->getTargets().size(); i++) {
 
-        glm::vec3 kk = glm::vec3(insta->getZielscheiben()[i]->getMatrix()[3][0],
-                                 insta->getZielscheiben()[i]->getMatrix()[3][1],
-                                 insta->getZielscheiben()[i]->getMatrix()[3][2]);
+        glm::vec3 kk = glm::vec3(insta->getTargets()[i]->getMatrix()[3][0],
+                                 insta->getTargets()[i]->getMatrix()[3][1],
+                                 insta->getTargets()[i]->getMatrix()[3][2]);
         float diff1 = sqrt(pow(bullet.x - kk.x, 2) + pow(bullet.y - kk.y, 2) + pow(bullet.z - kk.z, 2));
-        if (insta->getZielscheiben()[i]->isVisible()) {
+        if (insta->getTargets()[i]->isVisible()) {
             if (glm::abs(rad1 - rad2) < diff1 && diff1 < (rad1 + rad2)) {
-                insta->getZielscheiben()[i]->setVisible(false);
-                insta->getZielscheiben()[i + 1]->setVisible(true);
+                insta->getTargets()[i]->setVisible(false);
+                insta->getTargets()[i + 1]->setVisible(true);
             }
         }
 

@@ -91,7 +91,7 @@ FloorKeyboardControllerSP floorcontroller;
 bool drehungFlugzeug1;
 GroupSP flightShowScene;
 GroupSP gameScene;
-
+EnvoirementController* envoirementControllerinstance;
 
 int main() {
 
@@ -112,7 +112,7 @@ void useCustomizedViewer() {
     viewer->init(renderer)
             ->createWindow("Cg19 Projekt", 1024, 768);
 
-
+    envoirementControllerinstance=EnvoirementController::getControllerInstance(viewer);
     // create camera
     CameraSP flightShowCam = PerspectiveCamera::create();
     flightShowCam->translate(glm::vec3(0.f, 0.f, 3.f))
@@ -154,7 +154,7 @@ void useCustomizedViewer() {
 
 
 
-    //create scenes once with Helper
+    //create scenes once with EnviromentController
     createGameScene(viewer, gameCam,gameScene );
     createVideoScene(viewer, flightShowCam,flightShowScene );
 
@@ -174,80 +174,13 @@ void useCustomizedViewer() {
 
 void createGameScene(ViewerSP viewer, CameraSP gameCam, GroupSP gameScene) {
 
-    EnvoirementController::createSunFloorscene(viewer, gameCam, gameScene);
+    envoirementControllerinstance->createStandartScene(viewer, gameCam, gameScene);
 
 }
 
 void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightShowScene) {
 
-    flightShowCam->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
-            ->dolly(-1.f);
 
-    //Scene bauen mittell helper factory
-    SceneObjetFactory *insta = SceneObjetFactory::getInstance(viewer);
-
-
-    //flugzeug Links
-    TransformationExtSP showFlugzeug1 = insta->getFlugzeug();
-    showFlugzeug1->scale(glm::vec3(5., 5., 5.));
-    showFlugzeug1->translate(glm::vec3(0, 2, 0));
-    showFlugzeug1->translate(glm::vec3(10.0, 0., 6.));
-
-
-
-    //Licht holen
-    LightFactory *lightFactory = LightFactory::getInstance();
-
-
-
-    //Licht in die Scene stellen
-    flightShowScene->addChild(lightFactory->getVideoSonne());
-
-    //camera ins licht stellen
-    lightFactory->getVideoSonne()->addChild(flightShowCam);
-
-
-    //zweite lichtquelle
-    lightFactory->getSonne()->addChild(lightFactory->getVideoSonne2());
-
-
-    //Transformationen ins licht stellen
-    lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe());
-    lightFactory->getVideoSonne()->addChild(insta->createFlugzeugGruppe2());
-    lightFactory->getVideoSonne()->addChild(insta->getVideoHimmel());
-    lightFactory->getVideoSonne()->addChild(insta->getVideoFloor());
-    lightFactory->getVideoSonne()->addChild(showFlugzeug1);
-
-
-
-
-    TransformAnimationSP transAniShow=TransformAnimation::create();
-
-
-
-
-    transAniShow->setUpdateFunc(
-            [showFlugzeug1, transAniShow,viewer,flightShowScene](TransformAnimation *anim, double currTime, double diffTime,
-                                                                                double totalTime) {
-
-
-
-                    //durchgehender flug der flugzeuge
-
-
-
-                    //Aneinander vorbei fliegen
-
-
-                    showFlugzeug1->translate(glm::vec3(0.,-.1,0.1));
-
-
-            });
-
-    viewer->addAnimation(transAniShow);
-
-
-//hier nochmal gucken schwarzes bild nach setten der scene
-// EnvoirementController::createVideoSceneHelper(viewer, camera, flightShowScene);
+    envoirementControllerinstance->createVideoScene(viewer, flightShowCam, flightShowScene);
 
 }

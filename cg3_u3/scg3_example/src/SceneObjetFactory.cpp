@@ -2,49 +2,22 @@
 // Created by don on 21.05.19.
 //
 
-/**
- * This class Creates SubTrees of Transformations
- * It creates Transformations with its Groups Shapes and Cores
- *  Feel free to add more Transformations as you need .
- *  They can be easily added to your scene.
- *  Just by adding them whith scene->addChild(your-TransFormation);
- */
+
 #include <iostream>
 #include "SceneObjetFactory.h"
 #include "LightFactory.h"
 
 SceneObjetFactory *SceneObjetFactory::instance;
 
-
-/**
- * Create Shape with some properties
- * @param shade
- * @param mat
- * @param textur
- * @param core
- * @return ShapeSP
- */
-
-//Don warum nachtHimmel hier bekommt ein jet Shape seine Cores bitte namen  überprüfen
 const ShapeSP  SceneObjetFactory::getShape(const ShaderCoreSP &shade, const MaterialCoreSP &mat, const Texture2DCoreSP &textur,
                             const GeometryCoreSP &core) {
-    auto nachtHimmel = Shape::create();
-    nachtHimmel->addCore(mat)
+    auto shape = Shape::create();
+    shape->addCore(mat)
             ->addCore(shade)
             ->addCore(textur)
             ->addCore(core);
-    return nachtHimmel;
+    return shape;
 }
-
-
-/**
- * Create a Basic TransformationSP
- * @param translate
- * @param scale
- * @param rotate
- * @param degree
- * @return TransformationSP
- */
 
 const TransformationExtSP SceneObjetFactory::createTransformation(const glm::vec3 &translate, const glm::vec3 &scale, const glm::vec3 &rotate,
                                         float degree) {
@@ -56,12 +29,7 @@ const TransformationExtSP SceneObjetFactory::createTransformation(const glm::vec
 }
 
 
-/**
- * Create a jet
- * @return TransformationSP
- */
-
-const TransformationExtSP SceneObjetFactory::getFlugzeug() {
+const TransformationExtSP SceneObjetFactory::getJet() {
 
     auto jetcore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
     ShapeSP jet = getShape(shaderFactory->getPhong(true), matFactory->getWhite(), textureFactory->getBrick(),
@@ -75,11 +43,8 @@ const TransformationExtSP SceneObjetFactory::getFlugzeug() {
     return jetTrans;
 }
 
-/**
- * Create a Heavensphere
- * @return TransformationSP
- */
-const ShapeSP SceneObjetFactory::getHimmel() {
+
+const ShapeSP SceneObjetFactory::getSky() {
 
     skybox = Shape::create();
 
@@ -87,24 +52,10 @@ const ShapeSP SceneObjetFactory::getHimmel() {
     skybox->addCore(shaderFactory->getSkyBox())
             ->addCore(textureFactory->getHimmel())
             ->addCore(skyboxCore);
-
-
-
-
-    /**
-    auto himmelCore = geometryFactory.createSphere(30, 101, 110);
-    ShapeSP himmel = getShape(shaderFactory->getPhongreverse(true), matFactory->getTag(),
-                              textureFactory->getHimmel(),
-                              himmelCore);
-    himmelTrans = createTransformation(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec3(1, 0, 0),
-                                       20.f);
-    himmelTrans->addChild(himmel);
-}**/
-
     return skybox;
 }
 
-const ShapeSP SceneObjetFactory::getVideoHimmel() {
+const ShapeSP SceneObjetFactory::getVideoSky() {
 
     videoSkybox = Shape::create();
 
@@ -115,11 +66,8 @@ const ShapeSP SceneObjetFactory::getVideoHimmel() {
     return videoSkybox;
 }
 
-/**
- * Creates a Group of Torus with its  TransformationSP
- * @param TransformationSP
- */
-const TransformAnimationSP SceneObjetFactory::createTorrusseTrans() {
+
+const TransformAnimationSP SceneObjetFactory::createToriWithAnimation() {
     auto torussGroup = Group::create();
 
     //unterschiedliche formen 3 eck bishin zu vieleck
@@ -180,7 +128,7 @@ SceneObjetFactory::createTorusAnimation(const GeometryCoreSP &torusCore, const s
     return TransAni;
 }
 
-const TransformationSP SceneObjetFactory::getStern() {
+const TransformationSP SceneObjetFactory::getStar() {
     auto torusCore = torusFactory.createTorus(0, .9, 3, 50);
     TransformationSP toursTrans = Transformation::create();
     auto torusShape = Shape::create();
@@ -192,7 +140,7 @@ const TransformationSP SceneObjetFactory::getStern() {
 }
 
 const TransformAnimationSP SceneObjetFactory::getAnimatedStern() {
-    auto sternTrans = getStern();
+    auto sternTrans = getStar();
     auto TransAni = TransformAnimation::create();
     TransAni->setUpdateFunc(
             [sternTrans](
@@ -219,14 +167,11 @@ SceneObjetFactory::createShapesWithDifferentColors(int i, const GeometryCoreSP &
     torusShape.at(i)->addCore(torusCore);
 }
 
-/**
- * Creates ten Groups of Torus
- * @return std::vector<TransformationSP>&
- */
-const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
+
+const std::vector<TransformationSP> &SceneObjetFactory::getTargets() {
     if (zielscheiben.size() == 0) {
         for (int i = 0; i < 10; i++) {
-            TransformationSP y = createTorrusseTrans();
+            TransformationSP y = createToriWithAnimation();
             y = createRandompos(y);
             y->scale(glm::vec3(1, 1, .4));
             y->setVisible(false);
@@ -240,23 +185,16 @@ const std::vector<TransformationSP> &SceneObjetFactory::getZielscheiben() {
     return zielscheiben;
 }
 
-/**
- * Translates a given TransformationSP to a RandomPosition
- * @param trans
- * @return TransformationSP
- */
+
 TransformationSP &SceneObjetFactory::createRandompos(TransformationSP &trans) {
-    float x = rand() % 1;
-    float y = rand() % 1;
-    float z = rand() % 1;
+    float x = rand() % 15-3;
+    float y = rand() % 15-3;
+    float z = rand() % 15-3;
     trans->translate(glm::vec3(x, y, z));
     return trans;
 }
 
-/**
- * Creates a Floor Transformation
- * @return TransformationSP
- */
+
 const TransformationSP &SceneObjetFactory::getFloor() {
     if (floorTrans == nullptr) {
         // auto floorCore = geometryFactory.createModelFromOBJFile("../scg3/models/table-mountain.obj");
@@ -289,10 +227,7 @@ const TransformationSP &SceneObjetFactory::getVideoFloor() {
 }
 
 
-/**
- * Creates an object which will be used as a Object binded to the cam
- * @return
- */
+
 const TransformationSP &SceneObjetFactory::getCamObject() {
     if (camObject == nullptr) {
         auto flugzeugCore = torusFactory.createModelFromOBJFile("../scg3/models/jet.obj");
@@ -307,33 +242,10 @@ const TransformationSP &SceneObjetFactory::getCamObject() {
     return camObject;
 }
 
-/**
- * Creats a Sphere
- * @return
- */
-const TransformationSP SceneObjetFactory::getKugel() {
-    auto x = torusFactory.createSphere(.1f, 100, 100);
-    auto x1 = Shape::create();
-    x1->addCore(shaderFactory->getPhong(false))->addCore(matFactory->getWhite())
-            ->addCore(x);
-    TransformationSP trans = createTransformation(glm::vec3(0.f, -0.1f, -0.3f), glm::vec3(1, 1, 1),
-                                                  glm::vec3(0.f, 1.f, 0.f), 180.);
-    trans->addChild(x1);
 
-    trans->scale(glm::vec3(.1, .1, .1));
-    return trans;
-}
 
-/**
- * Creates a Lightposition
- * @return
- */
 
-/**
- * Creates a Tower with a 3D brick wall
- * @return
- */
-const TransformationSP &SceneObjetFactory::getTurm() {
+const TransformationSP &SceneObjetFactory::getTower() {
 
     if (turmTrans == nullptr) {
         GroupSP group = Group::create();
@@ -390,10 +302,7 @@ const TransformationSP &SceneObjetFactory::getTurm() {
 
 }
 
-/**
- *
- * @return SceneObjetFactory *
- */
+
 SceneObjetFactory *SceneObjetFactory::getInstance(ViewerSP viewerSp) {
     if (instance == nullptr) {
         instance = new SceneObjetFactory(viewerSp);
@@ -401,9 +310,7 @@ SceneObjetFactory *SceneObjetFactory::getInstance(ViewerSP viewerSp) {
     return instance;
 }
 
-/**
- * Constructor
- */
+
 SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
     this->viewer = viewer;
     shaderFactory = ShaderFactory::getInstance();
@@ -411,8 +318,8 @@ SceneObjetFactory::SceneObjetFactory(ViewerSP viewer) {
     textureFactory = TexturFactory::getInstance();
 }
 
-//Erstellt eine Gruppe der eine Transanimation hinzugefügt die transformationen addet
-const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
+
+const TransformAnimationSP SceneObjetFactory::createJetGroup() {
 
 
     auto group = Group::create();
@@ -444,7 +351,7 @@ const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe() {
 
 
 
-const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe2() {
+const TransformAnimationSP SceneObjetFactory::createSkyGroup2() {
 
 
     auto group2 = Group::create();
@@ -472,43 +379,46 @@ const TransformAnimationSP SceneObjetFactory::createFlugzeugGruppe2() {
     viewer->addAnimation(TransAni2);
     return TransAni2;
 }
-//erestellt transformationen bzw. die flugzeuge die alle das gleiche shape mit dem core erhalten
+
 const TransformAnimationSP SceneObjetFactory::getFlugzeugAnimated() {
-    auto flug1 = getFlugzeug();
-    auto flug2 = getFlugzeug();
-    auto flug3 = getFlugzeug();
 
-    auto flug4 = getFlugzeug();
-    auto flug5 = getFlugzeug();
-    auto flug6 = getFlugzeug();
+    if(jetAniGroup== nullptr) {
+        auto flug1 = getJet();
+        auto flug2 = getJet();
+        auto flug3 = getJet();
 
-    //setzt die Position der Flugzeuge
-    flug1->translate(glm::vec3(0, 0, 0));
-    flug2->translate(glm::vec3(5, -.3, -3));
-    flug3->translate(glm::vec3(-5, -.3, -3));
+        auto flug4 = getJet();
+        auto flug5 = getJet();
+        auto flug6 = getJet();
 
-    flug4->translate(glm::vec3(-3, -.3, 4));
-    flug5->translate(glm::vec3(3, -.3, 4));
+        //setzt die Position der Flugzeuge
+        flug1->translate(glm::vec3(0, 0, 0));
+        flug2->translate(glm::vec3(5, -.3, -3));
+        flug3->translate(glm::vec3(-5, -.3, -3));
+
+        flug4->translate(glm::vec3(-3, -.3, 4));
+        flug5->translate(glm::vec3(3, -.3, 4));
 
 
-    auto TransAni = TransformAnimation::create();
-    //Lässt das innere Flugzeug um die eigne achse drehen
-    TransAni->setUpdateFunc(
-            [flug1, flug2, flug3](
-                    TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
-                flug1->rotate(10,glm::vec3(0.0,0.0,0.1));
+        jetAniGroup = TransformAnimation::create();
+        //Lässt das innere Flugzeug um die eigne achse drehen
+        jetAniGroup->setUpdateFunc(
+                [flug1, flug2, flug3](
+                        TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
+                    flug1->rotate(10, glm::vec3(0.0, 0.0, 0.1));
 
-            }
-    );
+                }
+        );
 
-    TransAni->addChild(flug1);
-    TransAni->addChild(flug2);
-    TransAni->addChild(flug3);
-    TransAni->addChild(flug4);
-    TransAni->addChild(flug5);
-    viewer->addAnimation(TransAni);
-    return TransAni;
+        jetAniGroup->addChild(flug1);
+        jetAniGroup->addChild(flug2);
+        jetAniGroup->addChild(flug3);
+        jetAniGroup->addChild(flug4);
+        jetAniGroup->addChild(flug5);
+        viewer->addAnimation(jetAniGroup);
 
+    }
+    return jetAniGroup;
 }
 
 TransformationSP &SceneObjetFactory::createBullet() {
