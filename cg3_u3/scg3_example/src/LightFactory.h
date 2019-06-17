@@ -10,20 +10,35 @@ using namespace scg;
 
 class LightFactory {
 private:
-    LightSP sonne;
-    LightSP videosonne;
-    LightSP links;
-    LightSP rechts;
-    LightSP videoSonne2;
+    LightSP primary;
+    LightSP left;
+    LightSP right;
+    LightSP videosun;
 
     static LightFactory *instance;
 
 public:
-    const LightSP& getRechts();
-    const LightSP& getLinks();
-    const LightSP& getVideoSonne();
-    const LightSP& getSonne();
-    const LightSP &getVideoSonne2();
+    /**
+     * Right LightSource
+     * @return
+     */
+    const LightSP& getRightLight();
+    /**
+     * Left LightSource
+     * @return
+     */
+    const LightSP& getLeftLight();
+    /**
+     * Primary LightSource for the Game
+     * @return
+     */
+    const LightSP& getPrimaryLight();
+
+    /**
+     * LightSource for the VideoScene
+     * @return
+     */
+    const LightSP &getVideoLight();
 
 private:
 public:
