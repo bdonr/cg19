@@ -179,7 +179,7 @@ SCG_DECLARE_CLASS(Transformation);
 SCG_DECLARE_CLASS(Traverser);
 SCG_DECLARE_CLASS(Viewer);
 SCG_DECLARE_CLASS(ViewState);
-SCG_DECLARE_CLASS(FloorKeyboardController);
+SCG_DECLARE_CLASS(MyKeyboardController);
 SCG_DECLARE_CLASS(VideoKeyboardController);
 /**
  * Macros causing compiler errors for obsolete classes and functions.

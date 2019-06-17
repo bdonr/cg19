@@ -87,7 +87,7 @@ double bulletTravel = 0;
 int actualscene = 1;
 
 VideoKeyboardControllerSP videocontroller;
-FloorKeyboardControllerSP floorcontroller;
+MyKeyboardControllerSP floorcontroller;
 bool drehungFlugzeug1;
 GroupSP flightShowScene;
 GroupSP gameScene;
@@ -134,7 +134,7 @@ void useCustomizedViewer() {
 
     //create our controller
 
-    floorcontroller = FloorKeyboardController::create(gameCam);
+    floorcontroller = MyKeyboardController::create(gameCam);
 
     floorcontroller->setBullet(SceneObjetFactory::getInstance(viewer)->createBullet());
     //set Camera and first scene
