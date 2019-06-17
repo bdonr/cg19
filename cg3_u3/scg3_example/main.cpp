@@ -151,6 +151,7 @@ void useCustomizedViewer() {
     //videocontroller->setRenderer(renderer);
     floorcontroller->setGameCam(gameCam);
     floorcontroller->setFlightShowCam(flightShowCam);
+    floorcontroller->setViewer(viewer);
 
 
 
@@ -182,6 +183,6 @@ void createGameScene(ViewerSP viewer, CameraSP gameCam, GroupSP gameScene) {
 void createVideoScene(ViewerSP viewer, CameraSP flightShowCam, GroupSP flightShowScene) {
 
 
-    envoirementControllerinstance->createVideoScene(viewer, flightShowCam, flightShowScene);
+    envoirementControllerinstance->createShowScene(viewer, flightShowCam, flightShowScene);
 
 }

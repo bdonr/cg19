@@ -39,12 +39,12 @@ public:
     void createStandartScene(ViewerSP &viewer, CameraSP camera, GroupSP scene);
 
     /**
-     * Creates all Objects of the VideoScene
+     * Creates all Objects of the Showscene
      * @param viewer
      * @param camera
      * @param scene
      */
-     void createVideoScene(ViewerSP &viewer, CameraSP camera, GroupSP scene);
+     void createShowScene(ViewerSP &viewer, CameraSP camera, GroupSP scene);
 
 };
 

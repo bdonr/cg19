@@ -260,6 +260,7 @@ void Viewer::startMainLoop() {
     renderer_->render();
     glfwSwapBuffers(window_);
 
+
     // update frame rate
     viewState_->updateFrameRate();
 
