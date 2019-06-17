@@ -12,7 +12,7 @@ const LightSP &LightFactory::getPrimaryLight() {
         primary->setSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f))
                 ->setDiffuse(glm::vec4(1.f, 1.f, 1.f, 1.f))
                 ->setAmbient(glm::vec4(.1, .1, .1, 1))->setSpot(glm::vec3(0, 1, 1), 100, 1)
-                ->setPosition(glm::vec4(0.f, 20.f, 0, 1.f))
+                ->setPosition(glm::vec4(0.f, 15.f, 8, 1.f))
                 ->init();
     }
     return primary;
