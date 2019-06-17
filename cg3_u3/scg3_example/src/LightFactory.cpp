@@ -52,9 +52,9 @@ const LightSP &LightFactory::getRightLight() {
     if (right == nullptr) {
         right = Light::create();
         glm::vec4 k = glm::vec4(3, 0, 0, 1);
-        right->setSpecular(glm::vec4(0.f, .8f, .0f, 1.f))
+        right->setSpecular(glm::vec4(0.f, .08f, .0f, 1.f))
                 ->setDiffuse(glm::vec4(.1f, .1f, .1f, .1f))
-                ->setAmbient(glm::vec4(.4, 4, .4, 1))
+                ->setAmbient(glm::vec4(.4, .4, .4, 1))
                 ->setPosition(k)
                 ->init();
     }
