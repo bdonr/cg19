@@ -15,8 +15,7 @@ class GameLogic {
 public:
     static void logic(CameraSP &camera,TransformationSP &bulletTrans, ViewerSP& viewer);
 private:
-    static double bulletTravel;
-    static void bulletTravelAndTest();
+
      static void checkDurchflugZielscheibe(const glm::vec3 &camObjPos, double time);
      static void checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP& viewer);
 

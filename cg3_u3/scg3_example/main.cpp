@@ -133,7 +133,7 @@ void useCustomizedViewer() {
 
 
     //create our controller
-    videocontroller = VideoKeyboardController::create(flightShowCam);
+
     floorcontroller = FloorKeyboardController::create(gameCam);
 
     floorcontroller->setBullet(SceneObjetFactory::getInstance(viewer)->createBullet());
@@ -163,8 +163,7 @@ void useCustomizedViewer() {
     renderer->setScene(gameScene);
 
     viewer->addControllers(
-            {       videocontroller,
-                    floorcontroller,
+            {       floorcontroller,
                     MouseController::create(flightShowCam)
             });
 

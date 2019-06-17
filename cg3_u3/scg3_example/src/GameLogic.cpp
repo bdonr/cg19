@@ -13,12 +13,11 @@
  * @param viewer
  */
 
-double GameLogic::bulletTravel =0;
 void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP& viewer) {
 
     auto TransAni = TransformAnimation::create();
     auto camObjectTrans = Transformation::create();
-    bulletTrans->translate(glm::vec3(0.00f, -0.05f, -0.2f));
+    bulletTrans->translate(glm::vec3(0.00f, -0.1f, -0.25f));
     TransAni->setUpdateFunc(
             [camera, bulletTrans, camObjectTrans,&viewer](
                     TransformAnimation *anim, double currTime, double diffTime, double totalTime) {
@@ -28,11 +27,12 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
  /            std::cout<<camera->getMatrix()[3][0];
              std::cout<<camera->getMatrix()[3][1]<<;
              std::cout<<camera->getMatrix()[3][2];
- **/            bulletTrans->translate(glm::vec3(0, 0., -0.02));
-                bulletTravelAndTest();
-                if (bulletTravel > 24.8) {
-                    bulletTrans->translate(glm::vec3(0, 0, 2.5));
+ **/            bulletTrans->translate(glm::vec3(0, 0.0, -0.04));
+
+                if (bulletTrans->getMatrix()[3][2] < -1.56) {
+                    bulletTrans->translate(glm::vec3(0, 0, 1.56));
                 }
+
  /* 0.1 * 5 = 0.5 * 5 = 2.5 rechung für den zurücksprung
  */
 /*kolision detection beim rammen des flugzeugs gegen die objekte*/
@@ -57,7 +57,9 @@ void GameLogic::logic(CameraSP &camera, TransformationSP &bulletTrans, ViewerSP&
                 if(bulletTrans->isVisible()) {
                     checkBulletTreffer(bullObjPos, totalTime, viewer);
                 }
-
+/*
+ * 2 options to define Border Controll
+ */
                 if (camera->getPosition().x > 15) {
                     //camera->rotate(15.0f, glm::vec3(0.0f, 1.0f, 0.0f));
                     camera->translate(glm::vec3(0.0f, 0.0f, 0.15f));
@@ -153,12 +155,4 @@ void GameLogic::checkBulletTreffer(const glm::vec3 &bullet, double time,ViewerSP
     }
 }
 
-void GameLogic::bulletTravelAndTest() {
-    if (bulletTravel > 24.8) {
-        bulletTravel = 0;
-    }
-    bulletTravel = bulletTravel + 0.2;
-
-
-}
 

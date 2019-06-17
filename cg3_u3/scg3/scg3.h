@@ -267,7 +267,7 @@
 #include "src/ViewState.h"
 
 
-#include "../scg3_example/src/FloorKeyboardController.h"
-#include "../scg3_example/src/VideoKeyboardController.h"
+#include "MyKeyboardController.h"
+
 
 #endif /* SCG3_H_ */
