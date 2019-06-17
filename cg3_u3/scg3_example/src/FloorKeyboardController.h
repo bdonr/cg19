@@ -29,6 +29,7 @@ namespace scg {
         CameraSP flightShowCam;
         bool movement;
         bool pitch;
+        ViewerSP viewer;
     public:
         NodeSP bullet;
 
@@ -55,7 +56,7 @@ namespace scg {
          */
         virtual void checkInput(ViewState* viewState);
 
-        //wird  nicht benutzt möglicherweise kann es weg????
+
         virtual void setBullet(NodeSP N);
 
         /**
@@ -66,31 +67,36 @@ namespace scg {
         void setRenderer(StandardRendererSP &renderer);
         /**
       *
-      * set the flightShowScene in controller
+      * set the flightshow Scene in controller
       *
       */
         void setVideoScene(GroupSP videoScene);
         /**
         *
-        * set the flightShowScene in controller
+        * set the Game scene  in controller
         *
         */
         void setGameScene(GroupSP gameScene);
 
         /**
        *
-       * gif de Kamera toröch vun düsse controller
+       * set the camera of the Game scene
        *
         */
         void setGameCam(CameraSP gameCam) ;
 
         /**
-      *
-      * Bitte noch kommentieren Arpad
-      *
+       *
+       * set the camera of the fligthshow scene
+       *
        */
         void setFlightShowCam(CameraSP flightShowCam) ;
-
+       /**
+        *
+        * set the viewer in the controller
+        *
+        */
+        void setViewer(ViewerSP viewer);
 
     };
 

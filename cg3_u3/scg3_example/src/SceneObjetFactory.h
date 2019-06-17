@@ -117,6 +117,7 @@ public:
     /**
      * Transformation with Subtree for JetGroup
      * with Subtree for the Floor
+     * Flugzeuggruppe die von rechts kommt
      * @return
      */
     const TransformAnimationSP createJetGroup();
@@ -124,6 +125,9 @@ public:
     /**
      * Transformation with Subtree for JetGroup2
      * with Shape and Cores
+     *
+     * Flugzeuggruppe die vom Boden abhebt
+     *
      * @return
      */
     const TransformAnimationSP createJetGroup2();

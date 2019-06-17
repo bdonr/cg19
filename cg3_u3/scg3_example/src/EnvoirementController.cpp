@@ -37,13 +37,12 @@ void EnvoirementController::createStandartScene(ViewerSP &viewer, CameraSP camer
 
 }
 
-void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
+void EnvoirementController::createShowScene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
 
 
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
 
-    //Scene bauen mittell helper factory
 
     //Licht in die Scene stellen
     scene->addChild(lightFactory->getVideoLight());
@@ -52,11 +51,13 @@ void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP camera, 
     lightFactory->getVideoLight()->addChild(camera);
 
     //Transformationen ins licht stellen
+
     lightFactory->getVideoLight()->addChild(insta->createJetGroup());
 
     lightFactory->getVideoLight()->addChild(insta->createJetGroup2());
-    lightFactory->getVideoLight()->addChild(insta->getVideoSky());
     lightFactory->getVideoLight()->addChild(insta->getVideoFloor());
+    lightFactory->getVideoLight()->addChild(insta->getVideoSky());
+
 
 }
 
