@@ -42,13 +42,34 @@ private:
     ShapeSP videoSkybox;
 
     GroupSP group;
-    std::vector<TransformationSP> transformations;
     std::vector<TransformationSP> zielscheiben;
     ShaderFactory *shaderFactory;
     MatFactory *matFactory;
     TexturFactory *textureFactory;
     ViewerSP viewer;
     TorusFactory torusFactory;
+
+    /**
+     * Create Tower Body with CronicalFrustrum
+     * @return
+     */
+    const TransformationSP getTowerBody();
+
+    /**
+     * Create Tower Head with Sphere
+     * @return
+     */
+    const TransformationSP getTowerHead();
+
+    /**
+ * HelperFunction to create different Color in an given array
+ * the integer i is for the position which item of array has to change
+ * @param i
+ * @param torusCore
+ * @param torusShape
+ */
+    void
+    createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
 
 public:
 
@@ -181,17 +202,6 @@ private:
 
 
     /**
-     * HelperFunction to create different Color in an given array
-     * the integer i is for the position which item of array has to change
-     * @param i
-     * @param torusCore
-     * @param torusShape
-     */
-    void
-    createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
-
-
-    /**
      * Creates an rotating Star Torus
      * @return
      */
@@ -216,7 +226,11 @@ private:
      */
     const TransformAnimationSP getFlugzeugAnimated();
 
-
+    /**
+     * The top of the Tower
+     * @return
+     */
+    TransformationSP getTowerTop();
 };
 
 

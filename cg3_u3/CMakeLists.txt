@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.14)
 project(cg3_u3)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -517,7 +517,4 @@ add_executable(cg3_u3
         scg3_example/src/VideoKeyboardController.cpp
         scg3_example/src/VideoKeyboardController.h
         scg3_example/main.cpp)
-
-find_package(OpenGL REQUIRED)
-#Xxf86vm Xrandr pthread Xi rt dl Xinerama Xcursor X11
 target_link_libraries(cg3_u3 GLEW GL glfw)
