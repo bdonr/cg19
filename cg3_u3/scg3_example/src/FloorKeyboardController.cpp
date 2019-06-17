@@ -205,6 +205,9 @@ namespace  scg {
 
             renderer->setScene(flightShowScene);
             renderer->setCamera(flightShowCam);
+            viewer->setWindowSize(1024,769);
+            viewer->setWindowSize(1024,768);
+
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
             if(!pitch){
                 camera_->rotatePitch(-3.0);
@@ -266,6 +269,9 @@ namespace  scg {
     }
     void FloorKeyboardController::setFlightShowCam(CameraSP flightShowCam){
          this->flightShowCam=flightShowCam;
+    }
+    void FloorKeyboardController::setViewer(ViewerSP viewer){
+        this->viewer=viewer;
     }
 
 

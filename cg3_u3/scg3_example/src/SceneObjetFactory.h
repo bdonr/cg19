@@ -42,13 +42,34 @@ private:
     ShapeSP videoSkybox;
 
     GroupSP group;
-    std::vector<TransformationSP> transformations;
     std::vector<TransformationSP> zielscheiben;
     ShaderFactory *shaderFactory;
     MatFactory *matFactory;
     TexturFactory *textureFactory;
     ViewerSP viewer;
     TorusFactory torusFactory;
+
+    /**
+     * Create Tower Body with CronicalFrustrum
+     * @return
+     */
+    const TransformationSP getTowerBody();
+
+    /**
+     * Create Tower Head with Sphere
+     * @return
+     */
+    const TransformationSP getTowerHead();
+
+    /**
+ * HelperFunction to create different Color in an given array
+ * the integer i is for the position which item of array has to change
+ * @param i
+ * @param torusCore
+ * @param torusShape
+ */
+    void
+    createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
 
 public:
 
@@ -96,6 +117,7 @@ public:
     /**
      * Transformation with Subtree for JetGroup
      * with Subtree for the Floor
+     * Flugzeuggruppe die von rechts kommt
      * @return
      */
     const TransformAnimationSP createJetGroup();
@@ -103,6 +125,9 @@ public:
     /**
      * Transformation with Subtree for JetGroup2
      * with Shape and Cores
+     *
+     * Flugzeuggruppe die vom Boden abhebt
+     *
      * @return
      */
     const TransformAnimationSP createJetGroup2();
@@ -181,17 +206,6 @@ private:
 
 
     /**
-     * HelperFunction to create different Color in an given array
-     * the integer i is for the position which item of array has to change
-     * @param i
-     * @param torusCore
-     * @param torusShape
-     */
-    void
-    createShapesWithDifferentColors(int i, const GeometryCoreSP &torusCore, std::vector<ShapeSP> &torusShape) const;
-
-
-    /**
      * Creates an rotating Star Torus
      * @return
      */
@@ -216,7 +230,11 @@ private:
      */
     const TransformAnimationSP getFlugzeugAnimated();
 
-
+    /**
+     * The top of the Tower
+     * @return
+     */
+    TransformationSP getTowerTop();
 };
 
 

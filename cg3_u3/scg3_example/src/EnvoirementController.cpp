@@ -18,41 +18,46 @@ void EnvoirementController::createStandartScene(ViewerSP &viewer, CameraSP camer
     GameLogic::logic(camera, insta->createBullet(),viewer);
     camera->addChild(insta->createBullet());
    // controller->setBullet(insta->createBullet());
-    scene->addChild(lightFactory->getSonne());
+    scene->addChild(lightFactory->getPrimaryLight());
     scene->addChild(insta->getSky());
 
 
-    lightFactory->getSonne()->addChild(insta->getFloor());
-    lightFactory->getSonne()->addChild(insta->getTower());
+    lightFactory->getPrimaryLight()->addChild(insta->getFloor());
+    lightFactory->getPrimaryLight()->addChild(lightFactory->getLeftLight());
+    lightFactory->getLeftLight()->addChild(lightFactory->getRightLight());
+    lightFactory->getRightLight()->addChild(insta->getTower());
+    lightFactory->getLeftLight()->addChild(insta->getTower());
+
 
     for (int i = 0; i < SceneObjetFactory::getInstance(viewer)->getTargets().size(); i++) {
-        lightFactory->getSonne()->addChild(insta->getTargets().at(i));
+        lightFactory->getPrimaryLight()->addChild(insta->getTargets().at(i));
     }
-    lightFactory->getSonne()->addChild(camera);
+    lightFactory->getPrimaryLight()->addChild(camera);
     camera->addChild(insta->getCamObject());
 
 }
 
-void EnvoirementController::createVideoScene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
+void EnvoirementController::createShowScene(ViewerSP &viewer, CameraSP camera, GroupSP scene) {
 
 
     camera->translate(glm::vec3(0.f, 1.5f, -9.f))->rotate(180, glm::vec3(0.f, 1.f, 0.f))
             ->dolly(-1.f);
 
-    //Scene bauen mittell helper factory
 
     //Licht in die Scene stellen
-    scene->addChild(lightFactory->getVideoSonne2());
+    scene->addChild(lightFactory->getVideoLight());
 
     //camera ins licht stellen
-    lightFactory->getVideoSonne2()->addChild(camera);
+    lightFactory->getVideoLight()->addChild(camera);
 
     //Transformationen ins licht stellen
-    lightFactory->getVideoSonne2()->addChild(insta->createJetGroup());
 
-    lightFactory->getVideoSonne2()->addChild(insta->createJetGroup2());
-    lightFactory->getVideoSonne2()->addChild(insta->getVideoSky());
-    lightFactory->getVideoSonne2()->addChild(insta->getVideoFloor());
+    lightFactory->getVideoLight()->addChild(insta->createJetGroup());
+
+    lightFactory->getVideoLight()->addChild(insta->createJetGroup2());
+    lightFactory->getVideoLight()->addChild(insta->getVideoFloor());
+    lightFactory->getVideoLight()->addChild(insta->getVideoSky());
+
 
 }
 
