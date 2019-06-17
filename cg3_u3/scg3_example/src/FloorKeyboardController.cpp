@@ -194,7 +194,6 @@ namespace  scg {
             toggleKeyL = false;
         }
 
-        //TODO continuous flight action   !!!!!!!! Bitte nochmal drüber gucken ob das so bleiben soll
 
             camera_->translate(glm::vec3(0.0f, 0.0f, flightVelocity_ * diffTime));
 
@@ -203,10 +202,13 @@ namespace  scg {
         //Hier wird die Scene gewechselt und die steuerung für die fligthshowscene deaktiviert
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
 
+
             renderer->setScene(flightShowScene);
             renderer->setCamera(flightShowCam);
-            viewer->setWindowSize(1024,769);
-            viewer->setWindowSize(1024,768);
+
+            //Änderung der Window Size damit die show scene direkt gerendert wird das Problem Liegt evtl. an Linux selbst
+             viewer->setWindowSize(1024,769);
+             viewer->setWindowSize(1024,768);
 
             camera_->setPosition(glm::vec3(2.2,3.73,-4.10));
             if(!pitch){
@@ -215,7 +217,6 @@ namespace  scg {
             }
 
             movement=false;
-
         }
 
         }
