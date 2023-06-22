@@ -19,7 +19,7 @@
             {
               "address": "81.169.230.32",
               "port": 6000
-            },
+            }
           ],
           "advertise": false
         },
